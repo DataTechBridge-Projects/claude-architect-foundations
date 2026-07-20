@@ -1,0 +1,109 @@
+{
+  "sections": [
+    {
+      "index": 1,
+      "folder": "01-course-introduction",
+      "title": "Course Introduction",
+      "lecture_count": 1,
+      "status": "done"
+    },
+    {
+      "index": 2,
+      "folder": "02-fundamentals",
+      "title": "Fundamentals",
+      "lecture_count": 9,
+      "status": "done"
+    },
+    {
+      "index": 3,
+      "folder": "03-the-cca-f-certification",
+      "title": "The CCA-F Certification",
+      "lecture_count": 7,
+      "status": "done"
+    },
+    {
+      "index": 4,
+      "folder": "04-the-agentic-layer",
+      "title": "The Agentic Layer",
+      "lecture_count": 20,
+      "status": "done"
+    },
+    {
+      "index": 5,
+      "folder": "05-the-tool-layer",
+      "title": "The Tool Layer",
+      "lecture_count": 16,
+      "status": "done"
+    },
+    {
+      "index": 6,
+      "folder": "06-the-workflow-layer",
+      "title": "The Workflow Layer",
+      "lecture_count": 14,
+      "status": "done"
+    },
+    {
+      "index": 7,
+      "folder": "07-the-prompt-layer",
+      "title": "The Prompt Layer",
+      "lecture_count": 18,
+      "status": "done"
+    },
+    {
+      "index": 8,
+      "folder": "08-the-context-layer",
+      "title": "The Context Layer",
+      "lecture_count": 18,
+      "status": "done"
+    },
+    {
+      "index": 9,
+      "folder": "09-additional-topics",
+      "title": "Additional Topics",
+      "lecture_count": 8,
+      "status": "done"
+    },
+    {
+      "index": 10,
+      "folder": "10-practice-exam",
+      "title": "Practice Exam",
+      "lecture_count": 1,
+      "status": "done"
+    },
+    {
+      "index": 11,
+      "folder": "11-course-conclusion",
+      "title": "Course Conclusion",
+      "lecture_count": 1,
+      "status": "done"
+    },
+    {
+      "index": 12,
+      "folder": "12-extra-beyond-cca-f",
+      "title": "Extra Module: Beyond the CCA-F",
+      "lecture_count": 9,
+      "status": "done"
+    },
+    {
+      "index": 13,
+      "folder": "13-extra-hedge-funds",
+      "title": "Extra Module: Solution Architecture Patterns - Hedge Funds",
+      "lecture_count": 10,
+      "status": "done"
+    },
+    {
+      "index": 14,
+      "folder": "14-extra-banking-compliance",
+      "title": "Extra Module: Solution Architecture Patterns - Banking Compliance",
+      "lecture_count": 10,
+      "status": "done"
+    },
+    {
+      "index": 15,
+      "folder": "15-extra-financial-documents",
+      "title": "Extra Module: Solution Architecture Patterns - Financial Documents",
+      "lecture_count": 15,
+      "status": "done"
+    }
+  ]
+}
