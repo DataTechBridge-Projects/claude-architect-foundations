@@ -14,6 +14,16 @@ The permission-modes lecture introduced Plan Mode as a variant that shifts appro
 
 ## What Actually Happens in Plan Mode
 
+```mermaid
+flowchart TD
+    A["Enter Plan Mode"] --> B["Explore: read files, search, run read-only commands"]
+    B --> C["Present a proposed plan"]
+    C --> D{"Human reviews the plan"}
+    D -->|"Approve as written"| E["Execute the plan"]
+    D -->|"Edit the plan directly"| E
+    D -->|"Reject, request revision"| B
+```
+
 Entering Plan Mode changes what Claude is allowed to do without changing what it's allowed to *look at*: it can read files, search the codebase, and run read-only commands to investigate freely, but no edit happens, no matter how confident the model becomes partway through, until a plan is presented and explicitly approved. The output of this phase isn't code — it's a description of an intended approach: which files will change, roughly how, in what order, and why. Only once that description is approved does execution actually begin, typically switching into a more permissive mode for the edit phase itself, since the plan review already served as the approval gate for the *approach* — re-litigating each individual edit at that point would just be redundant oversight over a decision already made.
 
 ## The Case For Planning First
@@ -45,3 +55,12 @@ This loop — propose, review, correct, re-propose — is the actual mechanism b
 Plan Mode is a second, distinct instance of the Agentic Layer's approval-gate concept, sitting at a different point in the loop than the ordinary permission prompts covered in the permission-modes lecture. Where a default-mode permission prompt gates one action at a time, Plan Mode gates an entire intended sequence at once, before any of it is committed — a checkpoint scoped to the *plan* rather than to each individual step within it. Recognizing that these are two genuinely different kinds of gate, suited to different situations, rather than two interchangeable ways of saying "ask before doing," is the core distinction this lecture is building.
 
 **Why it matters for the exam:** Expect a scenario question presenting a task and asking whether Plan Mode is warranted — the correct reasoning weighs ambiguity of approach and stakes of being wrong against the real overhead of an extra review round, rather than treating "more oversight" as automatically better. Also expect a question on what iterating on a plan actually involves, since treating an initial plan as a rubber stamp rather than a genuine draft is a common, testable misunderstanding.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Creating and Configuring Custom Subagents](14-creating-and-configuring-custom-subagents) | [Next: Hook Lifecycle Events &rarr;](16-hook-lifecycle-events) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -45,3 +45,12 @@ Beyond the schema itself, an MCP tool's registration also determines what a succ
 Take a `create_incident` tool exposed by an internal on-call MCP server, with a first-pass schema of `{ "title": string, "details": string }`. In isolation this looks reasonable, but deployed alongside a dozen other connected servers, a model might call it for anything from a genuine production outage to a minor cosmetic bug, because nothing in the schema distinguishes severity, and nothing in the description says what "incident" means in this specific organization's vocabulary. Tightening it — adding a required `severity` enum (`sev1` through `sev4`), a `service` field constrained to the organization's actual service registry rather than free text, and a description that states explicitly what threshold of impact warrants using this tool over a plain ticket — is the same schema-design discipline from the Tool Layer, just now applied under the added pressure of a tool that other teams' agents, not just the original author's, will be calling without any shared context about what "incident" was meant to mean.
 
 **Why it matters for the exam:** Expect the exam to test whether you recognize that MCP-exposed tool design is not a separate discipline — a question describing a poorly-named or badly-schema'd MCP tool is testing the same Tool Layer principles, just relocated. Also expect scenario questions specifically about naming collisions across independently-authored servers and about schema-level validation as a genuine security boundary, since both are places where MCP's multi-server, shared-infrastructure reality genuinely raises the stakes beyond a single-application tool.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Building an MCP Server in Python](03-building-an-mcp-server-in-python) | [Next: Defining and Exposing Resources &rarr;](05-defining-and-exposing-resources) |
+|:---|---:|
+
+<!-- prevnext:end -->

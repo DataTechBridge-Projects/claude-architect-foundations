@@ -26,8 +26,23 @@ A related but distinct need shows up in large, multi-team monorepos: a project m
 
 Permission deny rules stop Claude Code's own tools from accessing excluded content, but they operate at the level of Claude Code's tool calls specifically — they don't reach into an arbitrary subprocess a shell command might spawn that reads a file directly through its own means, bypassing Claude Code's file tools entirely. For exclusions that need to hold even against that scenario — genuinely sensitive credentials in an environment where a compromised or manipulated shell command could otherwise reach them — OS-level **sandboxing** provides a deeper layer, restricting what a Bash-spawned process can actually reach on disk or over the network regardless of which tool or subprocess is doing the reaching. The relationship mirrors the permissions-versus-sandboxing distinction from the tool-system lecture earlier in this module: permission rules stop Claude from *attempting* access through its own tools; sandboxing stops access from *succeeding* even through a path the permission layer doesn't directly govern.
 
+| Mechanism | Stops what | Guarantee | Best for |
+|---|---|---|---|
+| Permission deny rule | Claude Code's own tools reading/editing a path | Enforced by the harness | Secrets, credentials, regulated data |
+| CLAUDE.md exclusion setting | Specific CLAUDE.md files from loading | Context economy, not security | Irrelevant team/package files in a monorepo |
+| OS-level sandboxing | Any subprocess, even one bypassing Claude Code's own tools | Enforced at the OS level | Genuinely sensitive data under adversarial risk |
+
 ## Why This Matters Beyond Secrets
 
 Exclusion isn't only a security topic. Generated code, build artifacts, vendored third-party dependencies, and large binary or data directories are all things a session gains nothing from reading and loses real context budget on if it does — a session that wanders into a `node_modules/` tree or a `dist/` directory while exploring a codebase is burning context on content that was never meant to be read or reasoned about directly. Excluding these isn't primarily about danger; it's the same context-economy discipline that motivates keeping `CLAUDE.md` files lean and using subdirectory scoping instead of one bloated root file — applied here to raw file access rather than to standing instructions.
 
 **Why it matters for the exam:** The core distinction to hold onto is that exclusion for genuinely sensitive content should be enforced (a deny rule, or sandboxing for a harder guarantee), while exclusion for merely irrelevant content is a context-economy choice that a `CLAUDE.md` instruction or a `claudeMdExcludes`-style setting handles well enough. Expect a scenario question presenting a category of file (an API key, a generated build directory, another team's monorepo package) and asking which exclusion mechanism actually fits — treating every case identically, or reaching for the same mechanism regardless of stakes, is the wrong instinct the question is testing for.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Subdirectory CLAUDE.md Files and Scoped Instructions](08-subdirectory-claude-md-files-and-scoped-instructions) | [Next: Common CLAUDE.md Patterns for Real Teams &rarr;](10-common-claude-md-patterns-for-real-teams) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -150,3 +150,12 @@ Twenty scenario and recall questions covering `CLAUDE.md`, Skills, workflow sequ
 18. **D** — Running manually "when someone remembers" is the definition of ad hoc, the opposite of automated and auditable.
 19. **B** — Exempting agentic steps from normal operational rigor is precisely what makes them fragile and unreliable in production.
 20. **B** — The module explicitly argues many workflow conventions are legitimately local and shouldn't be force-fit into a global standard.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Key Distinctions - The Workflow Layer](12-key-distinctions-the-workflow-layer) | [Next: Role Play: Mentoring on Workflow Essentials &rarr;](14-role-play-mentoring-on-workflow-essentials) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -48,8 +48,28 @@ At the outermost scope, a pair of events brackets the entire session rather than
 
 Finally, one event brackets a mechanism unique to how a long session manages its own limits: **before context gets compacted** — the point where accumulated history is about to be summarized to make room for continued work. A hook here is a place to preserve something that would otherwise be at risk of being lost in the summarization (writing full detail out to a file before it gets compressed away in-context, for instance), which matters because compaction is lossy by nature — it trades detail for room, and a hook here is the mechanism for deciding what shouldn't be subject to that trade at all.
 
+| Event | Fires when | Can it block the action? |
+|---|---|---|
+| Before a tool call | Immediately before a tool executes, before the permission check | Yes — can approve, block, or force confirmation |
+| After a tool call | Once a tool call has completed | No — can only react and log |
+| Prompt submitted | Before Claude processes a new user message | Can inject context or validate the prompt |
+| Turn ends | Once Claude decides a turn is done | Can block the turn from ending |
+| Subagent stop | When a delegated subagent completes | Can inspect the subagent's output before it returns to the parent |
+| Session start | At the start of a session, including a resume | Can load or refresh dynamic context |
+| Session end | When a session ends | Can run cleanup or final logging |
+| Before compaction | Just before accumulated history is summarized | Can preserve detail that would otherwise be lost |
+
 ## The Pattern Across All of These
 
 Every lifecycle event covered here answers the same underlying question at a different point in the loop: *is there something that must happen here, reliably, regardless of what the model decides to do on its own?* A hook is the mechanism for "regardless of what the model decides" — the model's own judgment, however good, is still just judgment, exercised fresh each time; a hook fires deterministically, every time its event occurs, whether or not the model remembers, and that determinism is the entire value proposition.
 
 **Why it matters for the exam:** Expect questions that describe a requirement ("log every shell command that runs," "make sure tests always run before a turn is considered finished," "warn before a risky edit regardless of permission mode") and ask which lifecycle event is the right attachment point. The reliable way to answer these is to first identify *when*, precisely, in the loop the requirement needs to be checked — before or after a tool call, at the start or end of a turn or session, or around compaction — and only then match that timing to the corresponding event.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Plan Mode: When and Why to Plan First](15-plan-mode-when-and-why-to-plan-first) | [Next: Implementing Hooks: Shell Scripts, Exit Codes, and Gotchas &rarr;](17-implementing-hooks-shell-scripts-exit-codes-and-gotchas) |
+|:---|---:|
+
+<!-- prevnext:end -->

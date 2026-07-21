@@ -18,6 +18,13 @@ Banks don't calculate regulatory capital with a single formula run once. The cal
 
 This is a fundamentally different task from stress testing, even though both live in the same regulatory-compliance space. Stress testing is a generative, drafting-heavy exercise built around producing a new artifact — a projection and a narrative — under scenario assumptions that don't yet have a "correct answer" to check against. Capital validation is a verification exercise: there's an existing calculation, an existing regulatory requirement, and the task is to determine whether the former correctly implements the latter. That distinction shapes everything about how the two systems are architected, and it's why this use case gets its own agentic design in the next lecture rather than reusing the stress-testing pattern.
 
+| Dimension | Stress Testing | Capital Validation |
+|---|---|---|
+| Task type | Generative — drafts a new artifact | Verification — checks an existing one |
+| "Correct answer" | Doesn't exist yet; built from scenario assumptions | Exists; the current regulatory methodology |
+| Primary output | Projection + narrative | Match/mismatch verdict per calculation step |
+| What's evaluated | Quality and defensibility of the draft | Precision and explainability of the flag |
+
 ## Why Correctness and Explainability Matter More Than Speed
 
 A capital validation system that's fast but wrong is worse than useless — it's actively dangerous, because a false "this checks out" on a miscalculated ratio removes the very scrutiny that might have caught the error through some other channel. That asymmetry means the system has to be evaluated primarily on precision and explainability, not throughput. A discrepancy the system flags needs an explanation a human specialist can evaluate on its merits: which specific regulatory provision applies, what the current calculation actually did, and precisely where the two diverge. A system that flags "something seems off" without pointing to a specific rule and a specific calculation step isn't useful — it just shifts the entire investigative burden back onto the human, at which point the system has added review overhead rather than removed it.
@@ -33,3 +40,12 @@ The remaining lectures in this use case cover how that verification-oriented age
 ## Architecture Notes
 
 Regulatory capital validation is a useful counterpoint to stress testing within the same **Agentic** layer vocabulary: both use cases keep autonomy low and route everything through human review, but where stress testing is a generation task assisted by Claude, this one is fundamentally a verification task, which changes what "good" output looks like at the **Prompt** and **Workflow** layers. The requirement that every flag be explainable back to a specific regulatory provision is also a **Context** layer discipline — the system's usefulness depends entirely on always having the correct, current methodology text anchored alongside the calculation it's checking.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Stress Testing - Observability and Costs](05-stress-testing-observability-and-costs) | [Next: Regulatory Capital Validation - Agentic Architecture &rarr;](07-regulatory-capital-validation-agentic-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

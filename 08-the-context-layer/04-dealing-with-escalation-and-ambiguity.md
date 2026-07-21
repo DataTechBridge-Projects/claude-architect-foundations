@@ -52,6 +52,15 @@ Given that "guess and continue" is off the table as a default, what should an ag
 
 **Stop and defer entirely.** Reserved for situations where the ambiguity is foundational — where continuing at all, even on the unambiguous-seeming parts, risks compounding a misunderstanding about the task itself. This is the least common correct answer, but the exam will occasionally present a scenario where the *only* defensible choice is a full stop, and picking a narrower option because it "keeps things moving" is the wrong answer.
 
+```mermaid
+flowchart TD
+    A["Ambiguity recognized"] --> B{"How reversible is being wrong here?"}
+    B -->|"Low stakes, easily corrected"| C["Proceed with a flagged assumption"]
+    B -->|"One fact would resolve it"| D["Ask a narrow clarifying question"]
+    B -->|"Needs authority or context the agent lacks"| E["Escalate the specific decision"]
+    B -->|"Foundational to the task itself"| F["Stop and defer entirely"]
+```
+
 The granularity aside later in this module makes a point worth anchoring here explicitly: whichever level of response is appropriate, "do nothing and ask" has to be a genuinely available option at the decision point, not something the agent has to invent by refusing to follow its instructions. If an agent's designed option set is only ever "pick A or pick B," an ambiguous situation where neither A nor B is clearly right leaves the agent with no correct move at all — it will pick one of them, because that's all it's been given room to do. Designing for ambiguity means designing the option space to include restraint as a legitimate choice, not just the active alternatives.
 
 ## The cost of over-escalation
@@ -77,3 +86,12 @@ And if the agent discovers, while working the report, that its own understanding
 Notice that the underlying fact pattern — a missing receipt — barely changed across these four versions, but the correct response changed substantially each time, purely as a function of stakes and how foundational the uncertainty was. That sensitivity to context, not a fixed rule like "always ask when a receipt is missing," is what the exam is testing when it presents escalation scenarios.
 
 **Why it matters for the exam:** Escalation and ambiguity scenarios are one of the most common question types on the CCA-F, usually framed as "an agent encounters situation X — what should it do?" The wrong answers are almost always recognizable by pattern: an option where the agent silently guesses and proceeds, and an option where the agent stops everything for a triviality. The right answer is nearly always the option matched in granularity to the actual stakes of the specific decision — narrow escalation for a narrow gap, a full stop only when the gap is foundational, and a flagged assumption only when the cost of being wrong is genuinely low and easily corrected.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Let's Coin Context Data Governance (CDG)](03-let-s-coin-context-data-governance-cdg) | [Next: Granularity on Options... Includes The Option To Not Do Something &rarr;](05-granularity-on-options-includes-the-option-to-not-do-somethi) |
+|:---|---:|
+
+<!-- prevnext:end -->

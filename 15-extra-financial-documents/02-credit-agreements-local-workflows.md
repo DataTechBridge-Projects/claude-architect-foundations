@@ -30,6 +30,27 @@ The practical shape of this system is a short, fixed pipeline rather than a sing
 4. **Checklist-driven review.** The extracted record is checked against a **per-deal-type checklist**: a fixed list of fields that must be present, plus sanity rules (a leverage covenant threshold below 0 or above some absurd ceiling is flagged, not silently accepted). Anything the checklist can't validate — a missing field, an out-of-range value, a term the model flagged as ambiguous — routes to a human reviewer rather than being auto-populated into the deal database.
 5. **Deviation comparison as a separate, equally deterministic pass.** Comparing the agreement's clause language against house-standard paper runs as its own fixed step, clause type by clause type (financial covenants against the standard covenant package, MFN language against the standard MFN clause), rather than as an open-ended "review this whole document and tell me what's unusual" instruction — narrowing the comparison to like-for-like clause types is what keeps the comparison precise rather than impressionistic.
 
+```mermaid
+flowchart TD
+    A["Credit agreement received"] --> B["1. Deal-type classification"]
+    B --> C["2. Template selection"]
+    C --> D["3. Structured extraction"]
+    D --> E["4. Checklist-driven review"]
+    E -->|"Valid"| F["Populate deal database"]
+    E -->|"Flagged field"| G["Route to human reviewer"]
+    D --> H["5. Deviation comparison pass"]
+    H --> G
+```
+
 Where this pipeline *does* leave room for model judgment is inside each narrow step — deciding, for instance, whether a particular carve-out is "materially" different from the standard one requires real language understanding, not string matching. But that judgment is exercised inside a tightly bounded task with a defined input and a defined output shape, which is a world away from an agent freely deciding what to look at next. This is the general pattern worth internalizing: local workflows don't mean "no model reasoning" — they mean the *sequence and scope* of steps is fixed by the architect, while the model still supplies judgment within each step.
 
 **Architecture Notes:** This is squarely a Workflow-layer decision: the deal-type checklist and extraction template are the kind of persistent, versioned configuration that belongs in a fixed pipeline rather than being re-derived by an agent every run. It borrows from the Tool layer in that each extraction step behaves like a well-scoped tool call with a validated schema, and it deliberately keeps the Agentic layer's autonomy out of the picture because the steps are fully enumerable in advance.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Credit Agreements - Overview](01-credit-agreements-overview) | [Next: Credit Agreements - Context Architecture &rarr;](03-credit-agreements-context-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

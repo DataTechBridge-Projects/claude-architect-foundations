@@ -17,3 +17,12 @@ A second example sharpens the point in the opposite direction. A customer-suppor
 This is worth connecting to two other ideas in this module. It's a specific application of Context Data Governance: the *policy* for what's admitted and how it's retrieved is itself something that has to be re-derived per system, not inherited as a template. And it's the reason "granularity on options" matters even at the level of architecture decisions — the honest answer when evaluating whether to port a pattern from one system to another is sometimes "this needs its own analysis, not a quick copy," which is its own version of the do-nothing-and-ask option, applied to engineering choices rather than runtime ones.
 
 Recognizing this pattern in practice usually comes down to one question, asked honestly: is this design choice justified by something true about *this* problem's data shape, scale, volatility, and risk — or is it justified by "that's what we did last time"? If you can't answer with specifics about the current system, the strategy hasn't actually been re-derived yet, it's just been inherited, and that's precisely the situation this lecture warns you to be suspicious of.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Context in Large Codebases](08-context-in-large-codebases) | [Next: Designing Human Review &rarr;](10-designing-human-review) |
+|:---|---:|
+
+<!-- prevnext:end -->

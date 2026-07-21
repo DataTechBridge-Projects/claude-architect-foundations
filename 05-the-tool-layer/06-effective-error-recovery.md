@@ -30,6 +30,27 @@ Not all retries are equal, and a recovery strategy needs to distinguish between 
 
 **No retry — this path is closed.** Some failures should end the current approach entirely rather than prompt any retry: a permission error where no available credential grants access, a business-rule violation where the requested action is fundamentally invalid (refunding an order that was never charged), a resource that's confirmed not to exist after a search already failed to find anything close. Recognizing when *not* to retry is as important a recovery skill as recognizing when to. A model that keeps attempting variations of a fundamentally impossible action isn't being persistent, it's burning turns and budget on a dead end — and a well-designed error response, per the previous lecture, is specifically meant to make this case unambiguous enough that the model doesn't have to discover it empirically through repeated failure.
 
+The full recovery decision, tying retries, fallbacks, and escalation together, looks like this:
+
+```mermaid
+flowchart TD
+    A["Tool call fails"] --> B{"Retryable per error signal?"}
+    B -->|No| C["No retry - change approach"]
+    B -->|Yes| D{"What kind of failure?"}
+    D -->|"Transient, unrelated to content"| E["Immediate retry, same args"]
+    D -->|"Load or rate limit"| F["Retry with backoff"]
+    D -->|"Args were part of the problem"| G["Retry with modified args"]
+    E --> H{"Succeeded?"}
+    F --> H
+    G --> H
+    C --> I{"Fallback tool exists?"}
+    H -->|No| I
+    H -->|Yes| J["Continue task"]
+    I -->|Yes| K["Try fallback tool"]
+    I -->|No| L["Escalate to human"]
+    K --> H
+```
+
 ## Fallback tools
 
 Beyond retrying the same tool, a mature recovery strategy often has a fallback: a different tool that can accomplish a related goal when the first choice fails outright. This connects directly to the "multiple pathways" principle — a tool set designed with more than one route to a given outcome gives a failed primary path somewhere to fall back to, rather than a dead end.
@@ -61,3 +82,12 @@ Walk through a concrete case to see all of this operate together. An agent calli
 That single error response, well-designed per the previous lecture, hands the recovery loop nearly everything it needs: it's explicitly non-retryable as-is (so no wasted identical retry), it names the likely root cause (a delta miscalculation upstream), and it names two concrete fallback paths (re-check the source data, or use a different tool better suited to the situation). A well-designed harness lets the model reason through exactly one more turn — check the order details, discover the correct quantity, retry with corrected arguments — rather than either blindly retrying the same failed call or escalating a problem that a single well-informed retry could resolve on its own. If that corrected retry also failed, *then* escalation becomes the right call, because at that point persistence has stopped being productive and started being a sign that something about the task's premise, not just its arguments, is wrong.
 
 **Why it matters for the exam:** Expect scenario questions that describe a chain of tool failures and ask what the agent should do next — retry, try a fallback, or escalate — based on details like whether the failure was flagged retryable, whether a fallback tool exists in the set, and how much of the recovery budget has already been spent. You should also be able to identify, given a description of a loop's design, which recovery behaviors that design structurally enables or forecloses, since that connects this lecture back to the orchestration loop itself rather than treating recovery as an isolated tool-level concern.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Multiple Pathways](05-multiple-pathways) | [Next: Again, Granularity! &rarr;](07-again-granularity) |
+|:---|---:|
+
+<!-- prevnext:end -->

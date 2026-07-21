@@ -50,6 +50,19 @@ The third defense, and arguably the most foundational, is **provenance tracking*
 
 A context window where every load-bearing claim carries a lightweight tag — verified against source X at time Y, versus inferred from indirect evidence, versus stated by the user without independent confirmation — gives every subsequent turn, and every subsequent checkpoint or re-verification step, the information it needs to decide how much weight that claim deserves. Without that tagging, an agent (or a human reviewing its output) has no way to distinguish a rock-solid fact from a plausible guess sitting three turns back, and the entire point of checkpoints and re-verification collapses, because you can't prioritize re-checking what you can't identify as uncertain in the first place.
 
+```mermaid
+flowchart TD
+    A["Turn 4: unverified inference enters context"] --> B["Turn 10: inference referenced as settled fact"]
+    B --> C["Turn 20: further decisions built on top of it"]
+    C --> D["Turn 30: confidently wrong final output"]
+    A -.-> P["Provenance tracking marks it as unverified"]
+    B -.-> K["Checkpoint re-examines load-bearing conclusions"]
+    C -.-> R["Re-verification confirms against ground truth"]
+    P -.-> X["Propagation stopped before it compounds"]
+    K -.-> X
+    R -.-> X
+```
+
 ## Designing for propagation resistance from the start
 
 Taken together, these three techniques point at a broader design principle: a system resistant to error propagation isn't one that never makes mistakes — that's not achievable — it's one designed so that mistakes have a bounded blast radius. Checkpoints limit how far a bad conclusion can travel before it's re-examined. Re-verification catches load-bearing errors before they're acted on irreversibly. Provenance tracking ensures that when something does need to be double-checked, it's identifiable as needing that scrutiny in the first place, rather than blending in with everything else.
@@ -65,3 +78,12 @@ By turn fourteen, the agent uses that "fact" to calculate a renewal date eight m
 This is exactly the scenario a checkpoint at the end of the "gather contract facts" phase would have caught, if it had forced the agent to restate its source for the renewal term before building a schedule on top of it — restating "auto-renewing annually, per [document version and date]" instead of just "auto-renewing annually" would have made the mismatched document version visible at the moment it mattered, rather than three phases later when it had already shaped a queue nobody had reason to double-check.
 
 **Why it matters for the exam:** Expect scenario questions structured as a multi-turn narrative where an early, easy-to-miss mistake is buried a few turns in, and the question asks either "what went wrong" or "what should have been in place to catch this." The correct diagnosis is almost always that an unverified conclusion was allowed to travel forward unflagged, and the correct fix is almost always one of the three techniques above — a checkpoint, a re-verification step, or provenance tracking — applied at the point where the mistake first entered context, not patched after the fact at the point where it finally caused visible damage.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Granularity on Options... Includes The Option To Not Do Something](05-granularity-on-options-includes-the-option-to-not-do-somethi) | [Next: Should I Stay? Or Should I Propagate? &rarr;](07-should-i-stay-or-should-i-propagate) |
+|:---|---:|
+
+<!-- prevnext:end -->

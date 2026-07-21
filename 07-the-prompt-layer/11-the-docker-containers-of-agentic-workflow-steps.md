@@ -21,3 +21,12 @@ Consider a three-step research pipeline: step one searches and gathers source do
 The fix mirrors the fix for structure leaking into prompts, discussed elsewhere in this module: make the interface explicit rather than implicit. Step two's prompt should declare exactly what it expects to receive — a list of source documents with a defined shape, nothing more — and should be written and testable as if step one had never existed as a conversation, only as a data producer. Do that consistently across a pipeline, and each step becomes independently swappable: you can replace the summarization step with a different model, a different prompt, or a cheaper approach entirely, and as long as it honors the same declared input and output shape, nothing downstream needs to change or even know. It also becomes independently testable — you can feed step two a synthetic input without ever running step one — and independently debuggable, because a failure can be localized to the one container that produced bad output rather than requiring you to replay an entire multi-step conversation to find where things went wrong.
 
 **Why it matters for the exam:** Expect questions describing a multi-step agentic workflow where changing one step's prompt unexpectedly breaks a downstream step, and asking what design principle was violated. The answer is a missing explicit interface between steps — hidden dependence on conversational context or unstated assumptions — rather than anything wrong with either prompt in isolation.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Batch Processing](10-batch-processing) | [Next: Independent & Multi-Pass Review &rarr;](12-independent-and-multi-pass-review) |
+|:---|---:|
+
+<!-- prevnext:end -->

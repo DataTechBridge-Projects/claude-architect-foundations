@@ -50,6 +50,15 @@ Low-stakes, easily-reversible output (a suggested docstring, an advisory style c
 
 A common, well-tested pattern is what's sometimes called a "two-key" structure for the highest-stakes CI steps: Claude produces output, a separate deterministic check validates it against hard constraints, and a human makes the final call on anything the deterministic check doesn't fully resolve. No single point in that chain — not Claude's judgment alone, not the deterministic check alone — is trusted to be sufficient by itself.
 
+```mermaid
+flowchart TD
+    A["Claude produces output"] --> B["Deterministic check validates against hard constraints"]
+    B --> C{"Fully resolved?"}
+    C -->|Yes| D["Proceed automatically"]
+    C -->|No| E["Human makes the final call"]
+    E --> F["Proceed or block"]
+```
+
 ## CI Steps vs. CD Steps
 
 It's worth separating the two halves of "CI/CD," because Claude-driven work tends to cluster differently across them and the exam sometimes tests that distinction directly. **Continuous integration** steps run against every proposed change, before it merges — this is where automated code review, test generation, and pre-merge documentation drafting mostly live. Their job is to catch problems and produce artifacts *before* anything ships, and a failure here is cheap: it blocks a merge, not a running system.
@@ -67,3 +76,12 @@ Because agentic CI/CD steps are new enough that teams often don't have years of 
 It's worth being explicit about why CI/CD integration sits in this module rather than, say, the Tool layer or the Agentic layer. The tools Claude uses inside a CI-integrated step (reading a diff, running a linter, posting a comment) are Tool-layer concerns; whether an individual CI step is itself agentic or deterministic is a workflow-design question addressed in the previous lecture. What's specifically Workflow-layer about *integration* is the surrounding structure: the trigger, the sequencing relative to other pipeline steps, the gating logic, and the fact that all of this is configured once, as pipeline-as-code, and then applies automatically and consistently to every future run — the exact same "automatic, persistent, applies without anyone re-invoking it" property that made `CLAUDE.md` a workflow-layer concept in the first place, just expressed at the level of an entire delivery pipeline instead of a single session.
 
 **Why it matters for the exam:** Expect questions that describe a Claude-driven capability being used informally (a developer manually pasting a diff into a chat for review) and ask what's missing to make it a legitimate CI/CD-integrated process — the answer usually touches triggers, reproducible input, durable output, and defined gating, not just "make it run automatically." Also expect questions that ask you to place a gate: given a described output's stakes and reversibility, should it be advisory, blocking, or blocking-plus-human-review? The reasoning is consistent with the deterministic-bounds-agentic pattern from workflow design — apply it here at the pipeline level rather than the single-step level.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: These Are Local!](07-these-are-local) | [Next: Just Another Good, Old Operation &rarr;](09-just-another-good-old-operation) |
+|:---|---:|
+
+<!-- prevnext:end -->

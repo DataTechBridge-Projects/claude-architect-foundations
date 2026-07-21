@@ -30,6 +30,25 @@ The system this module describes is not a single autonomous agent that "runs the
 
 Every stage in that shape is deliberately bounded: the system assembles and drafts, a human quant reviews and approves, and nothing is submitted without that human step. The remaining lectures in this use case walk through why that low-autonomy design is the right call, what has to live in context at each stage (and why version control on scenario data is non-negotiable), how retrieval is built to always surface the current cycle's rules rather than a stale prior cycle's, and how the whole system is logged, audited, and kept cost-effective given that it runs hard for a few weeks a year rather than continuously.
 
+```mermaid
+flowchart TD
+    A["Regulator scenario docs + internal methodology"] --> B["Assemble scenario assumptions"]
+    B --> C["Orchestrate model runs across portfolios"]
+    C --> D["Draft narrative with citations"]
+    D --> E{"Human quant review"}
+    E -->|Approved| F["Included in submission"]
+    E -->|Revise| D
+```
+
 ## Architecture Notes
 
 Stress testing is a strong illustration of how the CCA-F's five layers interact under regulatory pressure: the **Agentic** layer stays deliberately shallow (assist, don't decide), the **Context** layer has to carry versioned scenario and portfolio state without contamination across cycles, and the **Workflow** layer supplies the mandatory human checkpoints that make the whole system auditable. Later lectures in this use case will show how **Tool** design (wrapping existing model infrastructure rather than reimplementing it) and **Prompt** design (grounding every narrative claim in a citable input) reinforce that same low-autonomy, high-traceability posture.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Extra Module: Solution Architecture Patterns - Banking Compliance](./) | [Next: Stress Testing - Agentic Architecture &rarr;](02-stress-testing-agentic-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

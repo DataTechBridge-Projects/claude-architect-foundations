@@ -20,6 +20,12 @@ The compliance review agent's output is only as trustworthy as the context it's 
 
 **Counterparty data** — who the fund is trading with, that counterparty's regulatory status, any flags or restrictions associated with them, and relevant history of past dealings — sits in between the other two in volatility. It changes far less often than positions but more often than most regulatory text, and it needs its own refresh discipline: counterparty status (sanctions exposure, heightened-scrutiny flags, credit concerns) should be checked against a source that's updated at least daily, because a counterparty's status can change for reasons entirely outside the fund's own trading activity — a sanctions designation or a credit downgrade that happened overnight has to be reflected before the next trade involving that counterparty is reviewed, not caught retroactively.
 
+| Context Input | Source | Refresh Cadence | Volatility |
+|---|---|---|---|
+| Position & exposure limits | Fund's position-keeping systems | Real time, as of the moment of review | Highest — can shift intraday |
+| Regulatory rules | Maintained document store | Refreshed on change; scoped per trade | Lowest — stable but consequential |
+| Counterparty data | Compliance / reference data source | At least daily | Moderate |
+
 ## Scoping Context to the Specific Trade
 
 Just as the idea generation system scoped context per agent, this system scopes context per *trade*, and tightly. A proposed trade's review context should include only the limits that apply to its specific strategy and desk, only the regulatory rules that apply to its instrument type and jurisdiction, and only the counterparty data for the specific counterparty involved — not the fund's entire limit schedule, not its entire compliance manual, not every counterparty on file. This isn't only an efficiency concern, though it is that; it's a correctness concern, because a wider context window gives the agent more opportunity to apply a rule that sounds relevant but technically doesn't govern this trade, or to miss the one rule that does because it's buried among dozens of others that don't apply. Precise scoping is itself a risk-reduction technique in this domain, not just a performance optimization.
@@ -33,3 +39,12 @@ Staleness is handled with the same discipline applied to market data in the idea
 ## Architecture Notes
 
 Tight per-trade scoping and mandatory provenance on every rule are the Context layer's core disciplines applied at maximum strictness, because in this domain an ungrounded or stale context item isn't just lower-quality output, it's a compliance failure. Surfacing rule conflicts explicitly rather than silently resolving them is the same escalation principle from the Agentic layer expressed at the context level: when context itself is ambiguous or contradictory, the system's job is to make that visible to a human, not to quietly pick a winner.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Trade Risk Management/Compliance - Agentic Architecture](07-trade-risk-management-and-compliance-agentic-architecture) | [Next: Trade Risk Management/Compliance - RAG & Retrieval Architecture &rarr;](09-trade-risk-management-and-compliance-rag-and-retrieval-archi) |
+|:---|---:|
+
+<!-- prevnext:end -->

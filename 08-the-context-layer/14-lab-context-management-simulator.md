@@ -19,3 +19,12 @@ Structurally, the lab runs as a sequence of rounds, each presenting one or two n
 Several rounds are built specifically to exercise other lectures in this module rather than "Managing the Context" alone. One round hands you two contradicting facts with different-looking sources and forces you to decide whether to weigh them, escalate, or — the wrong answer the simulator is specifically watching for — silently pick whichever one sounds more recent or more confident, which is exactly the naive resolution the provenance-and-conflicts lecture warns against. Another round gives your simulated agent a decision point with only three listed options, none of which honestly fit the situation, to see whether you notice the missing do-nothing-and-ask option before the agent forces a bad pick. A later round varies the simulated task's stakes explicitly — sometimes you're managing context for a low-stakes drafting task, sometimes for something framed as irreversible — to test whether your keep/discard choices actually shift with failure affordance the way they should, or whether you apply the same level of caution regardless of what's at stake.
 
 At the end, the simulator produces a short report rather than just a pass/fail score: which decisions were fine, which technically stayed under budget but destroyed load-bearing provenance, and which mistake — if any — propagated furthest before causing visible downstream damage. Treat that report as the real deliverable of the lab. The token-budget math is the easy part; the judgment calls about what's safe to compress, what's safe to drop, and what has to be escalated rather than guessed at are the actual skill this entire module has been building toward, and this lab is where you find out, under some real time pressure, whether it's landed.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Putting the "Provenance" in Data Provenance](13-putting-the-provenance-in-data-provenance) | [Next: How the Context Window Works: Tokens, Limits, and Tradeoffs &rarr;](15-how-the-context-window-works-tokens-limits-and-tradeoffs) |
+|:---|---:|
+
+<!-- prevnext:end -->

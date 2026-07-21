@@ -50,6 +50,12 @@ The architecturally sound approach layers enforcement at the level closest to th
 2. **Explicit format instructions with examples** (moderate): reduces the frequency of format violations but doesn't structurally prevent them; still requires downstream validation as a safety net.
 3. **Post-hoc parsing with graceful failure handling** (necessary regardless): even with strong enforcement upstream, application code that consumes model output should still validate what it receives and fail predictably — with a clear error, a retry, or an escalation — rather than assuming the upstream guarantee held in every case. Defense in depth applies here exactly as it does in any other system boundary: multiple layers, none of them treated as infallible on its own.
 
+| Layer | Mechanism | Guarantee |
+|---|---|---|
+| 1. Schema / tool-call enforcement | Generation constrained to schema-conforming tokens, or captured via a validated tool-call interface | Strongest — malformed structure becomes structurally impossible |
+| 2. Format instructions + examples | Prompt wording describes the exact shape wanted | Moderate — reduces violations, doesn't structurally prevent them |
+| 3. Post-hoc parsing + validation | Application code checks what it receives after generation | Necessary safety net, regardless of how strong the upstream layers are |
+
 The mistake to avoid is treating layer 2 as if it were layer 1 — writing an unusually detailed, unusually polite prompt and believing that effort has purchased the same reliability guarantee that schema enforcement would provide. It hasn't. A beautifully worded prompt still describes a *probable* output; only enforcement at the schema or tool-call layer converts that probability into something closer to a guarantee, and only validation at the consuming end catches the residual cases where even that guarantee doesn't hold — a schema can guarantee shape without guaranteeing that the *values* inside that shape are sensible, so an empty string in a required field or an out-of-range number can still slip through structurally valid output.
 
 ## Putting It Together
@@ -65,3 +71,12 @@ The architecturally sound version layers all three defenses discussed above. Fir
 This layered design is what lets the system scale from "works on the invoices I tested by hand" to "runs unattended across an entire vendor pipeline and reliably flags the invoices that need a human's attention" — which is the actual bar a production structured-output pipeline needs to clear.
 
 **Why it matters for the exam:** Expect the exam to test the distinction between "asking nicely" for structured output and actually enforcing it. A common scenario question describes a pipeline that occasionally fails to parse model output and asks what architectural change would most reliably fix it — the correct answer is almost always to move enforcement toward schema-constrained generation or a tool-call interface, not to rewrite the prompt with more emphatic formatting instructions. Also expect questions on where validation belongs across a pipeline, and why relying on a single layer — prompt wording alone, or schema enforcement alone without downstream validation — is an incomplete design.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Ruthlessly Vary... Within the Expected Range](05-ruthlessly-vary-within-the-expected-range) | [Next: Easier for "Machine Talk" &rarr;](07-easier-for-machine-talk) |
+|:---|---:|
+
+<!-- prevnext:end -->

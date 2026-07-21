@@ -22,6 +22,19 @@ Discovery is also where a client makes its first real judgment call: whether to 
 
 Establishing a connection is more than opening a transport channel. MCP includes an initialization handshake in which client and server exchange protocol version information and declare which optional capabilities each side supports — whether the client can receive certain kinds of notifications, whether the server supports resource subscriptions, whether sampling (covered later in this module) is available at all. This negotiation matters because MCP has evolved across versions, and a client built against an older understanding of the protocol shouldn't break outright against a server implementing a newer one, or vice versa — capability negotiation is what lets both sides agree on the common subset of behavior they can actually rely on for this particular connection.
 
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: Initialize connection and declare capabilities
+    S->>C: Acknowledge and declare supported capabilities
+    C->>S: Request tool, resource, and prompt lists
+    S->>C: Return available primitives
+    Note over C: Fold primitives into the model's tool set
+    C->>S: Invoke a tool with arguments
+    S->>C: Return result or structured error
+```
+
 ## Surfacing primitives to the model
 
 Once discovery and negotiation are done, a client's real work is translation: turning a server's tools, resources, and prompts into the shapes the model actually consumes as part of ordinary tool use. Tools translate the most directly — a client takes each tool's name, description, and input schema and folds it into the model's available tool set for that turn, exactly alongside any tools the client itself defines directly, with the model having no way to tell (nor needing to) which tools originated from an MCP server versus application code. Resources typically surface differently, often through a client's own UI (an "attach" affordance, a file picker, an automatically-included document) rather than through the model's tool-calling mechanism directly, though some clients also expose resource reading as a callable operation the model can invoke when that fits the interaction better. Prompts, consistent with the previous lecture, usually surface as a user-facing selection mechanism rather than anything the model chooses on its own.
@@ -45,3 +58,12 @@ A realistic client rarely connects to just one server. Claude Code, for instance
 Claude Code's own built-in MCP client is worth grounding all of this in, since it's the client implementation most readers of this course will actually touch. Configuring an MCP server for Claude Code — specifying a command for a local STDIO server, or a URL for a remote StreamableHTTP one — triggers exactly the lifecycle this lecture describes: a connection attempt, an initialization handshake, discovery of that server's tools, resources, and prompts, and then ordinary tool use for the remainder of the session, indistinguishable at the model level from any tool defined natively. Multiple servers can be configured simultaneously, and Claude Code's client handles the resulting combined tool set exactly as this lecture describes — discovering each server independently, folding their capabilities into one pool, and resolving naming collisions where they arise. Seeing MCP configuration in a concrete tool you may already use is the fastest way to turn this lecture's abstractions into something you could reason about directly on the exam.
 
 **Why it matters for the exam:** Expect questions distinguishing what happens client-side (discovery, capability negotiation, primitive surfacing, name-collision resolution, call routing) from what happens server-side (implementing the actual tool/resource/prompt logic). Also expect the client to reappear as the natural enforcement point for governance controls — trust, scope, audit — since it's the single component with visibility across every server a session has connected to.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: MCP Prompt Templates](06-mcp-prompt-templates) | [Next: STDIO Transport: Local Servers and Process Communication &rarr;](08-stdio-transport-local-servers-and-process-communication) |
+|:---|---:|
+
+<!-- prevnext:end -->

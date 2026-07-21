@@ -20,6 +20,14 @@ This is a genuinely different operating mode, not just interactive Claude Code w
 
 ## What a Pipeline Invocation Looks Like
 
+```mermaid
+flowchart LR
+    A["CI trigger: e.g. a new pull request"] --> B["Pipe a diff or logs into a non-interactive invocation"]
+    B --> C["Claude Code reads, edits, runs commands unattended"]
+    C --> D["Result returned as text or structured JSON"]
+    D --> E["Downstream pipeline step consumes the result"]
+```
+
 A representative non-interactive invocation reads like an ordinary shell command: the flag, a prompt describing the task, and a list of tools that are pre-approved for this specific run — for example, letting the run read files, edit them, and execute shell commands, without needing any of those individually confirmed. The output can come back as plain text (fine for a human skimming a CI log afterward) or as structured output — machine-readable JSON carrying the result alongside metadata like cost and session information, which is what a pipeline actually needs if a later step in the same workflow is going to act on the result programmatically rather than just display it.
 
 Non-interactive mode also composes naturally with ordinary shell piping, since it reads from standard input the same way any other command-line tool does — piping a diff, a log file, or a test failure directly into a non-interactive invocation, and having Claude Code process that piped content as part of the task, is a common and natural pattern precisely because non-interactive mode was built to behave like a normal Unix-style command-line tool rather than a bespoke API.
@@ -43,3 +51,12 @@ The core tradeoff non-interactive mode makes is the same oversight-versus-veloci
 This is also why non-interactive mode composes so naturally with everything else this module has covered rather than replacing it: a `CLAUDE.md` still loads (or can be deliberately skipped for a faster, more predictable pipeline run), hooks still fire at the same lifecycle events, and permission rules still govern what's allowed — non-interactive mode changes *who's answering* when a decision point is reached, not whether those decision points exist at all.
 
 **Why it matters for the exam:** Expect questions distinguishing what changes and what doesn't between interactive and non-interactive use, and questions asking you to reason about whether a described automated task is appropriately scoped for unattended execution or actually needs a human in the loop. Also expect a question or two on the concrete CI/CD use cases — automated review and automated fixes — and on why pre-approving specific tools matters more in this mode than in interactive use, where a human can simply answer a prompt as it comes up.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The Claude Agent SDK: Session Control](19-the-claude-agent-sdk-session-control) | [Next: Module Outro &rarr;](21-module-outro) |
+|:---|---:|
+
+<!-- prevnext:end -->

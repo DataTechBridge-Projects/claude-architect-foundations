@@ -45,3 +45,12 @@ Cost optimization in this domain operates under a constraint the idea generation
 ## Architecture Notes
 
 Immutable, version-linked decision logging is the Context layer's provenance discipline taken to its logical conclusion: in a regulated domain, provenance isn't just what makes an output trustworthy in the moment, it's what makes a past decision reconstructable under audit, potentially years later. Cost discipline here is bounded by the Agentic layer's autonomy decisions from earlier in this module — because the deterministic tier carries the bulk of the volume at near-zero marginal cost, the system's total cost profile is favorable precisely because mechanical checks were kept out of the agentic path, proving that the safest architectural choice and the cheapest one aligned rather than traded off against each other.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Trade Risk Management/Compliance - RAG & Retrieval Architecture](09-trade-risk-management-and-compliance-rag-and-retrieval-archi) | [Next: Extra Module: Solution Architecture Patterns - Banking Compliance &rarr;](../14-extra-banking-compliance/) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -36,6 +36,14 @@ Given those properties, the central tradeoff in workflow decomposition is granul
 
 **Fine-grained decomposition** uses many smaller steps, each closer to a single well-defined action or a small cluster of closely related actions. "List available data sources," "pull pricing data from source A," "pull pricing data from source B," "reconcile pricing data across sources," "compute summary statistics," "draft the pricing section" is a fine-grained decomposition of a piece of that same research project. The advantages: each step is independently checkable and retryable, failures are easy to localize, and checkpoints (covered in depth in the next lecture) are natural to place between steps. The disadvantages: more steps means more handoffs, and every handoff is a place where relevant context has to be explicitly carried forward or it's lost — a fine-grained workflow that doesn't carefully manage what crosses each boundary can end up with each step technically succeeding while the overall result drifts, because no single step had visibility into the whole picture. Fine-grained decomposition also multiplies orchestration overhead in the same way multi-agent fan-out does: more steps generally means more model calls, more coordination logic, and more surface area for something to go wrong procedurally even when each individual step is executed correctly.
 
+| | Coarse-grained | Fine-grained |
+|---|---|---|
+| Step size | Closer to a whole subgoal | Closer to a single action |
+| Handoffs | Fewer, less coordination overhead | More, each one a place to lose context |
+| Checkpointing | Hard to place meaningfully | Natural between every step |
+| Failure localization | Harder — errors surface late | Easy — failures are isolated to a step |
+| Best fit | Low uncertainty, low stakes | High uncertainty, high cost of failure |
+
 ## Finding the right grain
 
 There's no universal correct granularity — it's a function of three things: how much uncertainty exists about how to accomplish a given piece of work, how costly a failure partway through would be, and how much benefit there is from checkpointing or reviewing progress at that point.
@@ -52,8 +60,27 @@ It's worth explicitly connecting workflow decomposition back to vocabulary from 
 
 ## A worked example
 
-Take "migrate our billing system to the new provider" as the original coarse goal. A first pass at decomposition might yield: audit current billing data and identify edge cases, map old-provider fields to new-provider fields, write and test the migration script against a staging copy, get human sign-off on the staging results, run the migration against production during a maintenance window, verify production data post-migration, and decommission the old provider's integration. Each of those seven steps has a checkable completion condition, a defined input and output, a coherent tool/context scope, and can fail independently without corrupting the others. Notice, too, that the granularity isn't uniform: "map old-provider fields to new-provider fields" might reasonably be one step even though it involves many individual field mappings, because those mappings are tightly coupled and reviewed together, while "run the migration against production" is deliberately isolated as its own single step — small, high-stakes, and exactly the kind of place a human approval checkpoint belongs, which is precisely the subject of the next lecture.
+Take "migrate our billing system to the new provider" as the original coarse goal. A first pass at decomposition might yield: audit current billing data and identify edge cases, map old-provider fields to new-provider fields, write and test the migration script against a staging copy, get human sign-off on the staging results, run the migration against production during a maintenance window, verify production data post-migration, and decommission the old provider's integration. Each of those seven steps has a checkable completion condition, a defined input and output, a coherent tool/context scope, and can fail independently without corrupting the others.
+
+```mermaid
+flowchart LR
+    A["Audit billing data"] --> B["Map old to new fields"]
+    B --> C["Write and test migration script"]
+    C --> D{"Human sign-off"}
+    D --> E["Run migration in production"]
+    E --> F["Verify production data"]
+    F --> G["Decommission old integration"]
+``` Notice, too, that the granularity isn't uniform: "map old-provider fields to new-provider fields" might reasonably be one step even though it involves many individual field mappings, because those mappings are tightly coupled and reviewed together, while "run the migration against production" is deliberately isolated as its own single step — small, high-stakes, and exactly the kind of place a human approval checkpoint belongs, which is precisely the subject of the next lecture.
 
 ## Why it matters for the exam
 
 Expect the exam to present a goal and either a proposed decomposition or a description of a system that skipped decomposition entirely (an agent handed a large, vague goal directly), and ask you to evaluate whether the granularity is appropriate given the task's uncertainty and stakes, or to identify a step that's actually hiding two unrelated concerns. The reasoning framework here — checkable completion, defined input/output, coherent scope, independent failure — is more exam-relevant than any specific example decomposition, since scenario questions will present situations this course hasn't seen before.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Agents as Wrappers](09-agents-as-wrappers) | [Next: Splitting When Something Changes &rarr;](11-splitting-when-something-changes) |
+|:---|---:|
+
+<!-- prevnext:end -->

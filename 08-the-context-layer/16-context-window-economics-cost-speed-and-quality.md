@@ -28,6 +28,12 @@ This happens because of the signal-dilution effect introduced in "Managing the C
 
 The practical implication is uncomfortable but important: stuffing a context window with every document that *might* be relevant, on the theory that the model will surely find the one that matters, is not a safe default. It's a design choice that trades a small amount of insurance against under-inclusion for a real, measurable risk of the model failing to correctly use the one piece of context that actually mattered, buried among the rest. The right instinct is closer to the opposite of "when in doubt, include it" — when in doubt, ask whether a piece of content is worth the dilution risk it introduces, not just whether it might theoretically help.
 
+| Axis | What drives the cost | Fixed by prompt caching? |
+|---|---|---|
+| Cost | Token volume on input and output, paid on every call | Yes — cuts the recurring cost of the stable prefix |
+| Speed | Processing time scales with input token volume | Yes — cuts the latency of reprocessing the stable prefix |
+| Quality | Signal dilution and "lost in the middle" effects | No — caching doesn't change what's included, only what it costs |
+
 ## Prompt caching as a mitigation, not a cure
 
 Anthropic's API supports **prompt caching**: content that stays stable across calls — a system prompt, `CLAUDE.md`, a fixed tool set, reference material that doesn't change turn to turn — can be cached so that reprocessing it on every subsequent call is cheaper and faster than reprocessing it from scratch. This directly addresses the cost and speed axes of the tradeoff: a well-cached stable prefix means the fixed costs discussed above are paid at a steep discount on every call after the first, rather than at full price every time.
@@ -41,3 +47,12 @@ Put together, cost, speed, and quality form a triangle an architect has to reaso
 The practical discipline that falls out of this is the same one named elsewhere in this module as Context Data Governance: for any candidate piece of context, ask not "could this help" but "does this earn its place given what it costs on all three axes" — and treat caching as a tool that lowers two of those costs, not all three.
 
 **Why it matters for the exam:** Expect scenario questions that describe a system suffering from slow responses, high per-call cost, or degraded answer quality, and ask you to identify which is caused by context bloat and what fixes it. A common trap answer treats prompt caching as a fix for quality problems — know that caching addresses cost and latency, not signal dilution, and that "needle in a haystack" style quality degradation requires curating what's included, not just caching it more efficiently.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: How the Context Window Works: Tokens, Limits, and Tradeoffs](15-how-the-context-window-works-tokens-limits-and-tradeoffs) | [Next: The Memory Tool for Persistence &rarr;](17-the-memory-tool-for-persistence) |
+|:---|---:|
+
+<!-- prevnext:end -->

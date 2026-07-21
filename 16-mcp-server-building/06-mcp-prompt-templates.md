@@ -41,3 +41,12 @@ It's worth being precise about why a prompt template isn't simply a tool that ha
 A well-designed prompt template shares real DNA with a well-designed tool schema, even though the two primitives serve different purposes. Its parameters should be as constrained as the task allows — a `tone` parameter for a customer-response template is better served by an enum (`formal`, `friendly`, `apologetic`) than an open free-text field, for exactly the structure-over-prose reasons the Tool Layer established for schemas generally. Its expanded text should be specific enough to actually save the effort of writing the instruction from scratch, not so generic that a user gains little over just typing their own request directly — a template that expands to "Please help with the following: {input}" isn't earning its place as a distinct primitive at all, since it adds a discovery and invocation step without adding any actual authored value.
 
 **Why it matters for the exam:** Expect the exam to test that you understand *why* prompts are used less, not just that they are — client UI investment lagging behind tools and resources, the human-in-the-loop requirement that doesn't fit headless workflows, and overlap with system-prompt-level techniques covered elsewhere in the course are all fair game as the "correct reason" among plausible-sounding distractors.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Defining and Exposing Resources](05-defining-and-exposing-resources) | [Next: Implementing MCP Clients &rarr;](07-implementing-mcp-clients) |
+|:---|---:|
+
+<!-- prevnext:end -->

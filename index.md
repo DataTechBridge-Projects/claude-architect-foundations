@@ -40,3 +40,12 @@ This is unofficial, self-authored study material — always cross-check against 
 | 15 | [Extra Module: Solution Architecture Patterns - Financial Documents](15-extra-financial-documents/) | 15 |
 | 16 | [MCP Server Building](16-mcp-server-building/) | 16 |
 | 17 | [Claude Code Deep Dive](17-claude-code-deep-dive/) | 23 |
+
+<!-- prevnext:start -->
+
+---
+
+|  | [Next: Course Introduction &rarr;](01-course-introduction/) |
+|:---|---:|
+
+<!-- prevnext:end -->

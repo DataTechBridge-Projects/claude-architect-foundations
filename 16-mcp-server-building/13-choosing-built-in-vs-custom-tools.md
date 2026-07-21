@@ -38,4 +38,22 @@ Consider two scenarios side by side. An application needs to let Claude fetch an
 
 Putting it together, a reasonable sequence of questions for any capability you're considering exposing to Claude: Does a built-in tool already do this? If yes, use it, absent a specific, articulable reason not to. If no built-in equivalent exists, is this capability specific to your own systems, or general enough that others would benefit from it too? Internal-only and narrow points toward a direct, private custom tool; broadly useful and reusable across teams or applications points toward an MCP server, so the implementation effort is paid once and reused, per the Tool Layer's reusability argument for MCP generally. And regardless of which path you take, does the resulting tool meet the same design bar the rest of this course has built — clear naming, well-designed schema, honest error responses — since a custom tool built to a lower bar than a built-in one is strictly worse off on every axis that matters.
 
+```mermaid
+flowchart TD
+    A["Capability needed"] --> B{"Built-in tool covers it?"}
+    B -->|Yes| C["Use the built-in tool"]
+    B -->|No| D{"Specific to your own systems?"}
+    D -->|Yes, narrow| E["Build a direct, private custom tool"]
+    D -->|No, broadly useful| F["Expose it through an MCP server"]
+```
+
 **Why it matters for the exam:** Expect scenario questions describing an organization considering building a custom tool for something a built-in tool already covers well, testing whether you correctly identify unnecessary duplicated maintenance burden as the issue — and, conversely, scenarios where a genuine internal system or a real control gap makes custom the right call, testing whether you can articulate the specific, legitimate reason rather than defaulting reflexively to either "always build custom" or "always use built-in."
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The Built-in Toolset: What Ships with Claude](12-the-built-in-toolset-what-ships-with-claude) | [Next: Module Outro &rarr;](14-module-outro) |
+|:---|---:|
+
+<!-- prevnext:end -->

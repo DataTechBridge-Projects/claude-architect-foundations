@@ -17,3 +17,12 @@ Concretely: suppose a step in an agentic refund workflow calls a `charge_refund`
 Checkpointing is the transactional half of the same analogy. A multi-step workflow — say, "update three related records, then send a confirmation" — can fail partway through, after the first two records are updated but before the third. Wrapping that sequence the way a database transaction wraps a set of writes means either all three updates commit or the system rolls back to the last known-good checkpoint, rather than leaving the data in an inconsistent, half-updated state that the next loop iteration (or the next human who looks at it) has to somehow reconcile.
 
 What makes this worth a dedicated lecture rather than a footnote to the earlier server-analogy piece is the shift in where judgment lives. A fixed backend handler either does or doesn't call the transactional API correctly — that's a code-review question. An agentic "handler" is a model deciding, turn by turn, what to do next, which means idempotency and rollback can't be left to the model's judgment alone; they have to be engineered into the tools and the surrounding harness so that even a model that reasons imperfectly, or retries a step it didn't need to, can't cause irreversible damage. That's the throughline of the safeguarding material later in this module: the model is the least trustworthy part of the system to rely on for correctness guarantees, so those guarantees belong in the scaffolding around it.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Workflow Safeguarding](12-workflow-safeguarding) | [Next: Session Management &rarr;](14-session-management) |
+|:---|---:|
+
+<!-- prevnext:end -->

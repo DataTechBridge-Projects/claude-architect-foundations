@@ -15,3 +15,12 @@ The CCA-F blueprint covers what you need to pass the exam: the five layers, thei
 This bonus module is a fast tour of eight of those concerns: RAG and knowledge retrieval (the concrete mechanics behind the Context Layer's "narrow the corpus down" principle), observability and telemetry (seeing what an agent actually did, not just what it returned), agent performance evaluation (proving a change helped rather than just believing it did), cost engineering (why agentic loops get expensive fast, and what to do about it), security architecture (prompt injection and the tool-surface attack surface), persistent memory systems (what an agent should remember across sessions, not just within one), CLAUDE.md/rule/prompt versioning (treating prompts as production logic), and production ops (running all of this under real load, on-call).
 
 Each of the following lectures is intentionally short — a pointer and a mental model, not a deep dive. The goal is to give you enough vocabulary to recognize these topics when you encounter them on a real project and know roughly where to start researching, not to make you an expert in eight new subfields in the space of a few minutes each. None of this is exam-scope, so if you're purely cramming for the CCA-F, it's safe to skip this module entirely and come back to it once you're past the test and actually building.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Extra Module: Beyond the CCA-F](./) | [Next: Topic 1: RAG and Knowledge Retrieval &rarr;](02-topic-1-rag-and-knowledge-retrieval) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -42,6 +42,12 @@ A few concrete patterns account for most real-world batch drift:
 
 **Silent format or convention drift.** A model's behavior on a fixed prompt can vary subtly across underlying model versions or over long batch runs in ways that don't trigger any error but do shift output conventions — slightly different phrasing choices, a slightly different way of handling a specific edge case — degrading downstream consistency without any single output looking obviously wrong in isolation.
 
+| Drift Pattern | What Happens | Why It's Dangerous |
+|---|---|---|
+| Distribution shift within the batch | Input characteristics change partway through | A prompt tuned on earlier inputs quietly underperforms on later ones |
+| Compounding errors across sequential steps | Small per-step error rates multiply across a pipeline | Aggregate degradation can be invisible at any single step |
+| Silent format or convention drift | Output conventions shift subtly over time or across model versions | No single output looks obviously wrong in isolation |
+
 Detecting drift requires monitoring designed specifically to catch problems that don't announce themselves as errors. Useful techniques include: sampling a consistent percentage of batch outputs for ongoing spot review rather than reviewing only at the start of a batch run; tracking structured metrics across the batch (distribution of output lengths, frequency of specific field values, rate of a rubric-style self-check failing) and watching for statistical shifts over the course of a run rather than just checking pass/fail on individual items; and, where feasible, periodically re-running a fixed, known-good "canary" input through the same batch pipeline and confirming the output still matches the expected pattern, which can catch drift introduced by anything upstream of the prompt itself — a changed system prompt, a changed model version, a changed piece of injected context — not just drift in the input data.
 
 ## Batch Processing and the Rest of the Module
@@ -57,3 +63,12 @@ This is textbook distribution shift: the validation sample, however large, was d
 The fix illustrates why ongoing monitoring, not just one-time validation, matters. First, the team adds the new feature's tickets to the few-shot example set and to the standing validation batch, so future prompt revisions are checked against the current distribution, not the one from launch day. Second, they add a lightweight statistical check to the nightly run itself: tracking the distribution of assigned categories over time and flagging a run where the distribution shifts more than a set threshold from the recent baseline, which would have caught this specific problem within a day or two rather than two weeks, since a sudden cluster of tickets landing in an unusual category (or in a low-confidence catch-all category) is exactly the kind of statistical signature distribution shift tends to leave. Neither fix is exotic — both are direct applications of the idea that batch validation has to track the real, current input distribution, not a snapshot frozen at prompt-launch time.
 
 **Why it matters for the exam:** Expect questions describing a batch run that degrades partway through, or that performs well on average but poorly on a specific subset of inputs, and asking you to identify the likely cause — usually some form of distribution mismatch between what the prompt was validated against and what the batch actually contained. Also expect questions on appropriate temperature settings for batch tasks (low, for consistency, as the default) and on why spot-checking only the start of a batch run is an insufficient monitoring strategy for catching drift.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: "Traditional" Sanitization](09-traditional-sanitization) | [Next: The Docker Containers of Agentic Workflow Steps &rarr;](11-the-docker-containers-of-agentic-workflow-steps) |
+|:---|---:|
+
+<!-- prevnext:end -->

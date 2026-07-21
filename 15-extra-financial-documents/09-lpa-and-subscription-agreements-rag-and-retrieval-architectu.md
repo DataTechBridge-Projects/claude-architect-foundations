@@ -22,6 +22,12 @@ That said, the LPA itself is a long, structured legal document in the same famil
 
 A subscription document consistency check is really a set of narrower checks, each of which maps to a specific slice of the LPA. When a subscription document specifies a commitment amount and structure, the relevant retrieval target is the LPA's capital commitment and drawdown provisions — checking, for instance, that the commitment structure the investor is agreeing to is consistent with the fund's stated minimum commitment and drawdown mechanics. When a subscription document includes representations about transferability or withdrawal, the retrieval target is the LPA's transfer restriction and withdrawal provisions. When it includes side letter references or investor-specific governance rights (say, an advisory committee seat), the retrieval target is the LPA's governance and side-letter-acknowledgment provisions, which typically specify what kinds of investor-specific arrangements the LPA itself permits the GP to grant.
 
+| Subscription clause type | LPA provision retrieved |
+|---|---|
+| Commitment amount and structure | Capital commitment and drawdown provisions |
+| Transferability or withdrawal representations | Transfer restriction and withdrawal provisions |
+| Side letter references or governance rights | Governance and side-letter-acknowledgment provisions |
+
 This mapping — clause type in the subscription document to provision type in the LPA — plays the same architectural role that the deal-type template played in the credit agreements module: it's a known, predetermined mapping that tells the retrieval step exactly what to look for, rather than leaving the model to search the LPA freely for anything that might be relevant. That predetermined mapping is what keeps the consistency check precise: a free-text semantic search over the whole LPA for "anything related to this subscription clause" would surface plausible-looking but wrong provisions far more often than a targeted retrieval that already knows a commitment-amount check belongs in the capital contributions article.
 
 ## Precision requirements: false conflicts are as costly as missed ones
@@ -35,3 +41,12 @@ Both error modes point to the same design requirement: retrieval has to be preci
 Because a single fund closing might run a consistency check against the same LPA for two hundred different subscription documents, there's a meaningful efficiency opportunity that doesn't exist in the credit agreements case, where every document being checked has its own distinct precedent comparison set. Here, the reference document — the LPA — is constant across the entire batch. The practical design is to pre-index and pre-chunk the LPA once per fund, at the start of a closing, rather than re-processing it for every subscription document that needs to be checked against it. Each individual consistency check then only needs to run the lightweight retrieval step (map the subscription clause type to the relevant pre-indexed LPA section) rather than re-parsing and re-chunking the LPA from scratch two hundred times over. This is a direct consequence of the volume-driven nature of this use case discussed in the overview: the retrieval architecture should be built to amortize the one genuinely expensive step — understanding and indexing the LPA — across the entire batch of documents that reference it, which is exactly the kind of design decision that separates a system that scales linearly with a fund's LP count from one that scales sublinearly.
 
 **Architecture Notes:** This is retrieval scoped by a Workflow-layer mapping — clause type to LPA provision type — that plays the same role the deal-type template played for credit agreements, keeping the search targeted rather than open-ended. The asymmetric cost of false versus missed conflicts is a Context-layer concern about provenance and citation: every flagged inconsistency needs traceable evidence from both documents, because an unsupported flag erodes trust as surely as a missed one creates risk.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: LPA/Subscription Agreements - Context Architecture](08-lpa-and-subscription-agreements-context-architecture) | [Next: LPA/Subscription Agreements - Observability and Costs &rarr;](10-lpa-and-subscription-agreements-observability-and-costs) |
+|:---|---:|
+
+<!-- prevnext:end -->

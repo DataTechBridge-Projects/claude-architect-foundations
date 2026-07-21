@@ -35,3 +35,12 @@ A condensed pass through the module's highest-yield either/or distinctions — t
 **Interactive versus non-interactive (`-p`) mode.** Interactive sessions assume a human present to answer permission prompts. Non-interactive invocations must be configured in advance with everything they need to complete unattended, since there's no one present to ask.
 
 **Agent SDK versus a raw model API call.** A raw completion gives you one response to one request. The Agent SDK gives you the same loop, tool set, and context management Claude Code itself runs on, callable from your own code.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Outro](21-module-outro) | [Next: Quiz Prep: Claude Code Deep Dive (20 Questions) &rarr;](23-quiz-prep-claude-code-deep-dive-20-questions) |
+|:---|---:|
+
+<!-- prevnext:end -->

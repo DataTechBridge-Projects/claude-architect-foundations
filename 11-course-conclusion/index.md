@@ -16,3 +16,12 @@ A short closing lecture: how to use the Key Distinctions pages and module quizze
 | # | Lecture | Duration |
 |---|---------|----------|
 | 1 | [Course Conclusion](01-course-conclusion) | 2:38 |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Full Sample Exam (60 Questions)](../10-practice-exam/01-full-sample-exam-60-questions) | [Next: Course Conclusion &rarr;](01-course-conclusion) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -17,3 +17,12 @@ That's why this is the longest and, arguably, the most consequential module in t
 This module works through that discipline from the ground up. You'll start with the core mechanics: what competes for space in a context window — system instructions, `CLAUDE.md` content, tool definitions, history, retrieved documents, and tool results — and the summarization, compaction, and isolation strategies that keep that competition from becoming chaos. From there, the module turns to judgment under uncertainty: what an agent should do when context genuinely doesn't contain enough information to act safely, why "guess and continue" is nearly always wrong, and how one bad early inference can compound into real damage if nothing stops it. You'll look at context strategy at the largest scale — codebases too big to ever fit in a window — and the smallest — a single, well-placed human review checkpoint. And you'll cover data provenance: knowing not just what a piece of information says, but where it came from and how much to trust it when sources disagree.
 
 By the end of this module, you should be able to look at any Claude-powered system and ask the question that ties the whole course together: at the exact moment this agent has to act, what does it actually see — and is that the right thing for it to see? That question is, in a real sense, what the CCA-F exam is testing throughout.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The Context Layer](./) | [Next: Managing the Context &rarr;](02-managing-the-context) |
+|:---|---:|
+
+<!-- prevnext:end -->

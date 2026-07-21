@@ -20,6 +20,12 @@ Credit agreements and subscription documents both rest on stable, known destinat
 
 That's the core reason this use case calls for real agentic judgment rather than a fixed workflow: the task genuinely can't be fully enumerated in advance. Determining whether a proposed term to Investor C triggers an MFN right for Investor D requires reading Investor D's side letter, understanding what its MFN clause actually covers (many MFN clauses carve out certain categories of terms, or apply only to investors of comparable size or vintage, or require the GP to affirmatively notify rather than auto-granting), comparing the substance — not just the surface language — of the newly proposed term against Investor D's existing terms, and making a judgment call about whether they're comparable enough to trigger an election right. That comparison has to be run, in some form, against every other side letter with an MFN clause, and the right next step in that analysis genuinely depends on what's discovered while doing it — exactly the condition under which the core course says agentic autonomy earns its cost over a fixed workflow.
 
+| | Credit agreements / subscription docs | MFN & side letter analysis |
+|---|---|---|
+| Destination schema | Fixed and known in advance | No fixed list of terms that matter |
+| Comparison target | One template, or one governing document | Entire, ever-growing population of side letters |
+| Right architecture | Fixed workflow | Agent with narrow, well-scoped autonomy |
+
 ## Negotiation-adjacent, not negotiation-performing
 
 It's worth being precise about scope here, in the same way the earlier use cases were precise about what stays a human decision. A Claude-based system in this space doesn't negotiate on the fund's behalf, decide what terms to offer an investor, or make the ultimate call on an MFN election — those remain fund counsel's and the GP's decisions, and they carry real legal and financial consequences that no automated system should be making unsupervised. What the system does is the analytical work that has to happen *before* a human can negotiate or decide well: surfacing every existing side letter whose terms are potentially comparable to a newly proposed term, assessing whether an MFN trigger is plausible and why, and presenting that analysis with clear reasoning and citations so that counsel's judgment is informed rather than replaced. That's a materially more open-ended analytical task than templated extraction, which is exactly why it justifies the shift toward agentic architecture that the next lecture develops in full.
@@ -29,3 +35,12 @@ It's worth being precise about scope here, in the same way the earlier use cases
 Because MFN analysis is inherently comparative and judgment-based rather than checklist-based, the failure modes are correspondingly harder to catch mechanically. A missed MFN trigger doesn't look like an obviously wrong extracted number — it looks like an analysis that simply didn't flag something it should have, which can go unnoticed until an investor's counsel raises it independently, at which point the fund may be dealing with a dispute rather than a quiet correction. That asymmetry — errors of omission that are expensive and hard to self-detect — is the throughline for the rest of this module, shaping the agentic architecture, the retrieval strategy that has to surface relevant clauses even when they're phrased very differently across letters, and an observability posture built around a mandatory legal review gate rather than sampled spot-checking.
 
 **Architecture Notes:** This is the one use case in the module where the Agentic layer, not the Workflow layer, is the right primary lens: the comparison task is open-ended, the right next side letter to examine depends on what's been found in the ones already reviewed, and no fixed checklist can enumerate every possible MFN scenario in advance. It remains firmly negotiation-*adjacent* rather than negotiation-*performing* — the system's autonomy is scoped to analysis and surfacing, with the actual decision left to human legal judgment, which is itself a Workflow-layer safeguard (a mandatory review gate) wrapped around an Agentic-layer capability.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: LPA/Subscription Agreements - Observability and Costs](10-lpa-and-subscription-agreements-observability-and-costs) | [Next: MFN & Side Letter Negotiation - Agentic Architecture &rarr;](12-mfn-and-side-letter-negotiation-agentic-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

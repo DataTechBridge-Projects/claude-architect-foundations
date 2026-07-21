@@ -12,6 +12,14 @@ duration: "13:00"
 
 The Tool Layer's "Common Claude Code Tools" lecture already walked through *why* this tool set is shaped the way it is — granularity matched per capability, errors translated rather than passed through raw, high-blast-radius capability governed outside the schema. This lecture takes a different angle on the same tool set: not why it's designed this way, but how it actually behaves in practice, session to session, and what a working knowledge of that behavior needs to include for the exam and for real use.
 
+| Tool | What it does | Key operational detail |
+|---|---|---|
+| `Read` | Retrieves file contents, including some non-text artifacts | Supports offset/limit for large files; output is line-numbered |
+| `Bash` | Executes shell commands | Risk is shaped jointly by permission rules, permission mode, and sandboxing |
+| `Edit` | Replaces an exact string in a file | Refuses ambiguous matches; requires the file to have been read first in-session |
+| `WebFetch` | Retrieves a specific, already-known URL | Distills content toward a stated extraction goal |
+| `WebSearch` | Runs a query against a search engine | Returns candidate results for discovery, not full page content |
+
 ## Read: more than "open a file"
 
 `Read` retrieves file contents, but its practical behavior has a few details worth knowing precisely. It supports an offset and a limit, so Claude can pull a specific slice of a large file rather than the whole thing — important for files too large to comfortably fit in context, where reading the entire file would burn a disproportionate share of the context budget on content that isn't relevant to the current task. Output comes back with line numbers prefixed, which matters mechanically: it's what lets a subsequent `Edit` call reference an exact location, and it's why line-numbered output should never itself be mistaken for file content when reasoning about what a file actually contains.
@@ -43,3 +51,12 @@ The practical workflow this implies is usually sequential — search to find the
 A representative task — "fix the failing test in `auth.spec.ts` and confirm the fix" — exercises this tool system in a characteristic order: `Read` (or a search tool) to find and inspect the failing test and the code it exercises, `Bash` to actually run the test suite and see the failure, `Read` again on whatever source file needs changing, `Edit` to make the targeted fix, `Bash` again to re-run the tests and verify, and possibly `WebFetch` or `WebSearch` along the way if the fix requires checking a library's current API against its documentation. Nothing about this sequence is scripted in advance — it emerges from the model reasoning about what it needs next, with the tool system supplying exactly the affordances (and the exactly the guardrails) needed to carry it out safely.
 
 **Why it matters for the exam:** Where the Tool Layer's coverage of these same tools tests *design rationale* ("why is granularity split this way"), this module's coverage tests *operational literacy* — what a specific tool actually does with a given input, why a specific action gets blocked or auto-approved, and how permission rules, modes, and sandboxing combine. Expect scenario questions that give you a concrete command or edit and ask what happens next, not just what principle it illustrates.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: What Claude Code Is and How It Works](02-what-claude-code-is-and-how-it-works) | [Next: Starting a Project: Onboarding Claude to a Codebase &rarr;](04-starting-a-project-onboarding-claude-to-a-codebase) |
+|:---|---:|
+
+<!-- prevnext:end -->

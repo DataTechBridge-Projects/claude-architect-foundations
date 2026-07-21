@@ -31,3 +31,12 @@ Goes beneath the conceptual MCP architecture covered in the Tool Layer into the 
 | 14 | [Module Outro](14-module-outro) | 2:00 |
 | 15 | [Key Distinctions - MCP Server Building](15-key-distinctions-mcp-server-building) | 4:00 |
 | 16 | [Quiz Prep: MCP Server Building (20 Questions)](16-quiz-prep-mcp-server-building-20-questions) | — |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: MFN & Side Letter Negotiation - Observability and Costs](../15-extra-financial-documents/15-mfn-and-side-letter-negotiation-observability-and-costs) | [Next: Module Intro &rarr;](01-module-intro) |
+|:---|---:|
+
+<!-- prevnext:end -->

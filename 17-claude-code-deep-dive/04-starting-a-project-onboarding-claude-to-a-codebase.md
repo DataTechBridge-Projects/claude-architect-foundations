@@ -16,6 +16,14 @@ Every Claude Code session against a new codebase starts from the same disadvanta
 
 Dropped into an unfamiliar repository with a task to perform, Claude Code's default behavior is exploratory before it's active: reading a `README` if one exists, checking manifest and configuration files (`package.json`, `pyproject.toml`, `Cargo.toml`, a `Makefile`) to infer the language, dependencies, and available build/test commands, and scanning directory structure to build a rough map of where things live before making any assumption about where new code should go. This mirrors, at the level of a single session, the same "read before act" discipline the tool system enforces at the level of a single file — orientation before commitment, applied to the whole project rather than one file.
 
+```mermaid
+flowchart TD
+    A["Read the README, if present"] --> B["Check manifest and config files"]
+    B --> C["Scan directory structure"]
+    C --> D["Look for convention signals in existing code"]
+    D --> E["Begin the task, informed by what was found"]
+```
+
 Beyond structure, Claude Code also looks for **convention signals**: existing code in a similar area of the codebase is usually the strongest available evidence for how *this* project does things, often stronger than a generic best practice would suggest on its own. If every existing API route in a project follows one particular error-handling pattern, a well-oriented session imitates that pattern for a new route rather than introducing a different (even objectively "better") one — consistency with what's already there is usually more valuable than a locally superior alternative, because a codebase with three different patterns for the same thing is worse than one with a single mediocre pattern applied everywhere. This is exactly the instinct a good human contributor develops after their first few code reviews, compressed into how the harness explores by default.
 
 Where this self-directed exploration falls short is anything that isn't discoverable from the code itself: *why* a workaround exists, which parts of the codebase are deprecated but still technically functioning, which tests are flaky and safe to ignore, or which directories are shared infrastructure that shouldn't be touched without a wider conversation. That gap is precisely what standing project context — `CLAUDE.md`, covered in depth for the rest of this module — exists to close.
@@ -43,3 +51,12 @@ The better first tasks sit in between: a genuine, independently-testable bug fix
 **Introduce extension mechanisms incrementally, not all at once.** Slash commands, Skills, subagents, and hooks (all covered later in this module) each solve a real problem, but a team that tries to configure all of them on day one, before anyone has a feel for how the base tool behaves on their codebase, tends to produce an over-engineered setup nobody fully understands. The more durable pattern is starting with `CLAUDE.md` alone, letting real friction reveal which extension mechanism actually solves a recurring problem, and adding capability in response to observed need.
 
 **Why it matters for the exam:** Onboarding questions on this exam typically present a described rollout scenario — a team enabling broad autonomous permissions on day one, or skipping review of a generated `CLAUDE.md`, or trying to configure five extension mechanisms before running a single real task — and ask you to identify what's wrong with the sequencing. The underlying test is almost always the same: does the described approach earn trust incrementally and verify as it goes, or does it assume more than the available evidence supports?
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The Tool System: Reads, Bash, Edits, and Web Search](03-the-tool-system-reads-bash-edits-and-web-search) | [Next: Claude Code Permission Modes &rarr;](05-claude-code-permission-modes) |
+|:---|---:|
+
+<!-- prevnext:end -->

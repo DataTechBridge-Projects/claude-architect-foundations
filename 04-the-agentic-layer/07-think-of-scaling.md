@@ -17,3 +17,12 @@ A worked example makes the multiplier concrete. Suppose a single agent doing a t
 Rate limits deserve a similar concrete framing. A provider's concurrency limit is typically set at the account or API-key level, not per agent — so five subagents launched at once aren't five independent budgets, they're five simultaneous draws against one shared ceiling. A design that works fine with one agent making calls at a steady pace can suddenly start throwing 429s the moment it's parallelized, not because any individual subagent is misbehaving, but because the aggregate concurrency crossed a limit that was invisible when there was only one caller.
 
 This is why "think of scaling" belongs right after the multi-agent coordination lecture rather than standing alone: it's the blunt, memorable version of the coordination-overhead argument made there in full — latency overhead, cost overhead, reconciliation complexity, and failure attribution all get worse, not better, as agent count grows, and none of that is optional plumbing you can skip. The exam-relevant habit is to treat "how many agents" as a cost with its own justification, weighed against the specific benefit (parallelism, context isolation, specialization) a task actually needs, rather than a dial to turn up whenever a task feels big.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Multi-Agent Coordination](06-multi-agent-coordination) | [Next: Subagent Instantiation &rarr;](08-subagent-instantiation) |
+|:---|---:|
+
+<!-- prevnext:end -->

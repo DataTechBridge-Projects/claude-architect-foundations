@@ -21,3 +21,12 @@ Consider a step in a pipeline that extracts a customer's shipping address from a
 This isn't just about avoiding parse failures — it's also about cost and latency, which matter more the more a pipeline runs. Every sentence of conversational padding is tokens generated that a machine consumer discards unread, and at the scale of thousands or millions of pipeline invocations, that padding adds up to real, avoidable spend and real, avoidable latency on the critical path. This is the same discipline the lecture on achieving structured outputs pushes toward with schema-constrained generation and the tool-call-as-output pattern: once you know for certain that the consumer of a given output is code, not a person, every token spent on making that output "friendly" is a token spent on nothing. This becomes especially important in multi-step agentic workflows, where the output of one step is the input to the next — treating each step's output as machine talk by default, and reserving natural-language framing only for the final step that actually surfaces to a human, keeps the whole pipeline both cheaper and more reliable.
 
 **Why it matters for the exam:** Expect a question contrasting two candidate output formats for the same underlying data, one narrative and one terse or structured, and asking which is appropriate for a given consumer. The signal to look for is who or what reads the output next — a human user gets natural language, a parser or another agent gets the leanest structured format that carries the same information.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Achieving Structured Outputs](06-achieving-structured-outputs) | [Next: Quality and Feedback Enforcement &rarr;](08-quality-and-feedback-enforcement) |
+|:---|---:|
+
+<!-- prevnext:end -->

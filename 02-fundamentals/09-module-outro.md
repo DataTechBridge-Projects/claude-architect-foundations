@@ -15,3 +15,12 @@ You now have the foundation the rest of this course is built on. You've seen how
 That vocabulary — tokens, context windows, next-token prediction, Messages API, tool use, the orchestration loop — isn't background trivia. It's the shared language the rest of the CCA-F curriculum assumes you already speak fluently, and you'll see every one of these terms reused, tested, and built upon from here forward.
 
 Next up is the module on the CCA-F certification itself, where you'll get oriented on the five layers the exam is actually organized around — Agentic, Tool, Workflow, Prompt, and Context — how they map to the exam blueprint, and how the rest of this course is structured to build you up through each one in turn. With the mechanics of LLMs, the API-versus-Claude-Code distinction, and the agent/tool loop now solid, you're ready to see how those pieces get organized into the five-layer architecture the certification is built around.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Lab: Claude Architecture Selection Simulator](08-lab-claude-architecture-selection-simulator) | [Next: The CCA-F Certification &rarr;](../03-the-cca-f-certification/) |
+|:---|---:|
+
+<!-- prevnext:end -->

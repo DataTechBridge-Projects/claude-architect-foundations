@@ -20,6 +20,12 @@ True independence goes further: a review pass with its own distinct prompt, ofte
 
 A particularly effective version of this independence is giving the review pass a genuinely different vantage point on the task — not just a different prompt, but a different framing of what's being checked. If the generation prompt was framed as "produce a helpful response to this customer," an independent review prompt framed as "you are a strict quality auditor; find every way this response could go wrong" will surface different issues than a review prompt that's just a softer echo of the original task, because it's actively looking for problems rather than confirming a job well done.
 
+```mermaid
+flowchart LR
+    A["Inline self-critique: same pass, same context"] --> B["Separate call, same prompt and framing"]
+    B --> C["Independent prompt: own criteria, no visibility into generator's reasoning"]
+```
+
 ## Why a Pass Shouldn't Grade Its Own Homework
 
 The underlying reason this matters is that errors in language model output are frequently not random noise — they're systematic, arising from a specific way the model interpreted an ambiguous instruction, weighted conflicting priorities, or filled a gap in underspecified context. A systematic error, by definition, will tend to recur if the same reasoning process is asked to evaluate its own output using the same interpretive lens that produced the error in the first place. If a model consistently misreads "urgent" as "contains a dollar amount" — echoing the incidental-correlation problem from the few-shot lecture — asking that same reasoning to double check its own urgency classification won't surface the problem, because the flawed definition of "urgent" is baked into both the generation and the "independent" check alike.
@@ -55,3 +61,12 @@ An inline self-critique added to the same generation pass — "review your extra
 Given the stakes — this feeds an accounts-payable system where a wrong number becomes a wrong payment — the added cost of a second pass on every invoice is easy to justify. A lower-stakes task with the same architecture (say, extracting metadata from internal meeting notes for a searchable archive) would more likely route only borderline cases to review, using a confidence signal from the generation pass itself to decide which invoices are worth the second call, rather than reviewing all of them.
 
 **Why it matters for the exam:** Expect questions distinguishing genuinely independent review passes from inline self-critique that only appears independent, and questions asking why a reviewer prompt sharing the generator's exact framing and instructions is less effective than one with its own separate criteria and an adversarial mandate. Also expect scenario questions asking whether a described pipeline actually justifies the cost of a second pass, given the stakes and volume described — recognizing when multi-pass review is *not* worth it is tested just as often as recognizing when it is.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The Docker Containers of Agentic Workflow Steps](11-the-docker-containers-of-agentic-workflow-steps) | [Next: Conway's Law for Multi-Pass Execution? &rarr;](13-conway-s-law-for-multi-pass-execution) |
+|:---|---:|
+
+<!-- prevnext:end -->

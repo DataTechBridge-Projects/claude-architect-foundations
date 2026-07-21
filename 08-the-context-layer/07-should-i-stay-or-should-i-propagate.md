@@ -17,3 +17,12 @@ Walk through a concrete version of the fork. In turn four of a multi-step resear
 The "stay" branch has real costs too, which is why it's a genuine decision and not an automatic default: pausing to verify an address might mean an extra tool call, an extra turn, or a clarifying question that slows the task down. That cost has to be weighed against how load-bearing the fact is likely to become — which is exactly the failure-affordance judgment covered elsewhere in this module. A minor detail that's unlikely to matter later can reasonably propagate loudly (tagged "unverified — inferred from passing mention") rather than blocking progress to confirm it immediately; a fact that later steps will treat as foundational deserves to stay and get resolved before anything is built on top of it.
 
 The mechanism that makes "propagate loudly" actually work is the same provenance tagging covered later in this module: an uncertain fact that carries its uncertainty label with it through every summarization and compaction pass remains recognizably uncertain at turn twenty, even if the surrounding detail has long since been compressed away. Strip that label off during a careless summary, and loud propagation quietly becomes silent propagation — which is precisely the error-propagation failure mode this lecture's question is designed to prevent.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Preventing Error Propagation](06-preventing-error-propagation) | [Next: Context in Large Codebases &rarr;](08-context-in-large-codebases) |
+|:---|---:|
+
+<!-- prevnext:end -->

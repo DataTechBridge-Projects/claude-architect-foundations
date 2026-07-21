@@ -60,6 +60,14 @@ Underneath the naming-and-description craft sits a structural decision that shap
 
 **Too few, overloaded tools** — a single `search` tool with a dozen optional parameters covering issues, pull requests, comments, users, and commits, each interacting with several of the others in tool-specific ways — pushes the disambiguation burden in the opposite direction. Instead of choosing among tools, the model now has to correctly navigate a large, tangled parameter space within one tool, and get the *combination* of parameters right, which is often harder to specify unambiguously in a single description than splitting the tool would have been. Overloaded tools also tend to produce more subtly wrong calls — technically schema-valid, but a combination of parameters that doesn't actually do what the caller intended — because the schema can enforce individual field validity but rarely enforces the more complex cross-field constraints that would catch these.
 
+| Aspect | Too many overlapping tools | Too few, overloaded tools |
+|---|---|---|
+| Failure surfaces as | Wrong tool picked among near-duplicates | Wrong parameter combination within one tool |
+| Burden on the model | Repeated pairwise choice among tools | Navigating a tangled, cross-field parameter space |
+| Cost as the set grows | Grows faster than tool count (roughly pairwise) | Grows with schema complexity, not tool count |
+| Token cost per call | Every tool definition sent on every request | One definition, but a larger schema |
+| Typical fix | Merge near-duplicates into fewer, sharply differentiated tools | Split along the one dimension that's usually obvious at call time |
+
 The resolution isn't a fixed number of tools — it's matching granularity to how *distinct* the underlying operations genuinely are, and how often they're actually invoked in combination. If two operations differ in exactly one dimension that the model reliably has available at call time (searching issues versus searching pull requests, where the "which entity type" decision is usually obvious from the user's request), separate tools with narrow, sharply differentiated descriptions typically outperform one overloaded tool. If the "operations" are really just filters on one coherent underlying action (search, with an optional entity-type filter, an optional author filter, an optional date range), a single well-schemed tool with clearly described optional parameters is usually easier for the model to use correctly than three-to-five near-duplicate tools would be, because there's no selection step required at all — only a parameter-filling step, which schemas are specifically good at constraining.
 
 A useful diagnostic question when you're unsure which side of this line a tool set falls on: *would a competent human API consumer, reading only the names and descriptions with no other context, be able to say confidently which one to call for a given request, every time?* If the answer is "usually, but there are a couple of cases that would genuinely require guessing," you've found exactly the ambiguity a model will also stumble on — and it's cheaper to fix at design time than to discover through a stream of subtly wrong tool calls in production.
@@ -69,3 +77,12 @@ A useful diagnostic question when you're unsure which side of this line a tool s
 One last point worth carrying forward into the rest of this module: tool definitions aren't "done" once they pass schema validation and the happy path works in testing. Selection failures typically surface only once a tool set grows, once real user phrasing turns out to be more varied than whatever you tested with, or once a new, similar tool is added later and creates an ambiguity that didn't exist when the original tool was designed in isolation. Treating tool descriptions as a living interface — something you revisit and sharpen as you observe real selection behavior, the same way you'd revise API documentation after watching real integration partners misuse it — is part of what separates a tool set that degrades gracefully as it grows from one that becomes progressively harder for the model to navigate reliably.
 
 **Why it matters for the exam:** Expect scenario questions that present two or three tool definitions with overlapping descriptions and ask which one the model would most plausibly select, or misselect, for a given request — you should be able to point to the exact word or missing detail responsible. You should also be able to argue, from first principles, whether a described tool set is too fragmented or too overloaded, and what a better granularity boundary would look like, since that judgment call is one of this domain's most frequently tested distinctions.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Intro](01-module-intro) | [Next: Structure with Prose as the Fallback &rarr;](03-structure-with-prose-as-the-fallback) |
+|:---|---:|
+
+<!-- prevnext:end -->

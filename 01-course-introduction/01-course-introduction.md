@@ -18,4 +18,25 @@ This course is for architects, tech leads, and senior engineers who are putting 
 
 Here's how the course is organized. We start with **Fundamentals**, a grounding module covering LLM basics and the practical differences between the Claude API and Claude Code, so everyone starts from the same baseline. From there we cover the certification itself: its five official domains and a five-layer mnemonic — Agentic, Tool, Workflow, Prompt, and Context — that we'll use as the backbone of the entire course. Each of those five layers then gets its own full module, going deep on the concepts, common failure modes, and design patterns the exam expects you to recognize. After the five layers, an **Additional Topics** module rounds out anything that doesn't fit neatly into one layer, and the course closes with a **Practice Exam** module built to mirror the real test's format and difficulty.
 
+| Module | Core question it answers |
+|---|---|
+| Fundamentals | How do LLMs work, and what's the practical split between the Claude API and Claude Code? |
+| The CCA-F Certification | What are the exam's five domains, and how does the five-layer mnemonic organize them? |
+| Agentic Layer | How does the orchestration loop run, and when do you use one agent versus many? |
+| Tool Layer | How do you define and structure tools so a model uses them reliably? |
+| Workflow Layer | When does a rigid pipeline beat an autonomous agent loop? |
+| Prompt Layer | How does prompt structure shape model behavior at scale? |
+| Context Layer | How do you keep a long-running agent's context from degrading? |
+| Additional Topics | What cross-cutting material doesn't fit neatly into a single layer? |
+| Practice Exam | Does your understanding hold up under real exam conditions? |
+
 Every module ends with a short quiz and, for the meatier ones, a role-play scenario to pressure-test your reasoning out loud. Let's get started.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Course Introduction](./) | [Next: Fundamentals &rarr;](../02-fundamentals/) |
+|:---|---:|
+
+<!-- prevnext:end -->

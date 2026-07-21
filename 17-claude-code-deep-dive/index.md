@@ -38,3 +38,12 @@ Goes deep on Claude Code itself as a product: its architecture and built-in tool
 | 21 | [Module Outro](21-module-outro) | 2:00 |
 | 22 | [Key Distinctions - Claude Code Deep Dive](22-key-distinctions-claude-code-deep-dive) | 4:30 |
 | 23 | [Quiz Prep: Claude Code Deep Dive (20 Questions)](23-quiz-prep-claude-code-deep-dive-20-questions) | — |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Quiz Prep: MCP Server Building (20 Questions)](../16-mcp-server-building/16-quiz-prep-mcp-server-building-20-questions) | [Next: Module Intro &rarr;](01-module-intro) |
+|:---|---:|
+
+<!-- prevnext:end -->

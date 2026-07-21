@@ -15,3 +15,12 @@ Start from the orchestration loop and everything else in this module is a variat
 That framing is worth holding onto specifically because the exam will present scenarios that look novel and expect you to recognize the same underlying pattern underneath unfamiliar dressing. A described system that "loses track" of earlier context is a session-management problem, not a mysterious model limitation. A described system that produces an inconsistent result from parallel components is a coordination-overhead problem, not a model-quality problem. A described system that takes an action it shouldn't have is a workflow-safeguarding gap — a missing checkpoint or an overbroad grant of authority — not an unpredictable model doing something inexplicable. Precision about which layer of this stack a symptom actually belongs to is the skill this module was built to give you, more than any individual term or pattern name.
 
 You now have the full vocabulary for the agentic side of this course: the loop and its termination conditions, structured tool use as the mechanism that makes the loop reliable, multi-agent coordination and subagent instantiation as ways of scaling it, workflow decomposition and safeguarding as ways of shaping and bounding it, and session management as the container that holds it all together over time. The next module, the Tool Layer, zooms into one piece of this picture specifically: the tools themselves — how they're defined, selected, and designed so that the model calling them actually succeeds more often than it fails. Everything you just learned about structured tool use was the mechanics of *how* a tool call happens; the Tool layer is about *designing good tools* for that mechanism to call — error response design, tool granularity, and the infrastructure (including MCP) that supplies an agent with real-world capability in the first place. Carry the orchestration loop with you into it: every tool-design decision in the next module exists to make some specific step of the loop you just learned more reliable.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Retry, Fallback, and Escalation Trigger Design](20-retry-fallback-and-escalation-trigger-design) | [Next: Key Distinctions - The Agentic Layer &rarr;](22-key-distinctions-the-agentic-layer) |
+|:---|---:|
+
+<!-- prevnext:end -->

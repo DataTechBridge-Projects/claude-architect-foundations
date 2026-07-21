@@ -29,3 +29,12 @@ Covers how work is configured and organized across multiple steps: CLAUDE.md fil
 | 12 | [Key Distinctions - The Workflow Layer](12-key-distinctions-the-workflow-layer) | 2:47 |
 | 13 | [Quiz Prep: The Workflow Layer (20 Questions)](13-quiz-prep-the-workflow-layer-20-questions) | — |
 | 14 | [Role Play: Mentoring on Workflow Essentials](14-role-play-mentoring-on-workflow-essentials) | — |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Role Play: Mentoring on Tool Essentials](../05-the-tool-layer/16-role-play-mentoring-on-tool-essentials) | [Next: Module Intro &rarr;](01-module-intro) |
+|:---|---:|
+
+<!-- prevnext:end -->

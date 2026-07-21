@@ -22,6 +22,14 @@ The retrieval unit matters more here than the retrieval mechanism. Retrieving wh
 
 In practice this works best as two stages rather than one. The first stage is **metadata filtering**: given the clause type currently under review (say, a leverage covenant in a term loan B) and known deal characteristics, the candidate set is narrowed to precedent clauses of that same type and deal type before any embedding similarity is computed. This step alone does most of the useful work, because clause type is the single strongest predictor of relevance — a leverage covenant from another term loan B is a vastly better comparison than a semantically similar-sounding sentence from an unrelated clause category. The second stage is **semantic retrieval within that filtered set**: embedding-based similarity search over the remaining candidates surfaces the precedent clauses whose actual language is closest to the clause being reviewed, which matters because covenant language varies in phrasing even when it's conceptually standard, and a purely keyword-based search would miss paraphrased equivalents.
 
+```mermaid
+flowchart LR
+    A["Clause under review"] --> B["Stage 1: metadata filter"]
+    B --> C["Candidate clauses"]
+    C --> D["Stage 2: semantic search"]
+    D --> E["Cited precedent clauses"]
+```
+
 This two-stage design avoids a common failure mode of RAG applied naively to legal text: pure semantic search over an undifferentiated corpus tends to surface clauses that are *topically* similar but *categorically* wrong — a passage that uses similar vocabulary but sits in a different part of the document's legal logic, like retrieving a representation instead of a covenant because both happen to discuss "material adverse effect." Filtering by structural metadata first, and only then applying semantic search, keeps the comparison set legally coherent rather than just lexically similar.
 
 ## Precise citation as a non-negotiable output property
@@ -35,3 +43,12 @@ Concretely, this means every retrieved passage and every extracted fact carries 
 One wrinkle specific to credit agreements is that "standard" isn't static — covenant packages loosen and tighten with credit market conditions, and a clause that was aggressive five years ago might be market-standard today. A retrieval architecture that doesn't account for this will produce misleading comparisons, flagging a perfectly current covenant as a deviation because it differs from a five-year-old precedent, or vice versa. The practical fix is to weight retrieval toward vintage — preferring recent precedent clauses over older ones for "is this market standard" comparisons, while still surfacing the full historical range when a user is explicitly asking about how a term has evolved over time. This is a case where the metadata filter isn't just a relevance improvement, it's necessary to avoid a specific, predictable error mode.
 
 **Architecture Notes:** This is Context-layer retrieval design layered directly on top of the Workflow layer's fixed pipeline: the deviation-check step in the workflow calls out to a retrieval step whose scope (clause type, deal type, vintage) is itself predetermined by the deal-type template, not discovered by open-ended search. Precise, section-level citation is a data-provenance requirement — the model must be able to show, for every claim, which source clause it came from, which is what lets a human reviewer verify rather than merely trust the output.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Credit Agreements - Context Architecture](03-credit-agreements-context-architecture) | [Next: Credit Agreements - Observability and Costs &rarr;](05-credit-agreements-observability-and-costs) |
+|:---|---:|
+
+<!-- prevnext:end -->

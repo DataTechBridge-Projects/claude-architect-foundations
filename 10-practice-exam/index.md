@@ -16,3 +16,12 @@ A single full-length, 60-question mock certification exam spanning all five doma
 | # | Lecture | Duration |
 |---|---------|----------|
 | 1 | [Full Sample Exam (60 Questions)](01-full-sample-exam-60-questions) | — |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Role Play: Farewell Mentoring on AI Solution Architecture](../09-additional-topics/08-role-play-farewell-mentoring-on-ai-solution-architecture) | [Next: Full Sample Exam (60 Questions) &rarr;](01-full-sample-exam-60-questions) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -37,3 +37,12 @@ A condensed pass through the module's highest-yield either/or distinctions — t
 **Schema validity versus operational safety.** A schema enforces that a call is well-formed; it says nothing about whether the underlying action is safe to allow. `Bash`'s narrow schema and broad real-world capability is the clearest example — safety comes from permissions, sandboxing, and scoping around the tool, not from the schema itself.
 
 **Granularity matched per capability, not applied as a global policy.** Claude Code's own tool set splits file operations three ways, search two ways, and leaves shell execution as one broad tool — because each capability's own shape, not a single house rule, determines the right granularity.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Outro](13-module-outro) | [Next: Quiz Prep: The Tool Layer (20 Questions) &rarr;](15-quiz-prep-the-tool-layer-20-questions) |
+|:---|---:|
+
+<!-- prevnext:end -->

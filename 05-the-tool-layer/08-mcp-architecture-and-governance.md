@@ -28,6 +28,19 @@ An **MCP client** is the piece embedded in the LLM application — Claude Code h
 
 The connection between a client and a server can run locally (a server running as a subprocess on the same machine, communicating over standard input/output — common for local tools like filesystem access) or remotely (a server running elsewhere, reached over a network transport). This flexibility is part of what makes MCP useful at organizational scale: a company can run one centrally-hosted MCP server exposing, say, its internal customer database, and every Claude-based application across the organization that needs that data connects to the same server rather than each reimplementing that access independently.
 
+```mermaid
+flowchart LR
+    M["Model"] --> C["MCP Client - in Claude Code or an app"]
+    C --> S1["MCP Server - Jira"]
+    C --> S2["MCP Server - filesystem"]
+    C --> S3["MCP Server - internal DB"]
+    S1 --> E1["Jira API"]
+    S2 --> E2["Local filesystem"]
+    S3 --> E3["Internal database"]
+```
+
+The client discovers each server's tools, resources, and prompts and surfaces them to the model as ordinary tools — the model never sees which side of that boundary a given tool came from.
+
 ## Why this matters architecturally: reusability and the ecosystem effect
 
 The practical payoff of this architecture is reusability in both directions. A single MCP server, once written, can be used by any number of clients — Claude Code sessions, custom internal applications, other AI-assisted tools — without being rewritten for each. And a single client (Claude Code, or any application with an MCP client built in) can connect to any number of servers, mixing capabilities from different systems and even different vendors into one coherent tool set available to the model in a given session, without the client needing bespoke code for each one.
@@ -55,3 +68,12 @@ Beyond the governance process itself, it's worth naming the specific security sh
 This is also why prompt-injection-adjacent risks compound with a growing tool surface: a tool result returned from a connected server — a document's contents, a search result, a webpage fetched through a resource — is itself untrusted input from the model's perspective the moment it enters context, and a poorly governed server is one additional vector through which adversarial content could reach the model disguised as an ordinary tool result. Scoping credentials tightly, vetting servers before they're connected, and treating tool results as data rather than instructions are complementary defenses, not substitutes for one another, and a mature MCP governance posture applies all three rather than relying on any single one.
 
 **Why it matters for the exam:** Expect questions that ask you to distinguish an MCP server's responsibilities from an MCP client's, to identify what MCP standardizes (the connection and discovery protocol) versus what it doesn't change (tool design principles, which apply identically to MCP-exposed tools), and scenario questions where an organization's MCP server sprawl is described and you're asked to identify the missing governance control — typically credential scoping, a server vetting process, or an audit mechanism. The exam is less interested in MCP's wire-level details than in your ability to reason about trust, scope, and access control once tool exposure becomes a standardized, easily-scaled capability rather than a one-off integration.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Again, Granularity!](07-again-granularity) | [Next: The Infrastructure for Tool Usage &rarr;](09-the-infrastructure-for-tool-usage) |
+|:---|---:|
+
+<!-- prevnext:end -->

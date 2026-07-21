@@ -40,6 +40,21 @@ A related capability worth naming directly is the SDK's support for streaming a 
 
 ## The Throughline: Same Engine, Different Driver
 
+| | Raw model API call | Agent SDK | Interactive Claude Code |
+|---|---|---|---|
+| What you get | A single completion | Full agentic loop, tools, context management, callable from code | Full agentic loop, driven by a human at a terminal |
+| Who approves actions | N/A | A callback the calling application defines | A human, live |
+| Output | Raw model text | Structured, machine-readable | Conversational, for a human to read |
+
 It's worth stepping back and being precise about what changes and what doesn't between interactive Claude Code and an SDK-driven application. What doesn't change: the underlying agentic loop, the built-in tool set (or a version of it scoped to what the application needs), the way context is assembled and compacted, and the fundamental read-plan-act-verify cycle from earlier in this module. What does change: who's making the moment-to-moment decisions that a human makes interactively — approving actions, deciding when to continue a session versus start fresh, consuming the output in a form suited to code rather than to a person reading a terminal. The Agent SDK is best understood not as a different product, but as the same engine with its driver's seat opened up to your own code instead of a human's keyboard.
 
 **Why it matters for the exam:** Expect questions distinguishing the Agent SDK from both a raw model API call (which gives you a single completion, not a loop, a tool set, or context management) and from interactive Claude Code (which gives you the same engine but assumes a human at the keyboard making live decisions). Also expect questions specifically probing session control mechanics — starting fresh versus continuing, and why a programmatic caller needs an addressable session identity where a human interactively usually doesn't.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Real-World Hook Applications](18-real-world-hook-applications) | [Next: Claude Code in CI/CD: Non-Interactive Mode and the -p Flag &rarr;](20-claude-code-in-ci-cd-non-interactive-mode-and-the-p-flag) |
+|:---|---:|
+
+<!-- prevnext:end -->

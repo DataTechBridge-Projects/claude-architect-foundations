@@ -24,3 +24,12 @@ Bonus, non-exam-scope module. A fast tour of eight production concerns the certi
 | 7 | [Topic 6: Persistent Memory Systems](07-topic-6-persistent-memory-systems) | 0:23 |
 | 8 | [Topic 7: CLAUDE.md, Rule and Prompt Versioning](08-topic-7-claude-md-rule-and-prompt-versioning) | 0:27 |
 | 9 | [Topic 8: Production Ops](09-topic-8-production-ops) | 0:17 |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Course Conclusion](../11-course-conclusion/01-course-conclusion) | [Next: Beyond the CCAF: Additional Topics &rarr;](01-beyond-the-ccaf-additional-topics) |
+|:---|---:|
+
+<!-- prevnext:end -->

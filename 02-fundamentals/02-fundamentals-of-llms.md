@@ -39,11 +39,31 @@ It's worth being precise about two distinct phases in an LLM's life cycle, becau
 
 **Inference** is what happens every time you send a request to Claude: the trained, frozen model processes your input and generates output tokens one at a time. Inference is what you're actually doing when you call the API, run a prompt, or watch Claude Code execute a task. Critically, the model's parameters don't change during inference — Claude doesn't "learn" from your conversation in the way a human would remember it for next time. Anything that looks like the model "getting better" as a session goes on is really the model conditioning its next-token predictions on a growing context (the conversation transcript, tool results, files it has read), not the underlying weights updating. This is why context — what's actually present in the input at the moment of a given inference call — is the entire mechanism by which you influence Claude's behavior in a running session. There is no side channel; everything the model "knows" about your specific situation at inference time is either baked into its trained weights or explicitly present in the context you provide.
 
+| | Training | Inference |
+|---|---|---|
+| When it happens | Offline, before a model is released | Every time you send a request |
+| What changes | Model parameters (weights) get adjusted | Nothing in the model changes; only the context grows |
+| Who performs it | Anthropic, on its own infrastructure | You, on every API call or Claude Code turn |
+| Frequency | Once per model version | Continuously, per request |
+| Rough analogy | Writing the textbook | Reading the textbook to answer a question |
+
 This distinction is also why capabilities like memory across sessions, retrieval-augmented generation, and Claude Code's use of files like CLAUDE.md all exist: they're mechanisms for re-injecting relevant information into context at inference time, because the model itself has no persistent, mutable memory of its own.
 
 ## LLMs are probabilistic next-token predictors — and what that implies
 
-The single most important mental model to walk away with is this: at each step, Claude is computing a probability distribution over possible next tokens, and then sampling (or picking, depending on settings) from that distribution to decide what to output next. It repeats this one token at a time until it decides to stop. This is fundamentally different from executing a fixed algorithm or looking up a guaranteed-correct answer, and it has several concrete architectural implications:
+The single most important mental model to walk away with is this: at each step, Claude is computing a probability distribution over possible next tokens, and then sampling (or picking, depending on settings) from that distribution to decide what to output next. It repeats this one token at a time until it decides to stop.
+
+```mermaid
+flowchart TD
+    A[Context so far] --> B[Model computes a probability distribution over the next token]
+    B --> C[Sample or select a token]
+    C --> D[Append token to context]
+    D --> E{Stop condition met?}
+    E -->|No| A
+    E -->|Yes| F[Return final output]
+```
+
+This is fundamentally different from executing a fixed algorithm or looking up a guaranteed-correct answer, and it has several concrete architectural implications:
 
 - **Outputs are not deterministic by default.** Because the next token is sampled from a distribution rather than always the single highest-probability choice, the same prompt can produce different outputs on different runs. Lowering randomness (temperature) narrows this variance but doesn't eliminate the underlying probabilistic nature of generation.
 - **Reliability is a property of the whole system, not a guarantee from the model alone.** Because Claude is generating a plausible continuation rather than executing verified logic, well-architected systems build in verification, structured output formats, tool use for anything that needs to be exact (arithmetic, data lookups, code execution), and human or automated review for high-stakes decisions — rather than trusting a single unstructured generation.
@@ -54,3 +74,12 @@ The single most important mental model to walk away with is this: at each step, 
 ## Why it matters for the exam
 
 Expect exam questions that test whether you can connect a system-design symptom back to this underlying mechanism — for example, recognizing that inconsistent outputs across runs are expected probabilistic behavior rather than a bug, that a model "forgetting" earlier instructions in a long session is a context-window or attention effect rather than the model failing to learn, or that a proposed architecture needs a verification step because generation alone doesn't guarantee correctness. Everything downstream in this course — prompting technique, tool design, context curation, and agent autonomy — is really just architecture built in response to these fundamental properties of how LLMs work.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Intro](01-module-intro) | [Next: Fundamentals of Claude API & Claude Code &rarr;](03-fundamentals-of-claude-api-and-claude-code) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -16,6 +16,12 @@ The three-level hierarchy lecture introduced subdirectory `CLAUDE.md` files as t
 
 Root-level and ancestor `CLAUDE.md` files (walking up the directory tree from wherever a session starts) are loaded **in full, at launch** — they're part of the standing context every turn in that session pays for, whether or not the current task ever touches the part of the codebase they describe. Subdirectory files further down the tree behave differently: rather than being loaded up front, they're discovered and pulled into context **on demand**, specifically when Claude actually reads or works with files inside that subdirectory. A `frontend/CLAUDE.md` in a monorepo doesn't cost anything in a session that never touches `frontend/` — it simply never loads, because nothing ever gave the harness a reason to look for it there.
 
+| | Root / ancestor CLAUDE.md | Subdirectory CLAUDE.md |
+|---|---|---|
+| When it loads | In full, at session start | On demand, when Claude works in that subdirectory |
+| Context cost | Paid every turn, regardless of relevance | Zero cost unless that part of the tree is touched |
+| Best for | Repository-wide, always-true knowledge | Package- or team-specific detail |
+
 This lazy-loading behavior is the entire point of scoping instructions to a subdirectory rather than folding them into the root file. It's the same "load only what's needed, when it's needed" principle the Workflow Layer's Skill Configuration lecture applied to procedural knowledge, applied here to declarative project knowledge instead: a monorepo can carry an arbitrary number of package-specific `CLAUDE.md` files without any of them adding standing cost to sessions that work elsewhere in the tree. This is also precisely why subdirectory scoping is the right tool for monorepo-scale specificity and *not* just a stylistic alternative to putting everything at the root — the two approaches have genuinely different context-cost profiles, not just different organizational aesthetics.
 
 ## Practical Patterns for Monorepos
@@ -37,3 +43,12 @@ Teams that haven't internalized the on-demand loading behavior sometimes make on
 Directory-based scoping is the most common use of this mechanism, but the underlying idea — narrower instructions taking effect only in a narrower context — generalizes beyond "one file per package." A directory holding auto-generated code, a `tests/` directory with its own conventions around fixtures and mocking, or a `scripts/` directory of one-off tooling with looser standards than production code can each carry a `CLAUDE.md` calibrated to what actually matters in that specific corner, rather than forcing one root file to awkwardly caveat itself for every exception ("normally X, except in tests, except in scripts, except in generated code..."). Scoping the exception directly to where it applies keeps the root file clean and keeps each scoped file legible on its own.
 
 **Why it matters for the exam:** The high-yield fact to hold onto from this lecture is the loading distinction itself — ancestor files load up front and cost context every turn; subdirectory files load on demand and cost nothing until Claude actually works in that part of the tree. Expect a question that describes a large monorepo and asks where a piece of package-specific knowledge should live, and expect the correct reasoning to hinge on exactly this cost distinction, not just on "more specific things go in more specific files" as a vague intuition.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Precedence Rules and Conflict Resolution](07-precedence-rules-and-conflict-resolution) | [Next: Excluding Files and Content &rarr;](09-excluding-files-and-content) |
+|:---|---:|
+
+<!-- prevnext:end -->

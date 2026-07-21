@@ -29,6 +29,13 @@ The alternative isn't withholding information out of stinginess — it's being d
 
 Notice the shape of this list: it's a *distillation* of the upstream work, not a redaction of it. The discipline is the same one subagent report design asks for — separate the conclusion and its load-bearing support from the process that produced it, and hand forward the former, not the latter.
 
+| Handoff component | Why it matters |
+|---|---|
+| Current state of the task | Tells the next agent exactly what to do next, without a narrative to sift through |
+| Decisions already made and why | Prevents re-deciding, possibly differently, work that was already settled |
+| Open questions or blockers | Surfaces ambiguity directly instead of leaving it to be rediscovered |
+| Anything not cheaply rediscoverable | Saves the receiving agent from re-doing expensive or slow work |
+
 ## Session and state continuity across a handoff
 
 A handoff carries a second kind of continuity beyond task content: whatever session-level state the task depends on. Session management established that a session is the accumulating record — transcript, working state — that makes multi-turn interaction coherent over time, and a handoff mid-task means that record's ownership is changing hands, which raises questions a same-session continuation never has to answer.
@@ -46,3 +53,12 @@ A well-designed handoff instead passes: the distilled list of sources judged rel
 ## Why it matters for the exam
 
 Expect the exam to describe a handoff — sometimes a lean, well-designed one, sometimes one that dumps an entire upstream transcript — and ask you to identify what the receiving agent actually needed versus what it was needlessly given, or to identify a genuine gap where something load-bearing was left out. The core distinction to hold onto is that a good handoff is a curated distillation of state, decisions, and open questions, not a completeness guarantee achieved by including everything — and that this is the same context-discipline principle from results pollution and subagent reporting, applied specifically to the moment responsibility for a task changes hands.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Designing Agent-to-Agent Message Schemas](18-designing-agent-to-agent-message-schemas) | [Next: Retry, Fallback, and Escalation Trigger Design &rarr;](20-retry-fallback-and-escalation-trigger-design) |
+|:---|---:|
+
+<!-- prevnext:end -->

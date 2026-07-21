@@ -46,6 +46,13 @@ Several concrete patterns are common in practice, and they aren't mutually exclu
 
 **Separate reviewer pass.** The strongest version of self-checking isn't really "self" at all — it's a genuinely separate prompt, sometimes even a separate model call with a different framing or persona, dedicated entirely to evaluating output that a prior pass produced. This is powerful enough, and different enough in character from the inline techniques above, that it gets its own full treatment later in this module under independent and multi-pass review; the short version here is that a fully separate pass avoids the "grading its own homework" problem that inline self-critique doesn't fully escape.
 
+| Technique | Independence | Relative Cost |
+|---|---|---|
+| Inline self-critique | Weakest — same context and momentum as the draft | Lowest — no extra API call |
+| Structured rubric scoring | Moderate — explicit, checkable criteria | Low to moderate |
+| Confidence/uncertainty signaling | Moderate — flags what needs review | Low to moderate |
+| Separate reviewer pass | Strongest — genuinely independent | Highest — a full extra model call |
+
 ## The Cost and Latency Tradeoff
 
 None of this is free, and pretending otherwise is itself a design mistake. Every additional check — whether it's inline self-critique, structured rubric scoring, or a fully separate reviewer pass — adds tokens, adds latency, and in the case of a separate pass, adds an entire additional model call with its own cost. An architect has to weigh that cost against what a missed quality failure would actually cost if it reached production unfiltered.
@@ -63,3 +70,12 @@ The generation prompt produces a draft response. Before that draft is allowed to
 Two of those items are worth distinguishing by consequence. A tone violation is low-stakes and easily fixed automatically — the system can simply regenerate with tone flagged as the specific issue, and try again. A dollar-amount or timeline violation is high-stakes and not something to silently auto-correct, because auto-correcting a financial commitment without human confirmation just relocates the risk rather than removing it — that item should route straight to a human, every time, with no automatic retry. This is the cost/latency tradeoff made concrete: the system spends a small, fixed cost checking every draft against the full rubric, but reserves the more expensive step — a human's time — for exactly the subset of cases where the rubric flags something that actually warrants it, rather than either checking nothing (and risking a bad commitment reaching a customer) or routing everything to a human (and eliminating the automation's value entirely).
 
 **Why it matters for the exam:** Expect scenario questions that describe a pipeline producing occasional bad output and ask what level of verification is appropriate given the stated stakes — the correct answer usually isn't "add maximum verification" but "add verification proportional to what a failure would cost." Also expect questions distinguishing inline self-critique from a genuinely independent reviewer pass, and why the latter more reliably avoids the failure mode of a pass validating its own flawed assumptions.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Easier for "Machine Talk"](07-easier-for-machine-talk) | [Next: "Traditional" Sanitization &rarr;](09-traditional-sanitization) |
+|:---|---:|
+
+<!-- prevnext:end -->

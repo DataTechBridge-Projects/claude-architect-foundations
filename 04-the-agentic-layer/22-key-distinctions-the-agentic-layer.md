@@ -31,3 +31,12 @@ A condensed pass through the module's highest-yield either/or distinctions — t
 **Reversible versus compensable versus irreversible actions.** Reversible actions can simply be undone. Compensable actions need a defined counteracting step. Irreversible actions need a gate *before* they happen, because nothing can fix them after.
 
 **Loop iteration versus task versus session.** These are nested, distinct timelines — a symptom belongs to whichever one it actually occurred on, and misattributing it (calling a session-management problem a loop problem, or vice versa) leads to the wrong fix.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Outro](21-module-outro) | [Next: Quiz Prep: The Agentic Layer (20 Questions) &rarr;](23-quiz-prep-the-agentic-layer-20-questions) |
+|:---|---:|
+
+<!-- prevnext:end -->

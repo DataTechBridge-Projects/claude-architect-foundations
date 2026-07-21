@@ -40,3 +40,12 @@ The final and arguably most consequential core domain: what the model actually s
 | 23 | [Key Distinctions - The Context Layer](23-key-distinctions-the-context-layer) | 4:24 |
 | 24 | [Quiz Prep: The Context Layer (20 Questions)](24-quiz-prep-the-context-layer-20-questions) | — |
 | 25 | [Role Play: Mentoring on Context Essentials](25-role-play-mentoring-on-context-essentials) | — |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Role Play: Mentoring on Prompting Essentials](../07-the-prompt-layer/24-role-play-mentoring-on-prompting-essentials) | [Next: Module Intro &rarr;](01-module-intro) |
+|:---|---:|
+
+<!-- prevnext:end -->

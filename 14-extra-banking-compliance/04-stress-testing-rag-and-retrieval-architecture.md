@@ -16,6 +16,11 @@ The previous lecture established that context has to carry the *correct cycle's*
 
 Two broad document families sit behind this system, and they behave very differently as retrieval targets. **Regulatory guidance** includes the regulator's published scenario documents, instructional guidance on how banks should apply stress-test methodology, and any supervisory feedback letters from prior cycles that speak to how the bank's own submissions have been received. This corpus is externally authored, updated on the regulator's schedule (typically annually, sometimes with mid-cycle clarifications), and authoritative in the strict sense — when regulatory guidance says something, that's the rule, full stop. **Internal methodology documents** are the bank's own model documentation, its interpretation of how to apply regulatory guidance to its specific portfolio structure, and its own past submission narratives. This corpus changes more frequently, as models get revalidated and methodology gets refined, and it's authoritative about *how the bank does things* rather than about what the rule says.
 
+| Corpus | Authored By | Update Cadence | Authority |
+|---|---|---|---|
+| Regulatory guidance | Regulator | Annually, with occasional mid-cycle clarifications | Authoritative on what the rule requires |
+| Internal methodology | Bank's own model and risk teams | As models get revalidated | Authoritative on how the bank applies the rule |
+
 Retrieval has to serve both corpora without conflating them, because a narrative-drafting task typically needs both at once: what does the regulator's guidance require, and what is the bank's documented, approved way of meeting that requirement. Blending them without clear attribution in the retrieved context risks the model treating an internal methodology choice as if it were a hard regulatory requirement, or vice versa — a distinction that matters enormously if a supervisor later asks the bank to justify a specific choice.
 
 ## The Stale-Cycle Problem
@@ -39,3 +44,12 @@ The payoff of getting retrieval right shows up most visibly in the narrative-dra
 ## Architecture Notes
 
 This lecture is the **Context** layer's data-provenance principle implemented as retrieval infrastructure: hard filters on cycle and validation-status metadata prevent an off-cycle or superseded document from ever entering the candidate set, rather than relying on semantic ranking to sort it out. The citation discipline that grounds every narrative claim also serves the **Prompt** layer, since a drafting prompt that requires inline sourcing produces output a human can verify quickly — which is precisely what keeps the **Workflow** layer's review gates fast enough to survive a real regulatory deadline.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Stress Testing - Context Architecture](03-stress-testing-context-architecture) | [Next: Stress Testing - Observability and Costs &rarr;](05-stress-testing-observability-and-costs) |
+|:---|---:|
+
+<!-- prevnext:end -->

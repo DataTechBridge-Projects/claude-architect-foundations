@@ -28,6 +28,12 @@ At minimum, useful provenance tracking attaches three things to a consequential 
 
 **Trust level** matters because not all sources — even accurate ones — carry the same epistemic weight, and this is where provenance tracking has to capture something more nuanced than a binary "verified or not." A figure independently confirmed against two agreeing sources deserves more confidence than the same figure taken from a single unconfirmed source, even if both ultimately turn out correct; a conclusion the agent itself inferred deserves a visibly different trust level than a fact a tool returned directly, because an inference carries the compounded risk of every reasoning step that produced it, where a direct lookup doesn't.
 
+| Dimension | Question it answers | Example |
+|---|---|---|
+| Source | Where did this come from? | A specific tool call, document, user statement, or the agent's own inference |
+| Timestamp/currency | When was this true, and how likely is it still true? | "Verified 12 minutes ago" versus a two-week-old email |
+| Trust level | How authoritative is this, and was it independently verified? | Independently confirmed, stated but unconfirmed, or inferred |
+
 None of this needs to be an elaborate formal system in every case — for a lightweight task, a simple tag distinguishing "verified," "stated but unconfirmed," and "inferred" attached to key facts captures most of the value. What matters is that the distinction exists *somewhere* explicit, rather than being left for a reader (human or model) to guess at from tone and phrasing alone.
 
 ## Detecting and resolving conflicts
@@ -63,3 +69,12 @@ Finally, verifiability. Is there a way to check whether the cancellation request
 Putting these together, the defensible conclusion in this specific case is: trust the current lookup as the account's actual status, but treat the cancellation request as unresolved business that needs to be checked, not ignored — surfacing something like "account currently shows active; a cancellation request from two weeks ago doesn't appear to have been processed — confirm before proceeding" is a materially better outcome than silently picking either source and moving on. Note what made this resolvable at all: each source carried enough attached metadata — a timestamp on the lookup, an approximate date on the email — to actually weigh them. Strip that metadata out through careless summarization, and this same conflict becomes unresolvable, forcing exactly the kind of arbitrary pick this section warns against.
 
 **Why it matters for the exam:** Provenance and conflict-resolution questions on the CCA-F typically present two contradicting pieces of information in a scenario and ask what the agent should do. The wrong answers are almost always "pick the more recent one" or "pick the more detailed/confident-sounding one" presented as if either were a universal rule. The right answer requires actually reasoning about source authority and verifiability specific to that scenario — and, when the scenario doesn't give you enough to resolve it cleanly, recognizing that surfacing the conflict rather than silently resolving it is itself often the correct choice.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Failure Affordance Varies By Use Case](11-failure-affordance-varies-by-use-case) | [Next: Putting the "Provenance" in Data Provenance &rarr;](13-putting-the-provenance-in-data-provenance) |
+|:---|---:|
+
+<!-- prevnext:end -->

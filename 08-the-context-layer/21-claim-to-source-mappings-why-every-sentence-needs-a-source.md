@@ -38,4 +38,22 @@ The two disciplines compound: input-side provenance without output-side claim ma
 
 Concretely, systems that need strong claim-to-source guarantees — retrieval-augmented systems producing answers grounded in a document store being the clearest example — typically build this by requiring the model to emit explicit citations alongside its output (a specific document ID, chunk reference, or tool-result identifier attached to each claim, or grouped claims), and then treating any generated sentence that lacks a citation, or whose citation doesn't actually support what the sentence claims when checked, as a flag for review rather than something to pass through silently. This can be enforced at generation time (instructing the model explicitly to cite its source for every factual claim, and to say so plainly when a claim can't be sourced from the provided material) or as a post-hoc verification pass that checks generated claims against the context that was available. Either approach turns an implicit, unverifiable trust relationship between a generated answer and its inputs into an explicit, checkable one — which is exactly the throughline connecting this lecture back to everything the provenance lectures established about input data, now applied one level up, to the sentences a system actually hands to a user.
 
+```mermaid
+flowchart LR
+    A["Input sources, each with provenance tags"] --> B["Context window"]
+    B --> C["Generated output"]
+    C --> D{"Does each claim map to a source?"}
+    D -->|"Yes"| E["Claim verified and citable"]
+    D -->|"No"| F["Flagged as unsupported - possible hallucination"]
+```
+
 **Why it matters for the exam:** Expect scenario questions describing a generated output that sounds fluent and confident but contains a claim not actually supported by any provided source — the correct diagnosis is a missing claim-to-source mapping, and the correct fix is requiring explicit, checkable citations per claim rather than trusting surface plausibility. Recognize this as provenance discipline applied to output, extending rather than replacing the input-side provenance and conflict-resolution practices covered earlier in this module.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Calibrating Confidence: Validation Sets and Stratified Sampling](20-calibrating-confidence-validation-sets-and-stratified-sampli) | [Next: Module Outro &rarr;](22-module-outro) |
+|:---|---:|
+
+<!-- prevnext:end -->

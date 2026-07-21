@@ -24,6 +24,12 @@ The core value proposition is durability under exactly the conditions that threa
 
 It's worth being precise about how a scratchpad differs from the memory tool covered in the previous lecture, because they can look similar on the surface — both involve writing state somewhere other than the live conversation. The distinction is scope and lifetime. Persistent memory, as covered there, is built for facts that outlive an entire session or task: a user's standing preference, a project's status across many separate future conversations. A scratchpad is built for state that's scoped to a *single* ongoing task — the plan, the findings, the ruled-out hypotheses for the debugging session happening right now — and its useful life typically ends when that task concludes. A scratchpad entry for a finished task is usually safe to discard entirely; a persistent memory entry, by design, is meant to keep mattering indefinitely. Conceptually, think of the scratchpad as working memory for a task in flight, and persistent memory as long-term memory for facts that outlast any one task.
 
+| | Scratchpad | Persistent memory |
+|---|---|---|
+| Scope | A single ongoing task | Across entire sessions and tasks |
+| Lifetime | Ends when the task concludes | Indefinite, until explicitly updated |
+| Analogy | Working memory | Long-term memory |
+
 ## Why the scratchpad matters for continuity, not just tidiness
 
 The practical payoff of a scratchpad shows up at exactly the two moments this lecture's stub description points to: when context gets compacted, and when work gets handed to a different agent.
@@ -43,3 +49,12 @@ A scratchpad is only useful if it stays disciplined, and the two failure modes w
 The deciding question for what's worth persisting to the scratchpad versus leaving in live context is the same durability question from the previous lecture, applied at task scope rather than session scope: will a later step in *this same task*, or whoever picks it up next, need this specific conclusion without wanting to re-derive it from scratch? If yes, it belongs on the scratchpad, stated cleanly. If it's exploratory detail that did its job and isn't needed again, it can stay in the ordinary flow of context, subject to compaction like everything else.
 
 **Why it matters for the exam:** Expect the exam to test whether you can distinguish the scratchpad pattern (task-scoped working memory that survives compaction and handoffs within one piece of work) from persistent memory (durable facts that survive across entirely separate sessions), and to recognize scratchpad bloat — an unpruned, ever-growing scratchpad — as its own failure mode, not a safety net. A well-designed scratchpad is judged by the same discipline as a good summary: capture decisions and their justification, not a full transcript.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The Memory Tool for Persistence](17-the-memory-tool-for-persistence) | [Next: Compaction and Long-Conversation Coherence &rarr;](19-compaction-and-long-conversation-coherence) |
+|:---|---:|
+
+<!-- prevnext:end -->

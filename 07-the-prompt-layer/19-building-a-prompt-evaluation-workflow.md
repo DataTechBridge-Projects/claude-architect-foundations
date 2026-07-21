@@ -30,6 +30,16 @@ With criteria and an input set both in hand, the mechanical part of the workflow
 
 This comparison step is where evaluation earns its keep architecturally. Any nontrivial prompt goes through revisions — a clarified instruction, an added constraint, a reworded example — and without a standing evaluation set to run the revised prompt against, there's no reliable way to know whether a given revision actually improved things, left them unchanged, or quietly fixed one failure mode while introducing another. Running the same evaluation set against both the old and new versions of a prompt, and comparing the scored results side by side, turns "I think this version is better" into "this version scores higher on these specific dimensions, and lower on none of them" — a genuinely different, and genuinely more trustworthy, kind of claim.
 
+```mermaid
+flowchart TD
+    A["Define success criteria up front"] --> B["Build representative input set"]
+    B --> C["Run prompt, capture outputs"]
+    C --> D["Score against criteria"]
+    D --> E["Compare old vs new prompt version"]
+    E --> F["Revise prompt"]
+    F --> C
+```
+
 ## Iterating on the Prompt, Not Just the Evaluation
 
 A useful evaluation run doesn't just produce a score — it produces a breakdown of *where* the prompt is failing, and that breakdown is what should drive the next revision. If a classification prompt scores 92% overall but its failures cluster heavily around one particular kind of input — say, tickets with mixed or ambiguous urgency signals — that's a specific, actionable signal: the fix is very likely a clarified instruction, an added few-shot example, or a explicit rule addressing exactly that ambiguous case, rather than a vague, undirected rewrite of the whole prompt. This is the same iterative loop that runs through the rest of this module: identify a specific failure pattern, apply a targeted fix, and re-run the evaluation to confirm the fix actually closed the gap without opening a new one elsewhere.
@@ -47,3 +57,12 @@ Running the current prompt against that set might reveal 94% overall accuracy, w
 It's worth being precise about how this discipline differs from the independent and multi-pass review covered earlier in this module, because the two are easy to conflate and the exam treats them as distinct concepts. Multi-pass review is a **runtime** architecture — it operates on individual production outputs, one at a time, as they're generated, and its purpose is to catch a specific bad output before it does damage downstream. Evaluation is a **pre-deployment and ongoing measurement** discipline — it operates on a whole set of inputs at once, offline or in a staging process, and its purpose is to answer a systemic question: is this prompt, as a whole, reliable enough to trust across the range of inputs it will see, and did a given revision actually make it better? A system can have excellent multi-pass review in production and still ship a prompt that was never properly evaluated beforehand — and the reverse is true too, a well-evaluated prompt can still benefit from a runtime review pass on individual high-stakes outputs, since evaluation demonstrates the prompt's reliability *in aggregate*, not on every single instance. The two disciplines are complementary rather than substitutes for one another, and a mature architecture generally has both: evaluation before a prompt ships and after any revision, and review at runtime for individual outputs where the stakes of a single miss are high.
 
 **Why it matters for the exam:** Expect questions asking you to distinguish an evaluation workflow (pre-deployment, aggregate, offline, measuring a prompt's reliability across a representative input set) from multi-pass review (runtime, per-output, catching an individual bad result). Also expect scenario questions testing whether you recognize a flawed evaluation setup — success criteria defined after looking at outputs, an evaluation set that only covers the "easy" cases the author already had in mind, or a comparison between prompt versions with no consistent scoring to back up the claim that one version is actually better.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Temperature, top_p, and top_k Explained](18-temperature-top-p-and-top-k-explained) | [Next: Test Dataset Generation and Model-Based Grading &rarr;](20-test-dataset-generation-and-model-based-grading) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -21,3 +21,12 @@ Suppose a product review is stored in a database and later summarized by Claude 
 It's worth separating these into input sanitization and output sanitization, because they defend against different things and neither substitutes for the other. Input sanitization — validating length and shape, escaping or stripping characters that have special meaning downstream, rejecting malformed input before it ever reaches the model — protects the model and the rest of the system from what comes in. Output sanitization — escaping the model's response before it's rendered as HTML, parameterizing it before it's used to build a SQL query, validating it before it's passed to a shell command — protects everything downstream from what the model produces, on the assumption that a capable model can still be tricked, or can still faithfully reproduce dangerous content that was present in its input. Treating the model as a trusted intermediary that has already "handled" security on either side of that boundary is the mistake this lecture warns against; the model's judgment is a useful additional layer, not a substitute for the boundary checks a security-conscious system would have needed even if no model were involved at all.
 
 **Why it matters for the exam:** Expect scenario questions where a system uses a capable model and still suffers a classic injection-style vulnerability (SQL, XSS, command injection) because sanitization was skipped on the assumption the model would "handle it." The correct fix is always to reinstate the traditional control at the appropriate boundary, in addition to whatever model-level defenses are in place — not to rely on prompting the model to be more careful.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Quality and Feedback Enforcement](08-quality-and-feedback-enforcement) | [Next: Batch Processing &rarr;](10-batch-processing) |
+|:---|---:|
+
+<!-- prevnext:end -->

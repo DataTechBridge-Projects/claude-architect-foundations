@@ -48,11 +48,27 @@ Zooming out further, a session has a lifecycle of its own, distinct from any ind
 
 **Session persistence and resumption** matters for any system where a user might return to a task after a gap — closing a Claude Code session and reopening it later to continue the same piece of work, for instance. This requires the session's state to be durably stored somewhere between the end of one interaction and the start of the next, and requires a decision about how much of that stored state to reload versus re-derive when the session resumes — reloading everything defeats any economizing done during the original session, while reloading too little can leave the resumed session missing context it actually needs to continue coherently.
 
+```mermaid
+flowchart LR
+    A["Session start: system prompt + persistent config"] --> B["Session continuation: turns accumulate, summarize/window as needed"]
+    B --> C{"Session boundary reached?"}
+    C -->|"No"| B
+    C -->|"Yes: task done, topic change, budget/time threshold"| D["Persist state"]
+    D --> E["Resumption: reload selectively"]
+```
+
 ## Session state versus durable memory
 
 It's worth drawing one more distinction precisely, because it's a common source of confused terminology: a **session** is not the same thing as **durable memory**. A session is the transcript and working state for one ongoing interaction — it can be long, but it's still fundamentally bounded to that interaction, and it's the thing summarization, windowing, and eventual boundaries all apply to. Durable memory is different in kind: information deliberately extracted from a session and persisted somewhere outside it specifically so it can inform *future*, separate sessions — a user's stated preferences, a project's established conventions, a fact learned once that shouldn't need re-discovering every time. Claude Code's CLAUDE.md file is a concrete instance of durable memory: it's not part of any one session's transcript, it's loaded fresh into the initial context of every session, functioning as accumulated knowledge that outlives any individual conversation.
 
 The practical reason to keep these separate is that they call for different management strategies. Session state is disposable by design — it's fine, even correct, for a completed session's raw transcript to eventually be discarded or archived, since its job was to support that one interaction. Durable memory is the opposite: it's specifically the subset of information judged valuable enough to deliberately extract and keep past the session's end, and deciding what qualifies is an active editorial decision, not a byproduct of forgetting to clean up. A system that conflates the two — either treating every session as permanent (accumulating unbounded, largely irrelevant history forever) or discarding everything when a session ends (losing genuinely useful, reusable information every time) — has gotten this distinction wrong in one direction or the other.
+
+| | Session state | Durable memory |
+|---|---|---|
+| Scope | One ongoing interaction | Persists across future, separate sessions |
+| Lifespan | Bounded to that interaction | Deliberately kept past the session's end |
+| Disposability | Fine to discard once the session ends | An active editorial decision to retain |
+| Example | The transcript of today's debugging conversation | A CLAUDE.md-style project convention |
 
 ## Sessions versus the other timelines in this module
 
@@ -61,3 +77,12 @@ It's worth being precise about how a session relates to the other units of time 
 ## Why it matters for the exam
 
 Expect the exam to test whether you can correctly attribute a described symptom — rising cost over a long conversation, degraded response quality partway through a long session, an agent that seems to have "lost track" of an earlier instruction — to the right session-management cause: unmanaged history growth, a missing summarization strategy, or a session that should have been reset or boundary-drawn but wasn't. You should also be comfortable distinguishing a session-level problem from a single-task or single-loop problem, since they can present with superficially similar symptoms but call for entirely different fixes.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Back to the Server Analogy...](13-back-to-the-server-analogy) | [Next: Separation of Timelines &rarr;](15-separation-of-timelines) |
+|:---|---:|
+
+<!-- prevnext:end -->

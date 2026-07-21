@@ -21,3 +21,12 @@ Picture a support-ticket classification prompt that begins its life as a single 
 Naming the leak is the first step, but the actual fix is usually to stop fighting it inside prose and instead move that structural weight into a place designed to hold it. The enumerated team list and severity values belong in a formal schema — ideally the input schema of a tool the model is directed to call, as covered in the lecture on achieving structured outputs — not embedded as a paragraph of prose the model has to re-parse and honor by convention on every single call. Once structure lives in a schema, it can be validated mechanically, diffed in code review, and versioned independently of the surrounding instructional language, which is a far more durable arrangement than a growing wall of enumerated text sitting inside a system prompt.
 
 **Why it matters for the exam:** Expect a scenario where a prompt has accumulated schema-like content over time and you're asked to identify the underlying architectural issue. The correct diagnosis is that the prompt has outgrown plain instructional text and needs formal schema enforcement — not a rewrite with clearer prose.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Prompting Best Practices](02-prompting-best-practices) | [Next: Few-Shot Prompting &rarr;](04-few-shot-prompting) |
+|:---|---:|
+
+<!-- prevnext:end -->

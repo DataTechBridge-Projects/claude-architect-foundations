@@ -12,6 +12,12 @@ duration: "11:00"
 
 Tools, resources, prompts, and sampling are MCP's headline capabilities — the primitives that decide what a server and client actually do together. This lecture covers three smaller, supporting mechanisms that keep a real, long-running connection honest: **notifications**, **roots**, and **progress reporting**. None of the three is a primitive in the same sense as a tool or a resource, but the exam treats all three as fair game, because a protocol meant to support real, stateful, long-running sessions needs exactly this kind of connective tissue.
 
+| Mechanism | Direction | Purpose |
+|---|---|---|
+| Notification | Server to client | Signal a capability or content change |
+| Root | Client to server | Declare an operating boundary |
+| Progress report | Server to client | Communicate incremental status on a long-running call |
+
 ## Notifications: the server telling the client something changed
 
 A **notification** is a message a server sends to a client, outside the normal request-response flow, to signal that something relevant has changed since the client last checked. The clearest example is a change in the server's own capabilities: if a server's available tools, resources, or prompts change during a session — a new tool becomes available, a resource is deleted, a resource's content is updated — the server can send a notification telling the client to re-run discovery rather than continuing to operate on a now-stale list it fetched once at connection time.
@@ -39,3 +45,12 @@ Picture a client with a filesystem MCP server connected, mid-session on a long r
 Notifications, roots, and progress reporting share a common role even though they point in different directions: each is infrastructure for keeping a stateful, potentially long-running connection legible and well-scoped, rather than infrastructure for accomplishing a task directly the way a tool or resource does. None of the three is something a model decides to invoke — they're mechanisms the protocol itself uses to keep client and server honestly synchronized about state, scope, and progress over the life of a connection that may run far longer than a single request-response exchange.
 
 **Why it matters for the exam:** Expect each of the three to be tested with its direction and purpose distinct from the others — notifications flow server-to-client and signal a capability or content change; roots flow client-to-server and declare an operating boundary; progress reporting flows server-to-client during a long-running call and communicates incremental status. A common distractor pattern is swapping the direction (attributing a root to the server or a notification to the client) or conflating progress reporting with a notification generally — keep the three distinct by role, not just by name.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Letting Servers Make LLM Calls Through the Client](10-letting-servers-make-llm-calls-through-the-client) | [Next: The Built-in Toolset: What Ships with Claude &rarr;](12-the-built-in-toolset-what-ships-with-claude) |
+|:---|---:|
+
+<!-- prevnext:end -->

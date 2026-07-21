@@ -60,6 +60,13 @@ Claude Code also adds project-level conveniences that a raw API integration woul
 
 Between "call the raw Messages API and build everything yourself" and "use Claude Code as-is" sits a third option worth naming here, even though it's covered in more depth later in the course: the **Agent SDK**. This is Anthropic's toolkit for building your own custom agentic applications — it gives you the same kind of orchestration loop, permission model, and tool-execution scaffolding that powers Claude Code internally, but as a library you embed in your own application rather than a standalone CLI aimed at coding tasks. You'd reach for it when you want an agent with Claude Code's operational shape — an LLM in a loop, taking real actions, observing results — but for a domain other than software engineering, or when you need tighter integration with your own product's UI, data, and infrastructure than a general-purpose CLI tool can offer. It's worth keeping in your mental model now, because "raw API," "Agent SDK," and "Claude Code" form a spectrum of increasing scaffolding and decreasing flexibility, and correctly placing a described system on that spectrum is a recurring skill this course builds.
 
+| | Claude API | Agent SDK | Claude Code |
+|---|---|---|---|
+| What it is | Raw Messages API | Library for building custom agents | Purpose-built agentic coding tool |
+| Scaffolding provided | None — you build the loop, tools, and state yourself | Orchestration loop, permission model, tool-execution scaffolding | Full agent loop, built-in tools, CLAUDE.md, permissions, out of the box |
+| Flexibility | Highest — full control over request shape and infrastructure | High — your domain, your UI, your product | Lowest — opinionated for software engineering tasks |
+| Best for | Embedding Claude's language capability in your own product or pipeline | Custom agents outside coding, or tighter product integration | Working over a real codebase: reading, editing, running, iterating |
+
 ## How they relate
 
 The relationship is layered, not parallel. Claude Code is an application built on the Claude API, in exactly the same sense that a customer-support chatbot you build yourself would be an application built on the Claude API. The API is the general-purpose foundation; Claude Code is one particular, highly polished, purpose-built product built on that foundation, specialized for software engineering tasks. This means:
@@ -73,3 +80,12 @@ As an architect, the decision of "should this system be built directly against t
 ## Why it matters for the exam
 
 Expect questions that hinge on correctly identifying which layer a described scenario belongs to — for instance, recognizing that a request to "let an internal tool automatically read log files and open pull requests to fix bugs" is describing agentic, tool-using behavior that maps naturally onto Claude Code or an Agent-SDK-built equivalent, whereas "add an AI-generated product description field to our e-commerce backend" is a stateless generation task best served by a direct Messages API call. You should also be comfortable naming the concrete building blocks — Messages API, system prompts, streaming, tool use, model tiers, prompt caching — since the exam will test recognition of these terms in context, not just abstract concepts.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Fundamentals of LLMs](02-fundamentals-of-llms) | [Next: Claude Code vs... The API? &rarr;](04-claude-code-vs-the-api) |
+|:---|---:|
+
+<!-- prevnext:end -->

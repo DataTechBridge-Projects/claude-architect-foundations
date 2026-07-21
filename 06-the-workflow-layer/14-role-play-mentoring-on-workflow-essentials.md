@@ -33,3 +33,12 @@ nav_order: 14
 **Priya:** So: `CLAUDE.md` for the standing stuff, Skill for the compliance procedure, and CI integration once we want it enforced rather than optional.
 
 **Devon:** That's the whole module in one sentence.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Quiz Prep: The Workflow Layer (20 Questions)](13-quiz-prep-the-workflow-layer-20-questions) | [Next: The Prompt Layer &rarr;](../07-the-prompt-layer/) |
+|:---|---:|
+
+<!-- prevnext:end -->

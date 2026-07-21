@@ -16,4 +16,19 @@ Consider a concrete case: an agent asked to find where a bug originates runs a g
 
 The fix isn't a single technique but a family of them, chosen based on what the result actually contains. **Truncation** caps a result at some reasonable size and tells the model more is available on request — useful for logs and long file reads. **Filtering** returns only entries matching some relevance criterion instead of everything a query technically found — useful for search results. **Summarization** compresses a large result into a distilled description, at the cost of losing recoverable detail — useful when the specifics genuinely don't need to persist, only the conclusion drawn from them. A well-designed tool doesn't wait for the model to ask for less; it's built from the start to return only what's proportionate to the request.
 
+| Technique | What it does | Best suited for |
+|---|---|---|
+| Truncation | Caps result size, signals more is available | Logs, long file reads |
+| Filtering | Returns only relevance-matching entries | Search results |
+| Summarization | Compresses into a distilled description | Cases where only the conclusion matters |
+
 This connects directly to the multi-agent coordination pattern covered earlier in this module: dispatching a subagent to do the noisy exploration and report back only a distilled summary is, in effect, the same fix applied at a coarser grain — instead of filtering a single tool result, you're filtering an entire subagent's worth of intermediate work down to the report that actually re-enters the orchestrator's context. Both are the same underlying discipline: keep only what's proportionate to the task, not everything a system was technically capable of producing.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Structured Tool Use](04-structured-tool-use) | [Next: Multi-Agent Coordination &rarr;](06-multi-agent-coordination) |
+|:---|---:|
+
+<!-- prevnext:end -->

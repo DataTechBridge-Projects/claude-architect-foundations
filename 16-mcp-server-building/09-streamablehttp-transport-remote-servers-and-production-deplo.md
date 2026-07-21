@@ -44,8 +44,25 @@ Picture an organization standing up one internal customer-data MCP server for us
 
 The decision rarely requires deep deliberation once you frame it correctly: STDIO fits a server meant for one developer's local session, needing local machine access, with no requirement to serve multiple clients concurrently. StreamableHTTP fits a server meant to be shared organizational infrastructure — reachable by many clients, running independently of any one client's lifecycle, and requiring the authentication, scaling, and observability investment that any production network service requires. A server can, in principle, support both — the same underlying tool logic exposed over either transport, since transport and tool definition are cleanly separated by design, as the earlier Python server lecture noted — but a given deployment typically picks the one that matches how it's actually going to be used.
 
+| Dimension | STDIO | StreamableHTTP |
+|---|---|---|
+| Process model | Subprocess launched per client | Independent, long-lived service |
+| Network exposure | None | Reachable over HTTP |
+| Concurrent clients | One per subprocess | Many, concurrently |
+| Auth | Implicit (machine access) | Explicit (tokens, OAuth, mTLS) |
+| Typical use | Local developer tooling | Shared organizational infrastructure |
+
 ## Latency and the network in between
 
 One more practical difference worth naming: a STDIO call never leaves the local machine, so its latency is essentially the server's own processing time. A StreamableHTTP call crosses a real network, which means ordinary network variables — round-trip time, transient packet loss, an overloaded load balancer — become part of every single tool call's latency profile in a way a local subprocess never experiences. This isn't a reason to avoid remote transport where it's genuinely needed, but it is a real design input: a remote tool that's called frequently, in a tight loop, pays a latency cost per call that the same tool running locally over STDIO simply wouldn't, which is worth weighing when a capability could plausibly be deployed either way.
 
 **Why it matters for the exam:** Expect scenario questions describing a server's intended usage (a solo developer's local tool versus an organization-wide shared service) and asking you to pick the matching transport, plus questions naming a specific production concern — auth, scaling, concurrent state, audit logging — and asking you to identify it as a StreamableHTTP-specific consideration that a STDIO deployment wouldn't face at all.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: STDIO Transport: Local Servers and Process Communication](08-stdio-transport-local-servers-and-process-communication) | [Next: Letting Servers Make LLM Calls Through the Client &rarr;](10-letting-servers-make-llm-calls-through-the-client) |
+|:---|---:|
+
+<!-- prevnext:end -->

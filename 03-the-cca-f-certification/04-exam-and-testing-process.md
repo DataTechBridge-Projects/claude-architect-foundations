@@ -20,6 +20,12 @@ The CCA-F is a knowledge and judgment certification, not a hands-on lab practica
 - **"Which of the following is NOT" questions** invert the usual logic: three or four answer choices will be true, correct statements, and your job is to find the one that's false or inapplicable. These are deliberately designed to catch test-takers who pattern-match on "this sounds right" instead of reading carefully.
 - **Scenario-based judgment questions** describe a realistic situation — a support automation system, a code review pipeline, a document processing workflow — and ask you to choose the architecturally soundest response among several plausible-looking options. These are the questions the ATWPC mental model from the previous lecture is built for, and they're where most of the exam's real difficulty lives, because more than one answer choice will usually be defensible and you're being asked to identify the *best* one, not merely a workable one.
 
+| Question Type | What It Tests | Best Approach |
+|---|---|---|
+| Straight recall | Definitions and facts | Answer quickly within your time budget; don't overthink it |
+| "Which is NOT" | Careful reading over pattern-matching | Read every option; watch for negation words |
+| Scenario-based judgment | Architectural judgment across domains | Apply the ATWPC diagnostic before evaluating options |
+
 Expect the exam to draw roughly proportionally from the five domains covered in this module plus the fundamentals and cross-cutting material covered elsewhere in the course, with scenario questions weighted toward the domains that carry the most architectural nuance — Tool design, Workflow design, and Context management tend to produce the richest scenario questions, since they involve the most trade-offs. This course's own practice materials — the Quiz Prep sets at the end of each domain module and the Full Sample Exam near the end of the course — are built to mirror this mix of question styles so you walk in having already practiced the format, not just the content.
 
 ## Registration and Logistics
@@ -39,6 +45,19 @@ Have your government-issued ID ready, arrive rested, and treat the hour or two b
 A multiple-choice exam with a mix of quick recall and slower scenario judgment questions rewards a specific pacing discipline: don't spend recall-question time on scenario questions, and don't spend scenario-question time on recall questions.
 
 A practical approach is a two-pass strategy. On your first pass through the exam, answer every question you can resolve confidently within a short, fixed budget — say, sixty to ninety seconds for a straight recall question. If a question isn't resolving quickly, don't dig in immediately; flag it and move on. This ensures you bank every easy point before risking getting stuck on a single hard question and running out of time for the rest of the exam. On your second pass, return to flagged questions with whatever time remains, now able to spend it more generously on the genuinely hard judgment calls without the anxiety of an unknown number of easy questions still waiting.
+
+```mermaid
+flowchart TD
+    Start["Exam begins"] --> P1["Pass 1: answer questions you can resolve quickly"]
+    P1 --> Confident{"Confident within time budget?"}
+    Confident -->|Yes| Answer["Answer and move on"]
+    Confident -->|No| Flag["Flag and move on"]
+    Answer --> More{"More questions?"}
+    Flag --> More
+    More -->|Yes| P1
+    More -->|No| P2["Pass 2: return to flagged questions"]
+    P2 --> End["Submit exam"]
+```
 
 Keep a rough mental (or, if permitted, written) checkpoint of pace against the clock — for example, "I should be roughly a third of the way through the question count by a third of the way through the time." If you notice you're falling significantly behind that pace during the first pass, that's a signal to tighten your per-question budget, not to panic; most exams are designed so that a well-prepared candidate has enough time if they pace deliberately rather than dwelling.
 
@@ -65,3 +84,12 @@ If you don't pass on your first attempt, don't treat that as a verdict on your c
 It's worth naming directly: a proctored, timed, monitored exam is a genuinely different experience from working through practice questions at your own pace at home, even if the content is identical. Some amount of elevated nervousness on exam day is normal and does not mean you're unprepared. What matters is not letting that nervousness change your strategy mid-exam — sticking to the two-pass pacing plan, trusting process of elimination even when a question feels harder than it should, and resisting the urge to second-guess an answer you reasoned through carefully just because the environment feels high-stakes. Familiarity is the best antidote available to you: the more your practice sessions with this course's Quiz Prep sets and Full Sample Exam actually simulate exam conditions — timed, without pausing to look things up, in one sitting — the less unfamiliar the real thing will feel when you get there.
 
 **Why it matters for the exam:** Knowing the material and being able to retrieve it correctly under a ticking clock are different skills, and the second one is trainable independently of the first. The pacing and elimination strategies above are exactly what this course's Quiz Prep sets and the Full Sample Exam are designed to help you practice — treat those practice sessions as dress rehearsals for exam-day behavior, not just knowledge checks.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The Five-Layer Mnemonic](03-the-five-layer-mnemonic) | [Next: CCA-F Official Webpage &rarr;](05-cca-f-official-webpage) |
+|:---|---:|
+
+<!-- prevnext:end -->

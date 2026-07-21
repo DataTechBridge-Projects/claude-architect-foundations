@@ -17,3 +17,12 @@ Before you register, schedule, or pay for the CCA-F, go directly to Anthropic's 
 As of this course's most recent update, CCA-F access runs primarily through Anthropic's Partner Network program, so exact registration steps, pricing, and prerequisites are best confirmed there rather than assumed from this course. That's the single source of truth for the current exam blueprint, live registration details, proctoring requirements, and retake or cancellation policy — all of which can change over time in ways a static study guide can't track. Bookmark these links and check them again close to your exam date.
 
 Use this course to build the architectural judgment the exam tests; use Anthropic's own pages to confirm the mechanics of actually registering for and sitting it. If anything in this repo — a domain weighting, a piece of exam-day logistics, a claim about what a lecture in the official course covers — ever conflicts with what you find on Anthropic's own pages, treat Anthropic's page as correct and this repo as the thing that needs updating, not the other way around.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Exam and Testing Process](04-exam-and-testing-process) | [Next: The 10 Takeaways &rarr;](06-the-10-takeaways) |
+|:---|---:|
+
+<!-- prevnext:end -->

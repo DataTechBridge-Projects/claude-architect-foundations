@@ -170,3 +170,12 @@ D. Built-in tools cannot be used alongside any custom tools in the same session.
 **19. B** — A root declares the operating boundary (typically a filesystem scope) a server should respect, extending least-privilege scoping to the filesystem-boundary case specifically.
 
 **20. B** — The decision should turn on a specific, articulable gap the built-in tool doesn't cover; absent that, a custom equivalent just duplicates maintenance burden for no real gain.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Key Distinctions - MCP Server Building](15-key-distinctions-mcp-server-building) | [Next: Claude Code Deep Dive &rarr;](../17-claude-code-deep-dive/) |
+|:---|---:|
+
+<!-- prevnext:end -->

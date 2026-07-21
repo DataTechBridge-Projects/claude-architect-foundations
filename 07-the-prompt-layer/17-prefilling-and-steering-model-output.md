@@ -18,6 +18,15 @@ In Claude's API, a conversation is built from a sequence of turns, and the assis
 
 This is a subtly different mechanism from an instruction. An instruction — "respond only in valid JSON" — asks the model to *choose* to produce JSON, and a sufficiently ambiguous, long, or adversarial context can still lead it to preface the JSON with an apology, a caveat, or explanatory prose before or after the structured content, because the instruction is a request the model is free to interpret loosely under pressure. Prefilling the assistant's turn with a literal `{` doesn't ask the model to produce JSON — it makes the model's very next tokens a continuation of an object that has already, unambiguously, begun. There is no longer a decision point at which the model might choose to preface the response with something else, because that decision point is exactly the part of the turn you've already supplied.
 
+```mermaid
+flowchart LR
+    A["Turn starts, instruction says respond in JSON"] --> B{"Model chooses opening tokens"}
+    B --> C["Usually valid JSON"]
+    B --> D["Occasionally: preamble or wrapper text"]
+    E["Turn starts, prefilled with an opening brace"] --> F["No decision point"]
+    F --> G["Generation continues as valid JSON"]
+```
+
 ## Forcing Structured Output
 
 The clearest and most common use of prefilling is forcing valid structured output. A prompt asking for JSON, even a carefully written one, can still occasionally produce a response wrapped in explanatory text ("Sure, here's the JSON you requested:") or markdown code fences the parser downstream wasn't expecting. Prefilling the assistant turn with an opening `{` (or `[` for an array) eliminates this failure mode structurally rather than relying on the instruction being followed precisely — the model's response necessarily begins with valid object syntax because that's literally where the turn starts, and the wrapping text that instructions alone sometimes fail to suppress has nowhere left to go.
@@ -45,3 +54,12 @@ Suppose a classification system extracts a sentiment label and a short justifica
 Prefilling the assistant turn with `{"sentiment": "` closes off nearly all of that failure surface at once. The model can no longer open with a caveat, because there is no more "opening" left to write — its first generated tokens are already partway through a string value inside an object that has already begun. It can still, in principle, produce a `sentiment` value that's wrong or a `reason` that misses the point, but the *shape* of the response — valid JSON, no wrapping prose, no unexpected preamble — is no longer something the model can drift away from, because that shape was fixed by the prefill rather than requested of the model's judgment. This is a good illustration of the distinction worth carrying forward into the rest of this module: prefilling doesn't make the model's reasoning better, but it does eliminate an entire category of formatting failure that reasoning quality alone was never going to fix.
 
 **Why it matters for the exam:** Expect questions asking you to identify prefilling as the correct fix for a scenario where a model reliably produces the right content but wraps it in unwanted preamble, apologies, or inconsistent formatting at the start of its response — a failure mode instructions alone haven't fully eliminated. Also expect a conceptual question distinguishing prefilling (constraining what the model's turn starts with, before generation) from post-hoc filtering or reformatting (correcting output after the fact), and asking which approach is more reliable and why.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Extended Thinking: When and How to Use It](16-extended-thinking-when-and-how-to-use-it) | [Next: Temperature, top_p, and top_k Explained &rarr;](18-temperature-top-p-and-top-k-explained) |
+|:---|---:|
+
+<!-- prevnext:end -->

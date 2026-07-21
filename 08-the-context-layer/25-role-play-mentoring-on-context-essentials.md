@@ -41,3 +41,12 @@ nav_order: 25
 **Mentee:** So the actual fix is two layers down from where I was looking — it's the tool's provenance, not the agent's decision rule.
 
 **Mentor:** That's usually where these bugs live. By the time you're looking at the wrong decision, the context that produced it already lied to you a step earlier.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Quiz Prep: The Context Layer (20 Questions)](24-quiz-prep-the-context-layer-20-questions) | [Next: Additional Topics &rarr;](../09-additional-topics/) |
+|:---|---:|
+
+<!-- prevnext:end -->

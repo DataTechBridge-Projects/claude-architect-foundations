@@ -19,3 +19,12 @@ The simulator then runs your tool set against a batch of realistic requests and 
 The scenario is deliberately built to force every principle from this module into the same design pass. The two systems with existing MCP servers push you to reason about the MCP governance material directly — do you trust the community-maintained server as-is, or does its `update_customer_record` tool need a scoped-down credential before it's safe to connect, given that a support agent should never need the broader write access the vendor's server happens to expose? The third system, with no server available, forces you to write tool definitions and infrastructure from scratch, which is exactly where the naming, description, and schema discipline from earlier in this module gets tested without a vendor's defaults to lean on. And the refund capability specifically is where the structure-versus-prose call matters: an `amount` and `reason` that should be typed and enumerated, alongside a `customer_note` that legitimately needs to stay free text, mirrors the split covered earlier in the module almost exactly.
 
 A typical run surfaces failures in recognizable clusters. Teams that split "look up order" into four near-identical tools (`get_order_by_id`, `get_order_by_email`, `get_order_by_phone`, `get_order_by_date`) usually see the simulator's model calling the wrong variant when a request supplies two identifiers at once, or hesitating across all four when only a partial description is available — a direct illustration of the granularity tradeoff. Teams that consolidate too aggressively into one `manage_order` tool with a dozen optional parameters usually see technically-valid but semantically-wrong calls, where the model fills in a parameter combination that passes schema validation but doesn't do what the request actually asked for. Neither failure is a "the model is dumb" problem — both trace back to a definition choice you made, which is the point: the lab is a low-stakes place to make those mistakes and see their consequences immediately, rather than discovering them the first time a real deployment produces a bad refund or a missed shipping update.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Different Workflows, Similar Principles](11-different-workflows-similar-principles) | [Next: Module Outro &rarr;](13-module-outro) |
+|:---|---:|
+
+<!-- prevnext:end -->

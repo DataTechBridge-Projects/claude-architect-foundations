@@ -12,6 +12,15 @@ duration: "13:12"
 
 Study the five layers in isolation for long enough and it's easy to start treating them as five unrelated checklists — Agentic has its rules, Tool has its rules, and so on down the stack. But the strongest architects, and the exam's hardest scenario questions, operate at a different altitude: recognizing that a handful of design patterns recur across multiple layers at once, expressed each time in that layer's own vocabulary but solving the same underlying problem. Spotting one of these patterns is often faster than reasoning a scenario through from scratch, because once you recognize which pattern is in play, you already know its shape — what it protects against, what it costs, and where it tends to get applied badly. This lecture names six of them.
 
+| Pattern | Layers It Spans | Core Idea |
+|---|---|---|
+| 1. The Do-Nothing Option | Context, Agentic, Tool, Workflow | Make not acting, or acting minimally, a legitimate first-class option |
+| 2. Structure Over Prose | Tool, Prompt | Default to structured, validatable output; reserve free text for genuine judgment |
+| 3. Checkpoints and Gates at the Right Altitude | Agentic, Workflow, Context | Match the kind of pause to what it actually needs to catch |
+| 4. Granularity Matched to Stakes | Agentic, Tool, Context, Workflow | Match grain size to cost-of-error and predictability, never fix it |
+| 5. Provenance and Trust Travel With Information | Context, Tool, Prompt | Trust is a property of content plus its origin, not content alone |
+| 6. Justify Complexity Against a Named Unpredictability | Agentic, Workflow, Prompt | Withhold added machinery until you can name what it's there to handle |
+
 ## Pattern 1: The Do-Nothing Option
 
 Every layer eventually confronts the same question: what happens when the system doesn't have enough information, or enough confidence, to act? The tempting design is to force a decision anyway, because "do something" always feels more productive than "do nothing." The recurring correct answer, across layers, is to make *not acting* — or acting minimally, by asking — a legitimate, first-class option rather than an edge case the design forgot to handle.
@@ -63,3 +72,12 @@ This pattern is the connective tissue behind a huge fraction of exam distractors
 ## Why It Matters for the Exam
 
 These six patterns are worth memorizing by name, not just by content, because recognizing "this is a do-nothing-option question" or "this is a granularity question" is frequently faster than working a scenario from first principles under time pressure. When you're stuck between two plausible answers on a scenario question, ask whether one of these six patterns is quietly the axis the question is actually built around — more often than not, it is.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Intro](01-module-intro) | [Next: Common Antipatterns &rarr;](03-common-antipatterns) |
+|:---|---:|
+
+<!-- prevnext:end -->

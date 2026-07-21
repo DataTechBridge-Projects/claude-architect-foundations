@@ -21,3 +21,12 @@ Third, you'll look at workflow decomposition — how a large, ambiguous goal get
 Fourth, you'll cover session management: how conversation state, context, and history persist and evolve across a multi-turn interaction, when to summarize or reset that state, and how a session's lifecycle differs from a single loop iteration or a single subagent's lifespan.
 
 By the end of this module, you should be able to look at a described system and identify which part of it is "the agentic layer" — the loop, the delegation structure, the decomposition, or the session boundary — and reason about how a change to one of those pieces ripples into the others. That skill, more than any single definition, is what the exam is testing, and it's the skill the rest of this course assumes you already have.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The Agentic Layer](./) | [Next: The Orchestration Loop &rarr;](02-the-orchestration-loop) |
+|:---|---:|
+
+<!-- prevnext:end -->

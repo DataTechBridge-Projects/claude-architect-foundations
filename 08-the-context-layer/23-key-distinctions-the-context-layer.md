@@ -33,3 +33,12 @@ This module covers a lot of ground, but most of its exam-relevant judgment calls
 **Recency vs. authority when sources conflict.** "More recent" is a good tiebreaker for volatile facts and a bad one for stable facts restated imprecisely. Neither recency nor confident phrasing is a universal rule — real resolution weighs source, currency, and verifiability together, and an unresolvable conflict should be surfaced, not silently picked.
 
 **Why it matters for the exam:** When a scenario question feels ambiguous about what it's testing, check it against this list first — most Context Layer questions are one of these distinctions wearing a business scenario as a costume.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Outro](22-module-outro) | [Next: Quiz Prep: The Context Layer (20 Questions) &rarr;](24-quiz-prep-the-context-layer-20-questions) |
+|:---|---:|
+
+<!-- prevnext:end -->

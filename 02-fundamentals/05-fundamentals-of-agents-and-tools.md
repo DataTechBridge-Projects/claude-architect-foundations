@@ -43,6 +43,16 @@ Putting agents and tools together gives you the core orchestration loop that eve
 5. **Append the tool result to context.** Add the tool call and its result as new messages in the conversation.
 6. **Repeat from step 2.** Call the model again with the updated context, and let it decide the next step given what it now knows.
 
+```mermaid
+flowchart TD
+    A[Assemble context] --> B[Call the model]
+    B --> C{Tool-use request?}
+    C -->|No| G[Return final answer]
+    C -->|Yes| D[Execute requested tool]
+    D --> E[Append tool result to context]
+    E --> B
+```
+
 This loop continues until the model stops requesting tools and produces a final answer, or until some external stopping condition is hit — a maximum number of iterations, a timeout, a budget limit, or a human-in-the-loop approval gate that pauses execution. That last point matters architecturally: because each iteration of the loop is a real action with real side effects (writing a file, executing a command, calling a paid API, sending an email), well-designed agentic systems don't let this loop run unbounded and unsupervised by default. Permission systems (like the approval prompts you've likely seen in Claude Code itself), scoped tool access (only exposing the specific tools a given task actually needs), and iteration limits are all standard architectural guardrails wrapped around this loop, not optional extras.
 
 It's also worth being precise about where "reasoning" happens in this loop. There is no separate planning module deciding the sequence of tool calls in advance. Each decision — which tool to call, with what arguments, or whether to stop and answer — is made fresh at each step 2, by the model generating tokens conditioned on everything accumulated in context so far. This is why context quality directly drives agent quality: an agent with a cluttered, poorly organized, or token-starved context will make worse decisions at each step of this loop than one with clean, relevant, well-structured context — the same probabilistic-generation mechanics from the LLM fundamentals lecture apply at every single iteration.
@@ -54,3 +64,12 @@ It's useful to place "agent" on a spectrum rather than treat it as binary. A sin
 ## Why it matters for the exam
 
 Expect the exam to test whether you can correctly identify, given a system description, whether something is "an agent" in this precise sense (an LLM in a loop, deciding its own next actions via tool calls) versus a fixed pipeline that merely calls an LLM as one step among predetermined ones. You should also be able to walk through the mechanics of a tool-use exchange precisely: the model never executes anything itself: it emits a structured request, your system executes it and returns a result, and the model incorporates that result into its next generation. Getting this mechanism exactly right is foundational to reasoning correctly about every later topic involving tool design, orchestration patterns, and agent autonomy.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Claude Code vs... The API?](04-claude-code-vs-the-api) | [Next: Intro to the Hands-On Labs &rarr;](06-intro-to-the-hands-on-labs) |
+|:---|---:|
+
+<!-- prevnext:end -->

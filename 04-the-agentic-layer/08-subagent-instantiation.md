@@ -12,6 +12,18 @@ duration: "15:36"
 
 The previous lecture established when splitting work across agents is justified. This one gets into the mechanics: what actually happens when an orchestrator spins up a subagent, what it hands that subagent, what it deliberately withholds, and how the subagent's work makes its way back into the parent's context. These are the details the exam expects you to get precisely right, because "instantiate a subagent" is not one operation — it's a bundle of specific design decisions.
 
+```mermaid
+sequenceDiagram
+    participant O as Orchestrator
+    participant S as Subagent
+
+    O->>S: dispatch "task description + curated context + tools + reporting format"
+    activate S
+    Note over S: subagent runs its own orchestration loop, invisible to the orchestrator
+    S-->>O: final report only
+    deactivate S
+```
+
 ## Fresh context versus shared context
 
 The single most consequential decision in subagent instantiation is whether the subagent starts from a **fresh context** or a **shared context** with its parent.
@@ -46,6 +58,13 @@ Just as important as what to hand over is what to deliberately leave out, and th
 
 **Irrelevant sibling subagent activity.** In a parallel-dispatch scenario, a subagent generally shouldn't see what its sibling subagents are doing in real time — that would reintroduce a shared-context coupling the parallel pattern was specifically designed to avoid, and it invites subagents to second-guess or duplicate each other's work instead of executing their own scoped task independently.
 
+| Hand over | Withhold |
+|---|---|
+| A specific, scoped task description | The orchestrator's full history |
+| Deliberately curated, load-bearing context | Tools irrelevant to the subtask |
+| Only the tools needed for this task | Authority beyond the task's scope |
+| An explicit reporting format | Irrelevant sibling subagent activity |
+
 ## How subagent results fold back into the parent's context
 
 Once a subagent's own loop terminates — by its own judgment, or by hitting a limit imposed on it — its final report is what crosses back into the orchestrator. Mechanically, this is exactly the tool-result step of the orchestration loop: from the orchestrator's perspective, "the subagent finished" looks identical to any other tool execution completing, and the subagent's report is appended to the orchestrator's context as a tool result, exactly like a file read or an API call's output would be.
@@ -61,3 +80,12 @@ Consider an orchestrator handling "prepare a competitive analysis of three named
 ## Why it matters for the exam
 
 Expect the exam to describe a subagent dispatch — sometimes a well-designed one, sometimes a flawed one — and ask you to identify what's missing (an underspecified task description, an overbroad tool grant, no defined reporting format) or what's correctly designed. The fresh-context-by-default assumption, the four components of a good briefing, and the principle that a subagent's report re-enters the parent exactly as a tool result would, are the specific, testable mechanics to have solid before moving on to workflow decomposition and safeguarding, both of which build directly on how subagents are instantiated and scoped.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Think of Scaling](07-think-of-scaling) | [Next: Agents as Wrappers &rarr;](09-agents-as-wrappers) |
+|:---|---:|
+
+<!-- prevnext:end -->

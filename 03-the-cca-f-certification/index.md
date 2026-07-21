@@ -22,3 +22,12 @@ Introduces the certification itself: the five official domains, the five-layer m
 | 5 | [CCA-F Official Webpage](05-cca-f-official-webpage) | — |
 | 6 | [The 10 Takeaways](06-the-10-takeaways) | 22:35 |
 | 7 | [Module Outro](07-module-outro) | 1:48 |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Outro](../02-fundamentals/09-module-outro) | [Next: Module Intro &rarr;](01-module-intro) |
+|:---|---:|
+
+<!-- prevnext:end -->

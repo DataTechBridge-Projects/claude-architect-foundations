@@ -46,6 +46,14 @@ The `Task` tool (spawning a subagent) is the clearest example in Claude Code's o
 
 Framed through this module's vocabulary rather than the Agentic Layer's, `Task` is also a good example of a tool whose description carries unusually high stakes for correct selection, because the consequences of over- or under-using it are asymmetric and expensive: calling it when a task doesn't warrant a fresh, isolated context wastes the overhead of a whole separate agent loop for something that could have been done inline; not calling it when a task genuinely would benefit from context isolation lets exploratory noise pollute the orchestrator's own context instead. Its description in a well-designed harness has to communicate that judgment call clearly, since — unlike `Grep` versus `Glob`, which differ in an easily stated dimension (content versus filename) — `Task` versus "just do it inline" is a genuinely harder distinction to convey precisely in a short description, and it's one of the more sophisticated pieces of tool-selection guidance in the whole default tool set.
 
+| Tool(s) | Granularity approach | Key principle illustrated |
+|---|---|---|
+| `Read`, `Write`, `Edit` | Split three ways by risk and argument shape | Narrow tools for operations with different risk profiles |
+| `Bash` | One broad tool | Safety lives in surrounding infrastructure, not the schema |
+| `Grep`, `Glob` | Split two ways by search dimension | Narrow, well-differentiated tools beat one overloaded one |
+| `WebFetch` | One tool, tightly scoped output | Content from the open internet is untrusted data, not instruction |
+| `Task` | One tool, high-stakes description | Delegation is just another structured tool call |
+
 ## Reading the whole set as a system
 
 Looking at the tool set as a whole rather than tool by tool, a few patterns recur that map directly onto this module's principles:
@@ -59,3 +67,12 @@ Looking at the tool set as a whole rather than tool by tool, a few patterns recu
 None of this is coincidental — it's the same discipline this module has been teaching, already applied, in a tool set you can inspect directly by using Claude Code itself. That's a genuinely useful study habit going into the exam: when a question describes an unfamiliar tool-design scenario, ask which of these already-familiar patterns it most resembles, and reason from there.
 
 **Why it matters for the exam:** Expect questions that describe one of Claude Code's built-in tools, or a hypothetical tool clearly modeled on one, and ask you to identify which design principle from this module it illustrates — granularity matching, infrastructure-gated safety, translated error responses, or trust boundaries around external content. Being able to name the concrete, familiar example (not just the abstract principle) is often the fastest way to reason through an unfamiliar scenario question under time pressure.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The Infrastructure for Tool Usage](09-the-infrastructure-for-tool-usage) | [Next: Different Workflows, Similar Principles &rarr;](11-different-workflows-similar-principles) |
+|:---|---:|
+
+<!-- prevnext:end -->

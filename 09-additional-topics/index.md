@@ -23,3 +23,12 @@ A synthesis module that ties the five layers back together before the practice e
 | 6 | [Module Outro](06-module-outro) | 1:21 |
 | 7 | [Useful Metaphors and Analogies](07-useful-metaphors-and-analogies) | 1:20 |
 | 8 | [Role Play: Farewell Mentoring on AI Solution Architecture](08-role-play-farewell-mentoring-on-ai-solution-architecture) | — |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Role Play: Mentoring on Context Essentials](../08-the-context-layer/25-role-play-mentoring-on-context-essentials) | [Next: Module Intro &rarr;](01-module-intro) |
+|:---|---:|
+
+<!-- prevnext:end -->

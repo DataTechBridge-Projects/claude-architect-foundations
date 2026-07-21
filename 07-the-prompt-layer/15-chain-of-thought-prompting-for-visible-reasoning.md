@@ -16,6 +16,13 @@ Ask a model to answer a multi-step word problem directly, and it will sometimes 
 
 At its core, chain-of-thought (often abbreviated CoT) prompting asks the model to externalize intermediate reasoning — the sub-calculations, the intermediate conclusions, the "if this, then that" logic — as part of its response, rather than skipping straight to a final answer. A prompt without chain-of-thought might read "What is the total shipping cost for this order?" and receive a single number in response. The same task with chain-of-thought framing — "Work through this step by step: first identify the weight tier, then the destination zone, then apply the tier's per-pound rate, then add any surcharges, and only then state the final total" — produces a response that shows each of those steps explicitly before arriving at the number.
 
+```mermaid
+flowchart LR
+    P["Prompt"] --> A["Direct: answer generated first"]
+    P --> B["CoT: reasoning steps generated first"]
+    B --> C["Final answer conditioned on visible reasoning"]
+```
+
 This matters architecturally because language models generate output one token at a time, left to right, with no ability to revise a token once it's been produced and no separate "scratch space" hidden from the transcript unless the prompt explicitly creates one. If a model's very first tokens commit to a final answer, every later token is generated *conditioned on* that already-stated answer — the model has no mechanism to quietly reconsider and no room to walk back an early misstep once it's part of the visible context. Chain-of-thought prompting works by giving the model somewhere to put the reasoning *before* the commitment happens, so that each intermediate step is available as context for the steps that follow it, and the final answer is generated only after the supporting logic already exists in the transcript to condition on.
 
 ## Why It Improves Accuracy on Hard Tasks
@@ -45,3 +52,12 @@ The most important cost to understand conceptually, because it shows up repeated
 It's worth being precise about a distinction the next lecture develops in full: chain-of-thought as described here is a **prompting technique** — it works by asking the model, through ordinary prompt instructions, to produce visible reasoning as part of its normal response, using the same generation process and the same token budget as everything else in that response. It requires no special API parameter and works with any model that can follow instructions reasonably well. Claude's **extended thinking** is a distinct, built-in capability — a mode the API supports directly, with its own dedicated reasoning budget and its own handling of the reasoning content, rather than something achieved purely by phrasing a request differently. The two are related in spirit — both put visible reasoning between the prompt and the final answer — but they are different mechanisms with different cost models, different controls, and different appropriate use cases, which is exactly what the next lecture is about.
 
 **Why it matters for the exam:** Expect questions asking you to identify when a task's structure (multi-step, judgment-heavy, dependent on several intermediate facts) justifies chain-of-thought prompting versus when it adds cost without meaningfully improving accuracy on a task that's already simple enough to answer directly. Also expect at least one question testing the faithfulness caveat directly — that a visible reasoning trace is not a guaranteed, literal account of the model's actual decision process, and shouldn't be treated as sufficient verification on its own for a high-stakes output.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Lab: Prompt Reliability Simulator](14-lab-prompt-reliability-simulator) | [Next: Extended Thinking: When and How to Use It &rarr;](16-extended-thinking-when-and-how-to-use-it) |
+|:---|---:|
+
+<!-- prevnext:end -->

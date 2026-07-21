@@ -17,3 +17,12 @@ Naming it matters because, without a name, this work tends to happen implicitly 
 A concrete example makes this less abstract. A support-escalation agent's CDG policy might state: account-lookup tool results are admitted as verified and timestamped; the customer's own claims about their account are admitted but tagged stated-unverified; `CLAUDE.md` policy content is reviewed quarterly and any entry untouched for two review cycles gets flagged for pruning; and nothing from a subagent's intermediate reasoning crosses back to the orchestrator, only its final structured result does. Write that down once, as an actual policy, and every engineer touching the system inherits the same admission and trust rules instead of reinventing them ad hoc per feature.
 
 This is also why CDG deserves to be versioned and reviewed the way any other governance artifact would be — a data retention policy, an access-control list — rather than living as tribal knowledge in one architect's head. As the rest of this module will show, nearly every failure mode covered here (error propagation, ambiguity mishandled, provenance silently dropped in a summary) is really a CDG policy that was either never written down or never enforced.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Managing the Context](02-managing-the-context) | [Next: Dealing with Escalation and Ambiguity &rarr;](04-dealing-with-escalation-and-ambiguity) |
+|:---|---:|
+
+<!-- prevnext:end -->

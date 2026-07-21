@@ -28,6 +28,17 @@ The idiomatic way to register a tool in Python's high-level MCP SDK is a decorat
 
 This matters architecturally because it collapses a failure mode that plagues hand-maintained tool definitions elsewhere: a schema and an implementation drifting out of sync as one gets updated without the other. When the schema is derived from the function signature itself, drift becomes a type error or a docstring omission rather than a silent mismatch a model discovers at call time.
 
+```mermaid
+flowchart TD
+    A["Function name & parameters"] --> D["Decorator: @mcp.tool"]
+    B["Type annotations"] --> D
+    C["Docstring"] --> D
+    D --> E["Tool definition: name, description, schema"]
+    E --> F["Server capability listing"]
+    F --> G["Client discovery"]
+    G --> H["Surfaced to the model as a callable tool"]
+```
+
 ## The code: a minimal server end to end
 
 The following is a plausible, minimal MCP server exposing a single tool, written in the idiomatic decorator style:
@@ -102,3 +113,12 @@ Because a server built this way is just an ordinary Python process underneath th
 One last practical detail worth having in mind: a Python MCP server is an ordinary Python package with ordinary dependencies, which means whatever runs it — a client launching it over STDIO, or a deployment process starting it as a long-lived StreamableHTTP service — needs that package's dependencies actually installed and resolvable in whatever environment it executes in. A server that imports a database driver or an HTTP client library needs those installed wherever `mcp.run()` actually executes, exactly like any other Python program; MCP itself doesn't do anything to abstract dependency management away. This is a mundane point, but it's a common practical stumbling block: a server that runs perfectly from a developer's own virtual environment can fail immediately when a client launches it with a different interpreter or a clean environment that never installed those same dependencies, which is a packaging problem, not a protocol problem, and worth debugging as one.
 
 **Why it matters for the exam:** Expect questions that hand you a short code snippet like the one above and ask what a specific piece is doing — what becomes the tool's name, what becomes its description, what the decorator itself is responsible for, or what a validation error inside a tool function should do. The underlying test is whether you can connect the SDK's ergonomics (decorators, type hints, docstrings) back to the protocol-level concepts (tool listing, input schema, structured error results) they're standing in for, not whether you've memorized the SDK's full API surface.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Tools, Resources & Prompts: The Three MCP Primitives](02-tools-resources-and-prompts-the-three-mcp-primitives) | [Next: Defining and Exposing Tools via MCP &rarr;](04-defining-and-exposing-tools-via-mcp) |
+|:---|---:|
+
+<!-- prevnext:end -->

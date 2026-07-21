@@ -17,3 +17,12 @@ Your job is to decide, for each task, how it should be handled: run it inline wi
 The simulator scores your allocation against three axes: total cost, total wall-clock time to complete the batch, and a risk score that penalizes high-blast-radius tasks left ungated or overscoped. There is no single correct allocation — the exercise is designed so that optimizing purely for speed (maximal parallel dispatch) or purely for safety (a checkpoint on everything) both produce a worse overall score than an allocation that matches each task's actual uncertainty, dependency structure, and stakes, the same judgment call this module has been asking you to make throughout.
 
 Run the simulation a few times with different priority weightings (favor cost, favor speed, favor safety) and notice how your allocation strategy — not just the numbers — has to change. That shift in reasoning is the actual skill being tested, both here and on the exam.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Separation of Timelines](15-separation-of-timelines) | [Next: Orchestration Topologies: Hub-and-Spoke, Pipeline, and Peer-to-Peer &rarr;](17-orchestration-topologies-hub-and-spoke-pipeline-and-peer-to) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -22,6 +22,12 @@ A test dataset built casually — grabbed from whatever inputs happened to be ly
 
 **Adversarial cases** are inputs deliberately constructed to probe for a specific known weakness or attempt to defeat the prompt's intended behavior — text that looks like an embedded instruction, an input crafted to trigger a known incidental correlation from a few-shot example set, or a case specifically designed to test whether a stated constraint actually holds under pressure rather than just under polite conditions. Unlike representative and edge cases, which are drawn from or modeled on real traffic, adversarial cases are deliberately authored to attack the prompt, which makes them the closest analog in this discipline to a security test rather than a functionality test — and they matter most for prompts that process untrusted input, echoing the sanitization concerns raised elsewhere in this module.
 
+| Category | Purpose | Source |
+|---|---|---|
+| Representative cases | Tests reliability on the common case | Real production distribution |
+| Edge cases | Tests rare-but-real breaking points | Rare but genuine inputs |
+| Adversarial cases | Tests resistance to deliberate attack | Deliberately authored to defeat the prompt |
+
 A mature test dataset isn't static, either. As production traffic surfaces a new failure mode — a category of input nobody anticipated when the dataset was first built — that specific case should be added to the dataset going forward, the same way a specific failure pattern earns a targeted few-shot example. This keeps the dataset an accurate, growing reflection of what the system actually has to handle, rather than a fixed snapshot that quietly goes stale as production traffic evolves past it.
 
 ## Model-Based Grading: The Basic Idea
@@ -43,3 +49,12 @@ A third, subtler risk is **overfitting to the grader** — if a prompt is iterat
 Test dataset generation and model-based grading are the machinery that make the evaluation workflow from the previous lecture practical at scale — the dataset supplies the representative, edge, and adversarial inputs to run a prompt against, and the grader turns each resulting output into a scored, comparable data point without requiring a human to read every single one. Neither piece works well in isolation: an excellent dataset graded inconsistently produces noisy, untrustworthy comparisons between prompt versions, and a reliable grader run against a thin or unrepresentative dataset will confidently certify a prompt that still fails badly on the inputs the dataset never included. Treated together, with periodic human spot-checks keeping the grader itself honest, they turn prompt evaluation from an occasional manual exercise into a routine, low-friction part of every prompt revision.
 
 **Why it matters for the exam:** Expect questions asking you to distinguish representative, edge, and adversarial test cases by function, and to recognize when a described test dataset is missing one of those categories. Also expect scenario questions testing model-based grading's specific failure modes — a grader sharing the same blind spot as the model it's grading, or a vague rubric producing inconsistent scores — and questions on why periodic human review of a sample of graded outputs remains necessary even after model-based grading is in place.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Building a Prompt Evaluation Workflow](19-building-a-prompt-evaluation-workflow) | [Next: Module Outro &rarr;](21-module-outro) |
+|:---|---:|
+
+<!-- prevnext:end -->

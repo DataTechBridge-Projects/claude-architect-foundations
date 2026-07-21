@@ -28,8 +28,23 @@ The second, smaller but equally essential context component is the newly propose
 
 The third component, and the one most specific to this use case, is a working reference for how MFN clauses are typically structured and what kinds of qualifiers commonly limit them — comparability-by-investor-size language, time-window limitations (MFN rights are often only exercisable within some window after a term is granted to someone else), category carve-outs (an MFN clause might explicitly exclude co-investment rights or excuse provisions from its scope), and notice-versus-automatic-election mechanics (some MFN clauses require the GP to affirmatively notify eligible investors, others let an investor request comparable terms and require the GP to respond). This isn't a fixed legal answer key — every side letter's actual language governs its own terms — but a general reference framework that helps the agent recognize *which category* of qualifier it's looking at when it reads a specific clause, the same way a glossary of legal doctrine helps a junior associate orient quickly rather than parsing every clause from complete first principles.
 
+| Context component | Content | Scope |
+|---|---|---|
+| Side letter population | Full text (small fund) or summarized digests plus on-demand full text (large fund) | Whole-fund population, always visible in shape |
+| Proposed new term | Precisely framed: what, to whom, in what form | The specific term under review |
+| MFN trigger definitions | Reference framework for common qualifiers — size, time window, carve-outs, notice mechanics | General reference, not a fixed answer key |
+
 ## Keeping population-wide context from becoming an unfocused blob
 
 The risk specific to this use case, given that context now includes a whole population of comparison documents rather than one reference document, is that the working context degrades into an undifferentiated pile of side-letter language that makes it harder, not easier, for the agent to reason clearly. The mitigation is the same discipline this module has used throughout: everything in context stays labeled by source and role — this is Investor A's side letter, this is Investor A's MFN clause specifically, this is the newly proposed term under review, this is the general MFN-qualifier reference — so the agent's comparisons are always between clearly identified, correctly attributed pieces of text, never between an unlabeled blend of "side letter language" that's lost track of which investor's terms are which. That labeling discipline matters more here than in the templated use cases precisely because the agent is actively reasoning across many documents at once, rather than processing one document in isolation.
 
 **Architecture Notes:** This lecture applies the Context layer's "what does the model actually see" question to a genuinely open-ended comparison task: a summarized population-wide index paired with on-demand full-text retrieval is the concrete technique for giving an agent visibility into scope without paying the cost of loading everything. Strict source labeling across many side letters at once is the same data-provenance discipline as the LPA module's investor-isolation requirement, adapted to a task where cross-document comparison is the point rather than the risk to avoid.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: MFN & Side Letter Negotiation - Agentic Architecture](12-mfn-and-side-letter-negotiation-agentic-architecture) | [Next: MFN & Side Letter Negotiation - RAG & Retrieval Architecture &rarr;](14-mfn-and-side-letter-negotiation-rag-and-retrieval-architectu) |
+|:---|---:|
+
+<!-- prevnext:end -->

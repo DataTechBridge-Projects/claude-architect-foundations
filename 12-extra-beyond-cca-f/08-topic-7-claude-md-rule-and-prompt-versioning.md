@@ -15,3 +15,12 @@ A CLAUDE.md file, a system prompt, a tool description, and a rule embedded in a 
 The piece most teams miss even after they start versioning prompts is the *link* between a change and its evaluation. Versioning without evaluation just gives you a detailed history of when things got worse — it doesn't stop them from getting worse in the first place. A prompt or CLAUDE.md change should run against the eval suite described in Topic 3 before it ships, not after a user reports a problem, and the commit message or pull request should state what behavior the change was meant to fix or improve, so that a future regression has a paper trail to follow back.
 
 Without that discipline, prompt and rule edits become organizational folklore: "someone changed something last sprint and now it's worse," with no record of what, who, or why, and no fast way to identify which of a dozen small edits actually caused the regression. Versioning turns that folklore into a diffable, bisectable history — the same benefit code review gives you, applied to the artifacts that increasingly *are* the system's logic in an agentic architecture.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Topic 6: Persistent Memory Systems](07-topic-6-persistent-memory-systems) | [Next: Topic 8: Production Ops &rarr;](09-topic-8-production-ops) |
+|:---|---:|
+
+<!-- prevnext:end -->

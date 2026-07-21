@@ -26,6 +26,14 @@ This is exactly the same problem "Data Provenance and Conflicts" raises about tr
 
 The standard way to check this is against a **validation set** — a held-out collection of inputs where the correct answer is already known independently, set aside specifically for testing rather than used to inform the system's design. Running the system against the validation set and comparing its stated confidence to its actual correctness on each item produces exactly the check that's missing if you rely on stated confidence alone: does the batch of answers the model called "high confidence" actually resolve correctly more often than the batch it called "low confidence"? If yes, the confidence signal has some genuine calibration and can be leaned on, with an understood margin of error, for downstream escalation logic. If the two batches show similar accuracy despite different stated confidence, or worse, if "high confidence" answers are *less* reliable than "low confidence" ones on this particular task and input distribution, that's a critical finding — it means the confidence signal, for this system as deployed, is not a trustworthy escalation trigger and something else needs to gate the escalation decision instead: a re-verification step, a rule-based check, or routing decisions independent of the model's self-report entirely.
 
+```mermaid
+flowchart TD
+    A["Build a validation set with known correct answers"] --> B["Run the system against the validation set"]
+    B --> C["Compare stated confidence to actual correctness"]
+    C -->|"High-confidence answers are more accurate"| D["Confidence signal is calibrated - safe to gate escalation on"]
+    C -->|"No real difference, or reversed"| E["Confidence signal is untrustworthy - gate escalation another way"]
+```
+
 Calibration is not a one-time check performed once and trusted forever, either. A system's inputs, the model version behind it, or the task itself can all drift over time in ways that silently break a calibration that used to hold, which is why revisiting calibration periodically — not just at initial deployment — belongs in the same ongoing-governance category as the Context Data Governance practices covered earlier in this module.
 
 ## Why the validation set has to be built with stratified sampling, not random sampling
@@ -43,3 +51,12 @@ Put together, these two practices answer the two different questions a system ne
 This connects directly to the escalation design covered elsewhere in this course: an escalation threshold ("escalate anything below X confidence") is only as trustworthy as the calibration work behind it, and that calibration work is only as trustworthy as the validation set's coverage of the input space, including — especially — the rare, high-stakes edge cases that a system absolutely cannot afford to mishandle with silent overconfidence.
 
 **Why it matters for the exam:** Expect the exam to test the distinction between a model's stated confidence and verified, calibrated confidence, and to present scenarios where a validation set built by convenience or random sampling missed a rare category that later caused a costly overconfident error. The correct fix in those scenarios is stratified sampling that deliberately includes underrepresented, high-stakes categories — not simply collecting more validation data of the same random kind.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Compaction and Long-Conversation Coherence](19-compaction-and-long-conversation-coherence) | [Next: Claim-to-Source Mappings: Why Every Sentence Needs a Source &rarr;](21-claim-to-source-mappings-why-every-sentence-needs-a-source) |
+|:---|---:|
+
+<!-- prevnext:end -->

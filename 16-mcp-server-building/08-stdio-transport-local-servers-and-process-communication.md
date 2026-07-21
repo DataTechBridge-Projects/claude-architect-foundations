@@ -18,6 +18,17 @@ The minimal server built earlier in this module ended with a single, easy-to-ski
 
 This is why the server code from the earlier lecture needed nothing beyond `mcp.run()` to function: STDIO requires no configuration of an address, a port, or a certificate, because the "connection" is entirely a function of the client having started the process and holding open handles to its stdin and stdout. The server doesn't need to know anything about networking at all — from its own code's perspective, it's just reading input and writing output the way any command-line program does.
 
+```mermaid
+sequenceDiagram
+    participant C as Client process
+    participant S as Server subprocess
+    C->>S: Launch as child process
+    C->>S: Write JSON-RPC request to stdin
+    S->>S: Process the request
+    S->>C: Write JSON-RPC response to stdout
+    C->>S: Terminate process when session ends
+```
+
 ## Why this is the dominant pattern for local developer tooling
 
 STDIO's appeal for local tools comes directly from this simplicity. A client like Claude Code, configuring a connection to a local MCP server, typically just needs a command to run — the path to a Python interpreter and a script, for instance — and it handles everything else: starting the process, wiring up the pipes, and terminating the process when the session ends or the connection is no longer needed. There's no server to keep running independently in the background, no port to manage or conflict with another process using it, and no network exposure to reason about at all, since the server process only ever exists as a child of the specific client session that launched it. This lifecycle tightness is a genuine feature for local tools: a filesystem-access server, a local git-repository server, or a server wrapping some local developer utility all benefit from existing only exactly as long as the session that needs them, with automatic cleanup the moment that session ends.
@@ -43,3 +54,12 @@ Concretely, a client configuring a local STDIO-based MCP server typically needs 
 Because a STDIO server's entire communication channel is stdin and stdout, one practical consequence follows directly: anything the server's own code accidentally prints to stdout outside the protocol's own messages — a stray `print()` statement left in during development, for instance — corrupts the channel, since the client is parsing everything arriving on stdout as protocol messages. This is a common, easy-to-make mistake when adapting existing code into an MCP server, and it's worth knowing as a debugging instinct: if a STDIO-connected server behaves strangely or fails to respond coherently, an errant print statement polluting stdout is one of the first places to look, well before assuming the protocol implementation itself is at fault.
 
 **Why it matters for the exam:** Expect direct questions asking you to identify STDIO as the right transport for a described scenario (a single local developer's session, a tool needing filesystem or local-process access, a lightweight tool with no need for concurrent remote clients) versus scenarios that clearly call for the remote transport covered next — shared organizational infrastructure, multiple concurrent clients, or a server that needs to run somewhere the client itself cannot launch a process.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Implementing MCP Clients](07-implementing-mcp-clients) | [Next: StreamableHTTP Transport: Remote Servers and Production Deployment &rarr;](09-streamablehttp-transport-remote-servers-and-production-deplo) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -17,3 +17,12 @@ That reframing is the spine of this module. You've designed APIs before, or at l
 This module walks that idea through the full lifecycle of a tool call. It starts with **definition and selection** — how naming, descriptions, and schemas determine whether a model picks correctly among several similar-looking tools, and the perennial tension between too many narrow tools and too few overloaded ones. It covers the choice between rigid structure and free-text prose within a schema, and when each is the right call. It spends real time on **error response design**, because a tool that fails is far more common in practice than a tool that always succeeds, and how that failure is communicated determines whether the model recovers gracefully or spirals. From there it moves to **error recovery** at the orchestration level — retries, fallbacks, escalation — and to **MCP**, the Model Context Protocol, as the standard mechanism by which tools get exposed to Claude at all, along with the governance questions a growing tool ecosystem forces on any organization. It closes by grounding all of this in a concrete, already-shipped example: Claude Code's own built-in tools, examined as a worked case study in the principles you'll have just learned.
 
 By the end, you should be able to look at a tool definition — or a tool failure — and diagnose exactly what's wrong with it using this module's vocabulary, the same way the Agentic Layer taught you to diagnose a malfunctioning loop.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The Tool Layer](./) | [Next: Tool Definition & Selection &rarr;](02-tool-definition-and-selection) |
+|:---|---:|
+
+<!-- prevnext:end -->

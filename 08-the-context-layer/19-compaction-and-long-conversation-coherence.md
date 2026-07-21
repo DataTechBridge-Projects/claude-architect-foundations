@@ -40,6 +40,12 @@ Rather than treating compaction as one blunt operation, it helps to separate it 
 
 **Reference** is the strategy most distinct from the other two, and arguably the most underused: instead of compressing content into a shorter restatement, replace it with a pointer to where the full content can still be retrieved if it's needed — a file path, a document ID, a note that "the full account history is available via the lookup tool if needed again." Referencing trades a small amount of upfront convenience (the full detail isn't sitting in context, ready to hand) for something summarization can't offer: the ability to recover the *exact* original content on demand, rather than only ever having access to whatever a past summarization pass judged worth keeping. Referencing is the natural choice for content that's large, rarely needed again, but occasionally needed in full — exactly the profile where summarizing risks the fact-loss and subtlety-loss failure modes above, but discarding entirely is too risky given how consequential the content might be if it does turn out to matter.
 
+| Strategy | What it does | Best for |
+|---|---|---|
+| Filter | Drops content whose absence changes nothing | Clearly irrelevant material, cleanly resolved exchanges |
+| Summarize | Compresses content into a shorter restatement | Voluminous material where the conclusion matters more than the path to it |
+| Reference | Replaces content with a pointer to the full original | Large, rarely-needed material that's occasionally load-bearing |
+
 ## Deciding what's safe to compact vs. what must survive verbatim
 
 The strategic question underneath all three techniques is the same one "Managing the Context" raised about summarization generally: how reversible is being wrong here? Content backing a decision that's easy to revisit or correct later tolerates aggressive compaction — filtering, or a lossy summary — because the cost of having compacted away a detail is just re-deriving it, at worst. Content backing a decision that's expensive, embarrassing, or impossible to reverse — a number a downstream irreversible action depends on, an explicit commitment the user is relying on the system to honor, a policy citation justifying a consequential judgment call — deserves a materially higher bar before it's compacted at all, and when it is compacted, it deserves referencing or careful, fact-preserving summarization rather than a general-purpose pass that optimizes for narrative brevity.
@@ -47,3 +53,12 @@ The strategic question underneath all three techniques is the same one "Managing
 This is precisely where compaction intersects with provenance, covered in "Data Provenance and Conflicts": the same lecture observes that summarization is one of the most common places provenance metadata quietly disappears, and the fix there generalizes directly here — before compacting a load-bearing fact away, ask not just "do I still need this" but "will whoever reads this later still be able to tell how much to trust it, and to recover the original if they need to." A scratchpad, covered in the previous lecture, is one concrete way to protect exactly this kind of load-bearing state from an overly aggressive compaction pass, by giving it a durable home the compaction process is designed to respect rather than casually summarize away.
 
 **Why it matters for the exam:** Expect scenario questions describing a long-running session where a compaction pass caused a downstream error — an agent contradicting an earlier commitment, repeating a ruled-out approach, or losing a precise figure — and ask you to identify the failure as a coherence risk of compaction, then choose the right remedy among filter, summarize, and reference. The exam rewards recognizing that reference (a pointer to full content) is often the safer choice for large, occasionally-needed material, over defaulting to summarization for everything.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The Scratchpad Pattern: A Durable Memory Slot](18-the-scratchpad-pattern-a-durable-memory-slot) | [Next: Calibrating Confidence: Validation Sets and Stratified Sampling &rarr;](20-calibrating-confidence-validation-sets-and-stratified-sampli) |
+|:---|---:|
+
+<!-- prevnext:end -->

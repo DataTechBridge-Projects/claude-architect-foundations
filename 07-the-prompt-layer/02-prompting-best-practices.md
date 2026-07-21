@@ -43,6 +43,13 @@ User content is the right place for what's actually changing: the specific docum
 
 This distinction also matters for security posture, which the later lecture on sanitization revisits: content that comes from untrusted sources (a user's raw input, a scraped web page, a document a customer uploaded) should generally live in clearly demarcated user content, not be woven into system-level instructions, precisely because system-level instructions are the ones the model is trained to trust most.
 
+| Belongs in the system prompt | Belongs in user content |
+|---|---|
+| Persona and role ("You are a code review assistant...") | The specific document, ticket, or diff for this call |
+| Durable constraints that hold across every call | Data that changes call to call |
+| Universal output format requirements | Untrusted external input (raw user text, scraped pages) |
+| Few-shot examples and reference material expensive to restate | Anything that shouldn't be baked into a cached, reused prompt |
+
 ## Avoiding Ambiguity
 
 Ambiguity is the single largest source of unreliable prompt behavior, and it's insidious because it's invisible to the person who wrote the prompt — you know what you meant, so the sentence reads as clear to you even when it supports multiple reasonable readings. A few concrete patterns are worth naming because they show up constantly:
@@ -72,3 +79,12 @@ Notice what changed. Scope is now explicit and bounded — three categories, and
 This is the pattern worth internalizing: every fix in that revision traces back to one of the principles in this lecture, and none of the fixes required exotic techniques — just the discipline of noticing where the original prompt was relying on inference and replacing that reliance with an explicit statement.
 
 **Why it matters for the exam:** Expect scenario questions that present a prompt with a specific failure mode — inconsistent output length, occasional missed edge cases, wrong assumptions about audience — and ask you to identify what structural weakness in the prompt caused it. The pattern to look for is almost always some form of implicit reliance: a success criterion that was assumed rather than stated, a scope boundary left to inference, or system-level behavior improperly mixed into user content. Being able to name the specific structural gap, not just recognize that "the prompt could be better," is what these questions are testing.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Intro](01-module-intro) | [Next: Structure Is Leaking Into Prompts! &rarr;](03-structure-is-leaking-into-prompts) |
+|:---|---:|
+
+<!-- prevnext:end -->

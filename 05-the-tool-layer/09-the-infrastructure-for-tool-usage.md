@@ -16,4 +16,20 @@ Take a `run_shell_command` tool as the clearest case. Its schema might be a sing
 
 The other three pieces of infrastructure guard different failure modes the schema is equally blind to. Credential scoping means the tool's underlying API key or service account carries only the permissions the tool actually needs — a `read_customer_record` tool authenticated with a key that also happens to grant write access is one confused or manipulated call away from an unintended write, regardless of how the tool is named or described. Logging and audit trails matter because a schema only governs what a valid call looks like going in; they're what let a team reconstruct, after the fact, which tool was called, with what arguments, by which session, and why — the same audit story the MCP governance lecture in this module treats as non-negotiable once a tool ecosystem grows past a single, easily-inspected integration. Rate limiting protects against a more mundane but equally real failure: an agent stuck in a retry loop calling the same tool dozens of times in seconds, which a perfectly valid schema does nothing to prevent.
 
+| Infrastructure | Guards against | Example |
+|---|---|---|
+| Credential scoping | A tool acting outside its intended boundary | A read-only key so `read_customer_record` can't perform a write |
+| Logging and audit trails | Being unable to reconstruct what happened after the fact | Which tool ran, with what arguments, in which session, and why |
+| Rate limiting | A runaway loop hammering a downstream system | Capping repeated calls to the same tool within seconds |
+| Sandboxing | An execution tool affecting more than it should | Running `run_shell_command` inside a restricted container |
+
 The unifying point is that tool design and tool infrastructure are separate disciplines that happen to attach to the same object. A well-designed tool with no supporting infrastructure is still a liability; well-built infrastructure wrapped around a badly designed tool still produces selection errors. Production-grade tool usage requires both, and it's a mistake — one the exam will probe for — to treat schema quality as a proxy for operational safety.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: MCP Architecture & Governance](08-mcp-architecture-and-governance) | [Next: Common Claude Code Tools &rarr;](10-common-claude-code-tools) |
+|:---|---:|
+
+<!-- prevnext:end -->

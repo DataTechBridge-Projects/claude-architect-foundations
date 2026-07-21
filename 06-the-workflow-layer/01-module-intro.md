@@ -17,3 +17,12 @@ That distinction matters more than it sounds like it should. Agentic architectur
 This module covers four things that all live at that configuration-and-process layer. First, `CLAUDE.md` files — the persistent, auto-loaded project context that shapes Claude Code's behavior without being restated in every prompt. Second, Skills — packaged, invokable procedures that bundle instructions (and sometimes tools or scripts) for a well-defined sub-task, and how they differ from both a `CLAUDE.md` entry and a full subagent. Third, workflow design itself: sequencing steps, deciding which are deterministic and which are left to agentic judgment, and recognizing which conventions are genuinely local rather than universal. Fourth, CI/CD integration — how Claude-driven steps like code review or test generation stop being ad hoc and become auditable, automated participants in a real delivery pipeline.
 
 By the end of this module, you should be able to look at a piece of context or a repeatable procedure and know exactly where it belongs: in a system prompt, a `CLAUDE.md` file, a Skill, a CI job, or nowhere at all.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The Workflow Layer](./) | [Next: Configuring CLAUDE.md &rarr;](02-configuring-claude-md) |
+|:---|---:|
+
+<!-- prevnext:end -->

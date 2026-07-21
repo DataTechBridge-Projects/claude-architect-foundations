@@ -17,3 +17,12 @@ The CCA-F exam is structured around five layers — Agentic, Tool, Workflow, Pro
 This module covers three things in sequence. First, the mechanics of large language models: transformers, tokens, context windows, and the crucial fact that models are probabilistic next-token predictors rather than lookup tables or reasoning engines in the classical sense. Second, the practical distinction between the Claude API — the raw Messages API you call programmatically — and Claude Code, the agentic CLI built on top of that API with file access, bash execution, and a tool-use loop already wired up. Third, the general architecture of agents and tools: what makes something an "agent" rather than a script, and how the model, the tools, and the orchestration loop fit together.
 
 None of this is exam trivia to memorize in isolation. It's the vocabulary and mental model that every later module — and every scenario question on the real exam — builds on. Treat this module as the foundation it is, and the rest of the CCA-F curriculum will click into place far more easily.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Fundamentals](./) | [Next: Fundamentals of LLMs &rarr;](02-fundamentals-of-llms) |
+|:---|---:|
+
+<!-- prevnext:end -->

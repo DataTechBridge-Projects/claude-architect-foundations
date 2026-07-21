@@ -50,6 +50,12 @@ Once a session runs long enough, unmanaged history eventually becomes the domina
 
 **Discarding** is the blunt instrument: dropping content outright, on the assumption that it no longer has any bearing on the task. Discarding is appropriate for content that's genuinely exhausted its usefulness — the full text of a file that was read, acted on, and is no longer needed verbatim — but it's also the technique most likely to cause the failure modes discussed later in this module (particularly error propagation), because once something is discarded, there's no path back to it if a later turn turns out to need it after all. A conservative rule of thumb: summarize before you discard, so that even if the detail is gone, a trace of what was known and concluded survives.
 
+| Technique | What it does | Preserves | Risk if misapplied |
+|---|---|---|---|
+| Summarization | Rewrites verbose content into a shorter, purpose-written narrative | Decisions and their justification, not just outcomes | A too-aggressive pass loses detail a later turn needed |
+| Compaction | Removes or compresses redundant, superseded, or low-information material | Structure — the shape of what remains | Careless compaction can strip caveats along with the redundancy |
+| Discarding | Drops content outright | Nothing — there is no path back | The content is gone for good if a later turn needs it after all |
+
 A well-designed long-running agent typically applies these in combination, at defined trigger points rather than continuously. A common and effective pattern is **threshold-based compaction**: monitor the growing context window, and when it crosses some proportion of the budget — commonly somewhere in the range of 70–80% of the practical limit for the model and task — trigger a summarization pass over the oldest or least-recently-relevant material before continuing. This keeps the window from ever actually filling up unexpectedly mid-task, which is a far worse failure mode than a slightly-early summarization pass, because a window that fills up mid-generation can force an abrupt and uncontrolled truncation rather than a deliberate, judged one.
 
 Another important pattern is **milestone-based checkpointing**, where summarization is triggered not by a token threshold but by task structure: at the end of a completed subtask, the agent condenses everything about that subtask into a short summary of what was done and why, and that summary — not the raw transcript of how it got there — becomes what persists into the next phase of work. This is often preferable to pure threshold-based compaction because it aligns the compression boundary with a meaningful unit of work, rather than an arbitrary token count that might fall in the middle of something still in progress.
@@ -85,3 +91,12 @@ Twenty minutes in, the raw transcript already contains several dead-end refund c
 The throughline across everything in this lecture is a shift in mental model. Context is not a passive transcript that accumulates as a byproduct of a session running — it is an active budget that has to be managed with the same intentionality as compute cost or latency. Every piece of material that enters a context window — a system instruction, a `CLAUDE.md` entry, a tool definition, a turn of history, a retrieved document, a tool result — should be there because someone made a deliberate judgment that it earns its place, not because excluding it felt riskier than including it. Summarization, compaction, and isolation are the concrete mechanisms for enforcing that discipline once a session grows past the point where everything can simply be kept.
 
 **Why it matters for the exam:** This lecture's content is the connective tissue for nearly every other lecture in this module — escalation handling, error propagation, large-codebase strategy, human review design, and provenance tracking are all, underneath, applications of "what belongs in the window, and how do you know." Expect scenario questions that describe a system with a bloated or poorly managed context and ask you to diagnose *which* category is the problem (stale `CLAUDE.md` content versus unpruned history versus an oversized tool result) before asking what technique — summarization, compaction, or isolation — fixes it.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Intro](01-module-intro) | [Next: Let's Coin Context Data Governance (CDG) &rarr;](03-let-s-coin-context-data-governance-cdg) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -77,4 +77,19 @@ Consider a team that wants Claude to help with three different things: (1) alway
 
 The commit-message convention is small, stable, and relevant to nearly every session that touches git — that's a `CLAUDE.md` entry. The compliance report is a substantial, well-defined procedure that only a minority of tasks will ever invoke, with enough internal structure (template, validation steps, maybe a formatting script) to be worth packaging — that's a Skill, invoked whenever a task matches "generate a compliance report." The overnight PR review is a genuinely independent unit of work that needs its own execution, its own context free of whatever else is happening in a session, and arguably its own model call running unsupervised — that's a subagent, not a Skill, even though from a distance "reviews PRs" and "generates reports" can sound like similarly-shaped tasks.
 
+| Mechanism | Knowledge shape | Loaded | Own context / model call |
+|---|---|---|---|
+| `CLAUDE.md` | Declarative, stable, universal | Automatically, every session | No — folds into existing context |
+| Skill | Procedural, occasionally needed | On demand, when a task matches the trigger | No — loads into the current agent's context |
+| Subagent | Needs isolated reasoning or verification | On demand, when delegated | Yes — separate context window and model call |
+
 **Why it matters for the exam:** Skill-configuration questions are usually framed as a three-way sort — `CLAUDE.md`, Skill, or subagent — applied to a described piece of project knowledge or a described task. The reliable way to answer them is to ask, in order: is this always relevant (favor `CLAUDE.md`), is this a well-defined, occasionally-needed procedure that can execute within the current agent's context (favor a Skill), or does this need its own isolated context and independent execution (favor a subagent). The next lecture sharpens the second-versus-third distinction specifically, since it's the one candidates most often get wrong.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: When to use CLAUDE.md vs. RAG Knowledge?](03-when-to-use-claude-md-vs-rag-knowledge) | [Next: Are Subagents Just... Skills In a Trenchcoat? &rarr;](05-are-subagents-just-skills-in-a-trenchcoat) |
+|:---|---:|
+
+<!-- prevnext:end -->

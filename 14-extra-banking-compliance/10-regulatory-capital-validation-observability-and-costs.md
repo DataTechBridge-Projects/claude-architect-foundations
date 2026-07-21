@@ -28,6 +28,13 @@ A **false positive** — flagging a discrepancy that a human reviewer determines
 
 A **false negative** — a real discrepancy the system missed entirely — is far more dangerous and far harder to measure, precisely because by definition the system didn't flag it, so there's no natural record pointing an observer toward the miss. This is why the sampled review of clean passes isn't a nice-to-have; it's the primary mechanism for estimating the false-negative rate at all. Some false negatives will also surface later through other channels — a subsequent regulatory examination, a later validation cycle using updated methodology, or an unrelated audit — and every one of those has to be fed back into the system's tracked accuracy record and, ideally, into a root-cause review of why the check missed it, since a recurring blind spot in how calculations get decomposed into checkable steps is a system design problem, not a one-off miss.
 
+| | False Positive | False Negative |
+|---|---|---|
+| Definition | Flags a discrepancy that isn't one | Misses a real discrepancy |
+| Ease of measurement | Easy — every flag gets a human resolution | Hard — no natural record points to the miss |
+| Primary cost | Reviewer time; erodes trust, risks rubber-stamping | Bank operates on a miscalculated capital position |
+| Main detection mechanism | Resolution log | Sampled review of clean-pass verdicts |
+
 Both rates should be tracked over time and segmented — by calculation type, by which methodology area is involved, by which model or business line the calculation belongs to — because an aggregate accuracy number can hide a system that's excellent at some categories of check and unreliable at others. A validation tool that's 98% accurate in aggregate but consistently misses discrepancies in one specific, high-risk calculation category has a serious problem that an aggregate metric will actively conceal.
 
 ## Cost Tradeoffs
@@ -41,3 +48,12 @@ Segmenting cost tracking by calculation type and methodology area, the same way 
 ## Architecture Notes
 
 This lecture is where the **Agentic** layer's verification-not-generation framing and the **Context** layer's provenance discipline both cash out as measurable outcomes: false positives and false negatives are the concrete, trackable expression of "is this checking agent actually doing its job," and they can only be measured because the resolution log and sampled clean-pass review were built into the **Workflow** layer from the start. The cost model follows the same logic as stress testing's — spend where the domain's specific risks require it, track it at a granularity that matches how risk is actually distributed — but arrives at a different shape because the workload here is steadier and the two-source comparison is intrinsically more expensive per check than a single generative draft.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Regulatory Capital Validation - RAG & Retrieval Architecture](09-regulatory-capital-validation-rag-and-retrieval-architecture) | [Next: Extra Module: Solution Architecture Patterns - Financial Documents &rarr;](../15-extra-financial-documents/) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -36,6 +36,16 @@ The return trip deserves the same rigor, and it's the half of this exchange most
 
 **Errors or blockers encountered**, named explicitly rather than silently absorbed into a vaguer-than-warranted "success." A subagent that hit a permissions wall partway through its task and quietly reported only what it *did* manage to find, without flagging that a chunk of the intended scope was never actually covered, hands the orchestrator a report that looks complete but isn't — a failure mode directly analogous to a tool silently returning partial data with no error signal at all.
 
+```mermaid
+sequenceDiagram
+    participant O as Orchestrator
+    participant S as Subagent
+
+    O->>S: task description + context/constraints + expected output shape
+    Note over S: subagent runs its own loop
+    S-->>O: result + status/confidence signal + errors/blockers
+```
+
 ## What loose handoffs cost, concretely
 
 The reliability cost of skipping this rigor is the same cost loose tool schemas impose, just harder to see because the "caller" here is a person writing a dispatch prompt in natural language rather than a JSON Schema. An orchestrator that dispatches subagents with inconsistent, ad hoc instructions gets back inconsistently shaped reports, and then has to reconcile those informally too — reintroducing, by hand, exactly the disambiguation work a schema exists to eliminate. Worse, when a multi-agent system produces a subtly wrong final answer, an unstructured handoff gives you nothing to inspect: no expected-shape field to check the report against, no status flag to reveal that a subagent was uncertain, no explicit error field distinguishing "task succeeded" from "task quietly failed partway through." Structured messages aren't bureaucratic overhead layered onto multi-agent design — they're what makes a multi-agent system's failures legible after the fact, the same way a well-designed tool error is what makes a single tool call's failure legible.
@@ -49,3 +59,12 @@ The subagent's report mirrors that same rigor coming back: not "yes, it's eligib
 ## Why it matters for the exam
 
 Expect the exam to present a subagent dispatch or a subagent's report and ask what's missing — an unbounded task description, uncurated context, no defined output shape, or a report with no status signal distinguishing confidence from guesswork. The core insight to carry forward is that agent-to-agent communication is a structured-interface problem, not a prompting problem: the same rigor applied to tool schemas — explicit shape, honest signals about success and failure, no silent ambiguity — applies at the agent boundary too, and the exam expects you to draw that connection rather than treat the two as unrelated topics.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Orchestration Topologies: Hub-and-Spoke, Pipeline, and Peer-to-Peer](17-orchestration-topologies-hub-and-spoke-pipeline-and-peer-to) | [Next: Handoff Protocols and Continuity Across Agents &rarr;](19-handoff-protocols-and-continuity-across-agents) |
+|:---|---:|
+
+<!-- prevnext:end -->

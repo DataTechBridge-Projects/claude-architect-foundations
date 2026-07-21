@@ -27,3 +27,12 @@ A tight reference list of the either/or calls this module keeps coming back to â
 - **Centralized convention vs. local convention.** Some workflow decisions (hard constraints, security-relevant gates) belong in an org-wide standard. Many others (report formats, review depth, which Skills exist) are legitimately local to one team or repo and shouldn't be forced into a single template.
 
 - **Ad hoc Claude usage vs. CI/CD-integrated step.** Ad hoc is manual, invisible to the team, and inconsistent. CI/CD-integrated has a defined trigger, reproducible input, durable captured output, explicit gating, and the same operational rigor (logging, retries, rollback) as any other pipeline step.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Outro](11-module-outro) | [Next: Quiz Prep: The Workflow Layer (20 Questions) &rarr;](13-quiz-prep-the-workflow-layer-20-questions) |
+|:---|---:|
+
+<!-- prevnext:end -->

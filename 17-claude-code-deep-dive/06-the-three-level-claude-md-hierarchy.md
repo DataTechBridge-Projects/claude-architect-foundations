@@ -30,6 +30,12 @@ The narrowest level in scope (and, often, the most specific in content) is a `CL
 
 A subdirectory `CLAUDE.md` solves this by scoping specificity to relevance: a `frontend/CLAUDE.md` covering component and styling conventions doesn't need to be loaded — or even be relevant — for a session working exclusively in `infra/`. This level gets its own full lecture later in this module, since the mechanics of exactly *when* a nested file's content actually enters context (loaded up front versus discovered on demand as Claude reads files in that part of the tree) matter enough to deserve dedicated treatment rather than a summary here.
 
+| Level | Answers | Travels with | Audience |
+|---|---|---|---|
+| User | "What do I always want, regardless of project?" | The person | Just you |
+| Project | "What does everyone need to know to work on this codebase?" | The codebase | The whole team |
+| Subdirectory | "What's true only in this specific corner of the project?" | The codebase | The team, scoped to that area |
+
 ## How the Three Levels Combine
 
 The single most commonly misunderstood fact about this hierarchy is what "levels" actually means mechanically. It is tempting — and wrong — to assume this works like the settings-file hierarchy covered later in this module, where a higher-precedence layer *overrides* a lower one, so that only one value for a given setting ultimately applies. `CLAUDE.md` files don't work that way. Every discovered file's content is **concatenated** into context — user-level, project-root, and any relevant subdirectory file are all present simultaneously, in the same conversation, none of them silently erasing another.
@@ -55,3 +61,12 @@ Consider an engineer working in `services/billing/` inside a large company monor
 Notice, too, that none of the three instructions in that example actually contradicts another — they layer cleanly because each was written at the scope it genuinely belongs to. That's not a coincidence built into the example; it's the payoff of using the hierarchy as intended. A team that instead crams company-wide policy into a personal file, or personal habits into the shared root file, loses that clean layering even though the mechanism itself would still concatenate everything correctly — the hierarchy can only pay off if each piece of knowledge actually lives at the scope that matches who it's really true for.
 
 **Why it matters for the exam:** The single fact this exam most wants you to have internalized about this topic is that the three levels *combine additively* rather than override one another — a question that presents a scenario with instructions at two or three levels and asks "which one applies" is very often testing whether you'll wrongly assume an override model. The correct answer is almost always "all of them apply; here's how they interact," not "only the most specific one wins."
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Claude Code Permission Modes](05-claude-code-permission-modes) | [Next: Precedence Rules and Conflict Resolution &rarr;](07-precedence-rules-and-conflict-resolution) |
+|:---|---:|
+
+<!-- prevnext:end -->

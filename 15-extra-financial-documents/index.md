@@ -30,3 +30,12 @@ Bonus applied module: the five-layer framework worked through three concrete fin
 | 13 | [MFN & Side Letter Negotiation - Context Architecture](13-mfn-and-side-letter-negotiation-context-architecture) | 6:45 |
 | 14 | [MFN & Side Letter Negotiation - RAG & Retrieval Architecture](14-mfn-and-side-letter-negotiation-rag-and-retrieval-architectu) | 8:24 |
 | 15 | [MFN & Side Letter Negotiation - Observability and Costs](15-mfn-and-side-letter-negotiation-observability-and-costs) | 11:01 |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Regulatory Capital Validation - Observability and Costs](../14-extra-banking-compliance/10-regulatory-capital-validation-observability-and-costs) | [Next: Credit Agreements - Overview &rarr;](01-credit-agreements-overview) |
+|:---|---:|
+
+<!-- prevnext:end -->

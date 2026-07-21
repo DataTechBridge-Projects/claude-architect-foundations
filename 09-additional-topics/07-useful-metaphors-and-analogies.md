@@ -22,3 +22,12 @@ None of these prove anything, but they're sticky, and sticky beats precise when 
 - **Provenance = a chain-of-custody tag, not a footnote.** Data without a "where did this come from, and when" label isn't information the system can trust or distrust appropriately — it's just an assertion floating unanchored in context, indistinguishable from any other assertion.
 
 None of these metaphors survive rigorous interrogation — push on any of them hard enough and they break down, the way all analogies eventually do. That's fine; they're not meant to be the thing you cite in an exam answer, they're meant to be the thing that fires first in your head when you read a scenario question, fast enough to point you toward the right layer before you've consciously started reasoning about it. Use the precise vocabulary from the five deep-dive modules to actually justify an answer, and use these to get there quickly in the first place.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Outro](06-module-outro) | [Next: Role Play: Farewell Mentoring on AI Solution Architecture &rarr;](08-role-play-farewell-mentoring-on-ai-solution-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

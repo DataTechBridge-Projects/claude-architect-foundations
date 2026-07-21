@@ -46,4 +46,19 @@ Notice that the tool and the resource in this example touch overlapping data —
 
 It's useful to hold all three together rather than picking whichever seems most familiar. The clearest way to keep them straight: a **tool** is something the model decides to invoke, with arguments, expecting a result and possibly a side effect. A **resource** is something the client can attach to context by URI, without needing the model to decide anything about the retrieval itself. A **prompt** is a reusable, parameterized starting point for an interaction, typically chosen by a user rather than by the model mid-reasoning. The same underlying system frequently exposes more than one — a filesystem-oriented MCP server might expose `read_file` and `write_file` as tools, individual files as resources addressable by a `file://` URI, and a `summarize-directory` prompt template as a convenience — and choosing which primitive fits a given piece of functionality is itself a design decision with the same stakes as the tool-granularity questions from the Tool Layer.
 
+| Primitive | Who decides to use it | What it delivers | Side effects |
+|---|---|---|---|
+| Tool | The model, mid-reasoning, with arguments | An action's result | Possible |
+| Resource | The client, by attaching a known URI | Readable context data | None |
+| Prompt | The user, via client UI (menu, slash command) | A reusable, parameterized instruction template | None |
+
 **Why it matters for the exam:** Expect direct scenario questions asking you to identify which of the three primitives best fits a described piece of functionality — particularly the tool-versus-resource distinction, since that's where real ambiguity exists and where the exam is most likely to test judgment rather than rote recall. The test to apply is always the same: does using this piece of functionality require the model to decide, mid-reasoning, to invoke something with specific arguments (a tool), or can the client simply attach it to context without that decision (a resource)? And is it a reusable template a user selects rather than the model (a prompt)?
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Intro](01-module-intro) | [Next: Building an MCP Server in Python &rarr;](03-building-an-mcp-server-in-python) |
+|:---|---:|
+
+<!-- prevnext:end -->

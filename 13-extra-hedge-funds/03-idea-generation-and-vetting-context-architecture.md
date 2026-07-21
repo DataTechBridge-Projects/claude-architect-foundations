@@ -30,6 +30,12 @@ The generation agent needs depth on one candidate: the specific filing or transc
 
 The vetting agent gets the opposite mix: the drafted thesis itself, the full risk-factor taxonomy, targeted retrieval aimed specifically at finding *contradicting* evidence (a different retrieval objective than the generation agent's, discussed in the next lecture), and the same past-thesis-history slice so it can check whether this exact idea failed before. Giving the vetting agent the risk taxonomy while withholding it from the generation agent is a direct, deliberate application of context isolation — it's the same principle as keeping one subagent's noisy intermediate reasoning from leaking into another's context, applied here to keep one agent's evaluative framework from leaking into another agent's generative framework.
 
+| Context Category | Freshness Discipline | Screening Agent | Generation Agent | Vetting Agent |
+|---|---|---|---|---|
+| Market & company data | Pulled fresh at point of use; timestamped | Wide, shallow slice | Deep, candidate-specific slice | Same slice as generation |
+| Past thesis history | Refreshed per candidate; scoped to relevance | Not loaded | Narrow slice on that name/sector | Same narrow slice |
+| Risk factor definitions | Stable; refreshed immediately on change | Not loaded | Withheld deliberately | Full taxonomy, always loaded |
+
 ## Freshness and Refresh Discipline
 
 Because market conditions move faster than any static configuration file could track, this system treats "when was this fact retrieved" as a first-class piece of context, not an afterthought. Every piece of market or company data entering context is timestamped at retrieval time, and both the generation and vetting agents are instructed to treat data older than a defined threshold (say, more intraday-sensitive data older than a few hours, or fundamentals older than the most recent filing) as stale and to say so explicitly rather than silently reasoning over it as if it were current. This is a provenance discipline as much as a freshness one: a thesis that cites a data point is expected to carry that data point's source and recency along with it, so a human reviewer isn't left guessing whether "revenue grew 12%" refers to this quarter or a stale cached figure from three cycles ago.
@@ -39,3 +45,12 @@ The risk-factor taxonomy sits at the other end of the freshness spectrum and is 
 ## Architecture Notes
 
 This lecture is a direct application of the Context layer's central discipline: context isn't one shared pool, it's something scoped deliberately per agent and per purpose, with freshness and provenance tracked as explicitly as the content itself. Withholding the risk taxonomy from the generation agent while loading it for the vetting agent is context isolation in service of the Agentic layer's generator/vetter split — a reminder that context and agentic design are two views of the same underlying decision about what each piece of the system is allowed to know and when.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Idea Generation/Vetting - Agentic Architecture](02-idea-generation-and-vetting-agentic-architecture) | [Next: Idea Generation/Vetting - RAG.& Retrieval Architecture &rarr;](04-idea-generation-and-vetting-rag-and-retrieval-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

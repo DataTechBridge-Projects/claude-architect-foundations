@@ -36,6 +36,13 @@ If you take only one idea from this lecture, take this one: every tool error sho
 
 **Non-retryable failures** are structural: a malformed request, a resource that genuinely doesn't exist, a permission the caller doesn't have, a business-rule violation (attempting to refund an order that was never charged). No amount of identical retrying fixes any of these — the model needs to change something about its approach: different arguments, a different tool, or an escalation to a human. An error response for this category should say so just as plainly, and ideally point toward what needs to change rather than just refusing: "Permission denied: this API key does not have write access to the `production` environment. Read access is available; write actions require an elevated credential this session does not have." That response doesn't just say no — it tells the model *why* retrying with the same credential will never work, which is exactly the information that prevents a model from burning several turns hammering the same doomed call.
 
+| | Retryable | Non-retryable |
+|---|---|---|
+| Nature of the failure | Transient — timeout, rate limit, momentary lock | Structural — malformed request, missing resource, denied permission, business-rule violation |
+| Correct model action | Retry, possibly after a brief pause, same arguments | Change something: different arguments, a different tool, or escalate |
+| What the error should say | "This is likely transient — retrying may succeed" | "Retrying will not work — here's why, and what to try instead" |
+| Example | "Request timed out after 30s. Retrying the same request may succeed." | "Permission denied: this API key lacks write access to production." |
+
 Making this distinction legible doesn't require a rigid taxonomy in every tool's schema, though some systems do formalize it with an explicit `error_type` or `retryable` field in the tool result, which is a reasonable pattern when a tool set is large enough that consistent machine-parseable conventions pay for themselves. At minimum, the language of the message itself should make the distinction unambiguous, since that's the layer the model is actually reading, with or without a formal field alongside it.
 
 ## Avoiding raw stack traces and internal implementation detail
@@ -60,3 +67,12 @@ The second version costs more to write — it required the tool's implementation
 The overarching mental shift this lecture asks for is to stop treating error responses as an edge case handled separately from "real" tool design, and start treating them as a first-class part of the tool's interface — as deliberately designed as the success schema, and reviewed with the same rigor. A tool definition that specifies a rich, well-typed success response but leaves failure as an untyped, unexamined string is only half-designed, and in practice, for any tool that gets used enough, the failure path is exercised nearly as often as the success path. Given how much of an agent's actual behavior is shaped by what it does immediately after a failure, that's not a minor gap — it's frequently the difference between a system that degrades gracefully under real-world conditions and one that doesn't.
 
 **Why it matters for the exam:** Expect scenario questions that present a tool's error response verbatim and ask you to identify what's missing — usually the retryable/non-retryable signal, or a raw stack trace standing in for a designed message — and to describe what a better response would say instead. You should also be comfortable explaining *why* a given error design leads to a specific, predictable model behavior (blind retry, premature give-up, hallucinated workaround), since that causal link between error design and recovery behavior is the thread connecting this lecture to the next one.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Structure with Prose as the Fallback](03-structure-with-prose-as-the-fallback) | [Next: Multiple Pathways &rarr;](05-multiple-pathways) |
+|:---|---:|
+
+<!-- prevnext:end -->

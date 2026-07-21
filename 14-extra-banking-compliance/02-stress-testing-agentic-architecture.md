@@ -26,8 +26,27 @@ It's worth contrasting this explicitly with a higher-autonomy alternative, becau
 
 The review structure isn't a single sign-off at the end; it's staged to match where errors are most likely and most costly to catch late. Scenario assumption extraction is reviewed against the regulator's published documents before anything downstream consumes it, because an error here propagates into every subsequent stage. Model-run orchestration output is reviewed by the quant team that owns each model, since they're the ones positioned to notice an output that's technically well-formed but substantively implausible. And every piece of narrative text is reviewed against its cited source data before it's eligible to move toward the compiled submission — not as a formality, but as the point where a subject-matter expert actually reads the sentence and confirms it says what the numbers support.
 
+```mermaid
+flowchart LR
+    A["Scenario assumption extraction"] --> G1{"Reviewed against regulator docs"}
+    G1 --> B["Model-run orchestration"]
+    B --> G2{"Reviewed by owning quant team"}
+    G2 --> C["Narrative drafting"]
+    C --> G3{"Reviewed against cited source data"}
+    G3 --> D["Eligible for submission"]
+```
+
 This staged-gate structure also does something subtler: it keeps each review scoped and fast. A reviewer checking scenario extraction doesn't need to also evaluate narrative quality, and a reviewer reading narrative doesn't need to re-derive the model run. Because each stage produces a narrow, checkable artifact, review stays proportional to what actually changed at that stage rather than requiring a full re-audit of the whole pipeline every time. That's what makes a low-autonomy design practical at the scale a real submission requires — dozens of portfolio segments, multiple scenarios, and a hard regulatory deadline — rather than merely safe in theory.
 
 ## Architecture Notes
 
 This use case is a clean example of the **Agentic** layer's central trade-off: autonomy is valuable when the right next step can't be enumerated in advance, and a liability when it can be and the cost of error is high — stress testing is squarely the latter. The staged, narrow-mandate design also leans on the **Workflow** layer to place review gates exactly where errors are costliest to catch late, and on the **Tool** layer to keep Claude orchestrating the bank's existing model infrastructure rather than reimplementing modeling logic itself.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Stress Testing - Overview](01-stress-testing-overview) | [Next: Stress Testing - Context Architecture &rarr;](03-stress-testing-context-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

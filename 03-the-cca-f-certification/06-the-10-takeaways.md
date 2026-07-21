@@ -14,6 +14,19 @@ You now have the exam's structure (the five domains), a mental model for navigat
 
 This lecture is that synthesis. Each of the ten takeaways below previews a principle that modules 4 through 8 will each explore in far more depth, with concrete techniques, failure modes, and worked examples. Don't expect implementation-level detail here — that's deliberate. The goal right now is to plant these ten ideas at a high enough altitude that when you hit the deep-dive material later, you recognize it as an elaboration of something you already understand, not as new information arriving cold. Treat this lecture as the trunk of the tree; the domain modules are the branches.
 
+| # | Takeaway | Primarily Illustrates |
+|---|---|---|
+| 1 | An agent is a loop, not a personality | Agentic |
+| 2 | Default to the simplest architecture that works | Agentic |
+| 3 | Tools are an API surface for a reasoning system, not a human | Tool |
+| 4 | Workflow and agency are a spectrum, chosen per step | Workflow |
+| 5 | Prompts are structural architecture, not just wording | Prompt |
+| 6 | Context is the scarcest, most consequential resource | Context |
+| 7 | Error handling determines reliability more than the happy path does | Cross-cutting |
+| 8 | Human-in-the-loop is a deliberate design decision | Workflow / Context |
+| 9 | You cannot improve or trust what you don't measure | Cross-cutting |
+| 10 | The five domains are separable concerns that interact | All five |
+
 ## 1. An Agent Is a Loop, Not a Personality
 
 It's tempting to think about agents anthropomorphically — as if Claude "decides" things the way a person does. Architecturally, that framing is a trap. An agent is a repeating loop: the model receives context, produces either a direct response or a tool call, that action executes in the world, and the result is appended back into context for the next iteration. The loop continues until a stopping condition is met — the model produces a final answer, a turn limit is hit, or an explicit termination signal fires. Every property you'll study across the Agentic layer — autonomy, delegation, multi-agent coordination, session boundaries — is a variation on how this loop is configured and constrained, not a separate mysterious capability layered on top of it. When you're staring at a scenario question about "why did the agent behave unexpectedly," your first move should always be to trace the loop: what was in context, what action did the model take, and what did that action's result put back into context for the next turn. Demystifying the loop is the single highest-leverage mental habit for this entire exam, because nearly every other principle is downstream of understanding it correctly.
@@ -57,3 +70,12 @@ The single most exam-relevant idea in this entire list is the one this module ha
 As you move into those deep-dive modules, keep coming back to a simple habit: whenever you learn a new technique in one domain, pause and ask which of the other four domains it touches. A new tool error-handling pattern (Tool) almost always implies something about how an agent should react (Agentic) and what gets written back into context (Context). A new context compaction strategy almost always changes what a prompt can safely assume is still visible several turns later (Prompt). Building that cross-referencing habit now, while the ten ideas in this lecture are still fresh and general, will make each subsequent module land faster and stick better than treating the five domains as five unrelated topics to memorize in sequence.
 
 **Why it matters for the exam:** These ten ideas are deliberately written at a level you could explain to a colleague in a sentence or two each. That's the point — if you can restate all ten from memory before you start the deep-dive modules, you'll recognize the more detailed material in modules 4 through 8 as filling in a structure you already have, which is a dramatically more effective way to retain it than encountering each domain's details as a disconnected list of facts.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: CCA-F Official Webpage](05-cca-f-official-webpage) | [Next: Module Outro &rarr;](07-module-outro) |
+|:---|---:|
+
+<!-- prevnext:end -->

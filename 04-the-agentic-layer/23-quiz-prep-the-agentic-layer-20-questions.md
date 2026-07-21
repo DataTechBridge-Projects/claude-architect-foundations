@@ -171,3 +171,12 @@ D. Subagent lifespan, session, loop iteration, task.
 **19. B** — Unmanaged history growth is the described cause, with summarization and resetting as the two main mitigation strategies covered.
 
 **20. B** — Loop iteration is shortest, followed by a subagent's lifespan, then a task (which may span several loop iterations and subagent dispatches), then a session (which may contain many tasks).
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Key Distinctions - The Agentic Layer](22-key-distinctions-the-agentic-layer) | [Next: Role Play: Mentoring on Agentic Essentials &rarr;](24-role-play-mentoring-on-agentic-essentials) |
+|:---|---:|
+
+<!-- prevnext:end -->

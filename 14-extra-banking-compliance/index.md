@@ -25,3 +25,12 @@ Bonus applied module: the five-layer framework worked through two concrete banki
 | 8 | [Regulatory Capital Validation - Context Architecture](08-regulatory-capital-validation-context-architecture) | 6:40 |
 | 9 | [Regulatory Capital Validation - RAG & Retrieval Architecture](09-regulatory-capital-validation-rag-and-retrieval-architecture) | 8:23 |
 | 10 | [Regulatory Capital Validation - Observability and Costs](10-regulatory-capital-validation-observability-and-costs) | 9:37 |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Trade Risk Management/Compliance - Observability and Costs](../13-extra-hedge-funds/10-trade-risk-management-and-compliance-observability-and-costs) | [Next: Stress Testing - Overview &rarr;](01-stress-testing-overview) |
+|:---|---:|
+
+<!-- prevnext:end -->

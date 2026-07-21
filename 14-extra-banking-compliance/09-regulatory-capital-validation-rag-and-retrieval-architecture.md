@@ -24,6 +24,12 @@ The architectural answer is retrieval that deliberately returns both sources for
 
 This produces a three-way verdict richer than a simple match/mismatch: a calculation can match both sources, match the internal interpretation but diverge from a strict reading of the regulation, or diverge from both. The middle case is the one unique to this domain and the one a less careful retrieval design would collapse into a false negative (if it only checks against internal interpretation) or a false positive flood (if it only checks against regulatory text). Making that middle case visible, with both source passages cited, gives the human reviewer — who is positioned to know the institutional history behind a given interpretation — exactly what's needed to judge whether the divergence is a known, accepted position or something that needs re-examination.
 
+| Outcome | Meaning | Reviewer Action |
+|---|---|---|
+| Matches both | Aligns with regulatory text and internal interpretation | Clean pass |
+| Matches internal interpretation, diverges from regulatory text | Follows a documented interpretive judgment that stretches the literal rule | Judge whether the divergence is a known, accepted position |
+| Diverges from both | Doesn't match either source | Investigate as a likely genuine discrepancy |
+
 ## Provenance Metadata as a Retrieval-Time Concern
 
 Because this three-way comparison depends entirely on knowing which retrieved passage is regulatory text and which is internal interpretation, provenance tagging has to be enforced at ingestion and carried through retrieval as a structural property of each chunk — not something inferred from content or left to the model to figure out from context. Each document entering the corpus is tagged with its source type (regulatory text vs. internal interpretation), its effective-date range, and, for internal interpretations, the governance body or committee that approved it, since "who approved this interpretation and when" is itself relevant information for a reviewer weighing whether a divergence is a settled, sanctioned position or something that's drifted without proper sign-off.
@@ -33,3 +39,12 @@ This is a stricter version of the source-attribution principle from the stress-t
 ## Architecture Notes
 
 This use case pushes the **Context** layer's provenance principle further than any other in the course: it's not enough to track where information came from, the system has to actively preserve and surface a genuine disagreement between two legitimately-sourced inputs rather than letting either one silently win. That three-way verdict structure is also a **Prompt** layer design choice — the comparison prompt has to be built to produce "matches regulation but diverges from internal interpretation" (and its inverse) as first-class output categories, not just squeeze every result into a binary match/mismatch that would erase the exact distinction this domain depends on.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Regulatory Capital Validation - Context Architecture](08-regulatory-capital-validation-context-architecture) | [Next: Regulatory Capital Validation - Observability and Costs &rarr;](10-regulatory-capital-validation-observability-and-costs) |
+|:---|---:|
+
+<!-- prevnext:end -->

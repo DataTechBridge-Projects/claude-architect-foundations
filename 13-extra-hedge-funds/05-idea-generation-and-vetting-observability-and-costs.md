@@ -38,6 +38,21 @@ Cost in this system is driven by three largely independent levers: model tier, c
 
 **Batch versus real-time** is where the biggest cost lever in the whole system lives, because almost none of this pipeline actually needs to run in real time. Screening large volumes of overnight filings and news doesn't need sub-second latency — it needs to be done before the desk's morning review, which gives it a wide batch-processing window with correspondingly lower cost per unit of throughput. Generation and vetting on flagged candidates likewise don't need to happen the instant a flag fires; batching them into a scheduled run (or a short queue an analyst pulls from) rather than triggering each one synchronously both smooths cost and, as a side benefit, keeps the system from encouraging the kind of reflexive, ungrounded urgency that's already a risk in fast-moving markets. Real-time processing should be reserved for the rare case where an analyst is actively working a specific candidate interactively and wants the system to respond to a follow-up question immediately — a genuinely different usage pattern from the bulk screening and drafting work that makes up the overwhelming majority of the system's volume.
 
+| Pipeline Stage | Volume / Stakes | Model Tier | Batch vs. Real-Time |
+|---|---|---|---|
+| Screening | High volume, low stakes | Smaller, cheaper tier | Batch (overnight, before morning review) |
+| Generation | Low volume, high stakes | Strongest available tier | Batch / scheduled queue |
+| Vetting | Low volume, high stakes | Strongest available tier | Batch / scheduled queue |
+
 ## Architecture Notes
 
 Cost tiering that matches model strength to each stage's stakes, and batch processing for everything that doesn't need to be synchronous, are Workflow-layer decisions made concrete: not every step in a pipeline deserves the same investment. The human override rate as a primary observability signal is this use case's version of the Context layer's human-review-checkpoint discipline — tracking not just whether the checkpoint exists, but whether it's still functioning as genuine judgment rather than a rubber stamp.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Idea Generation/Vetting - RAG.& Retrieval Architecture](04-idea-generation-and-vetting-rag-and-retrieval-architecture) | [Next: Trade Risk Management/Compliance - Overview &rarr;](06-trade-risk-management-and-compliance-overview) |
+|:---|---:|
+
+<!-- prevnext:end -->

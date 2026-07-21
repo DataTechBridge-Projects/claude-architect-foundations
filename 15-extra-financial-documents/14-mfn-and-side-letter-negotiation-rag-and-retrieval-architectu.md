@@ -24,6 +24,16 @@ The mitigation is to do the hard normalization work once, up front, rather than 
 
 With that digest layer in place, retrieval against a newly proposed term runs primarily against the **normalized category and qualifier fields**, not against raw clause text: which existing side letters have an MFN clause covering the same term category as what's being proposed, and what qualifiers on those clauses might apply. Semantic search over the normalized restatements serves as a second pass, catching functional matches that the categorical tagging might have been too coarse to capture on its own. This two-layer approach — structural/categorical filtering first, semantic search over normalized language second — mirrors the two-stage pattern from the credit agreements module, but the extra step of *normalizing bespoke language into a comparable representation before either stage runs* is what's specific to this use case, because unlike credit agreement covenants, side letter language doesn't arrive pre-standardized by market convention.
 
+```mermaid
+flowchart TD
+    A["Side letter ingested"] --> B["Structured digest: category, qualifiers, normalized restatement"]
+    B --> C["Digest index"]
+    D["New proposed term"] --> E["Stage 1: filter by category and qualifiers"]
+    C --> E
+    E --> F["Stage 2: semantic search over normalized text"]
+    F --> G["Candidate side letters with citations"]
+```
+
 ## Retrieval has to run in both directions
 
 A subtlety worth naming explicitly: MFN retrieval isn't just "find side letters relevant to this new term." It's also, less obviously, "check whether granting this new term retroactively implicates an MFN right the fund already knew about but hasn't yet acted on" — because MFN elections aren't always exercised immediately, and a fund's obligation under an existing MFN clause can persist even after the term that triggered it was granted. That means the digest layer, and the retrieval built on it, needs to support a query not just from "new term" to "existing side letters" but also periodic batch queries of the form "given everything currently granted across the fund, are there any unresolved MFN obligations sitting latent in the population" — a sweep that doesn't wait for a new proposed term to trigger it. This is less a single retrieval call than a standing analytical job, and it's worth building as one rather than assuming every relevant MFN question will arrive framed as a query about a specific new proposal.
@@ -33,3 +43,12 @@ A subtlety worth naming explicitly: MFN retrieval isn't just "find side letters 
 The citation discipline from the earlier modules carries over here with one adaptation. It's not enough to cite the specific side letter and clause a determination is based on — because the comparison hinges on functional equivalence between differently-worded clauses, the agent's output should show its normalization reasoning explicitly: here is the newly proposed term, here is the existing side letter's actual clause language, here is why they're being treated as comparable (or not) despite differing phrasing. A bare citation to a clause, without that explanatory bridge, leaves a human reviewer to redo the functional-equivalence judgment from scratch, which defeats much of the point of having the system do the comparison in the first place. The output format that works best in practice is a structured comparison table — proposed term, candidate side letter, its MFN clause's relevant language, the specific qualifier being evaluated, and the reasoning for why it does or doesn't apply — rather than a prose paragraph that buries the comparison logic.
 
 **Architecture Notes:** Normalizing bespoke clause language into a structured, comparable digest before retrieval runs is a Context-layer technique for solving what looks like a pure retrieval problem — without it, semantic search alone would systematically under-surface functionally equivalent clauses phrased differently, which is a subtler and more dangerous failure than an obviously empty search result. The bidirectional retrieval requirement (new-term-to-letters, and population-wide sweeps for latent obligations) reflects the Agentic layer's judgment about when to search proactively rather than only reactively, which a fixed workflow triggered solely by new proposals would never surface on its own.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: MFN & Side Letter Negotiation - Context Architecture](13-mfn-and-side-letter-negotiation-context-architecture) | [Next: MFN & Side Letter Negotiation - Observability and Costs &rarr;](15-mfn-and-side-letter-negotiation-observability-and-costs) |
+|:---|---:|
+
+<!-- prevnext:end -->

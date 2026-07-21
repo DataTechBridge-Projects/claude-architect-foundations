@@ -44,6 +44,12 @@ The strength of rollback strategy available depends heavily on the nature of the
 
 A mature agentic workflow explicitly classifies its own significant actions along these lines during design, rather than discovering which category an action falls into only after something has gone wrong.
 
+| Action type | Can it be undone? | Example | Best safeguard |
+|---|---|---|---|
+| Reversible | Simply undone | Reverting a commit, discarding a draft | Lighter checkpoint regime |
+| Compensable | Counteracted by a further action | Refunding a charge, sending a correction | A defined compensating action, ready in advance |
+| Irreversible | Cannot be undone or compensated | Permanent deletion with no backup | Approval gate before the action, not rollback after |
+
 ## Limiting blast radius
 
 Beyond checkpoints, gates, and rollback, the broader design principle underneath all of workflow safeguarding is **blast radius**: how far the consequences of a mistake can spread before something catches it. Several patterns from earlier in this module are, in retrospect, all blast-radius controls:
@@ -64,3 +70,12 @@ This matters more, not less, as workflows get more autonomous. A workflow with a
 ## Why it matters for the exam
 
 Expect scenario questions describing an autonomous workflow — sometimes with safeguards, sometimes without — and asking you to identify a missing safeguard given the action's irreversibility and blast radius, or to evaluate whether a proposed approval gate is placed sensibly. Being able to classify a given action as reversible, compensable, or irreversible, and to match that classification to an appropriate checkpoint, gate, or containment strategy, is the specific skill this lecture is building toward — memorizing the names of the patterns matters far less than being able to apply the reasoning to a scenario you haven't seen before.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Splitting When Something Changes](11-splitting-when-something-changes) | [Next: Back to the Server Analogy... &rarr;](13-back-to-the-server-analogy) |
+|:---|---:|
+
+<!-- prevnext:end -->

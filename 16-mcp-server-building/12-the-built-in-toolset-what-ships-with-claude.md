@@ -28,6 +28,13 @@ An MCP-exposed tool's implementation lives in a server someone — Anthropic, a 
 
 This has a direct implication for the governance concerns raised earlier in the course: a built-in tool doesn't carry the same "which servers do we trust, what credential scope did we grant them" questions an MCP-connected tool does, precisely because there's no third-party server implementation in the loop to vet or scope credentials for. That doesn't mean built-in tools carry zero risk — `Bash`'s broad real-world capability is exactly as significant a safety question whether it arrived as a built-in or an MCP tool, per the Tool Layer's schema-versus-operational-safety distinction — but the specific *kind* of risk (an external, possibly-untrustworthy server's implementation) simply doesn't apply to something that ships as part of Claude or Claude Code itself.
 
+| Aspect | Built-in tool | MCP-exposed tool |
+|---|---|---|
+| Implementation location | Claude's or the application's own infrastructure | An external server someone authored |
+| Deployment | None required | Must be deployed and connected |
+| Discovery step | None | Required at connection time |
+| Governance/vetting | Not applicable | Server trust and credential scoping required |
+
 ## Built-in tools still follow the same design discipline
 
 It would be a mistake to read "built-in" as meaning these tools are somehow exempt from everything the Tool Layer taught about naming, schema design, granularity, and error responses — they aren't, and the fact that they're built rather than connected is exactly why they're often held up as the worked examples of that discipline done well. Claude Code's `Read`, `Write`, and `Edit` split file operations three ways specifically because those operations have different risk profiles and different natural argument shapes, the same granularity reasoning that applies to any tool set, MCP-exposed or not. `Bash`'s minimal schema paired with broad real-world capability is the clearest illustration in the entire course of schema validity being distinct from operational safety — safety here comes from permission prompts and sandboxing around the tool, not from the schema restricting what commands can be typed. None of this changes because the tool shipped built-in rather than arriving through a connected server; if anything, built-in tools are held to a *higher* bar precisely because so many sessions depend on them working well by default, with no server-vetting step for a user to fall back on the way there would be for an MCP server they chose not to trust.
@@ -45,3 +52,12 @@ Without trying to be an exhaustive, version-specific list, it's worth having the
 One further architectural property worth naming: because a built-in tool's implementation lives inside Claude's or Claude Code's own infrastructure rather than in a server an individual team maintains, it can be improved, hardened, or extended by Anthropic without any action required from the applications using it — a benefit that compounds over time in a way a custom or MCP-connected tool's maintenance never automatically does. A team that built its own web-fetching tool five years ago owns every subsequent improvement to that tool as additional work; a team relying on built-in web search instead inherits improvements to that capability for free, simply by virtue of using what already ships. This is the same underlying build-versus-buy logic the next lecture develops into a full decision framework, previewed here specifically as a property of the built-in category.
 
 **Why it matters for the exam:** Expect questions asking you to identify a described capability as built-in versus MCP-exposed based on whether it requires a separate server, deployment, or connection — and expect the "what changes and what doesn't" framing from earlier MCP lectures to reappear here in reverse: the model's perception of a tool call is the same either way; what differs is entirely who implements, deploys, and is responsible for the tool behind that interface, and correspondingly, whether MCP-style server-vetting governance even applies.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Notifications, Roots, and Progress Reporting](11-notifications-roots-and-progress-reporting) | [Next: Choosing Built-in vs Custom Tools &rarr;](13-choosing-built-in-vs-custom-tools) |
+|:---|---:|
+
+<!-- prevnext:end -->

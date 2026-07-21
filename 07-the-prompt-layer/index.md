@@ -39,3 +39,12 @@ Treats prompts as engineered, versioned architectural artifacts rather than one-
 | 22 | [Key Distinctions - The Prompt Layer](22-key-distinctions-the-prompt-layer) | 4:51 |
 | 23 | [Quiz Prep: The Prompt Layer (20 Questions)](23-quiz-prep-the-prompt-layer-20-questions) | — |
 | 24 | [Role Play: Mentoring on Prompting Essentials](24-role-play-mentoring-on-prompting-essentials) | — |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Role Play: Mentoring on Workflow Essentials](../06-the-workflow-layer/14-role-play-mentoring-on-workflow-essentials) | [Next: Module Intro &rarr;](01-module-intro) |
+|:---|---:|
+
+<!-- prevnext:end -->

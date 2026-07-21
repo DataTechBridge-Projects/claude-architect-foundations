@@ -22,6 +22,12 @@ A credit agreement system typically has three distinct categories of content com
 
 **Relevant precedent clauses.** When the task is deviation flagging or comparative Q&A ("is this leverage covenant tighter than what we normally accept?"), the model also needs a small set of comparison clauses pulled from the firm's standard paper or a precedent library — not the entirety of every past deal the firm has ever done, but the specific clause type relevant to the comparison at hand. This category is retrieved rather than always-loaded, which is the subject of the next lecture; the point here is simply that it's architecturally distinct from the agreement itself and from the glossary — it's comparison material, not primary source material, and it needs to be labeled as such so the model never confuses "what the standard paper usually says" with "what this specific agreement says."
 
+| Context category | Source | When it's in context |
+|---|---|---|
+| The agreement itself | The specific deal under review | Always — the primary, authoritative source for the task |
+| Defined-terms glossary | The agreement's own Definitions article | Always — needed to interpret nearly any other section |
+| Precedent clauses | Firm's standard paper or precedent library | Retrieved — only for deviation flagging or comparative Q&A |
+
 ## Chunking and scoping a document this long
 
 A full credit agreement, especially for a large syndicated facility, can run well past what's sensible to hold in a single working context alongside a glossary, precedent clauses, and the model's own reasoning — and even within a large context window, more irrelevant text is not free: it dilutes attention and increases the odds the model latches onto the wrong passage. The practical answer is to chunk by the document's own legal structure rather than by arbitrary token counts. A credit agreement's articles — Definitions, Representations and Warranties, Affirmative Covenants, Negative Covenants, Events of Default, Miscellaneous — are natural, meaningful chunk boundaries that a paralegal would recognize instinctively, and chunking along them (rather than, say, every 2,000 tokens regardless of where that lands) keeps each chunk semantically coherent: a chunk boundary that falls mid-covenant is far more dangerous than one that falls between two unrelated sections, because it can silently sever a threshold from the exception that qualifies it.
@@ -33,3 +39,12 @@ Given that structure, a given task pulls in only the chunks it actually needs, a
 Credit agreements are dense with internal cross-references — "as defined in Section 1.01," "subject to the exceptions set forth in Section 7.03(b)" — and a chunking strategy that isn't cross-reference-aware will happily hand the model a covenant that references an exception it never sees. Two practical mitigations matter here. First, when a chunk is pulled into context, a lightweight pass resolves its direct cross-references and pulls the referenced section (or at minimum, its defined term) along with it, rather than leaving the model to either hallucinate the referenced content or silently ignore that a qualification exists. Second, every extracted answer should carry its **section-level provenance** — which article and section the model drew a given fact from — so that a human reviewer checking the output can jump straight to the source language rather than re-reading the whole document to verify a single number. That provenance requirement is what makes the retrieval and citation architecture in the next lecture possible at all: it isn't a nice-to-have layered on afterward, it's a property the context has to be structured to support from the start.
 
 **Architecture Notes:** This is Context-layer work in its purest form — deciding what's in the working set (the agreement, the glossary, retrieved precedent), how it's chunked (by legal structure, not token count), and how provenance is preserved so a human can trace any claim back to its source. The glossary's near-constant presence versus precedent clauses' retrieved, task-specific presence is itself a data-provenance distinction: the model must never treat "what standard paper says" as "what this document says," and correct labeling in context is what keeps that boundary from blurring.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Credit Agreements - Local Workflows](02-credit-agreements-local-workflows) | [Next: Credit Agreements - RAG & Retrieval Architecture &rarr;](04-credit-agreements-rag-and-retrieval-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

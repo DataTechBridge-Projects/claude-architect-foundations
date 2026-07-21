@@ -29,3 +29,12 @@ The lectures that follow this one dig into each layer of that design: how autono
 ## Architecture Notes
 
 This use case is where the course's general five-layer vocabulary meets its sharpest real-world constraint: the Agentic layer's "how much autonomy should this system have" question has an answer here that's fixed by the domain, not by model capability — very little, and never over execution. The split between a deterministic tier and an agentic tier is a Workflow-layer decision made explicit: not every step in a review process should be agentic just because an agentic system is available, and the discipline of keeping mechanical checks mechanical is itself part of good architecture.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Idea Generation/Vetting - Observability and Costs](05-idea-generation-and-vetting-observability-and-costs) | [Next: Trade Risk Management/Compliance - Agentic Architecture &rarr;](07-trade-risk-management-and-compliance-agentic-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

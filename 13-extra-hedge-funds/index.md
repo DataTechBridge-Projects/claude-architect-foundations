@@ -25,3 +25,12 @@ Bonus applied module: the five-layer framework worked through two concrete hedge
 | 8 | [Trade Risk Management/Compliance - Context Architecture](08-trade-risk-management-and-compliance-context-architecture) | 7:12 |
 | 9 | [Trade Risk Management/Compliance - RAG & Retrieval Architecture](09-trade-risk-management-and-compliance-rag-and-retrieval-archi) | 9:08 |
 | 10 | [Trade Risk Management/Compliance - Observability and Costs](10-trade-risk-management-and-compliance-observability-and-costs) | 11:44 |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Topic 8: Production Ops](../12-extra-beyond-cca-f/09-topic-8-production-ops) | [Next: Idea Generation/Vetting - Overview &rarr;](01-idea-generation-and-vetting-overview) |
+|:---|---:|
+
+<!-- prevnext:end -->

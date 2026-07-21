@@ -26,6 +26,16 @@ It's worth being explicit that a checkpoint has a real cost, not just a benefit.
 
 A useful test: if you can't state what specific failure mode a checkpoint exists to catch, it's probably in the wrong place, or redundant with a check that already exists elsewhere in the system. "Have a human review this because it seems important" is not a design; "have a human review this because the agent's confidence in the vendor match is below a threshold, and a wrong match here triggers a payment that's expensive to reverse" is.
 
+```mermaid
+flowchart TD
+    A["Agent reaches a decision point"] --> B{"High-stakes or hard to reverse?"}
+    B -->|"Yes"| D["Checkpoint likely justified"]
+    B -->|"No"| C{"Agent confidence low?"}
+    C -->|"Yes"| D
+    C -->|"No"| E["Proceed without a checkpoint"]
+    D --> F["Route to human review, scoped deliberately"]
+```
+
 ## What belongs in a review checkpoint's context
 
 Once you've decided a checkpoint belongs at a given point, the harder and more context-management-specific question is what to actually show the reviewer. Three principles do most of the work here.
@@ -65,3 +75,12 @@ Finally, consider the interaction design itself: is approving meaningfully easie
 Every one of those four decisions — what triggers the gate, what context it shows, what options it offers, and how its interaction is weighted — is a context management decision in the sense this module has used throughout: a deliberate choice about what a reader (here, a human) sees and doesn't see at the moment they have to decide.
 
 **Why it matters for the exam:** Expect scenario questions describing a review gate and asking you to evaluate whether it's well designed, often by presenting a checkpoint that technically exists but hands the reviewer either too little context to decide well or so much that a careful decision becomes impractical. The correct diagnosis usually isn't "add a review gate" or "remove the review gate" — it's "the gate exists but its context is poorly scoped," which is a distinctly Context Layer failure even though the checkpoint itself is a workflow-level construct.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: An Emergent, Hyper-Specialized Local Use Case](09-an-emergent-hyper-specialized-local-use-case) | [Next: Failure Affordance Varies By Use Case &rarr;](11-failure-affordance-varies-by-use-case) |
+|:---|---:|
+
+<!-- prevnext:end -->

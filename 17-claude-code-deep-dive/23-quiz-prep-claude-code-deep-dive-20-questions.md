@@ -170,3 +170,12 @@ D. A completely different, incompatible model architecture.
 **19. B** — The action has already completed by the time a PostToolUse hook fires, so exit code 2 there can only register an objection, not reverse what happened.
 
 **20. B** — The Agent SDK exposes Claude Code's actual engine — loop, tools, and context management, including session control — for use inside custom programmatic applications.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Key Distinctions - Claude Code Deep Dive](22-key-distinctions-claude-code-deep-dive) |  |
+|:---|---:|
+
+<!-- prevnext:end -->

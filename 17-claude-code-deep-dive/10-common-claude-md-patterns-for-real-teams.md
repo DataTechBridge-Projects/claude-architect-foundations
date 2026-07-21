@@ -109,3 +109,12 @@ Put together, an effective team `CLAUDE.md` for a mid-sized project tends to lan
 Every example above shares one property worth naming directly: each is written to be **actionable and checkable**, not merely descriptive. "We care about type safety" is a description; "run `pnpm typecheck` before considering a change complete" is an instruction an agent (or a human) can actually follow and verify compliance with. This is the same distinction the original `CLAUDE.md` lecture drew between writing for humans versus writing for an agent that has to act on the content — this lecture's contribution is making that distinction concrete enough to copy from directly, section by section, rather than leaving it as a principle to apply from scratch.
 
 **Why it matters for the exam:** Expect questions that present two candidate `CLAUDE.md` snippets covering the same underlying fact — one descriptive, one actionable — and ask which is better written, or that ask you to identify which category (commands, conventions, constraints, vocabulary, gotchas) a given real-world example belongs to. The reasoning test underneath both question types is the same: is this specific enough to be checked, and does it belong in this file at all given how broadly and durably it applies.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Excluding Files and Content](09-excluding-files-and-content) | [Next: Creating and Structuring Custom Slash Commands &rarr;](11-creating-and-structuring-custom-slash-commands) |
+|:---|---:|
+
+<!-- prevnext:end -->

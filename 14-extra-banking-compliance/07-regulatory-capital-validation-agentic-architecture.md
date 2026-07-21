@@ -18,6 +18,20 @@ A generative agent's job is to produce a plausible, well-supported artifact and 
 
 That difference matters architecturally because it changes what the agent's core loop actually does. Rather than an open-ended reasoning process converging on a novel output, the agent's loop here is closer to a structured audit: decompose the calculation into its constituent steps (exposure classification, risk-weight assignment, mitigant treatment, aggregation, ratio computation), retrieve the specific regulatory provision governing each step, compare the calculation's actual treatment against that provision, and record a verdict — match, mismatch, or insufficient information to determine — for each step individually rather than for the calculation as a whole. Working at the level of individual steps rather than a single holistic judgment is itself an agentic design decision: it keeps each comparison narrow enough to be checkable by a human reviewer, and it means a single ambiguous step doesn't force an all-or-nothing verdict on an otherwise-clean calculation.
 
+```mermaid
+flowchart TD
+    A["Decompose calculation into steps"] --> B["Retrieve governing provision for a step"]
+    B --> C["Compare calculation's treatment to provision"]
+    C --> D{"Verdict"}
+    D -->|Match| E["Record match"]
+    D -->|Mismatch| F["Record mismatch + explanation"]
+    D -->|Insufficient info| G["Record insufficient information"]
+    E --> H["Next step / final report"]
+    F --> H
+    G --> H
+    H -.-> B
+```
+
 ## Why This Agent's Role Differs From a Drafting Agent
 
 A drafting agent, like the one in the stress-testing use case, is judged by how much high-quality output it produces relative to the human effort of writing it from scratch — its value is in compression. A verification agent's value proposition is entirely different: it's judged by how reliably it surfaces the discrepancies that matter and how rarely it either misses one or cries wolf on one that isn't real. That means the tuning target during development is different too. A drafting agent gets iterated toward better prose and better synthesis. A verification agent gets iterated toward calibration — adjusting how conservatively it flags ambiguous cases, refining how it decomposes calculations into checkable steps, and specifically tracking (as the observability lecture in this use case covers) its own false-positive and false-negative rates over time, because those two numbers are the actual measure of whether the system is doing its job.
@@ -33,3 +47,12 @@ The agent's authority, in other words, is bounded not just by "don't finalize an
 ## Architecture Notes
 
 This use case shows the **Agentic** layer's vocabulary applying to a task shape the course hasn't emphasized elsewhere: low autonomy here isn't just about capping what the agent can finalize, it's about designing a structured, step-by-step verification loop whose natural failure modes (false positive, false negative, unwarranted inference) are different from a generative agent's. The decomposition into individually checkable steps is also a **Workflow** layer decision that keeps human review scoped and fast, while the requirement to sample clean verdicts, not just flagged ones, is a **Context** and **Workflow** discipline aimed squarely at catching the false-negative failure mode that matters most in this domain.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Regulatory Capital Validation - Overview](06-regulatory-capital-validation-overview) | [Next: Regulatory Capital Validation - Context Architecture &rarr;](08-regulatory-capital-validation-context-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

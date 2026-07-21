@@ -20,6 +20,21 @@ The other reason this is a hard fit, and worth naming honestly, is the cost of b
 
 A Claude-based credit agreement system built for a lending or legal team is best understood as a small number of narrow, well-scoped capabilities rather than one general-purpose "ask anything about this document" agent. The core capability is **structured extraction**: given a credit agreement (or a specific deal-type variant of one — a revolver, a term loan B, an asset-based facility), pull out a defined set of key terms — parties, facility amount, maturity, pricing grid, financial covenants and their thresholds, mandatory prepayment triggers, negative covenant baskets — into a structured record that flows into a deal database or term sheet. A second capability is **deviation flagging**: comparing a given agreement's language, clause by clause, against the institution's standard "market" paper or precedent set, and surfacing anywhere the document diverges — a covenant that's looser than house standard, a defined term that's been redrafted, a condition precedent that's missing. A third is **document Q&A**: letting an analyst or attorney ask natural-language questions about a specific agreement ("what happens to the leverage covenant if they make a permitted acquisition?") and get an answer grounded in, and cited to, the actual contract language rather than a general impression of what credit agreements usually say.
 
+| Capability | What it does | Example question it answers |
+|---|---|---|
+| Structured extraction | Pulls key terms into a structured record | What is the facility amount, maturity, and leverage covenant threshold? |
+| Deviation flagging | Compares clause language against house-standard paper | Is this covenant looser than our standard market paper? |
+| Document Q&A | Answers natural-language questions, grounded and cited | What happens to the leverage covenant if they make a permitted acquisition? |
+
 Notice what's *not* in that list: there's no open-ended "negotiate this deal" or "decide whether to approve this facility" capability. Those remain human judgment calls that the system supports with better information, not decisions it makes. That scoping decision — narrow, well-defined capabilities in service of a human decision-maker, rather than a broadly autonomous agent — is the architectural thread that runs through the next four lectures, starting with why this use case leans on fixed local workflows rather than open-ended agentic judgment.
 
 **Architecture Notes:** This use case sits closer to the Workflow and Context layers than to the Agentic layer — the tasks are extraction, comparison, and grounded Q&A against a bounded document, not open-ended decision-making about what to do next. The high stakes of misreading a covenant is the reason the coming lectures favor deterministic structure (Workflow layer) and tight, provenance-aware context scoping (Context layer) over agentic autonomy.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Extra Module: Solution Architecture Patterns - Financial Documents](./) | [Next: Credit Agreements - Local Workflows &rarr;](02-credit-agreements-local-workflows) |
+|:---|---:|
+
+<!-- prevnext:end -->

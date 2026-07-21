@@ -17,3 +17,12 @@ You'll walk through design patterns that don't belong to any single layer — a 
 There's a specific reason this module exists as its own thing rather than being folded into the Context Layer's outro or skipped entirely. Learning five domains in sequence, one deep-dive module at a time, is efficient for building depth in each — but it has a side effect: by the time you finish The Context Layer, the mental separation between the five layers can feel sharper than it actually is in practice. Real systems don't announce which layer a problem belongs to. A vague tool error message is a Tool Layer issue on its face, but it becomes an Agentic Layer problem the moment the model reacts to it by guessing, and a Context Layer problem the moment that guess gets treated as fact for the rest of the session. This module exists specifically to re-blur those lines on purpose, deliberately, before you sit an exam that will test you on exactly that blur.
 
 Think of the five deep-dive modules as building five separate lenses, and this module as the exercise of looking through more than one lens at the same scene simultaneously. That's a genuinely different skill from mastering each lens individually, and it's worth treating it as such rather than skimming through this module as a formality on the way to the practice exam.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Additional Topics](./) | [Next: Cross-Layer Patterns &rarr;](02-cross-layer-patterns) |
+|:---|---:|
+
+<!-- prevnext:end -->

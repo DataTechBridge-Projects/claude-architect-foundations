@@ -31,3 +31,12 @@ A condensed pass through the module's highest-yield either/or distinctions — t
 **Built-in versus custom, as a decision.** Default to a built-in tool when one already covers the need — the maintenance burden of a redundant custom tool is pure cost. Build custom when the capability is inherently organization-specific, when you need control a built-in tool doesn't expose, or when a built-in tool's scope doesn't match your actual risk tolerance.
 
 **MCP tool design versus ordinary tool design.** There is no separate discipline. Naming, schema structure-versus-prose, granularity, and honest error responses all apply to an MCP-exposed tool exactly as the Tool Layer defined them — MCP only changes the plumbing, and it amplifies the stakes of getting design right because servers are often shared, multi-client infrastructure authored with limited visibility into what else will be in a model's tool set.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Outro](14-module-outro) | [Next: Quiz Prep: MCP Server Building (20 Questions) &rarr;](16-quiz-prep-mcp-server-building-20-questions) |
+|:---|---:|
+
+<!-- prevnext:end -->

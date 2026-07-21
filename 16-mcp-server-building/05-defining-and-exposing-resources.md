@@ -38,6 +38,13 @@ Lean toward a **tool** when: locating the right data requires a query, a search,
 
 A genuinely useful heuristic: if you find yourself wanting to add a `query` or `filter` parameter to a "resource read," that's usually a sign the operation has drifted into being a search — a tool's job — dressed up as a resource. A resource's only real parameter, once a template's placeholders are filled in, should be "which specific one," not "which ones, matching what criteria."
 
+| Signal | Resource | Tool |
+|---|---|---|
+| Locating the right data | Client already knows the address | Requires a query, search, or model judgment |
+| Extra arguments beyond identity | None | Filter, query, or other parameters |
+| Side effects | None | Possible |
+| Failure handling | Simple read, no result to negotiate | Structured, retryable-aware error response |
+
 ## Subscriptions: staying current on a resource that changes
 
 A resource's content isn't necessarily static for the life of a connection, and MCP accounts for this with **subscriptions**: a client can subscribe to a specific resource, and the server notifies it when that resource's underlying content changes, rather than the client needing to re-read it repeatedly on some arbitrary polling schedule to catch updates. A client with a log file attached as a resource, for instance, can subscribe to it and receive an update signal each time new lines are appended, keeping whatever's in context current without wasteful, blind re-fetching. This is the same underlying notification mechanism covered later in this module applied specifically to resource freshness — another example of MCP's supporting mechanics existing to keep a long-lived session honest about state that can change out from under it.
@@ -51,3 +58,12 @@ Consider a filesystem-oriented MCP server. Each file is a natural resource, addr
 Not every resource is plain text. A resource can return binary content — an image, a PDF, an audio clip — appropriately encoded for transport, or structured data such as JSON, when that's the more faithful representation of what the resource actually is. A `db://customers/48213` resource might reasonably return a structured JSON record rather than a prose paragraph describing that customer, since the underlying data is naturally structured and a client or a downstream process may want to consume it as such rather than parse prose back apart. Choosing the right content type for a resource is a smaller-scale version of the structure-versus-prose tradeoff the Tool Layer raised for tool schemas: pick the representation that's most faithful to what the data actually is, not the one that's most convenient to hard-code.
 
 **Why it matters for the exam:** Expect scenario questions that describe a piece of functionality and ask you to identify it as a resource, a resource template, or a tool disguised as one. The reliable discriminator the exam is testing is whether the operation needs a query or search-like reasoning (tool) versus a stable, already-known address (resource) — and secondarily, whether the client or the model is the party actually positioned to decide what's relevant.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Defining and Exposing Tools via MCP](04-defining-and-exposing-tools-via-mcp) | [Next: MCP Prompt Templates &rarr;](06-mcp-prompt-templates) |
+|:---|---:|
+
+<!-- prevnext:end -->

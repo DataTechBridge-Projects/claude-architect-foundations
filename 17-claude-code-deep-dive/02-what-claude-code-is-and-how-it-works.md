@@ -18,6 +18,15 @@ That harness is not a new invention sitting outside everything else this course 
 
 At a high level, a single Claude Code turn on a nontrivial task moves through a recognizable cycle, even though the boundaries blur in practice and the model moves back and forth between phases as needed rather than marching through them in strict lockstep.
 
+```mermaid
+flowchart TD
+    A["Read: orient in the codebase"] --> B["Plan: form an approach"]
+    B --> C["Act: edit files, run commands"]
+    C --> D["Verify: check the result"]
+    D -->|"Not done, or new information"| A
+    D -->|"Task complete"| E["Turn ends"]
+```
+
 **Read.** Before Claude edits anything, it orients: reading relevant files, searching the codebase for related code, checking configuration, and pulling in whatever standing context is available (most importantly `CLAUDE.md`, covered in depth later in this module). This phase is doing real epistemic work — an edit made against a wrong mental model of the code is often worse than no edit at all, because it looks plausible while being subtly incompatible with how the codebase actually works.
 
 **Plan.** For anything beyond a trivial one-line fix, Claude forms an approach before touching files: which files need to change, in what order, and what the intended end state looks like. Sometimes this planning is implicit, folded into the model's reasoning before its first tool call. Sometimes it's explicit and visible, surfaced to you for approval before any edit happens at all — that visible, gated version of planning is **Plan Mode**, which gets its own lecture later in this module because of how directly it connects to the workflow-safeguarding material from the Agentic Layer.
@@ -54,3 +63,12 @@ The session-management bullet above is worth one more layer of precision, becaus
 It's worth being precise about what Claude Code adds on top of the base model and what it doesn't. Claude Code does not give the underlying model new capabilities it didn't otherwise have — the model's reasoning, its coding knowledge, its judgment about what a good fix looks like, are the same Claude you'd get through the API directly. What Claude Code adds is entirely on the harness side: a real environment to act in, tools scoped to that environment, context that's assembled automatically instead of pasted in by hand, and safety scaffolding around what gets executed without confirmation. This distinction matters because it's exactly the same distinction the Agentic Layer draws between "an agent" as a general architectural pattern and any specific product built on that pattern — Claude Code is one particular, very well-engineered instance of the pattern, not a different kind of thing.
 
 **Why it matters for the exam:** Expect questions that describe some piece of Claude Code's behavior — auto-loading project context, pausing before a risky shell command, summarizing a long session — and ask you to identify which general agentic-loop or workflow-layer concept it's a concrete instance of. The reliable way to answer these is to first strip away the product-specific name and ask "what is this, architecturally?" before matching it back to Claude Code's terminology.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Intro](01-module-intro) | [Next: The Tool System: Reads, Bash, Edits, and Web Search &rarr;](03-the-tool-system-reads-bash-edits-and-web-search) |
+|:---|---:|
+
+<!-- prevnext:end -->

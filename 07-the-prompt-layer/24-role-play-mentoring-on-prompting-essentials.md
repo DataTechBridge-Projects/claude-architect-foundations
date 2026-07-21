@@ -41,3 +41,12 @@ nav_order: 24
 **Priya:** So: fix the examples, write real criteria, test as a batch, and only add review where it's actually worth the cost.
 
 **Dev:** That's the whole module in one sentence. Ship it, watch the batch metrics, and version the prompt so you can see exactly what changed when it gets better — or worse.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Quiz Prep: The Prompt Layer (20 Questions)](23-quiz-prep-the-prompt-layer-20-questions) | [Next: The Context Layer &rarr;](../08-the-context-layer/) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -150,3 +150,12 @@ Use this as a timed drill: answer all 20 before checking the Answer Key at the e
 18. C — A later cluster of inputs unlike the validated distribution is a textbook case of distribution shift causing silent drift.
 19. B — Drift and degradation can emerge partway through a run, which early-only spot-checking will miss entirely.
 20. B — A well-designed prompt step declares explicit inputs and outputs rather than leaking or depending on hidden state, just like a container.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Key Distinctions - The Prompt Layer](22-key-distinctions-the-prompt-layer) | [Next: Role Play: Mentoring on Prompting Essentials &rarr;](24-role-play-mentoring-on-prompting-essentials) |
+|:---|---:|
+
+<!-- prevnext:end -->

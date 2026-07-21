@@ -28,6 +28,12 @@ The mechanics of narrowing a large codebase down to a workable context generally
 
 **Structural and symbol-level navigation** uses the codebase's own structure — its dependency graph, its call graph, its import relationships — to move outward from a known starting point along real code relationships rather than text similarity. Given one file or function known to be relevant, structural navigation can answer "what calls this," "what does this depend on," and "what else lives in this module" far more reliably than either keyword or semantic search, because it's following the actual architecture rather than approximating relevance from text. This is often the technique that turns an initial keyword or semantic hit into a properly scoped, complete-enough context — the first search finds *a* relevant location, and structural navigation from there finds the rest of what's actually connected to it.
 
+| Technique | Best for | Limitation |
+|---|---|---|
+| Keyword/pattern search | A known symbol, string, or exact term | Misses conceptual matches and indirect references |
+| Semantic/embedding retrieval | Conceptual relevance without shared vocabulary | Fuzzier; can surface thematically related but irrelevant material |
+| Structural/symbol navigation | Following call graphs, dependencies, and imports outward from a known point | Needs an existing starting point to navigate from |
+
 **Iterative, agent-driven exploration** ties these together in practice: rather than trying to determine the full relevant scope in one shot, an agent working a large-codebase task typically explores incrementally — an initial search narrows to a plausible area, reading that area's content reveals what else needs to be pulled in, another targeted search or navigation step follows, and the process repeats until the agent has assembled just enough context to act, and no more. This is a meaningfully different pattern from a single retrieval step feeding directly into a single generation step, and it's part of why agentic coding tools are structured as an iterative loop with search and file-reading tools available throughout, rather than a one-shot "retrieve everything relevant, then answer."
 
 ## File-level versus symbol-level context selection
@@ -75,3 +81,12 @@ Notice what didn't happen: the agent never loaded the notification service's ful
 One more practical wrinkle deserves a name: many retrieval systems over large codebases work against a pre-built index — an embedding index for semantic search, a symbol table for structural navigation — rather than scanning the live file system on every query, because scanning everything on every query doesn't scale any better than loading everything into context would. That's a reasonable engineering trade-off, but it reintroduces the staleness concern from earlier in this lecture at the infrastructure level: the index itself is a piece of context input with its own currency, and if it isn't rebuilt often enough relative to how fast the codebase actually changes, every retrieval built on top of it inherits a hidden risk of describing code that no longer exists in that form. Deciding how the index is kept current — on every commit, on a schedule, or on demand before a session that needs precision — is itself a context management decision, not just an infrastructure detail to delegate away without a second thought.
 
 **Why it matters for the exam:** Large-codebase scenarios are a reliable exam pattern, usually framed as a choice between a static, `CLAUDE.md`-style approach and a retrieval-driven approach for a described project. The correct answer tracks the actual scale and heterogeneity of the corpus described in the scenario, not a general preference for one technique over the other — and a well-constructed question will sometimes describe a small project and expect you to recognize that the elaborate retrieval pipeline is the wrong, over-engineered answer, exactly as often as it describes a large one and expects the reverse.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Should I Stay? Or Should I Propagate?](07-should-i-stay-or-should-i-propagate) | [Next: An Emergent, Hyper-Specialized Local Use Case &rarr;](09-an-emergent-hyper-specialized-local-use-case) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -39,3 +39,12 @@ The first of the five core domain modules. Covers the orchestration loop that ma
 | 22 | [Key Distinctions - The Agentic Layer](22-key-distinctions-the-agentic-layer) | 3:16 |
 | 23 | [Quiz Prep: The Agentic Layer (20 Questions)](23-quiz-prep-the-agentic-layer-20-questions) | — |
 | 24 | [Role Play: Mentoring on Agentic Essentials](24-role-play-mentoring-on-agentic-essentials) | — |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Outro](../03-the-cca-f-certification/07-module-outro) | [Next: Module Intro &rarr;](01-module-intro) |
+|:---|---:|
+
+<!-- prevnext:end -->

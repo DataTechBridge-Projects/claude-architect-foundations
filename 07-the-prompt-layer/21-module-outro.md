@@ -21,3 +21,12 @@ That discipline sets up the next module directly. A perfectly engineered prompt 
 If you want a single test to apply before calling any prompt "done," it's the one this module keeps returning to in different forms: could this prompt fail silently, and would you find out before a user did? A prompt with vague task framing fails silently when the model quietly picks the wrong interpretation of an ambiguous instruction. A prompt with narrow few-shot coverage fails silently on the slice of production traffic that doesn't resemble its examples. A prompt that requests structured output without schema enforcement fails silently the first time a parser meets an unexpected preamble. In every case, the failure doesn't announce itself — it just quietly produces a slightly wrong answer that looks plausible enough to pass a casual glance, which is precisely why catching it requires the deliberate, batch-level testing this module has emphasized throughout, from the ticket-triage lab's twenty-five-ticket regression set to the general principle that a prompt should be validated across a range, not eyeballed on the one example that happened to work.
 
 That's also why the two most concrete tools this module hands you — vary examples ruthlessly within the expected range, and enforce structure at the schema or tool-call layer rather than through phrasing alone — are worth carrying forward as habits, not just facts to recall for an exam question. They're the difference between a prompt that happens to work on the cases its author thought of, and one engineered to hold up against the cases its author didn't.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Test Dataset Generation and Model-Based Grading](20-test-dataset-generation-and-model-based-grading) | [Next: Key Distinctions - The Prompt Layer &rarr;](22-key-distinctions-the-prompt-layer) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -17,3 +17,12 @@ Each lab in this course is a short, self-contained exercise built around a reali
 You'll get the most value out of these labs if you treat them the way you'd treat a scenario question on the real exam: read the prompt carefully, resist the urge to jump to the first plausible-sounding answer, and explicitly name the trade-offs before committing to a decision. Many of these scenarios are deliberately constructed so that more than one answer is defensible — the point isn't memorizing a single "correct" architecture, it's practicing the reasoning process an architect uses to weigh autonomy against risk, capability against cost, and simplicity against flexibility.
 
 Labs are placed right after the lecture material that equips you to complete them, so by the time you hit one, you should have everything you need. If a lab feels difficult, that's useful signal — it usually means it's worth revisiting the preceding lecture rather than skipping ahead. Treat each lab as a low-stakes rehearsal for the judgment calls the exam (and real architectural work) will ask you to make, and you'll walk into the certification with reasoning muscle, not just recalled definitions.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Fundamentals of Agents and Tools](05-fundamentals-of-agents-and-tools) | [Next: Intro to the Hands-On Labs for the CCA-F &rarr;](07-intro-to-the-hands-on-labs-for-the-cca-f) |
+|:---|---:|
+
+<!-- prevnext:end -->

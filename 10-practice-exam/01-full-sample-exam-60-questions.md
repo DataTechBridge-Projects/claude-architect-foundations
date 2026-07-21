@@ -501,3 +501,12 @@ D. Adding more few-shot examples of correctly approved returns to the prompt.
 **59. C** — Following a concrete code relationship like "who calls this function" is exactly what structural/symbol-level call-graph navigation is built for, more so than loose semantic matching.
 
 **60. B** — The root cause was a Tool-layer error response that failed to signal degraded data, which let a Context-layer failure (an unverified, stale fact treated as trustworthy) propagate into consequential decisions; fixing the tool's error signaling addresses the actual failure point, unlike the other options.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Practice Exam](./) | [Next: Course Conclusion &rarr;](../11-course-conclusion/) |
+|:---|---:|
+
+<!-- prevnext:end -->

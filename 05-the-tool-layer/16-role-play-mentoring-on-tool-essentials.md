@@ -49,3 +49,12 @@ nav_order: 16
 **Mentee:** I was worried about that too. But create and update take genuinely different arguments — create needs a title and body, update needs an ID plus whatever's changing. Merging them into one tool with an optional ID field feels like it'd just recreate the ambiguity we started with.
 
 **Mentor:** Which is exactly right — that's not over-fragmentation, that's four operations that are genuinely distinct in both purpose and shape. The problem was never the tool count. It was that the descriptions didn't do the disambiguation work, and the errors didn't give the model anywhere to go. Fix those two things first, always, before you touch granularity.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Quiz Prep: The Tool Layer (20 Questions)](15-quiz-prep-the-tool-layer-20-questions) | [Next: The Workflow Layer &rarr;](../06-the-workflow-layer/) |
+|:---|---:|
+
+<!-- prevnext:end -->

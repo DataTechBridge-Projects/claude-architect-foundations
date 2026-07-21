@@ -57,3 +57,12 @@ nav_order: 24
 **Mentee:** Each refund request is probably its own task, maybe its own session even, rather than one giant session that never resets. There's no reason case forty needs case one still sitting in context.
 
 **Mentor:** That's the architecture. Notice you didn't need a new concept for any of it — just the loop, applied carefully at each layer.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Quiz Prep: The Agentic Layer (20 Questions)](23-quiz-prep-the-agentic-layer-20-questions) | [Next: The Tool Layer &rarr;](../05-the-tool-layer/) |
+|:---|---:|
+
+<!-- prevnext:end -->

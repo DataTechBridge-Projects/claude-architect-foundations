@@ -41,3 +41,12 @@ nav_order: 8
 **Mentee:** And if I get a question I just don't know?
 
 **Mentor:** Then you reason from the five questions each layer asks — who decides, what can it do, how fixed is the process, how is intent communicated, what does it actually see — and you'll get further than guessing ever would. You've done the work. Go show it.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Useful Metaphors and Analogies](07-useful-metaphors-and-analogies) | [Next: Practice Exam &rarr;](../10-practice-exam/) |
+|:---|---:|
+
+<!-- prevnext:end -->

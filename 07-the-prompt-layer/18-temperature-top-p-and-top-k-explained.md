@@ -24,6 +24,12 @@ At every step of generation, the model produces a probability distribution over 
 
 In practice these parameters combine: a request typically applies `top_k` and/or `top_p` to narrow the candidate set first, then applies temperature to reshape probabilities within what remains, before a token is finally sampled. An architect doesn't need to reimplement this pipeline, but understanding the order of operations clarifies why, for instance, a very restrictive `top_k` or `top_p` can make a high temperature setting largely irrelevant — if only one or two tokens survive the restriction, there's little for a flattened distribution to meaningfully vary across.
 
+| Parameter | What It Restricts | Adapts to Distribution Shape? |
+|---|---|---|
+| Temperature | Reshapes the sharpness of the whole distribution | N/A — reshapes rather than restricts a set |
+| top_p (nucleus) | Smallest set of tokens reaching cumulative probability `p` | Yes — the nucleus size adapts each step |
+| top_k | A fixed number, `k`, of top candidates | No — always the same candidate count |
+
 ## Low vs. High Temperature in Practice
 
 The practical decision an architect actually faces is rarely "what's the precise mathematical effect of top_p 0.9 versus 0.95" — it's "should this task be close to deterministic, or should it have room to vary?" Tasks that have a single correct or best answer — structured data extraction, classification, code generation against a precise specification, anything where two different valid-looking outputs for the same input would actually be a problem rather than a feature — call for low temperature, because the goal is consistency: the same input should reliably produce the same (or very nearly the same) output every time the system runs it, and unwanted variance here reads as a bug, not as creativity.
@@ -43,3 +49,12 @@ Consider a customer support system built on several distinct model calls chained
 This is the discipline worth taking away: sampling parameters are set per call site, matched to what that specific call actually needs, not chosen once for an entire system and left untouched everywhere. A single global default — even a sensible one — is very often the wrong setting for at least one call in a multi-step pipeline.
 
 **Why it matters for the exam:** Expect a direct conceptual question distinguishing temperature (reshaping the probability distribution's sharpness), top_p (restricting to a cumulative-probability slice that adapts to the distribution's shape), and top_k (restricting to a fixed number of top candidates regardless of distribution shape). Also expect scenario questions asking whether a described task calls for low or high temperature, based on whether output consistency or output variety is what the task actually needs.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Prefilling and Steering Model Output](17-prefilling-and-steering-model-output) | [Next: Building a Prompt Evaluation Workflow &rarr;](19-building-a-prompt-evaluation-workflow) |
+|:---|---:|
+
+<!-- prevnext:end -->

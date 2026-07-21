@@ -17,3 +17,12 @@ The Claude Certified Architect - Foundations credential is built around five dom
 Across the next several lectures you'll get a full breakdown of what each domain covers and what an architect is expected to know within it, a memorable mental model — the five-layer mnemonic — for keeping the domains straight under exam pressure, a realistic walkthrough of exam-day logistics and test-taking strategy, a pointer to Anthropic's official CCA-F page for the details only the certification body can authoritatively confirm, and ten synthesized takeaways that preview the highest-value principles from the entire course.
 
 Treat this module as calibration, not trivia. By the end of it, you should be able to look at almost any exam question and immediately place it: which domain is this actually testing, and what does a good architect do here? That instinct will matter more on exam day than any single fact you memorize.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The CCA-F Certification](./) | [Next: The Five Domains &rarr;](02-the-five-domains) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -36,6 +36,22 @@ The case for building a Skill is easy to underrate because ad hoc prompting does
 
 ## When Not to Build One Yet
 
+| Build a Skill when | Hold off when |
+|---|---|
+| The same instruction keeps getting retyped nearly verbatim | It's only come up once so far |
+| The procedure has real internal structure or judgment calls | It's simple enough to state in a single sentence |
+| The task recurs, even if only occasionally | It's still actively changing week to week |
+| More than one person needs it, or one person needs it repeatedly | Only one person will ever run it, once |
+
 The mirror image of the signals above is worth stating directly, since building prematurely has its own cost. A procedure that's only come up once, that's still actively changing week to week, or that's simple enough to state in a single sentence isn't worth packaging yet — a Skill, like a `CLAUDE.md` file, is still a maintained artifact someone has to keep accurate, and writing one for a procedure that hasn't stabilized just means rewriting it repeatedly, with none of the payoff of "write once, reuse reliably" that justifies the investment in the first place. The discipline here mirrors the Workflow Layer's closing advice on maintaining Skills: it's better to wait until a procedure has genuinely stabilized and genuinely recurs than to package prematurely and end up maintaining an artifact that's really still in flux.
 
 **Why it matters for the exam:** Where the Workflow Layer's coverage tests whether you can correctly sort a described task into `CLAUDE.md`, Skill, or subagent, this module's coverage tends to test the build-versus-not decision within the Skill category specifically — given a described recurring task, has it actually crossed the threshold that justifies packaging it, or is ad hoc prompting still the right call for now. Look for scenario questions that describe a task's frequency, stability, and audience (one person versus a team) and ask you to weigh those signals rather than just recognize "this sounds like a Skill" in the abstract.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Creating and Structuring Custom Slash Commands](11-creating-and-structuring-custom-slash-commands) | [Next: Authoring Agent Skills &rarr;](13-authoring-agent-skills) |
+|:---|---:|
+
+<!-- prevnext:end -->

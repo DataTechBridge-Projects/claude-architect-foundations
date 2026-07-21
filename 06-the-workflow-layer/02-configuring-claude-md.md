@@ -54,6 +54,13 @@ A **system prompt** is typically controlled by whoever is building the overall a
 
 A useful way to hold the distinction: the system prompt defines who the agent *is*; `CLAUDE.md` defines what the agent needs to know to work competently in *this specific place*. One is about identity and general behavior; the other is about local, project-specific ground truth. Both matter, and a well-designed system typically has both — but conflating them, or trying to cram project-specific conventions into a system prompt meant to generalize across many projects, is an anti-pattern in its own right.
 
+| Aspect | `CLAUDE.md` | System prompt |
+|---|---|---|
+| Scope | One project or repository | Often spans many projects |
+| Owner | The team working in that repo | Whoever builds the agent harness |
+| Change process | Edited and reviewed like any other file in the repo | Configured at the application/harness level |
+| Defines | What the agent needs to know to work in *this* place | Who the agent *is* and how it generally behaves |
+
 ## Common Patterns
 
 **Layered CLAUDE.md files.** Claude Code supports `CLAUDE.md` files at multiple directory levels — a root-level file with organization- or repo-wide conventions, and nested files in subdirectories with more specific context (a `frontend/CLAUDE.md` covering component conventions, a `services/billing/CLAUDE.md` covering that service's particular constraints). This mirrors how a large engineering org actually distributes knowledge: some things are true everywhere, some things are true only in one corner of the codebase, and forcing everything into one flat file loses that structure.
@@ -73,3 +80,12 @@ A third is **duplicating what tooling already enforces.** If a linter already en
 Finally, **writing it for humans instead of for an agent that has to act on it.** A good `CLAUDE.md` gives specific, actionable instructions ("run `npm run test:unit` before considering a change complete") rather than vague cultural color ("we care a lot about testing here"). The latter reads fine to a human skimming a README; it gives an agent almost nothing to act on.
 
 **Why it matters for the exam:** Expect scenario questions that describe a piece of project information and ask whether it belongs in `CLAUDE.md`, a system prompt, a Skill, or nowhere persistent at all. The reasoning test is usually: is this stable, is it broadly applicable across tasks in this project, and is it something you'd want loaded automatically every single time — or is it task-specific, volatile, or too large to justify permanent context cost? Getting that sorting right is the core competency this lecture is building toward.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Intro](01-module-intro) | [Next: When to use CLAUDE.md vs. RAG Knowledge? &rarr;](03-when-to-use-claude-md-vs-rag-knowledge) |
+|:---|---:|
+
+<!-- prevnext:end -->

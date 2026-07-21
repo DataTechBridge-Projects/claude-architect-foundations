@@ -150,3 +150,12 @@ Twenty questions covering this module: context composition, summarization and co
 18. **B** — An unfiltered, lengthy transcript causes the same signal-dilution problem in a human reader that it would in a model, degrading review quality.
 19. **C** — Conflicts should be resolved by weighing authority, currency, and verifiability together, and surfaced rather than silently guessed at when unresolved.
 20. **C** — Provenance metadata is what allows every other technique in the module — checkpoints, re-verification, human review, conflict resolution — to actually function.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Key Distinctions - The Context Layer](23-key-distinctions-the-context-layer) | [Next: Role Play: Mentoring on Context Essentials &rarr;](25-role-play-mentoring-on-context-essentials) |
+|:---|---:|
+
+<!-- prevnext:end -->

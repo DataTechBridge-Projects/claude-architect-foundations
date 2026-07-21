@@ -17,3 +17,12 @@ That reframing has consequences. Code you write once and never test is a liabili
 This module walks through what that engineering discipline looks like in practice. You'll see structural best practices for framing tasks unambiguously, the mechanics and pitfalls of few-shot examples, techniques for forcing genuinely structured output out of a model that defaults to prose, and self-checking patterns that catch bad output before it propagates downstream. You'll also see how prompting scales beyond a single call — running the same prompt across a batch of inputs, and splitting generation from review into independent passes so a system doesn't grade its own homework. Interspersed between the long lectures are several short asides — on structure leaking into prompts, on varying few-shot examples deliberately, on machine-readable output, on sanitization, and on an analogy to Docker containers — that each capture one sharp, exam-relevant idea in a sentence or two rather than a full chapter.
 
 By the end of this module, you should be able to look at a prompt the way you'd look at a function signature: what it takes in, what guarantees it makes about what comes out, and what happens when those guarantees are violated. That's the mindset the CCA-F exam rewards in this domain, and it's the mindset that separates prompting as a craft from prompting as an architectural discipline.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The Prompt Layer](./) | [Next: Prompting Best Practices &rarr;](02-prompting-best-practices) |
+|:---|---:|
+
+<!-- prevnext:end -->

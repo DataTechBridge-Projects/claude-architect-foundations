@@ -36,6 +36,26 @@ This is the domain's central design principle stated plainly: the agent's job is
 
 Escalation in this system is not a courtesy setting — it's a hard-coded routing rule sitting outside the agent's own control. Certain trigger conditions (restricted-list proximity matches, counterparties on a heightened-scrutiny list, trades that touch more than one jurisdiction's rules simultaneously, or any case where the agent itself reports low confidence) automatically route to senior review regardless of what the agent's severity classification says, precisely so that a single bad inference by the agent can't suppress an escalation that should have happened. This mirrors a theme from the core course material on ambiguity handling: when a system doesn't have enough information to proceed safely, the correct behavior is to stop and defer, not to guess — and here that principle is enforced by workflow routing rather than left to the agent's own discretion to apply consistently.
 
+```mermaid
+flowchart TD
+    Trade[Proposed trade] --> Det{Deterministic checks}
+    Det -->|Breach| Block[Blocked before review]
+    Det -->|Pass| Agent[Compliance review agent]
+    Agent --> Sev{Severity classification}
+    Sev -->|Low severity| Standard[Standard compliance queue]
+    Sev -->|High severity| Senior[Mandatory senior review]
+    Hard["Hard-coded triggers: restricted-list proximity, heightened-scrutiny counterparty, multi-jurisdiction, low confidence"] --> Senior
+```
+
 ## Architecture Notes
 
 This is the Agentic layer's autonomy-boundary discipline pushed to its strictest form: the domain fixes autonomy near zero for anything execution-adjacent, and the architecture reflects that by keeping deterministic and agentic reasoning in physically separate tiers rather than blending them under one flexible agent. Mandatory, workflow-enforced escalation paths are the Workflow layer's answer to a Context-layer problem — an agent's own confidence is not trustworthy evidence that no human review is needed, so the review gate is built into the routing logic itself rather than into the agent's judgment about when to ask for help.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Trade Risk Management/Compliance - Overview](06-trade-risk-management-and-compliance-overview) | [Next: Trade Risk Management/Compliance - Context Architecture &rarr;](08-trade-risk-management-and-compliance-context-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

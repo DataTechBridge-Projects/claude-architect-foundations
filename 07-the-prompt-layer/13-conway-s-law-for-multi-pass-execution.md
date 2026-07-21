@@ -21,3 +21,12 @@ Picture a content moderation system where a "drafting" prompt decides whether a 
 Breaking this pattern takes deliberate effort, because the default gravitational pull — per Conway's Law — is toward mirroring existing structure. A few concrete levers help: give the review pass a genuinely different objective ("actively look for reasons this should NOT have been approved" rather than "confirm this looks fine"), source its criteria or examples from a different team or a different incident history than the drafting pass used, and consider using a different model, temperature, or prompting strategy so the review pass isn't just re-deriving the same reasoning path the draft pass already took. An adversarial framing — instructing the review pass to actively try to find a reason to reject, rather than to passively confirm — is one of the more reliable ways to break the mirrored-judgment trap, because it forces a different cognitive stance rather than just a second pass through the same stance.
 
 **Why it matters for the exam:** Expect a scenario describing a two-pass review pipeline that still lets a known failure mode through, and asking why independence didn't help. The likely answer is that the "independent" review pass shared the same design assumptions, criteria, or team origin as the drafting pass — real independence requires deliberately different criteria or perspective, not just a second prompt in the pipeline.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Independent & Multi-Pass Review](12-independent-and-multi-pass-review) | [Next: Lab: Prompt Reliability Simulator &rarr;](14-lab-prompt-reliability-simulator) |
+|:---|---:|
+
+<!-- prevnext:end -->

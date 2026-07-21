@@ -36,6 +36,12 @@ The primary channel a command hook uses to communicate its decision back is its 
 
 **Any other non-zero exit code — a non-blocking error.** The hook failed to run cleanly for some reason unrelated to a deliberate objection — a bug in the script, a missing dependency, a typo — and Claude Code surfaces a notice about the failure but doesn't treat it as a decision either way; execution continues as if the hook hadn't fired an opinion at all. This distinction matters practically: a hook script with a bug that causes it to crash doesn't silently and safely allow everything through by accident, but it also doesn't accidentally block everything either — it shows up visibly as a hook error, which is the signal that something needs fixing in the hook itself, not in whatever it was supposed to be checking.
 
+| Exit code | Meaning | Effect |
+|---|---|---|
+| 0 | Success, no objection | Execution proceeds; can optionally print JSON for a more nuanced decision |
+| 2 | Blocking error | Before-tool-call: stops the action. After-the-fact: can only object, not undo |
+| Any other non-zero | Hook failed to run cleanly | Surfaced as a hook error; treated as no opinion either way |
+
 ## A Worked Example
 
 A hook that blocks a specific, dangerous Bash pattern, attached to the before-tool-call event, illustrates the whole mechanism end to end:
@@ -70,3 +76,12 @@ Every piece of the mechanism from this lecture shows up here: reading and parsin
 **A hook that never fires is worse than obviously so.** The most dangerous hook failure mode isn't a hook that blocks too aggressively — that fails loudly, gets noticed, and gets fixed. It's a hook with a subtle bug in its matching logic that silently exits 0 on cases it was meant to catch, providing an illusion of a safeguard that isn't actually operating. Testing a safety-critical hook against cases it's specifically meant to catch, not just running it once and assuming it works, is the only real defense against this.
 
 **Why it matters for the exam:** Expect questions asking what exit code a hook should return in a given scenario, and specifically testing the distinction between blocking events (where exit 2 genuinely prevents an action) and after-the-fact events (where exit 2 can only object, not undo). Also expect at least one question built around a hook that "should have" caught something but didn't — testing whether you can identify a realistic gap in matching logic or a silent-failure mode, rather than just knowing the exit-code mechanism exists in the abstract.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Hook Lifecycle Events](16-hook-lifecycle-events) | [Next: Real-World Hook Applications &rarr;](18-real-world-hook-applications) |
+|:---|---:|
+
+<!-- prevnext:end -->

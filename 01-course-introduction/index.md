@@ -16,3 +16,12 @@ A short welcome and orientation lecture: what the CCA-F certification covers, wh
 | # | Lecture | Duration |
 |---|---------|----------|
 | 1 | [Course Introduction](01-course-introduction) | 3:03 |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Home](../) | [Next: Course Introduction &rarr;](01-course-introduction) |
+|:---|---:|
+
+<!-- prevnext:end -->

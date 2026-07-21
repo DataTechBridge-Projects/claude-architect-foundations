@@ -17,3 +17,12 @@ The variable that actually drives failure affordance is **reversibility**, not t
 This has a direct, practical implication for how you tune the mechanisms covered elsewhere in this module. High failure-affordance systems can run with generous escalation thresholds, infrequent checkpoints, and lighter re-verification, because the cost of an occasional miss is low and cheaply corrected — over-engineering safety here just adds friction and latency for no real benefit. Low failure-affordance systems need the opposite: tight escalation thresholds, checkpoints before anything irreversible executes, and re-verification of any load-bearing fact rather than trusting a single unconfirmed source. Applying the low-affordance system's caution to the high-affordance case wastes effort and slows a system that didn't need the protection; applying the high-affordance system's looseness to the low-affordance case is how a plausible-sounding but wrong guess turns into an unrecoverable outcome.
 
 The practical exam-relevant takeaway: when a scenario question describes an agent's autonomy level, don't evaluate whether it's "too autonomous" or "too cautious" in the abstract — evaluate it against what happens if this specific agent, doing this specific task, gets it wrong. The right amount of caution is a function of the blast radius, not a universal setting to be dialed the same way for every agent in a system.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Designing Human Review](10-designing-human-review) | [Next: Data Provenance and Conflicts &rarr;](12-data-provenance-and-conflicts) |
+|:---|---:|
+
+<!-- prevnext:end -->

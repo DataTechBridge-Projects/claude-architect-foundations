@@ -19,3 +19,12 @@ You don't need to hold all the detail yet. You need the map you now have, and th
 It's worth being explicit about why this course is structured this way — overview module first, then five deep-dive modules, rather than diving straight into the first domain. Certification exams punish two different failure modes, and they require different fixes. The first is not knowing enough about any given domain, which straightforward studying fixes. The second, less obvious one is knowing plenty about each domain in isolation but freezing when a question doesn't announce which domain it's testing — a scenario about a tool that returns a bad error message might really be testing Tool design, or it might be testing whether you recognize that the actual failure was a missing human-review gate, which is a Workflow or Context problem wearing a Tool costume. The map you built in this module is the fix for that second failure mode, and it only works if you actually hold onto it as you go deep on each domain, rather than treating this module as a formality to get through on the way to the "real" content.
 
 One more practical note before you move on: this is a good point to skim back through the ATWPC mnemonic and the ten takeaways one more time, cold, without looking at your notes. If you can reconstruct both from memory right now, you're genuinely ready for the deep dives. If you can't, spend another few minutes here — it's cheaper to solidify the map now than to rebuild it under exam pressure five modules from now.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: The 10 Takeaways](06-the-10-takeaways) | [Next: The Agentic Layer &rarr;](../04-the-agentic-layer/) |
+|:---|---:|
+
+<!-- prevnext:end -->

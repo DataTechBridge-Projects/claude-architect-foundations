@@ -26,8 +26,25 @@ The solution that fits these constraints is not a single do-everything chatbot b
 
 Candidates that clear the screen move to a **drafting stage**, where a structured first-pass thesis gets built: the core claim, the catalysts, the time horizon, and an explicit statement of what would have to be true for the thesis to work. That draft then moves to a **vetting stage** that is architecturally distinct from drafting — it actively searches for evidence that contradicts the thesis, checks the idea against the fund's own known risk factors and past positions (has this thesis, or something like it, been tried before and failed?), and flags anything that looks like it's relying on stale or unverified data. Only after both stages complete does the output reach an analyst, packaged with its supporting evidence, its contradicting evidence, its risk-factor exposure, and explicit citations back to source documents so a human can verify rather than simply trust.
 
+```mermaid
+flowchart LR
+    A["Raw inputs: filings, transcripts, news, alt data"] --> B[Screening stage]
+    B --> C[Drafting stage]
+    C --> D[Vetting stage]
+    D --> E[Analyst review]
+```
+
 The remaining lectures in this module walk through each of these architectural layers in turn: how the agentic structure separates generation from vetting, what belongs in context at each stage, how retrieval is designed to keep the system grounded in current rather than stale information, and how such a system is monitored and kept affordable to run in production.
 
 ## Architecture Notes
 
 This use case is a clean illustration of separating the **Agentic** layer's "who decides what happens next" question from the **Context** layer's "what does the model actually see" question: screening, drafting, and vetting are distinct agentic stages precisely because each needs a different slice of context and a different cognitive posture. The heavy reliance on filings, transcripts, and news also foreshadows why this module leans hard on the **Prompt** layer's grounding techniques and a dedicated **RAG & Retrieval** design — a thesis is only as trustworthy as the freshness and provenance of what it cites.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Extra Module: Solution Architecture Patterns - Hedge Funds](./) | [Next: Idea Generation/Vetting - Agentic Architecture &rarr;](02-idea-generation-and-vetting-agentic-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -16,6 +16,16 @@ A stress-testing system's job doesn't end when a narrative gets approved and sub
 
 A supervisory examination of a stress-test submission doesn't accept "the model said so" as an explanation for anything. What it expects is a reconstructable chain: which scenario document (with its verified cycle tag) fed which model run, against which portfolio snapshot, producing which output, reviewed and approved by which named individual, on what date. Every one of those links has to be logged at the time it happens, not reconstructed after the fact from memory or from scattered emails. For a Claude-based assistant sitting inside this pipeline, that means every generation — scenario extraction, orchestration step, narrative draft — is logged with its full input context: which retrieved documents were included, which portfolio snapshot identifier was referenced, what the model produced, and which human reviewed and either approved or revised it before it moved forward.
 
+```mermaid
+flowchart LR
+    A["Scenario document (cycle-tagged)"] --> D["Model run"]
+    B["Portfolio snapshot"] --> D
+    D --> E["Output artifact"]
+    E --> F["Human reviewer"]
+    F -->|Approved| G["Logged: reviewer + date"]
+    F -->|Revised| E
+```
+
 This logging has to capture not just the final approved version of each artifact but the intermediate ones too, including anything a reviewer rejected or sent back for revision. A rejected draft and the reason it was rejected are themselves valuable audit evidence — they demonstrate that the review gate is a real control rather than a rubber stamp, which is precisely the kind of evidence a supervisor examining the bank's control environment (as distinct from just the numbers) is looking for. A system that only retains final, approved outputs and silently discards everything upstream of them has quietly destroyed the evidence that its own review process actually functions.
 
 ## Reproducibility as a First-Class Requirement
@@ -42,3 +52,12 @@ Traditional uptime and latency monitoring still applies, but it's not the center
 ## Architecture Notes
 
 This lecture shows the **Context** layer's provenance discipline paying dividends downstream: because every input is versioned and tagged, the audit trail regulators demand is a byproduct of good context architecture rather than a separate system bolted on afterward. The cost model, meanwhile, is a direct consequence of the **Agentic** layer's low-autonomy, staged design combined with a genuinely periodic workload — caching and batch processing fit a system that runs hard for weeks and idles the rest of the year, which is a very different cost shape than a continuously served agentic product.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Stress Testing - RAG & Retrieval Architecture](04-stress-testing-rag-and-retrieval-architecture) | [Next: Regulatory Capital Validation - Overview &rarr;](06-regulatory-capital-validation-overview) |
+|:---|---:|
+
+<!-- prevnext:end -->

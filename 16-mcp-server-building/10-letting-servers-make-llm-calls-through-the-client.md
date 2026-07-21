@@ -18,6 +18,19 @@ Consider an MCP server that summarizes long documents as part of a larger tool i
 
 **Sampling** avoids all of this by letting the server ask the client to make the LLM call instead. The server sends a sampling request through the protocol — essentially, "here's a prompt, please have your model produce a completion for it and give me the result" — and the client, which already has a live connection to a model (Claude, in this course's context) on the user's behalf, executes that call and returns the result back to the server, which then continues its own tool execution using that result.
 
+```mermaid
+sequenceDiagram
+    participant Srv as Server
+    participant Cl as Client
+    participant M as Model
+    Srv->>Cl: Sampling request with a prompt
+    Cl->>Cl: Review or approve the request
+    Cl->>M: Forward as an LLM call
+    M->>Cl: Return completion
+    Cl->>Srv: Return the completion
+    Srv->>Srv: Continue tool execution using the result
+```
+
 ## What this actually enables
 
 The practical benefit is that a server's author can build genuinely LLM-dependent functionality — summarization, classification, extraction, judgment calls the server's own deterministic code can't make — without that server ever needing its own model access, its own credentials, or its own opinion about which model to use. The server borrows the client's existing model connection for exactly the calls it needs, and nothing more. This keeps a server's dependency footprint smaller (no separate LLM provider relationship to manage or secure) and keeps a single point of control over model usage and cost sitting where it already naturally sits — with the client and the user or organization operating it — rather than scattered across every MCP server anyone happens to connect.
@@ -41,3 +54,12 @@ It's worth being clear that sampling is the exception, not the default expectati
 It's worth being explicit about the alternative sampling avoids: every MCP server that wants any LLM-backed functionality maintaining its own independent model access. That alternative fails the same reusability and governance logic that motivates MCP generally — instead of one clean protocol for borrowing model access through an already-trusted connection, every server author would need to solve credential management, provider selection, and cost control independently, and every organization connecting to third-party servers would need to trust each one's separate, unauditable relationship with whatever model provider it chose. Sampling keeps "who has model access, under what governance" answered once, at the client, rather than answered separately and inconsistently by every server an organization happens to connect to.
 
 **Why it matters for the exam:** Expect sampling to be tested as "the primitive that lets a server request an LLM call through the client rather than needing its own model access" — a direct, memorizable definition — paired with scenario questions asking *why* this design is preferable to a server maintaining independent model credentials (answer: avoids redundant credentials, centralizes governance and cost control, and keeps model usage subject to the client's existing oversight, including human approval of the request itself).
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: StreamableHTTP Transport: Remote Servers and Production Deployment](09-streamablehttp-transport-remote-servers-and-production-deplo) | [Next: Notifications, Roots, and Progress Reporting &rarr;](11-notifications-roots-and-progress-reporting) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -21,3 +21,12 @@ Third, you'll cover Claude Code's extension mechanisms in the order a team typic
 Fourth, you'll move from interactive use to production: the Claude Agent SDK for building custom applications on the same agentic loop, and non-interactive (`-p`) mode for running Claude Code inside CI/CD pipelines.
 
 By the end of this module, you should be able to look at a described Claude Code configuration or workflow and identify exactly which mechanism is doing the work, and reason about how changing one — a permission mode, a hook, a `CLAUDE.md` level — ripples into the rest of the system.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Claude Code Deep Dive](./) | [Next: What Claude Code Is and How It Works &rarr;](02-what-claude-code-is-and-how-it-works) |
+|:---|---:|
+
+<!-- prevnext:end -->

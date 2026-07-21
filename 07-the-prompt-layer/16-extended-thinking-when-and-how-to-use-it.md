@@ -18,6 +18,14 @@ When extended thinking is enabled for a request, the model is allotted a thinkin
 
 Practically, this means extended thinking gives an architect a dial that prompted chain-of-thought doesn't: you can allocate a specific reasoning budget to a request and let the model use as much or as little of it as the problem actually demands, rather than relying entirely on prompt wording to coax out an appropriate amount of visible reasoning. It also means the reasoning Claude produces under extended thinking is treated architecturally as a first-class part of the response — something your system can inspect, log, and reason about deliberately — rather than an incidental artifact of how you happened to phrase the prompt.
 
+| | Prompted Chain-of-Thought | Extended Thinking |
+|---|---|---|
+| Mechanism | Ordinary prompt instruction | Built-in API capability |
+| Token budget | Shares the normal output budget | Dedicated, separate reasoning budget |
+| Output handling | Interleaved as regular prose | Returned in its own distinct block |
+| Best suited for | Short, linear reasoning chains | Harder, multi-constraint reasoning |
+| Requires | Just prompt wording | An explicit thinking mode/parameter |
+
 ## When a Task's Difficulty Justifies It
 
 Extended thinking earns its cost on the same category of problem that benefits from chain-of-thought in general — multi-step reasoning, problems with many interacting constraints, and tasks that require weighing several plausible interpretations before committing to one — but it's specifically suited to the *harder* end of that spectrum, where the reasoning required is substantial enough that giving the model a large, dedicated space to work through it produces meaningfully better results than a modestly prompted "think step by step" would. Complex multi-constraint planning (scheduling a set of tasks against several competing resource limits), difficult mathematical or logical derivations, and subtle judgment calls that require weighing many pieces of evidence against each other before reaching a conclusion are the kinds of tasks where extended thinking's larger, purpose-built reasoning budget tends to show its value most clearly.
@@ -43,3 +51,12 @@ Consider an agentic system that triages incoming infrastructure incidents: given
 The third category is where extended thinking earns its cost. Deciding whether an incident is genuinely novel requires weighing several pieces of evidence against each other — does this log pattern resemble a known issue closely enough to count as a match, or is the resemblance superficial; does the timing correlate with a recent deployment in a way that suggests a causal link; is the severity consistent with what the alert itself claims, or does it look overstated or understated relative to the underlying signals. Getting this judgment wrong in either direction is costly: paging a human unnecessarily erodes trust in the system, while failing to page for a genuinely novel incident delays a real fix. Giving the model a larger, dedicated reasoning budget for exactly this decision point — while leaving the false-alarm-matching step on a simple, low-latency direct prompt — is a good illustration of the principle from the tool-use section above: extended thinking is best allocated to the specific decision points where reasoning quality is load-bearing, not applied uniformly across every step an agentic system takes.
 
 **Why it matters for the exam:** Expect questions distinguishing extended thinking, a built-in API capability with its own dedicated reasoning budget, from prompted chain-of-thought, a technique achieved purely through prompt instructions using ordinary output tokens — this distinction is tested directly, not just implied. Also expect scenario questions asking whether a described task's difficulty and stakes justify extended thinking's added cost and latency, versus scenarios where a simpler, well-structured prompt is clearly sufficient and extended thinking would be unnecessary overhead.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Chain-of-Thought: Prompting for Visible Reasoning](15-chain-of-thought-prompting-for-visible-reasoning) | [Next: Prefilling and Steering Model Output &rarr;](17-prefilling-and-steering-model-output) |
+|:---|---:|
+
+<!-- prevnext:end -->

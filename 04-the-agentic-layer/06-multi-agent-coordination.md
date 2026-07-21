@@ -31,6 +31,16 @@ The dominant pattern in practice — and the one Claude Code itself implements w
 
 Architecturally, this is not a fundamentally new mechanism — it's the same tool-use pattern from the previous lecture, one level up. From the orchestrator's point of view, "delegate this research task to a subagent" is a structured tool call like any other: it has a name, it takes arguments (typically a task description and some scoping information), and it returns a result that gets appended to the orchestrator's context as a tool result. The orchestrator doesn't see the subagent's internal loop — its tool calls, its intermediate reasoning, its own context accumulation — any of that. It sees only the final, distilled output the subagent chooses to report. This is precisely the context-isolation benefit described above, made concrete: the subagent can burn through tens of thousands of tokens of exploration internally, and none of that pollutes the orchestrator's context — only the summary does.
 
+```mermaid
+flowchart TD
+    O["Orchestrator loop"] -->|"dispatch task A"| S1["Subagent 1: own loop"]
+    O -->|"dispatch task B"| S2["Subagent 2: own loop"]
+    O -->|"dispatch task C"| S3["Subagent 3: own loop"]
+    S1 -->|"final report only"| O
+    S2 -->|"final report only"| O
+    S3 -->|"final report only"| O
+```
+
 This hierarchy can, in principle, nest: a subagent can itself act as an orchestrator for further subagents. In practice, most production systems keep this shallow — one or two levels — because coordination overhead and failure surface (discussed below) compound with depth, and because a deeply nested hierarchy makes it genuinely hard for a human to reason about what's happening at any given moment, which cuts against the observability and safeguarding goals covered later in this module.
 
 ## Parallel versus sequential coordination
@@ -40,6 +50,13 @@ Once you've decided to delegate to more than one subagent, a second architectura
 **Sequential coordination** runs subagents one after another, where a later subagent's task, or its input, depends on an earlier subagent's output. A "research, then write, then fact-check" pipeline is sequential by necessity — the writer needs the researcher's findings, and the fact-checker needs the writer's draft. Sequential coordination is conceptually simple (it's just the orchestrator making one delegation tool call after another, incorporating each result before deciding the next step) but pays the full latency cost of each subagent's own loop, one after another, with no overlap.
 
 **Parallel coordination** runs multiple subagents concurrently, when their subtasks are independent of each other — reviewing three separate files for style issues, or gathering pricing data from three unrelated sources. This can substantially reduce wall-clock time, since the subagents' individual loops overlap rather than stack. The cost is that the orchestrator now has to reconcile multiple results that arrive without any ordering guarantee, and has to handle the case where one of several parallel subagents fails, is slow, or returns a result that conflicts with another's — problems that simply don't arise in a strictly sequential pipeline, where each step's output is validated (implicitly, by the next step consuming it) before the next one starts.
+
+| | Sequential coordination | Parallel coordination |
+|---|---|---|
+| Fits | A genuine data dependency between subtasks | Independent subtasks with no data dependency |
+| Latency | Full cost of each subagent's loop, stacked | Reduced wall-clock time, loops overlap |
+| Reconciliation | Simple — each step validates the last before proceeding | Harder — results arrive with no ordering guarantee |
+| Main risk | Stacked latency | Conflicting results, hidden dependencies missed |
 
 A useful exam-relevant heuristic: default to sequential when there's a genuine data dependency between subtasks, and reach for parallel only when the subtasks are truly independent and the latency savings are worth the added reconciliation complexity. Reflexively parallelizing everything "for speed" without checking for hidden dependencies is a common design mistake, and one that produces subtly wrong results rather than obvious failures — a subagent working from a stale or incomplete view of what its sibling subagents are also touching.
 
@@ -90,3 +107,12 @@ Every one of the benefits above is bought with cost, and being able to name that
 ## Why it matters for the exam
 
 Expect the exam to present a task description and ask whether it warrants a multi-agent architecture, a single agent, or a fixed multi-step workflow (a distinction developed further in the Workflow layer) — and to test whether you can name the specific coordination overhead (latency, cost, reconciliation, failure attribution) that a proposed multi-agent design would introduce. The exam rewards precision here over enthusiasm: correctly identifying that a task does *not* need multiple agents, and explaining why the overhead wouldn't be justified, is just as testable as correctly identifying a case that does.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Results Polluting the Context?](05-results-polluting-the-context) | [Next: Think of Scaling &rarr;](07-think-of-scaling) |
+|:---|---:|
+
+<!-- prevnext:end -->

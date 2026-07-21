@@ -24,3 +24,12 @@ Grounding module before the certification content begins. Covers how large langu
 | 7 | [Intro to the Hands-On Labs for the CCA-F](07-intro-to-the-hands-on-labs-for-the-cca-f) | 1:35 |
 | 8 | [Lab: Claude Architecture Selection Simulator](08-lab-claude-architecture-selection-simulator) | 1:49 |
 | 9 | [Module Outro](09-module-outro) | 2:03 |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Course Introduction](../01-course-introduction/01-course-introduction) | [Next: Module Intro &rarr;](01-module-intro) |
+|:---|---:|
+
+<!-- prevnext:end -->

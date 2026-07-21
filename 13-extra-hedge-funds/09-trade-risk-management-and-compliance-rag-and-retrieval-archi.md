@@ -22,6 +22,13 @@ The corpus here is narrower than the idea generation use case's four-way split, 
 
 **Counterparty and jurisdictional reference data** — standard documentation about which rules apply to which counterparty types, entity structures, and cross-border scenarios — rounds out the corpus. This changes less often than restricted lists but still needs a defined refresh cadence, since new counterparty relationships and new jurisdictional guidance both need to enter the index promptly.
 
+| Corpus | Granularity | Freshness Approach |
+|---|---|---|
+| Regulatory text | By rule / sub-rule, with citation and version lineage | Version-linked; effective-date ranges |
+| Internal compliance policies | By policy section, linked to the rule it implements | Same versioning discipline as regulatory text |
+| Restricted & watch lists | Not embedded — treated as a live lookup | Real time / intraday |
+| Counterparty & jurisdictional data | Standard reference documentation | Defined refresh cadence |
+
 ## Retrieval Strategy
 
 Retrieval for this system prioritizes precision and provenance over the more exploratory, breadth-oriented retrieval used in idea generation. Where the idea generation system's screening agent benefits from a generous, high-recall first pass, the compliance review agent's retrieval should favor high precision on the specific rules that plausibly apply to the trade's instrument type, jurisdiction, and counterparty — a narrower, more targeted query built from structured trade attributes (instrument class, jurisdiction, counterparty type) rather than a broad semantic search over the whole regulatory corpus. This is a case where combining structured filtering with semantic search meaningfully outperforms semantic search alone: filter the corpus down to rules tagged for the relevant jurisdiction and instrument class first, and only then run semantic retrieval within that filtered set to find the specific provisions relevant to the trade's particular structure.
@@ -41,3 +48,12 @@ Restricted lists and counterparty status data need freshness guarantees stronger
 ## Architecture Notes
 
 Rule versioning with explicit effective-date ranges is this use case's sharpest expression of the Context layer's provenance principle — provenance here isn't a nice-to-have for a citation footnote, it's the difference between a defensible compliance decision and one that can't be reconstructed under audit. Routing restricted-list checks to a deterministic live lookup rather than the semantic retrieval path reinforces the Agentic layer's tiering decision from the earlier lecture: the fastest-moving, highest-consequence data belongs in the mechanical tier, not wherever retrieval happens to be most convenient to wire up.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Trade Risk Management/Compliance - Context Architecture](08-trade-risk-management-and-compliance-context-architecture) | [Next: Trade Risk Management/Compliance - Observability and Costs &rarr;](10-trade-risk-management-and-compliance-observability-and-costs) |
+|:---|---:|
+
+<!-- prevnext:end -->

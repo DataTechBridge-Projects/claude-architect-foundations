@@ -49,6 +49,21 @@ A command that isn't clearly named or clearly described tends to rot the same wa
 
 ## What Belongs in a Slash Command vs. Elsewhere
 
+| | Slash command | Skill |
+|---|---|---|
+| Invocation | Explicit, by name only | Explicit, or automatically discovered by description match |
+| Bundled resources | None — just a prompt | Scripts, reference material, examples |
+| Right fit when | The reusable unit is just a prompt | The procedure needs supporting files or auto-discovery |
+
 Slash commands sit at the simple end of Claude Code's extension mechanisms, and recognizing when a slash command is the right tool — rather than reaching for a fuller Skill, the subject of the next two lectures — matters for the same reason picking the right granularity of tool matters in the Tool Layer. A slash command is the right fit when the reusable unit is genuinely just **a prompt**: no bundled scripts, no reference material to load conditionally, no need for the agent to discover and invoke it automatically based on matching a task to a description — you invoke it explicitly, by name, because you already know that's what you want to happen right now. The moment a reusable procedure needs bundled supporting files, on-demand reference material, or automatic discovery based on task content rather than an explicit invocation, it has outgrown a slash command and belongs in a Skill instead — which is exactly where this module goes next.
 
 **Why it matters for the exam:** Expect questions distinguishing a slash command from a Skill along exactly this line — explicit, name-based invocation of a plain prompt versus a richer, potentially auto-discovered package with bundled resources — and questions about scope (personal versus project) that mirror the same personal-versus-team-owned distinction tested elsewhere in this module for `CLAUDE.md` files. The through-line across all of these is the same: does this reusable unit travel with a person or with a codebase, and is it invoked explicitly or discovered automatically.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Common CLAUDE.md Patterns for Real Teams](10-common-claude-md-patterns-for-real-teams) | [Next: What Skills Are and When to Build Them &rarr;](12-what-skills-are-and-when-to-build-them) |
+|:---|---:|
+
+<!-- prevnext:end -->

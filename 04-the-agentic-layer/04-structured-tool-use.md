@@ -47,6 +47,23 @@ A concrete shape, using a hypothetical `search_issues` tool:
 
 When the model calls this tool, the response contains a tool-use block like `{"type": "tool_use", "name": "search_issues", "input": {"query": "login timeout", "status": "open", "limit": 10}}`. That's not prose to be interpreted — it's data the harness can validate against the schema, route to the right handler function, and execute directly, with `query` guaranteed present and a string, `status` guaranteed to be one of exactly three values if present at all, and `limit` guaranteed to be an integer in range if present.
 
+```mermaid
+sequenceDiagram
+    participant M as Model
+    participant H as Harness
+    participant T as Tool
+
+    M->>H: tool_use block "name + input"
+    H->>H: validate input against schema
+    alt Valid
+        H->>T: execute with validated arguments
+        T-->>H: result
+        H-->>M: tool_result "success"
+    else Invalid
+        H-->>M: tool_result "structured error"
+    end
+```
+
 ## Why structure improves reliability
 
 The core reliability gain is that structure moves error detection earlier and makes it deterministic. A malformed tool call — a missing required field, a value outside an enum, a string where a number was expected — can be caught by schema validation before any real-world action is attempted, and the harness can return a clear, structured error to the model ("missing required field: query") rather than attempting execution with garbage input and failing in some downstream, harder-to-diagnose way. This is the same principle behind strongly typed interfaces in traditional software: pushing a class of bugs from runtime behavior into a validation step you can reason about and test.
@@ -78,3 +95,12 @@ Claude Code is a concrete, fully built-out instance of this pattern: `Read`, `Wr
 ## Why it matters for the exam
 
 Expect questions that ask you to identify why a described system is fragile — commonly, a system that relies on parsing the model's free-text output to detect intended actions, rather than using native structured tool calling. You should be able to state precisely what breaks in that design (ambiguous parsing, no validation boundary, poor composability as tools are added) and what structured tool use fixes about each. You should also be comfortable with the basic anatomy of a tool definition — name, description, JSON Schema for parameters — since exam scenarios will describe tool definitions and ask you to reason about how the model would use them.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Just Like a Server](03-just-like-a-server) | [Next: Results Polluting the Context? &rarr;](05-results-polluting-the-context) |
+|:---|---:|
+
+<!-- prevnext:end -->

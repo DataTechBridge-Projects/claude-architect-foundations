@@ -18,6 +18,13 @@ This use case sits in the same general territory as the credit agreements module
 
 That shift from "few and highly individuated" to "many and templated" is the single biggest driver of everything different about this module's architecture. It's also **investor-facing** in a way credit agreements typically aren't: the subscription document is the fund's interaction with an external counterparty who is trusting the fund's operations team to process it correctly, quickly, and confidentially — get an LP's commitment amount wrong, or worse, leak one LP's economic terms to another, and the damage is relationship and reputational, not just an internal data-quality problem. Combine high volume with investor-facing stakes and strict confidentiality expectations, and you get a use case where the dominant engineering challenge isn't "can the model correctly parse one hard document" (though it still needs to) but "can the system correctly and consistently process hundreds of near-identical documents without ever letting one investor's information bleed into another's."
 
+| Dimension | Credit agreements | Subscription agreements |
+|---|---|---|
+| Document count per relationship | Few, long-lived facilities | Many documents per fund closing |
+| Individuation | Each document substantively different | Nearly identical, templated |
+| Primary risk | Misreading bespoke covenant language | Cross-contamination between investors |
+| Architecture emphasis | Deep single-document precision | High-volume batch consistency |
+
 ## Why this is a good fit for Claude
 
 The templated, high-volume nature of subscription documents is, if anything, an even better fit for a structured extraction system than credit agreements are, precisely because the destination schema is so stable: fund operations teams already know exactly which fields they need out of every subscription document, because it's the same field list for every LP in the same closing. That regularity means a well-designed extraction workflow can process a subscription document with very high confidence most of the time, because "most of the time" really does mean matching an established template closely. The genuinely interesting engineering problem — and the one this module spends real time on — is handling the exceptions: the LP whose counsel redlined the standard subscription agreement, the investor who negotiated a side letter with terms that need to be captured and cross-checked against the LPA and against other investors' side letters (a topic this course picks up in full in the MFN and side letter module later), or the entity structure that doesn't cleanly fit the standard tax-classification fields.
@@ -29,3 +36,12 @@ A Claude-based system for LPA and subscription document work is built around thr
 As with credit agreements, notice what stays a human decision: whether to accept an investor's proposed modification, how to negotiate a side letter, whether a given entity structure is acceptable for the fund — all of that remains fund counsel's and the general partner's call. The system's job is to make the volume of routine, templated work fast and reliable, and to make sure the exceptions that need human judgment are the ones that actually reach a human, quickly and with the right supporting information, rather than getting lost in a pile of near-identical documents.
 
 **Architecture Notes:** The high volume of near-identical documents pulls this use case even further toward the Workflow layer than credit agreements were — batch-processing against a stable template is a textbook case for fixed, deterministic pipelines. The investor-facing confidentiality requirement is fundamentally a Context-layer concern: it demands strict isolation of what's in context per document, which the next few lectures develop in detail, since one investor's terms must never leak into another's context or output.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Credit Agreements - Observability and Costs](05-credit-agreements-observability-and-costs) | [Next: LPA/Subscription Agreements - Local Workflows &rarr;](07-lpa-and-subscription-agreements-local-workflows) |
+|:---|---:|
+
+<!-- prevnext:end -->

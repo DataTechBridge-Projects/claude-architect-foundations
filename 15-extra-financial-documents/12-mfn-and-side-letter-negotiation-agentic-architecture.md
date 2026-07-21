@@ -24,8 +24,30 @@ The practical shape is a single agent, not a multi-agent system — this is wort
 
 That agent's loop looks like this: given a proposed new term, it retrieves candidate side letters that might be affected (the retrieval strategy for surfacing these, especially when MFN-relevant clauses are phrased very differently across letters, is the subject of the next-but-one lecture); for each candidate, it reads the relevant MFN clause and assesses, with reasoning it can show its work on, whether that clause's own scope and carve-outs would actually cover the newly proposed term; it decides, based on what it finds, whether to widen the search (a discovered carve-out referencing "co-investment rights" might prompt it to specifically check whether any other side letters have co-investment-related MFN triggers it hadn't initially considered relevant) or to conclude the analysis for a given investor. That widening-based-on-discovery behavior — the model deciding, mid-task, that something it just read changes what it should look at next — is the specific capability a fixed workflow can't replicate and an agent can.
 
+```mermaid
+flowchart TD
+    A["Proposed new term"] --> B["Retrieve candidate side letters"]
+    B --> C["Read MFN clause for a candidate"]
+    C --> D{"Does clause scope cover this term?"}
+    D -->|"Yes"| E["Add to comparability assessment"]
+    D -->|"No"| F["Rule out this candidate"]
+    E --> G{"Does the finding suggest widening the search?"}
+    F --> G
+    G -->|"Yes"| B
+    G -->|"No"| H["Conclude analysis for this investor"]
+```
+
 ## Bounding the autonomy that's granted
 
 Genuine agentic judgment here doesn't mean unscoped autonomy. The agent's toolset should be narrow and specific to the analytical task: retrieve side letters, read a specific clause, compare two clauses' terms, produce a structured comparability assessment with citations. It should not include any tool that takes an action with external effect — sending correspondence to an investor, updating the fund's side letter registry, or communicating an MFN determination outside the review process. The agent's autonomy is scoped to *reasoning about and assembling* an analysis, and that analysis is a work product for a human reviewer, not a decision the system executes on. This mirrors the "draft, don't send" pattern from the core course's own worked example: the highest-stakes action — telling an investor they do or don't have an MFN right — stays outside what the agent can do unilaterally, no matter how good its analysis is, because the cost of a wrong autonomous action here is a real legal and financial consequence, not a recoverable inconvenience.
 
 **Architecture Notes:** This is the Agentic layer's core trade-off worked in full: a single, narrowly-scoped agent is justified because the comparison steps genuinely can't be enumerated in advance, but a multi-agent system isn't, because there's no real specialization boundary to divide the work along. Bounding the agent's tools to analysis-only actions, with no external-effect capability, is where the Agentic layer's autonomy is deliberately kept in check by Tool-layer scoping — a direct application of the "draft, don't send" pattern to a domain where the equivalent of "send" is legally binding.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: MFN & Side Letter Negotiation - Overview](11-mfn-and-side-letter-negotiation-overview) | [Next: MFN & Side Letter Negotiation - Context Architecture &rarr;](13-mfn-and-side-letter-negotiation-context-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

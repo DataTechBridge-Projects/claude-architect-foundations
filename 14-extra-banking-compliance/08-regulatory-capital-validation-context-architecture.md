@@ -20,6 +20,12 @@ A validation verdict is only as trustworthy as the anchors it's checked against.
 
 **The specific calculation being validated** is the artifact under examination itself: which exposures were included, how they were classified, what risk weights were applied, what mitigants were recognized, and how the components were aggregated into the reported figure. This is what gets compared against the other two anchors, step by step, as described in the agentic-architecture lecture — and it has to be presented in context with enough structural detail that each step is individually checkable, not just as a final number with no visible working.
 
+| Context Anchor | What It Is | Key Risk If Wrong |
+|---|---|---|
+| Calculation methodology documentation | Regulatory text + internal guidance on how the calculation should work | Validating against superseded methodology |
+| Current regulatory thresholds | Minimum ratios (CET1, Tier 1, buffers) the calculation must clear | Validating against the wrong bar for this bank |
+| Calculation under validation | The exposures, classifications, weights, and aggregation being checked | Not enough detail to check each step individually |
+
 ## Keeping the Anchors From Drifting Apart
 
 The core context-architecture risk here mirrors the stress-testing use case's cycle-versioning problem, but with a twist specific to validation: methodology and thresholds don't necessarily change on the same schedule as each other, and a calculation being validated might itself have been performed under an earlier methodology version that was current at the time. That means context assembly can't simply grab "the latest version of everything" — it has to determine which methodology version was actually in force when the calculation was performed, and validate against *that* version, unless the specific purpose of the check is to confirm the calculation has been updated to reflect a newer requirement. Getting this wrong in either direction produces a plausible-looking but meaningless verdict: checking a properly-performed historical calculation against today's rules will manufacture false discrepancies, while checking a calculation that should have been updated against outdated rules will miss a real one.
@@ -33,3 +39,12 @@ Unlike stress testing, where context often has to span an entire portfolio's wor
 ## Architecture Notes
 
 This lecture extends the **Context** layer's provenance discipline from the stress-testing use case into a second dimension: it's not enough to track *which cycle* a document belongs to, the system also has to track *which version was in force when the thing being checked was performed*, and resolve that deterministically rather than defaulting to "latest." Keeping context scoped to a single calculation, with related history clearly labeled rather than blended in, is the same context-isolation principle that shows up across the course wherever noise competes with signal for the model's attention.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Regulatory Capital Validation - Agentic Architecture](07-regulatory-capital-validation-agentic-architecture) | [Next: Regulatory Capital Validation - RAG & Retrieval Architecture &rarr;](09-regulatory-capital-validation-rag-and-retrieval-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

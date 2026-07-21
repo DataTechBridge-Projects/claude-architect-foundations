@@ -22,6 +22,13 @@ The same logic applies to structured extraction with idiosyncratic conventions �
 
 Conversely, few-shot examples are the wrong tool — or at least an inefficient one — for tasks that are already unambiguous once stated plainly. "Extract the total dollar amount from this invoice and return it as a number" doesn't need three worked examples; it needs a clear instruction and maybe one example to nail down the exact output format. Piling examples onto an already-clear instruction adds token cost and prompt length without buying you meaningfully more reliability, and in the worst case it can actively narrow the model's behavior in ways covered below.
 
+| Reach for few-shot examples when... | Reach for plain instructions when... |
+|---|---|
+| Tone or voice is hard to describe in prose | The task is already unambiguous once stated |
+| A formatting convention has idiosyncratic details | One sentence fully specifies the output format |
+| A classification boundary is fuzzy in the abstract | The boundary is already crisp and objective |
+| A domain pattern would take paragraphs to describe | The instruction alone reliably produces the right output |
+
 ## Covering the Range Without Overfitting
 
 The central design challenge in few-shot prompting isn't whether to include examples — it's which examples to include, and this is where most few-shot prompts go wrong. The instinct is to reach for two or three examples that look like the "typical" case, because those are the easiest to write and feel representative. But a model learns from the *pattern across* your examples, not just their individual content, and if all your examples share an unstated commonality — similar length, similar structure, similar level of complexity — the model will often absorb that commonality as part of the pattern, even though you never intended it as a requirement.
@@ -57,3 +64,12 @@ It's worth explicitly noting that few-shot examples aren't only something you wr
 The reverse move matters too. If a newly added example doesn't measurably improve the failure rate on the pattern it was meant to fix — or worse, if it introduces a new incidental correlation that degrades some other slice of inputs — that's a signal to remove or revise it rather than let the example set grow indefinitely. A bloated set of examples added reactively, one per incident, without ever being pruned or re-evaluated as a whole, tends to accumulate exactly the kind of unintended correlations this lecture has spent most of its time warning against — because each individual addition looked reasonable in isolation, and nobody stepped back to check whether the set as a whole still avoided teaching the wrong lesson.
 
 **Why it matters for the exam:** Expect questions that present a few-shot prompt and ask you to identify what unintended pattern the model is likely to learn from it — usually by pointing out a correlation across the examples that has nothing to do with the stated task. Also expect questions distinguishing when few-shot examples are the right tool versus when clear instructions alone would suffice, and questions testing whether you recognize an example set that clusters around the "typical" case while ignoring the edge cases production will actually encounter.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Structure Is Leaking Into Prompts!](03-structure-is-leaking-into-prompts) | [Next: Ruthlessly Vary... Within the Expected Range &rarr;](05-ruthlessly-vary-within-the-expected-range) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -19,3 +19,12 @@ Extension mechanisms formed a deliberate ladder — slash commands for a saved p
 Finally, the module moved from a human at a keyboard to production use — the Agent SDK for building your own application on the same engine, and non-interactive mode for running that same engine, unattended, inside a pipeline. Same loop, same tools, different driver.
 
 Carry the pattern-matching skill this module built — not just the vocabulary — into the rest of your exam preparation.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Claude Code in CI/CD: Non-Interactive Mode and the -p Flag](20-claude-code-in-ci-cd-non-interactive-mode-and-the-p-flag) | [Next: Key Distinctions - Claude Code Deep Dive &rarr;](22-key-distinctions-claude-code-deep-dive) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -29,6 +29,18 @@ A custom subagent is defined similarly to a Skill in spirit — a file with fron
 
 ## Context Isolation in Practice
 
+```mermaid
+sequenceDiagram
+    participant P as Parent session
+    participant S as Subagent
+    P->>S: Delegate task by name
+    activate S
+    S->>S: Read files and run commands in isolated context
+    S->>S: Explore dead ends, discard noise
+    S-->>P: Return final summary only
+    deactivate S
+```
+
 The defining property that makes a subagent a subagent, rather than a fancier Skill, is genuine context isolation: a subagent's exploration — every file it reads, every command it runs, every dead end it investigates along the way — happens in its own context window, and only the subagent's final result comes back to the parent session. A parent that delegates "investigate why this test suite is flaky" to a subagent gets back a concise summary of the cause, not a transcript of every log file the subagent had to read and discard to get there. This is precisely the mechanism the Workflow Layer's Skill lecture pointed to as the sharpest line between a Skill and a subagent: a Skill's content lands in the *same* context the parent is already using; a subagent's exploration never does, only its answer does.
 
 That isolation is also what makes a subagent the right choice when a task's intermediate noise would actively hurt the parent session if it accumulated there — a large, exploratory research task that touches dozens of files is exactly the case where delegating protects the parent's context budget for the actual decision-making that follows, rather than spending it on the exploration needed to reach that decision.
@@ -46,3 +58,12 @@ Like slash commands and `CLAUDE.md`, a custom subagent definition can live at mo
 Recall the Workflow Layer's three-way example: a commit-message convention (a `CLAUDE.md` entry), a compliance-report procedure (a Skill), and an overnight batch review of pull requests (a subagent, or in this case, likely several instances of one). A custom subagent for that last case would be defined with a description ("review a single pull request for style and correctness issues, and produce a short summary"), a system prompt describing exactly what "review" means for this team, a tool set limited to reading code and posting a comment (not one that includes broad shell access or the ability to merge anything), and, plausibly, a smaller model, since reviewing one PR at a time is well-bounded, high-volume work rather than a task calling for the deepest available reasoning.
 
 **Why it matters for the exam:** Expect questions asking you to configure or evaluate a described subagent definition — is the tool scope appropriate for its stated job, does the model choice match the task's actual complexity, is context isolation actually buying something here or just adding overhead. The recurring test is whether a described delegation decision is genuinely justified by isolation needs and recurrence, the same judgment call the Agentic Layer introduced and this lecture makes concrete.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Authoring Agent Skills](13-authoring-agent-skills) | [Next: Plan Mode: When and Why to Plan First &rarr;](15-plan-mode-when-and-why-to-plan-first) |
+|:---|---:|
+
+<!-- prevnext:end -->

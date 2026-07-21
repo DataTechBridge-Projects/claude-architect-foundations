@@ -24,8 +24,26 @@ The templated approach only works if it's paired with a reliable mechanism for r
 
 That routing distinction matters operationally as much as technically. Standard documents flow through the automated extraction pipeline with light-touch spot-check review. Exceptions get pulled out of the batch and routed to a human reviewer — typically fund counsel or a senior operations person — with the specific deviation already identified and highlighted, so the reviewer's time is spent evaluating the substance of the deviation rather than rediscovering that one exists by rereading the whole document against the standard form themselves. This is the same principle as the checklist-driven review from the credit agreements module, applied at the front end of the pipeline instead of the back end: catch the exception early, and let automation handle everything that's genuinely routine while reserving human judgment for what actually needs it.
 
+```mermaid
+flowchart TD
+    A["Subscription document received"] --> B{"Conformance check"}
+    B -->|"Matches template"| C["Automated extraction"]
+    C --> D["Light-touch spot-check review"]
+    B -->|"Structural deviation"| E["Flagged as exception"]
+    E --> F["Routed to human reviewer with deviation highlighted"]
+```
+
 A well-designed exception workflow also tracks exception *types* over time, not just flags individual instances. If a particular kind of deviation — say, a specific tax-status carve-out — starts appearing across multiple LPs in the same closing, that's a signal worth surfacing to fund counsel directly: either the template needs updating to handle a legitimate recurring case, or several investors are independently pushing the same non-standard request that's worth addressing at the fund level rather than one document at a time. That kind of pattern detection across the exception queue is itself a fixed, low-cost check layered on top of the workflow — it doesn't require agentic judgment, just aggregation of what's already been flagged.
 
 The overall shape, then, is a workflow tuned for a bimodal distribution: fast, cheap, highly automated processing for the large majority of documents that conform to template, and a clearly separated, human-reviewed path for the minority that don't — with the system's own conformance check doing the work of sorting one from the other rather than leaving that judgment to whoever happens to open the document first.
 
 **Architecture Notes:** This is Workflow-layer design at its most literal: a fixed, versioned template drives extraction, and a deterministic conformance check — not agentic judgment — decides which path a document takes. The exception path still relies on the model's language understanding to identify *what* changed, but the routing decision itself (standard versus exception) is rule-based, keeping the Agentic layer's open-ended autonomy out of a process that doesn't need it for the vast majority of documents.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: LPA/Subscription Agreements - Overview](06-lpa-and-subscription-agreements-overview) | [Next: LPA/Subscription Agreements - Context Architecture &rarr;](08-lpa-and-subscription-agreements-context-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

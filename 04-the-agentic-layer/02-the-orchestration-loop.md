@@ -22,6 +22,16 @@ Stated mechanically, the orchestration loop is:
 4. **Execute the requested tool(s).** The surrounding system — the Claude Code harness, an Agent SDK application, or your own orchestration code — actually performs the requested action: reads a file, runs a shell command, queries an API, writes a database row. This is the only step in the loop where anything actually happens outside the model. The model itself never touches the file system, the network, or a database; it only ever emits tokens describing what it wants done.
 5. **Return the result and repeat.** The output of that execution — success data, an error, a partial result — is appended to the conversation as a tool result message, and the loop returns to step 2. The model now generates its next response with that new information in context, and either requests another tool call or produces a final answer.
 
+```mermaid
+flowchart TD
+    A["1. Assemble context"] --> B["2. Call the model"]
+    B --> C{"3. Branch on response"}
+    C -->|"Plain text"| D["Loop ends: final answer"]
+    C -->|"Tool-use request"| E["4. Execute the tool"]
+    E --> F["5. Return result, append to context"]
+    F --> A
+```
+
 Nothing about this is exotic. It's the same next-token-prediction mechanism from LLM fundamentals, called repeatedly, where each call is conditioned on an ever-growing transcript that now includes the consequences of the model's own prior choices. There is no separate planner deciding the whole sequence up front — each decision is made fresh, at each pass through step 2, using only what's currently in context.
 
 ## Termination conditions
@@ -34,6 +44,15 @@ A loop that runs forever isn't useful, and a well-architected agentic system nee
 - **Time-based timeouts.** Wall-clock limits guard against a loop that's technically making progress but too slowly to be useful — a tool call hanging, or a model taking pathologically long generating each response.
 - **External signals.** A human-in-the-loop approval gate, a cancellation request, or an upstream system deciding the goal is no longer relevant can all halt the loop from outside, regardless of what step it's on.
 - **Error escalation.** A tool failing in a way the model cannot recover from (a permissions error, a malformed request the harness rejects, a downstream service that's down) can be configured to stop the loop and surface the failure rather than let the model retry indefinitely.
+
+| Termination condition | What triggers it | Example |
+|---|---|---|
+| Natural completion | Model returns text with no tool-use request | The model states its final answer |
+| Iteration/turn limit | Orchestrating system caps loop passes | A hard cap of 25 iterations |
+| Token/cost budget | Cumulative usage crosses a threshold | The loop halts once spend passes $2 |
+| Time-based timeout | A wall-clock limit is exceeded | A hanging tool call times out |
+| External signal | A human or upstream system intervenes | An approval gate declines, or the task is cancelled |
+| Error escalation | An unrecoverable tool failure occurs | A permissions error is surfaced instead of retried |
 
 Good architecture treats these as layered defenses, not alternatives. A production agentic system typically has all of them active simultaneously: the model's own judgment is the primary mechanism, but iteration caps, budgets, and timeouts are the backstops that fire when that judgment fails or when the model is simply wrong about how close it is to done.
 
@@ -68,3 +87,12 @@ Because a single loop typically runs many iterations, these failures compound: a
 ## Why it matters for the exam
 
 Expect scenario questions that describe a system and ask you to identify which step of the loop is responsible for an observed problem — slow responses (step 4, tool latency, or too many iterations), ballooning cost (step 1/5, unmanaged context growth), or an agent that "goes off the rails" (step 2, a bad decision compounding across iterations with no termination condition catching it). Being able to map a symptom back to a specific step, rather than describing the loop only in the abstract, is exactly the kind of precision the CCA-F rewards.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Intro](01-module-intro) | [Next: Just Like a Server &rarr;](03-just-like-a-server) |
+|:---|---:|
+
+<!-- prevnext:end -->

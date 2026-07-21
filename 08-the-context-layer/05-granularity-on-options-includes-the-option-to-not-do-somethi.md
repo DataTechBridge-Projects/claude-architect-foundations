@@ -17,3 +17,12 @@ This matters more than it sounds, because language models have a well-documented
 A concrete example: an expense-approval agent reviewing a submitted receipt sees an amount that's just over the category limit, with a note that doesn't clearly explain why. A three-option set — approve, reject, escalate to a human — pressures the model toward escalate, which sounds safe but silently trains the system to escalate anything mildly unclear, defeating the point of automating the easy cases. A four-option set that adds **ask the submitter a clarifying question and wait** lets the agent resolve the ambiguity cheaply, at the source, rather than dumping an under-specified case on a human reviewer who has no more information than the agent did.
 
 This connects directly to the failure-affordance idea elsewhere in this module: how costly it is to pause and ask varies by context, so the do-nothing option isn't free everywhere, but it should always at least be *considered* and explicitly ruled out or in, rather than never existing as a candidate. Designing the option set is itself a governance decision — deciding what's admissible as a "decision" is a smaller instance of the Context Data Governance discipline named earlier in this module, applied to actions rather than data.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Dealing with Escalation and Ambiguity](04-dealing-with-escalation-and-ambiguity) | [Next: Preventing Error Propagation &rarr;](06-preventing-error-propagation) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -62,10 +62,37 @@ An architect in this domain is expected to know concrete techniques for managing
 
 Escalation and ambiguity handling is a major exam theme here: what should an agent do when the context doesn't contain enough information to proceed safely? The wrong answer is almost always "guess and continue." The right answer usually involves recognizing the ambiguity, choosing an appropriately granular option (including the option to explicitly do nothing and ask), and preventing a single bad inference from propagating into everything downstream. Preventing error propagation — making sure a mistake made early in a session doesn't get compounded and amplified by subsequent turns that trust it uncritically — is one of the domain's central concerns and a frequent source of scenario questions.
 
+Before moving on, here's a quick reference for how the five domains line up:
+
+| Domain | Core Question | Representative Concerns |
+|---|---|---|
+| Agentic Architecture | Who decides what happens next? | Single agent vs. fixed workflow vs. multi-agent team, session management |
+| Tool Design | What can the model do, and how does it know how to do it? | Schema design, error response design, MCP governance |
+| Workflow Design | How much of this process is fixed, and how much is judgment? | `CLAUDE.md` vs. Skills vs. RAG, review gates, CI/CD integration |
+| Prompt Design | How do we communicate intent, format, and constraints? | Few-shot examples, structured output, self-checking prompts |
+| Context Management | What does the model actually see when it acts? | Summarization, data provenance, escalation, error propagation |
+
 ## How the Domains Interact
 
 None of these domains operates in isolation, and the exam will test the seams between them as often as it tests any one domain alone. A tool with a poorly designed error response (Tool) can cause an agent to make a bad autonomous decision (Agentic) that pollutes context for the rest of the session (Context). A workflow that skips a review gate (Workflow) puts more pressure on the prompt to get output right on the first try (Prompt). A context window crowded with irrelevant retrieved documents (Context) can cause the model to follow the wrong instruction among several plausible ones (Prompt). Learning to reason across these boundaries — not just within a single domain — is what separates someone who has memorized five lists of facts from someone who can actually architect a Claude-based system.
 
 Consider a single worked example that touches all five domains at once. A finance team builds a Claude-based system to draft first-pass responses to vendor invoice disputes. At the Agentic layer, the architect decides this should be a single agent with narrow autonomy, not a fixed workflow, because disputes vary too much to enumerate every path in advance — but also not a multi-agent system, because the task doesn't actually require distinct specialized expertise at different stages. At the Tool layer, that agent is given a small set of tightly scoped tools: look up an invoice, look up a vendor's dispute history, and draft (but not send) a response — deliberately excluding a "send email" tool, which keeps the highest-stakes action outside the agent's reach entirely. At the Workflow layer, the drafted response is routed through a mandatory human review step before anything reaches the vendor, and that gate is written into the surrounding process rather than left as an assumption. At the Prompt layer, the drafting instructions include a few well-chosen examples of past disputes and their resolutions, so the agent's tone and structure stay consistent rather than drifting. And at the Context layer, only the specific invoice and that vendor's history are pulled into context — not the entire invoice database — because more information isn't better information if most of it is irrelevant to the dispute at hand. Every one of those five decisions was made independently, using that domain's own vocabulary, but together they produce one coherent, defensible system. That's the kind of reasoning the exam is actually testing.
 
+```mermaid
+flowchart TD
+    A["Agentic: single agent, narrow autonomy"] --> B["Tool: lookup invoice, lookup vendor history, draft only"]
+    B --> C["Workflow: mandatory human review before send"]
+    C --> D["Prompt: few-shot examples of past disputes"]
+    D --> E["Context: only this invoice and vendor history in context"]
+```
+
 **Why it matters for the exam:** Nearly every scenario question on the CCA-F is written to test one specific domain, and the fastest way to find the right answer is to first correctly identify which domain the question is actually probing before you evaluate the options. A question that sounds like it's about "which tool to use" may really be testing workflow design (should this even be a tool call, or a fixed step?) or context management (does the agent have enough information to choose correctly?). The next lecture gives you a concrete mental model for making that identification quickly and reliably.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Intro](01-module-intro) | [Next: The Five-Layer Mnemonic &rarr;](03-the-five-layer-mnemonic) |
+|:---|---:|
+
+<!-- prevnext:end -->

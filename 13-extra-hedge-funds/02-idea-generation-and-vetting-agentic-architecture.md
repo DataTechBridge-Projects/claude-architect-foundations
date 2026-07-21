@@ -30,6 +30,26 @@ Every thesis that reaches this system's final output is a draft, full stop — n
 
 A second, less obvious sign-off point sits inside the pipeline itself: when the vetting agent flags a *severe* risk-factor conflict (for instance, a thesis that would meaningfully increase the fund's exposure to a factor it's already overweight, or an idea that closely resembles a thesis that lost money for the fund before), that flag should route the item to a senior analyst for review before it's even packaged as a "clean" candidate, rather than being buried as one line among several in the final output. This two-tier review — routine analyst review for every idea, escalated senior review for flagged conflicts — keeps the system's autonomy calibrated to the actual stakes of what it's producing, rather than treating every output as equally reviewable in the same five minutes.
 
+```mermaid
+flowchart TD
+    Coord[Coordinator] --> Screen[Screening agent]
+    Screen --> Gen[Generation agent]
+    Gen --> Vet[Vetting agent]
+    Vet -->|Routine flag| Pack[Packaged output]
+    Vet -->|Severe risk conflict| Senior[Senior analyst review]
+    Pack --> Analyst[Analyst sign-off]
+    Senior --> Analyst
+```
+
 ## Architecture Notes
 
 The generator/vetter split is the Agentic layer's answer to a Workflow-layer problem: rather than relying on a single prompt to enforce quality through self-critique, the system enforces it structurally by giving each cognitive posture its own agent and its own context. Autonomy is scoped tightly here — every agent can read and reason, none can act on capital — which is the Agentic layer's core lesson that autonomy should be granted per-capability, not per-agent, and that the safest boundary is a tool that was never built rather than an instruction that could be ignored.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Idea Generation/Vetting - Overview](01-idea-generation-and-vetting-overview) | [Next: Idea Generation/Vetting - Context Architecture &rarr;](03-idea-generation-and-vetting-context-architecture) |
+|:---|---:|
+
+<!-- prevnext:end -->

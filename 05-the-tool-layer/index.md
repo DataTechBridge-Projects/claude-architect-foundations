@@ -31,3 +31,12 @@ Covers tool design as API design for a model rather than a human caller: naming 
 | 14 | [Key Distinctions - The Tool Layer](14-key-distinctions-the-tool-layer) | 5:12 |
 | 15 | [Quiz Prep: The Tool Layer (20 Questions)](15-quiz-prep-the-tool-layer-20-questions) | — |
 | 16 | [Role Play: Mentoring on Tool Essentials](16-role-play-mentoring-on-tool-essentials) | — |
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Role Play: Mentoring on Agentic Essentials](../04-the-agentic-layer/24-role-play-mentoring-on-agentic-essentials) | [Next: Module Intro &rarr;](01-module-intro) |
+|:---|---:|
+
+<!-- prevnext:end -->

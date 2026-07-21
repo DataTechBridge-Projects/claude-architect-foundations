@@ -33,3 +33,12 @@ This is the architectural property that most distinguishes this module from the 
 Investor-specific side letters — separately negotiated terms layered on top of the standard LPA and subscription document — belong in context alongside that specific investor's subscription document when the task concerns that investor, and nowhere else. A side letter is, in context-architecture terms, exactly the same category of concern as the subscription document itself: investor-specific, confidential, and never appropriate to pull into another investor's processing context. The one legitimate exception — comparing terms *across* side letters to assess MFN implications — is a genuinely different task with genuinely different context requirements, and this course treats it as its own use case for exactly that reason; it's covered in full in the MFN and side letter negotiation module later in this section, where the architecture explicitly opens up the cross-investor comparison that this module just spent its effort keeping closed.
 
 **Architecture Notes:** This lecture is a case study in the Context layer's data-provenance and isolation principles applied under a hard confidentiality constraint: what's in the working set per document (subscription agreement, template, relevant LPA excerpt) has to be assembled so that structural isolation — not instruction alone — prevents one investor's terms from ever entering another's context. The task-dependent inclusion of the LPA (needed for consistency checks, irrelevant for pure extraction) is itself a reminder that "more context" is not a default good; it's a cost and a provenance risk that should be justified by the specific task.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: LPA/Subscription Agreements - Local Workflows](07-lpa-and-subscription-agreements-local-workflows) | [Next: LPA/Subscription Agreements - RAG & Retrieval Architecture &rarr;](09-lpa-and-subscription-agreements-rag-and-retrieval-architectu) |
+|:---|---:|
+
+<!-- prevnext:end -->

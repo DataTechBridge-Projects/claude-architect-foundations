@@ -24,6 +24,13 @@ Four broad corpora feed this system, and each deserves its own indexing treatmen
 
 **Transcripts** (earnings calls, investor days, conference appearances) sit between filings and news in both structure and volatility. They're chunked by speaker turn and topic segment rather than by raw length, which matters a great deal here because the *way* an executive answers a question — hedging language, a pivot away from a direct answer — is frequently more informative than the literal content, and chunking that splits a question from its answer destroys exactly that signal.
 
+| Corpus | Chunking Granularity | Freshness Handling |
+|---|---|---|
+| Research notes | Whole notes, rich metadata (name, date, outcome, risk tags) | Low volume; high-precision literal retrieval |
+| Regulatory filings | By section/sub-item, not fixed token count | Strict version & amendment metadata |
+| News & market commentary | Two-stage: recency-weighted pass, then semantic pass | Rolling window; aggressive recency decay |
+| Transcripts | By speaker turn and topic segment | Moderate decay; structure preserved across chunks |
+
 ## Retrieval Strategy: Different Objectives for Different Agents
 
 The most important retrieval design decision in this system is that the generation agent and the vetting agent are not just fed different context, as covered in the previous lecture — they issue fundamentally different *kinds* of retrieval queries against the same underlying corpora. The generation agent's retrieval objective is roughly "find evidence that helps build and support this thesis": it searches for corroborating fundamentals, comparable past setups that worked, and language that reinforces the pattern it's investigating. The vetting agent's retrieval objective is close to the opposite: "find evidence that would make this thesis wrong." That means explicitly querying for the strongest counter-arguments, not just running the same search and taking a second look at the same results — a semantic search for "reasons to buy X" and a semantic search for "reasons X is overvalued" or "risks to X's thesis" surface materially different documents even against an identical corpus, and a vetting agent that only reruns the generation agent's queries will simply confirm what it already found.
@@ -41,3 +48,12 @@ Finally, retrieval for this system deliberately keeps a **negative results** dis
 ## Architecture Notes
 
 Retrieval here is doing more than fetching relevant documents — the asymmetric query design between generation and vetting is a Prompt-layer and Context-layer decision expressed through retrieval mechanics, ensuring the two agents genuinely see different evidence rather than the same evidence twice. Recency-weighted scoring and mandatory source/date metadata are this use case's answer to the Context layer's provenance discipline: in a fast-moving market, a retrieved fact without a timestamp is not meaningfully different from a fact with no source at all.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Idea Generation/Vetting - Context Architecture](03-idea-generation-and-vetting-context-architecture) | [Next: Idea Generation/Vetting - Observability and Costs &rarr;](05-idea-generation-and-vetting-observability-and-costs) |
+|:---|---:|
+
+<!-- prevnext:end -->

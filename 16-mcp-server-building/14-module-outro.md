@@ -17,3 +17,12 @@ Building an actual server in Python turned the protocol from a diagram into code
 The module closed by turning the lens around: Claude's own built-in tools need none of this — no server, no connection, no discovery — and the decision between reaching for what already ships and building or connecting something custom comes down to the same build-versus-buy logic that governs any infrastructure decision, weighed against a specific, articulable gap rather than habit in either direction.
 
 The next module, the Workflow Layer, picks up a related thread: given a well-built set of tools — whether built-in, custom, or MCP-connected — how much of the *sequence* in which they get used should be fixed in advance through conventions, Skills, and review gates, and how much should be left to the model's own judgment call at each step.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Choosing Built-in vs Custom Tools](13-choosing-built-in-vs-custom-tools) | [Next: Key Distinctions - MCP Server Building &rarr;](15-key-distinctions-mcp-server-building) |
+|:---|---:|
+
+<!-- prevnext:end -->

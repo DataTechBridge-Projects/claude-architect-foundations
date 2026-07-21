@@ -33,3 +33,12 @@ This module covered a lot of ground; the exam tends to test it through a small s
 **Prompt as first draft vs. prompt as versioned artifact.** A prompt that only works on the case its author had in mind is a draft. A prompt with tested coverage across a realistic range of inputs, tracked changes over time, and a defined behavior on failure is an engineered system component — treat it accordingly.
 
 **Why it matters for the exam:** When a scenario question describes a prompting failure, your first move should be locating which of these distinctions was violated, rather than searching for a technique to bolt on. Nearly every prompt-layer question on the CCA-F reduces to one of these pairs once you strip away the scenario dressing.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Module Outro](21-module-outro) | [Next: Quiz Prep: The Prompt Layer (20 Questions) &rarr;](23-quiz-prep-the-prompt-layer-20-questions) |
+|:---|---:|
+
+<!-- prevnext:end -->

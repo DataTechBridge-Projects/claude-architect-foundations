@@ -28,6 +28,13 @@ Neither end of that axis is "correct" in the abstract — the right mode is a fu
 
 **Bypass-permissions mode.** The far end of the velocity axis: essentially every check is skipped, and actions execute immediately with no prompts at all. This mode is explicitly *not* meant for use on a developer's primary machine against a real, connected environment — its intended use is an isolated, disposable environment (a container or VM with no meaningful ability to cause external damage) where the blast radius of any single wrong action is contained by the environment itself rather than by the permission layer. Reaching for this mode outside that context — on a laptop with real credentials, a real production database connection, or real customer data reachable from the working directory — trades away the entire safety model for convenience, which is a bad trade in almost every realistic scenario. Even in this mode, a small set of protected paths (a project's own git internals and Claude Code's own configuration directory, among others) and a few especially destructive command patterns still prompt, as a last-resort circuit breaker against catastrophic model error rather than a meaningful safety boundary on their own.
 
+| Mode | Oversight level | What proceeds without a prompt | Best fit |
+|---|---|---|---|
+| Default (manual) | Highest | Built-in read-only commands only | Sensitive work, unfamiliar codebase |
+| Plan mode | High, shifted to plan review | Exploration and planning; no edits | Ambiguous approach or high-stakes change |
+| Accept-edits | Medium | File edits, safe filesystem operations | Actively-reviewed iteration |
+| Bypass-permissions | Lowest | Nearly everything | Isolated, disposable environments only |
+
 ## Switching Modes, and Why the Choice Belongs to a Human
 
 Permission mode is not something Claude decides for itself mid-task — it's set by the person running the session (interactively, by cycling through modes, or as a persistent default in project or personal configuration) or, for organizations, by policy that individual settings can't override. That's a deliberate design choice, not an incidental one: if the model that's being supervised could also decide how closely it's supervised, the entire premise of a permission layer as an external safeguard collapses. The oversight mechanism has to sit outside the thing being overseen to actually function as oversight — the same principle that shows up in the Agentic Layer's treatment of checkpoints and approval gates generally, and one of the more conceptually important, easy-to-miss details in this whole topic.
@@ -37,3 +44,12 @@ Permission mode is not something Claude decides for itself mid-task — it's set
 The Agentic Layer framed workflow safeguarding around checkpoints, approval gates, and rollback strategies as general mechanisms for keeping autonomy bounded. Permission modes are the most direct, most literal instantiation of "approval gates" this course covers: a configurable point in the loop where execution pauses until a human signs off, with the mode setting controlling how many gates exist and how much passes through them without a pause. Rollback strategies show up elsewhere in Claude Code (session history, the ability to review and revert changes after the fact) but the gate itself — the thing that decides whether an action even happens before a human weighs in — is exactly what permission modes are.
 
 **Why it matters for the exam:** Expect scenario questions that describe a task's risk profile and a team's familiarity with a codebase, then ask which permission mode fits. The reliable reasoning path is the oversight-versus-velocity axis: how costly is an unwanted action here, and how much has this specific setup already earned autonomy. Also expect at least one question probing *why* mode selection belongs to a human rather than the model — that's a conceptually loaded distinction the exam likes to isolate on its own.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Starting a Project: Onboarding Claude to a Codebase](04-starting-a-project-onboarding-claude-to-a-codebase) | [Next: The Three-Level CLAUDE.md Hierarchy &rarr;](06-the-three-level-claude-md-hierarchy) |
+|:---|---:|
+
+<!-- prevnext:end -->

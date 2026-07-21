@@ -38,6 +38,16 @@ It's also worth resisting a subtler trap: a step can *look* like it needs judgme
 
 In practice, almost no real workflow is purely one or the other. The far more common shape is a pipeline that alternates: a deterministic step gathers and structures data, an agentic step reasons over that structured data and produces a judgment call or a draft, another deterministic step validates the output against hard constraints (does it match a schema, does it pass the existing test suite, is it within a length limit), and — often — a human checkpoint sits at the highest-stakes transition before anything ships.
 
+```mermaid
+flowchart LR
+    A["Deterministic: gather and structure data"] --> B["Agentic: reason and produce a draft"]
+    B --> C["Deterministic: validate against hard constraints"]
+    C --> D{"Passes validation?"}
+    D -->|Yes| E["Human checkpoint at the highest-stakes step"]
+    D -->|No| F["Reject or send back for revision"]
+    E --> G["Ship"]
+```
+
 This alternation is a design pattern worth naming: **deterministic steps bound and validate agentic steps.** A deterministic pre-step narrows what the agentic step actually has to reason about (feeding it a clean, structured diff rather than "go figure out what changed"), and a deterministic post-step catches outputs that violate hard constraints before they propagate further (a schema check, a test run, a linter pass). This is one of the most reliable ways to get the benefits of agentic judgment — flexibility, the ability to handle cases you didn't fully anticipate — without accepting its full downside, which is unconstrained, unpredictable output. The agent gets exactly the room to exercise judgment where judgment is actually needed, bounded tightly everywhere else.
 
 ## Workflow Structure and the Agentic Layer's Single-Agent/Multi-Agent Decision
@@ -51,3 +61,12 @@ Conversely, a workflow whose step boundaries genuinely can't be pinned down in a
 Multi-agent decisions interact with workflow design too: if your workflow decomposition reveals a step that requires meaningfully different expertise, context, or tooling than the rest of the pipeline — and where the coordination cost of a separate agent is worth paying — that's often the moment where a workflow step becomes a candidate for a subagent, formalizing what was already a natural seam in the decomposition into an actual architectural boundary.
 
 **Why it matters for the exam:** Scenario questions in this domain typically describe a multi-step business process and ask you to classify individual steps as deterministic or agentic, or ask you to justify why a fixed pipeline is preferable to a single freewheeling agent (or vice versa) for a described process. The reliable approach is the same each time: identify whether each step's correct behavior can be fully specified in advance independent of the specific input, and check whether the overall sequence of steps is itself predictable or genuinely dependent on runtime discovery. Getting both of those judgments right is what workflow design is actually testing.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Are Subagents Just... Skills In a Trenchcoat?](05-are-subagents-just-skills-in-a-trenchcoat) | [Next: These Are Local! &rarr;](07-these-are-local) |
+|:---|---:|
+
+<!-- prevnext:end -->

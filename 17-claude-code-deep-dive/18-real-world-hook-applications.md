@@ -34,8 +34,24 @@ This is where the distinction from the hook-mechanics lecture matters most in pr
 
 A smaller but genuinely useful category is using a hook to inject context that couldn't reasonably be static. A hook attached to session start that queries a ticketing system for the current sprint's priority items, or checks the current state of a feature flag before a session begins working on flag-gated code, brings in information that's true *right now* rather than information that's durably true the way `CLAUDE.md` content is meant to be — filling a gap the Workflow Layer identified but didn't have a mechanism to solve: `CLAUDE.md` content that changes weekly is an anti-pattern precisely because it rots, but a hook that fetches current information fresh, every session, doesn't rot at all, because it was never meant to be a static fact in the first place.
 
+| Category | Typical attachment point | What it guarantees |
+|---|---|---|
+| Audit logging | After a tool call | A reconstructable record, independent of the model's own account |
+| Enforcing lint/tests | End of turn | Verification actually happened, not just claimed |
+| Safety nets | Before a tool call | Judgment-based blocking a static rule can't express |
+| Dynamic context | Session start | Fresh information that would rot if kept static |
+
 ## The Common Thread
 
 Every real-world hook application in this lecture solves a version of the same underlying problem: something needs to be true, checked, or known **reliably and mechanically**, and neither a `CLAUDE.md` instruction (advisory, static) nor a Skill (loaded only when the model recognizes a match) provides that guarantee on its own. Recognizing which of these three — durable declarative knowledge, on-demand procedural knowledge, or mechanically enforced/dynamically fetched behavior — a given real-world requirement actually calls for is the practical payoff of this whole stretch of the module.
 
 **Why it matters for the exam:** Expect scenario questions describing a real operational need (compliance audit trail, ensuring tests always run, blocking a specific dangerous action a static rule can't cleanly express, pulling in information that changes daily) and asking which mechanism — hook, `CLAUDE.md`, Skill, or permission rule — actually fits. The reasoning test is consistent across all of them: does this need a mechanical guarantee or is advisory guidance sufficient, and if mechanical, does a static rule already express it or does it need custom logic a hook alone can provide.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Implementing Hooks: Shell Scripts, Exit Codes, and Gotchas](17-implementing-hooks-shell-scripts-exit-codes-and-gotchas) | [Next: The Claude Agent SDK: Session Control &rarr;](19-the-claude-agent-sdk-session-control) |
+|:---|---:|
+
+<!-- prevnext:end -->

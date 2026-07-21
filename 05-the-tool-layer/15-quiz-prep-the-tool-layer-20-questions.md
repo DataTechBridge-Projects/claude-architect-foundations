@@ -169,3 +169,12 @@ D. Tool granularity has no measurable effect on model behavior.
 **19. B** — Requiring a prior read prevents a confidently wrong edit made against content the model never actually verified.
 
 **20. C** — The tool set deliberately uses different granularities for different capabilities — broad for the unbounded space of shell commands, narrow for the small, well-defined space of search — showing granularity is a per-capability judgment call, not a fixed policy.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Key Distinctions - The Tool Layer](14-key-distinctions-the-tool-layer) | [Next: Role Play: Mentoring on Tool Essentials &rarr;](16-role-play-mentoring-on-tool-essentials) |
+|:---|---:|
+
+<!-- prevnext:end -->

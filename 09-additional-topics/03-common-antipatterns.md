@@ -12,6 +12,26 @@ duration: "21:25"
 
 Every antipattern in this lecture shares two properties: it's tempting, for a specific and usually reasonable-sounding reason, and it fails in a way that's predictable once you know the layer's underlying trade-offs. That combination is exactly what makes antipatterns worth cataloging deliberately rather than trusting yourself to avoid by instinct — the temptation is real, it doesn't announce itself as a mistake, and the exam is built to describe these situations from the tempted architect's point of view and ask whether you'd fall for it too. What follows is organized by layer, three or four per layer, closing with one meta-antipattern that operates above all five.
 
+| Layer | Antipattern | Why It Fails |
+|---|---|---|
+| Agentic | Over-agentifying a deterministic task | Pays autonomy's cost for none of its benefit; trades provable behavior for only-observable behavior |
+| Agentic | Multi-agent coordination for its own sake | Coordination and cascading-failure overhead for a problem one agent could have solved |
+| Agentic | A loop with no real stopping condition | Manufactures a "done" state instead of reaching a legitimate one |
+| Tool | Tool sprawl | Disambiguation burden grows with every near-duplicate tool added to the set |
+| Tool | Raw stack traces standing in for designed error responses | Leaks implementation detail; gives the model no retryable-versus-not signal |
+| Tool | Schema validity mistaken for operational safety | A well-formed call isn't a safe one; schemas enforce shape, not permission |
+| Workflow | Ad hoc Claude usage instead of CI/CD integration | Invisible, non-reproducible, and has no natural place for gating, logging, or rollback |
+| Workflow | Treating `CLAUDE.md` as the answer to every knowledge problem | Bloats every session with material irrelevant most of the time; goes stale |
+| Workflow | A single centralized convention forced onto every team | Strips out configuration some teams need while piling process on others that don't |
+| Prompt | The prompt as the only safeguard | A request isn't enforcement; the model can drift under pressure |
+| Prompt | Grading your own homework | Self-critique inherits the same blind spots that produced the error |
+| Prompt | Example sets that teach the wrong lesson | Clustering or incidental correlation teaches the wrong pattern |
+| Context | Context window bloat from "just in case" loading | Crowds out load-bearing material; degrades instruction-following |
+| Context | No provenance tracking | No way to recognize disagreement or staleness when it actually matters |
+| Context | Assuming a human review gate exists without building one | A safety net never actually built catches nothing |
+| Context | Guess-and-continue as the silent default | A silently resolved wrong assumption gets built on by every later step |
+| All five (meta) | Optimizing one layer while ignoring the seams | Reliability is bounded by the weakest layer, not the strongest one |
+
 ## Agentic Layer Antipatterns
 
 **Over-agentifying a deterministic task.** A task whose correct behavior can be fully specified in advance — validate this schema, run this test suite, extract these five fields from a standard form — gets handed to an autonomous agent with broad judgment anyway. It's tempting because "agent" sounds more capable and more future-proof than "fixed script," and because building an agent once feels like it covers every future variation without more engineering. It fails because autonomy adds real cost — more tokens, more latency, more unpredictable paths — for a task that gets none of autonomy's benefit, since there was no genuine ambiguity to resolve in the first place. Worse, it makes the system harder to audit: a fixed workflow's behavior is provable in advance, while an agent's is only observable after the fact, and you've traded that provability away for nothing.
@@ -59,3 +79,12 @@ Every antipattern in this lecture shares two properties: it's tempting, for a sp
 Every antipattern above is a single-layer mistake, but the most expensive antipattern in real architectural work operates across all five at once: a team invests real engineering effort perfecting one layer — an elegant tool schema, a beautifully tuned prompt, a carefully tiered context-retrieval pipeline — while leaving the other four layers as unexamined defaults. It's tempting because deep, visible expertise in one layer is satisfying to build and easy to demonstrate, and because a team's skills are rarely evenly distributed across all five domains. It fails because the five layers interact, and a system's actual reliability is bounded by its weakest layer, not its strongest one — a beautifully designed tool set connected to an agent with no stopping condition, or a rigorously versioned prompt fed by a context window nobody curates, fails for reasons that have nothing to do with the layer the team was proud of. The discipline this course has been building toward is the antidote: treat all five layers as one system to be reasoned about together, because that's how they actually fail together in production, and it's how the CCA-F's hardest scenario questions are built to be answered.
 
 **Why it matters for the exam:** A large share of CCA-F scenario questions are, structurally, "here's a system that looks fine — what's the antipattern hiding in it?" Working through this catalog by layer, and being able to name the specific tempting-but-wrong reasoning behind each one, is more exam-relevant than memorizing the fixes in isolation, because the exam almost always describes the temptation before it describes the failure.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Cross-Layer Patterns](02-cross-layer-patterns) | [Next: The 10 Takeaways Revisited &rarr;](04-the-10-takeaways-revisited) |
+|:---|---:|
+
+<!-- prevnext:end -->

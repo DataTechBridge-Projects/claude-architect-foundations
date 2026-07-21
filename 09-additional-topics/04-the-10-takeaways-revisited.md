@@ -12,6 +12,19 @@ duration: "11:41"
 
 Module 3 previewed ten takeaways at a deliberately high altitude, before you had the vocabulary of any of the five layers behind you. You now have all five. This lecture walks the same ten ideas back through, in the same order, and adds the one thing that lecture couldn't give you yet: the concrete, layer-specific detail that turns each takeaway from something you could restate in a sentence into something you can actually apply to a scenario question.
 
+| # | Takeaway | Layers It Draws On |
+|---|---|---|
+| 1 | An agent is a loop, not a personality | Agentic |
+| 2 | Default to the simplest architecture that works | Agentic, Workflow, Prompt |
+| 3 | Tools are an API surface for a reasoning system, not a human | Tool |
+| 4 | Workflow and agency are a spectrum, chosen per step | Workflow |
+| 5 | Prompts are structural architecture, not just wording | Prompt |
+| 6 | Context is the scarcest, most consequential resource | Context |
+| 7 | Error handling determines reliability more than the happy path does | Tool, Context |
+| 8 | Human-in-the-loop is a deliberate design decision | Context, Agentic |
+| 9 | You cannot improve or trust what you don't measure | Context, Prompt |
+| 10 | The five domains are separable concerns that interact | All five |
+
 ## 1. An Agent Is a Loop, Not a Personality
 
 The Agentic layer gave this idea its working parts. Tracing "the loop" now means something specific: what was in context at the decision point, whether the model's action was a structured tool call or a direct response, and what got written back into context afterward. It also means knowing the loop's real exit conditions — a checkpoint versus an approval gate, and what makes an action reversible, compensable, or irreversible, since that classification is what determines whether the loop should even be allowed to continue past a given point. And it means distinguishing three separate timelines — loop iteration, task, and session — since a symptom that looks like erratic in-loop behavior might actually be a session-management problem wearing the wrong label.
@@ -53,3 +66,12 @@ This takeaway now connects directly to provenance tracking from the Context laye
 This closing takeaway is the entire reason this module exists. The cross-layer patterns lecture gave you six concrete shapes — the do-nothing option, structure over prose, checkpoints at the right altitude, granularity matched to stakes, provenance traveling with information, and complexity justified against a named unpredictability — that recur across layers in exactly the way this takeaway predicted they would. The antipatterns catalog showed you the failure side of the same coin: mistakes that look contained within one layer but that the exam, and real systems, will hold you accountable for recognizing across all five. Holding both halves at once — real depth within each domain, and fluency in how a change in one domain ripples through the other four — is what the rest of your exam preparation, and the practice exam ahead, is actually testing.
 
 **Why it matters for the exam:** If Module 3's version of these ten ideas was the trunk of the tree, this is the tree in full — and the exam rewards being able to move fluidly between the two altitudes: stating a takeaway in one sentence, and immediately backing it with the specific layer mechanism that makes it true.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Common Antipatterns](03-common-antipatterns) | [Next: Lab: Claude Architecture Review Board Simulator &rarr;](05-lab-claude-architecture-review-board-simulator) |
+|:---|---:|
+
+<!-- prevnext:end -->

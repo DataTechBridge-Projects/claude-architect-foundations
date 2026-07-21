@@ -22,6 +22,12 @@ The first discipline this lecture asks for is refusing to treat "something faile
 
 **Environment errors** sit outside any individual agent's control entirely: a downstream service is genuinely down for an extended window, a shared resource is locked by something outside the system's own scope, an external dependency has changed in a way nothing in the current task caused. These resemble tool errors in symptom but differ in an important way — no amount of retrying, and no fallback *within* the current system's own tools, resolves them, because the problem isn't in how the task was approached, it's in the environment the task depends on.
 
+| Failure class | What actually went wrong | Who should typically handle it | Does retrying help? |
+|---|---|---|---|
+| Tool error | Mechanical failure at the agent/world boundary | The subagent itself, using ordinary error recovery | Yes, if something about the retry differs |
+| Reasoning error | Tools worked, but the agent drew a wrong conclusion | An orchestrator or reviewer that notices the output is wrong | No — repeating the same approach repeats the mistake |
+| Environment error | A failure outside any agent's control | No agent — needs a fallback outside the system or a wait | No — nothing in the task caused it, so nothing in the task fixes it |
+
 Conflating these three is the root of most badly designed multi-agent recovery: a system that responds to a reasoning error the way it would a transient tool error (retry the same subagent with the same instructions) gets the same wrong answer again, because nothing about the retry addresses what actually went wrong. A system that escalates every tool error immediately, without letting a subagent exhaust its own local recovery first, turns ordinary transient hiccups into constant unnecessary human interruptions.
 
 ## When retrying helps, and when it's theater
@@ -46,8 +52,32 @@ The failure mode effective error recovery already named — a loop that never es
 
 Checkable escalation triggers look like: a fixed number of failed attempts or fallback exhaustions for a given subtask: a reasoning disagreement between an orchestrator and a subagent's report that a defined validation step actually catches, rather than one the orchestrator has to notice unprompted; a cost or turn budget, tracked explicitly, crossed before the task completed; or a failure classified — per the taxonomy above — as an environment error with no available fallback, where no further attempt by any agent in the system is going to change the outcome. Each of these is checkable by the surrounding harness without requiring any model to exercise subjective judgment about whether things have gone on "long enough" — which is exactly the property that makes an escalation trigger reliable rather than aspirational.
 
+```mermaid
+flowchart TD
+    A["Failure occurs"] --> B{"Classify: tool, reasoning, or environment?"}
+    B -->|"Tool error, retry differs"| C["Retry with changed arguments/approach"]
+    B -->|"Reasoning error"| D{"Different approach available?"}
+    D -->|"Yes"| E["Fallback chain: try a different agent/approach"]
+    D -->|"No"| F["Graceful degradation: report partial, flagged result"]
+    B -->|"Environment error, no fallback"| G["Escalate: trigger the checkable condition"]
+    C --> H{"Budget or attempt limit crossed?"}
+    E --> H
+    F --> H
+    H -->|"Yes"| G
+    H -->|"No"| A
+```
+
 Vague triggers ("escalate if the agent seems stuck") fail for the same reason vague tool descriptions and vague task descriptions fail throughout this module: they hand a judgment call to a system component with no principled basis for making it consistently, and the practical result is a system that escalates too late in the cases that actually needed it and too early, or too often, in cases that didn't. A concrete trigger — three failed attempts, a defined validation check, an explicit budget — is checkable in exactly the way "seems stuck" is not, and that checkability is the entire point.
 
 ## Why it matters for the exam
 
 Expect the exam to describe a multi-agent failure and ask you to classify it — tool error, reasoning error, or environment error — and to identify whether the described response (a retry, a fallback, an escalation) actually fits that classification, or whether it's a retry disguised as recovery that changes nothing material about the next attempt. You should also be able to evaluate whether a described escalation condition is concrete and checkable or merely a vague instruction to use judgment, since the distinction between the two is precisely what separates an escalation path that actually fires from one that exists only on paper. This lecture's classifications generalize the Tool Layer's error-recovery reasoning and workflow safeguarding's risk-bounding logic to the level of an entire multi-agent system, and the exam expects you to make that connection rather than treat the three lectures as unrelated.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Handoff Protocols and Continuity Across Agents](19-handoff-protocols-and-continuity-across-agents) | [Next: Module Outro &rarr;](21-module-outro) |
+|:---|---:|
+
+<!-- prevnext:end -->

@@ -34,6 +34,12 @@ Claude's context windows are large by historical standards, which creates a fals
 
 **Big tool results.** A single tool call — a database query, a broad file read, an API response — can return far more content than a task actually needs, and an unbounded tool result can consume a disproportionate share of the window in one call, as covered in the Tool Layer's discussion of result sizing. From the Context Layer's vantage point, an oversized tool result isn't just a tool-design problem; it's a context-budget problem, because every token it occupies is a token unavailable to everything else that call needs to reason about.
 
+| Scenario | Why it pushes on the limit | Covered in depth in |
+|---|---|---|
+| Long conversations | History grows linearly with turns and time on task | Compaction and Long-Conversation Coherence |
+| Large codebases | The corpus can run to millions of tokens, dwarfing any window | Context in Large Codebases |
+| Big tool results | A single call can return far more than the task needs | The Tool Layer's result-sizing discussion |
+
 In all three cases, the practical ceiling that matters is rarely the hard token limit itself — it's the point, often well before that hard limit, where the window is so full of marginal material that the model's effective reasoning degrades. That point is a moving target depending on task and content, which is exactly why architects need judgment here rather than a fixed formula.
 
 ## The core tradeoff: more context vs. less
@@ -43,3 +49,12 @@ Everything above sets up the central tension this lecture exists to name directl
 There is no context size that is universally correct; the right answer is a function of the task. A question that can only be answered correctly with a specific fact in view needs that fact in context, full stop, no matter the cost — omitting it for the sake of a leaner window is a false economy that trades a real error for a marginal savings. But a task that doesn't need a document, a stretch of old history, or a verbose tool result doesn't become *safer* by including it anyway; it becomes more expensive, slower, and measurably more prone to losing the signal that does matter. The architect's job is not to default toward either extreme, but to make a deliberate, case-by-case judgment about what earns a place in the window — which is exactly the discipline the rest of this module calls Context Data Governance.
 
 **Why it matters for the exam:** Expect questions that test whether you understand tokens as the real unit of context cost (not words or lines), that the context window is a single shared input-plus-output budget rather than separate reservoirs, and that "the window is technically large enough" doesn't mean padding it with extra material is safe or free. The exam rewards recognizing the more-context-versus-less tradeoff as a genuine tradeoff with costs on both sides, not a problem solved by defaulting to maximum inclusion.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Lab: Context Management Simulator](14-lab-context-management-simulator) | [Next: Context Window Economics: Cost, Speed, and Quality &rarr;](16-context-window-economics-cost-speed-and-quality) |
+|:---|---:|
+
+<!-- prevnext:end -->

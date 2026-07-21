@@ -47,6 +47,16 @@ A Skill can also bundle **reference material meant to load only when actually ne
 
 ## Discovery in Practice
 
+```mermaid
+flowchart TD
+    A["Session start: lightweight index of Skill names + descriptions loads"] --> B["A task comes up"]
+    B --> C{"Does a Skill's description match closely enough?"}
+    C -->|"No match"| D["Proceed with ordinary tools only"]
+    C -->|"Match found"| E["Load that Skill's full body"]
+    E --> F["Pull in bundled scripts or reference material as needed"]
+    F --> G["Proceed with ordinary tools, now guided by the Skill"]
+```
+
 Putting the pieces together, a Skill's lifecycle across a session looks like this: at session start, the harness has a lightweight index of every available Skill's name and description — cheap enough that having dozens of Skills available costs almost nothing until one of them is actually used. When a task comes up, the model compares it against that index and decides whether any Skill's description matches closely enough to warrant loading it. If one does, its full body (and, from there, any bundled scripts or on-demand reference material it points to) enters context, and the model proceeds using its ordinary tools — file reads, edits, shell execution — now guided by the Skill's specific instructions about how to apply those tools to this particular procedure. Nothing about invocation spins up a separate agent or a new context window; it's the same session, the same model, now holding one more runbook it didn't have a moment ago.
 
 ## A Common Authoring Mistake: Writing for the Reader, Not the Trigger
@@ -58,3 +68,12 @@ A subtle but common failure when authoring a first Skill is spending most of the
 Putting this all together, a well-authored Skill for the compliance-report scenario from the Workflow Layer's worked comparison might have this shape: frontmatter with a precise description ("use when generating the quarterly compliance audit report from the incident and access-review data"), a body that states the required section structure, names the validation rules each section must satisfy, and explicitly calls out a past failure mode ("don't include raw customer identifiers in the summary section — reference the anonymized incident ID instead"), and a bundled validation script the instructions tell the model to run against the drafted report before considering it complete. Every piece of that structure is doing a distinct job: the frontmatter gets the Skill discovered at the right moment; the body encodes the procedure and its hard-won nuances; the bundled script gives the model something concrete to check its own work against, rather than relying on judgment alone for a check that's actually mechanical.
 
 **Why it matters for the exam:** Expect questions asking you to identify what belongs in a Skill's frontmatter versus its body, why a Skill's description quality matters as much as a tool's description does, and what progressive disclosure means concretely at both the "which Skill loads" level and the "which reference file within a loaded Skill loads" level. A well-authored Skill and a poorly-authored one often contain the same underlying knowledge — the exam tests whether you can tell the difference in how that knowledge is structured and signaled.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: What Skills Are and When to Build Them](12-what-skills-are-and-when-to-build-them) | [Next: Creating and Configuring Custom Subagents &rarr;](14-creating-and-configuring-custom-subagents) |
+|:---|---:|
+
+<!-- prevnext:end -->

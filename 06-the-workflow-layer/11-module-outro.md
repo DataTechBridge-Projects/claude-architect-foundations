@@ -17,3 +17,12 @@ The throughline across all of it is placement: knowing exactly which mechanism a
 It's also worth naming what stayed constant underneath all the mechanism-swapping: every placement decision in this module reduced to the same handful of questions asked about a different kind of thing each time — how stable is it, how universally does it apply, does it need judgment or just consistency, and what happens if it's wrong. Those questions don't go away once you leave the Workflow layer; they resurface, reshaped, in how you write an individual prompt and in how you decide what belongs in a model's context window at all — which is exactly where the next two modules pick up.
 
 Next up is the Prompt layer, where the focus shifts from *how work is organized* to *how intent gets communicated to the model in a single request* — the layer most people think they already understand, and the one this course will push hardest to deepen.
+
+<!-- prevnext:start -->
+
+---
+
+| [&larr; Previous: Lab: Workflow Strategy Simulator](10-lab-workflow-strategy-simulator) | [Next: Key Distinctions - The Workflow Layer &rarr;](12-key-distinctions-the-workflow-layer) |
+|:---|---:|
+
+<!-- prevnext:end -->
