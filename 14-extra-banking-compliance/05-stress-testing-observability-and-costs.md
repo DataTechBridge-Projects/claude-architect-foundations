@@ -8,7 +8,7 @@ duration: "9:35"
 # Stress Testing - Observability and Costs
 {: .no_toc }
 
-*Video duration: 9:35*
+*Read duration: 9:35*
 
 A stress-testing system's job doesn't end when a narrative gets approved and submitted. In a very real sense, the system's most important output is the record it leaves behind — because a regulatory examiner can, at any point in the following months or years, ask the bank to reconstruct exactly how a specific number in the submission was produced. Observability in this domain is built primarily to answer that question, and only secondarily to answer the more familiar "is the system healthy" questions an engineering team would normally ask of production software.
 

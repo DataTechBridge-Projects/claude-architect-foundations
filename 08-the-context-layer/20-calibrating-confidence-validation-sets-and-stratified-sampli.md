@@ -8,7 +8,7 @@ duration: "12:00"
 # Calibrating Confidence: Validation Sets and Stratified Sampling
 {: .no_toc }
 
-*Video duration: 12:00*
+*Read duration: 12:00*
 
 A system that knows when to trust its own output and when to escalate needs some signal to make that call on. The obvious candidate is the model's own stated confidence — but this lecture exists because that candidate is far less trustworthy on its own than it feels like it should be, and an architect who wires escalation logic directly to a model's self-reported confidence, unchecked, is building on a foundation that hasn't been tested.
 

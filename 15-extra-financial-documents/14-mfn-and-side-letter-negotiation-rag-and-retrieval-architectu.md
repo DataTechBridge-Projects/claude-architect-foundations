@@ -8,7 +8,7 @@ duration: "8:24"
 # MFN & Side Letter Negotiation - RAG & Retrieval Architecture
 {: .no_toc }
 
-*Video duration: 8:24*
+*Read duration: 8:24*
 
 The previous lecture established that MFN analysis needs visibility into the full shape of a fund's side letter population, with on-demand retrieval of full clause text for whichever letters turn out to be relevant. This lecture is about how that retrieval actually works — and about the specific challenge that makes it harder than the retrieval problems in the earlier two modules: MFN-relevant clauses have to be found even when they're phrased in ways that don't obviously match each other.
 

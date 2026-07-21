@@ -8,7 +8,7 @@ duration: "3:03"
 # Course Introduction
 {: .no_toc }
 
-*Video duration: 3:03*
+*Read duration: 3:03*
 
 Welcome. This course is a complete study path for the **Claude Certified Architect - Foundations (CCA-F)**, Anthropic's certification for people who design solutions built on Claude — not just prompt it, but architect systems around it: agents, tools, workflows, and the context those agents run on.
 

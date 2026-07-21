@@ -8,7 +8,7 @@ duration: "1:49"
 # Lab: Claude Architecture Selection Simulator
 {: .no_toc }
 
-*Video duration: 1:49*
+*Read duration: 1:49*
 
 This lab is a decision-simulation exercise: you're given a series of short scenario cards, each describing a real-world problem someone wants to solve with Claude, and for each one you have to select and justify an architecture from a small menu of options — direct Claude API integration, Claude Code (or an Agent-SDK-built custom agent), a single-agent design, or a multi-agent design with specialized sub-agents.
 

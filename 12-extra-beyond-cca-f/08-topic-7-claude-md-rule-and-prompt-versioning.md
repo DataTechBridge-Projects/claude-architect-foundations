@@ -8,7 +8,7 @@ duration: "0:27"
 # Topic 7: CLAUDE.md, Rule and Prompt Versioning
 {: .no_toc }
 
-*Video duration: 0:27*
+*Read duration: 0:27*
 
 A CLAUDE.md file, a system prompt, a tool description, and a rule embedded in a workflow step are all production logic, in exactly the same sense that a function in your codebase is production logic — they determine system behavior, they can contain bugs, and they can regress. Yet teams that would never let a code change ship without review routinely let a prompt tweak go straight to production because "it's just text." That asymmetry is the gap this topic addresses: these artifacts belong in version control, with the same discipline applied to any other code — reviewed changes, a readable diff, a changelog explaining what changed and why, and, critically, the ability to roll back cleanly when a change turns out to be a regression rather than an improvement.
 

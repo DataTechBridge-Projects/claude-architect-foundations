@@ -8,7 +8,7 @@ duration: "0:34"
 # Failure Affordance Varies By Use Case
 {: .no_toc }
 
-*Video duration: 0:34*
+*Read duration: 0:34*
 
 How much autonomy — and how much risk of being wrong — a system can tolerate is not a fixed property of "agents" in general; it varies by what's actually at stake if the agent gets it wrong. An agent drafting an email a human will read before sending can afford real guessing and even outright mistakes, because catching and fixing an error is cheap. An agent initiating an irreversible financial transaction can afford almost none. Every technique in this module — escalation thresholds, checkpoint placement, re-verification — should be calibrated to that use case's actual failure affordance, not applied uniformly everywhere.
 

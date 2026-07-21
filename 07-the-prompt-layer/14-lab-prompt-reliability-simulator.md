@@ -8,7 +8,7 @@ duration: "1:42"
 # Lab: Prompt Reliability Simulator
 {: .no_toc }
 
-*Video duration: 1:42*
+*Read duration: 1:42*
 
 This lab is a hands-on companion to the whole module, built around a single deliberately fragile starting prompt: a ticket-triage prompt that classifies incoming support tickets by urgency and routes them to a team. Run as given, it performs reasonably on a handful of clean, typical tickets — and then falls apart against a bundled test set of twenty-five varied inputs, including terse one-line tickets, tickets in a mix of registers, a few that mention dollar amounts without being urgent, and a few genuinely urgent tickets with no financial language at all.
 

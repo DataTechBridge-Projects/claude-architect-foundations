@@ -8,7 +8,7 @@ duration: "2:27"
 # Module Intro
 {: .no_toc }
 
-*Video duration: 2:27*
+*Read duration: 2:27*
 
 The Fundamentals module gave you the vocabulary: what an LLM actually is, how Claude Code differs from the raw Claude API, and what separates a genuine agent from a clever script. This module shifts the lens from the technology to the test itself. Before you sink dozens of hours into studying agentic architecture, tool design, workflows, prompting, and context management in real depth, it pays to understand exactly how the CCA-F exam is organized, what it's actually measuring, and how to walk into it prepared.
 

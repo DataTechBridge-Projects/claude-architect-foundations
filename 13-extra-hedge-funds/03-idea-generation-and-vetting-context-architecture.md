@@ -8,7 +8,7 @@ duration: "7:28"
 # Idea Generation/Vetting - Context Architecture
 {: .no_toc }
 
-*Video duration: 7:28*
+*Read duration: 7:28*
 
 Once the agentic pipeline is settled — screen, generate, vet, each as its own agent — the next question is what actually goes into each agent's context window, because a pipeline of well-separated agents can still fail if each stage is fed the wrong slice of information. The temptation in a data-rich domain like finance is to over-provide: dump the whole filing, the whole price history, the whole thesis archive into context "just in case." That instinct is exactly backwards for this use case. Every extra token of irrelevant market data is a token competing for the model's attention against the two or three facts that actually matter, and in a domain where a model's fluency can outrun its grounding, a crowded context window makes it easier for confident-sounding but ungrounded reasoning to slip through unchallenged.
 

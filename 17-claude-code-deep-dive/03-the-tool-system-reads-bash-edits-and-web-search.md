@@ -8,7 +8,7 @@ duration: "13:00"
 # The Tool System: Reads, Bash, Edits, and Web Search
 {: .no_toc }
 
-*Video duration: 13:00*
+*Read duration: 13:00*
 
 The Tool Layer's "Common Claude Code Tools" lecture already walked through *why* this tool set is shaped the way it is — granularity matched per capability, errors translated rather than passed through raw, high-blast-radius capability governed outside the schema. This lecture takes a different angle on the same tool set: not why it's designed this way, but how it actually behaves in practice, session to session, and what a working knowledge of that behavior needs to include for the exam and for real use.
 

@@ -8,7 +8,7 @@ duration: "13:00"
 # Chain-of-Thought: Prompting for Visible Reasoning
 {: .no_toc }
 
-*Video duration: 13:00*
+*Read duration: 13:00*
 
 Ask a model to answer a multi-step word problem directly, and it will sometimes jump straight to a plausible-looking number that's wrong — not because it lacks the underlying capability to solve the problem, but because **generating a final answer as the very first tokens of a response forces the reasoning to happen implicitly**, compressed and invisible, with no opportunity to catch an early mistake before it propagates into everything that follows. **Chain-of-thought prompting** is the technique of instructing a model to work through its reasoning step by step, in visible text, before committing to a final answer. It is one of the simplest prompting techniques in this course and also one of the most consequential, because it changes not just *what* the model outputs but *how* it arrives there.
 

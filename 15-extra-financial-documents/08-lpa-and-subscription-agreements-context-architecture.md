@@ -8,7 +8,7 @@ duration: "7:36"
 # LPA/Subscription Agreements - Context Architecture
 {: .no_toc }
 
-*Video duration: 7:36*
+*Read duration: 7:36*
 
 Context architecture for subscription documents starts from a constraint that didn't exist in the same form for credit agreements: the system routinely processes many documents belonging to different, mutually confidential parties in the same batch run, sometimes close together in time or even concurrently. Getting the "what's in context" question right here is inseparable from getting the "what's kept *out* of context" question right, because the cost of the two mixing isn't a wrong extracted number — it's one investor's confidential commitment terms appearing in another investor's output.
 

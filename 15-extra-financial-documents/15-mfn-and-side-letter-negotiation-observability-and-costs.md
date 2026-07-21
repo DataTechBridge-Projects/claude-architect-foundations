@@ -8,7 +8,7 @@ duration: "11:01"
 # MFN & Side Letter Negotiation - Observability and Costs
 {: .no_toc }
 
-*Video duration: 11:01*
+*Read duration: 11:01*
 
 Every use case in this module has had its own risk profile, but MFN and side letter analysis has the sharpest one: the failure mode isn't a wrong extracted number or a template mismatch, it's a legal obligation the fund doesn't know it has, discovered — if it's discovered at all — by an investor's counsel rather than the fund's own team. That asymmetry between quiet, hard-to-detect errors and expensive, hard-to-undo consequences should shape observability and cost design more directly here than in either of the earlier two modules.
 

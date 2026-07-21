@@ -8,7 +8,7 @@ duration: "9:01"
 # Idea Generation/Vetting - RAG.& Retrieval Architecture
 {: .no_toc }
 
-*Video duration: 9:01*
+*Read duration: 9:01*
 
 Context architecture decides what's *allowed* into the window at each stage; retrieval architecture decides *how the system finds* the right material to fill that allowance. For an idea generation and vetting system, retrieval is not a single index behind a single search box — it's several distinct corpora with different update cadences, different retrieval strategies, and, most importantly, different *retrieval objectives* depending on which agent is asking. Getting this layer wrong is the single most common way these systems quietly degrade into producing fluent, well-cited-looking output that's actually built on thin or stale evidence.
 

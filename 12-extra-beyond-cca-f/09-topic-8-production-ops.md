@@ -8,7 +8,7 @@ duration: "0:17"
 # Topic 8: Production Ops
 {: .no_toc }
 
-*Video duration: 0:17*
+*Read duration: 0:17*
 
 Running an agentic system in production means treating it like any other service with real failure modes you have to operate around, not a demo you occasionally check on. That means the standard operational toolkit applies directly: rate limits and exponential backoff when the API is throttled, timeouts and circuit breakers when a tool or an upstream dependency is slow or down, and graceful degradation — a simpler, more deterministic fallback path — when the primary model is unavailable or degraded, rather than letting the whole system fail hard.
 

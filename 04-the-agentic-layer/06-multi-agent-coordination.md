@@ -8,7 +8,7 @@ duration: "17:52"
 # Multi-Agent Coordination
 {: .no_toc }
 
-*Video duration: 17:52*
+*Read duration: 17:52*
 
 Everything so far in this module has described a single loop: one model, deciding its own next action, iteration after iteration. Most real systems eventually outgrow that shape — not because a single agent becomes incapable, but because a single, ever-growing context becomes the wrong container for the work. Multi-agent coordination is the architectural response: splitting work across more than one loop, each with its own context, and defining how those loops communicate and combine their results.
 

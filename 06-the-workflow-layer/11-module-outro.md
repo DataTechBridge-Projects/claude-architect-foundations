@@ -8,7 +8,7 @@ duration: "1:52"
 # Module Outro
 {: .no_toc }
 
-*Video duration: 1:52*
+*Read duration: 1:52*
 
 This module moved a level below the Agentic layer's "who decides" question and a level above the individual prompt: workflow design is about how work gets configured and organized so that decisions get made consistently, without someone re-explaining the same context every session. You saw `CLAUDE.md` as the mechanism for standing, always-relevant project knowledge — automatic, persistent, and cheap, but easy to bloat if treated as a dumping ground rather than a curated set of durable facts. You saw Skills as the complementary mechanism for procedural knowledge that's real but only occasionally relevant, loaded into the *same* agent's context on demand rather than sitting in every session by default — and you saw exactly how that differs from a subagent, which gets its own context and its own model call entirely. You worked through sequencing a workflow and deciding, step by step, which parts are deterministic and which genuinely need judgment, and how that feeds back into the Agentic layer's single-agent-versus-pipeline-versus-multi-agent decision. And you saw how this extends into CI/CD, where a Claude-driven step stops being something a person remembers to run and becomes an automated, auditable, gated pipeline participant — held to the same operational standards as everything else in it.
 

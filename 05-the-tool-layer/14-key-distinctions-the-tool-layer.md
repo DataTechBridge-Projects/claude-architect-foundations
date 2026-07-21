@@ -8,7 +8,7 @@ duration: "5:12"
 # Key Distinctions - The Tool Layer
 {: .no_toc }
 
-*Video duration: 5:12*
+*Read duration: 5:12*
 
 A condensed pass through the module's highest-yield either/or distinctions — the kind of pairs the exam likes to test directly against a scenario.
 

@@ -8,7 +8,7 @@ duration: "0:26"
 # Topic 1: RAG and Knowledge Retrieval
 {: .no_toc }
 
-*Video duration: 0:26*
+*Read duration: 0:26*
 
 The Context Layer module covered *why* you narrow a large corpus down before it reaches the model — the context window is finite, and **more information isn't better information** if most of it is irrelevant to the task at hand. RAG (retrieval-augmented generation) is the concrete "how" behind that principle. Documents are split into chunks, each chunk is embedded into a vector representation, and those vectors are stored in an index. At query time, the query itself is embedded, the index is searched for the nearest chunks, and only the top-k results are injected into context instead of the whole corpus.
 

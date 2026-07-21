@@ -8,7 +8,7 @@ duration: "1:36"
 # Lab: Tool Ecosystem Design Simulator
 {: .no_toc }
 
-*Video duration: 1:36*
+*Read duration: 1:36*
 
 This lab hands you a scenario rather than a checklist: an internal support team wants a Claude-based agent that can look up orders, check shipping status, issue refunds, and update customer records across three underlying systems, two of which already have community-maintained MCP servers available and one that doesn't. Your job is to design the actual tool set — not the prompt, not the agent's autonomy level, just the tools themselves.
 

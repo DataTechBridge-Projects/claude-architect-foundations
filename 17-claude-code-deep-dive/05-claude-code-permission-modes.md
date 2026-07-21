@@ -8,7 +8,7 @@ duration: "11:00"
 # Claude Code Permission Modes
 {: .no_toc }
 
-*Video duration: 11:00*
+*Read duration: 11:00*
 
 Every action Claude Code takes that could change something real — editing a file, running a shell command, reaching the network — passes through a permission check before it executes. A **permission mode** is the setting that determines how that check behaves: how often Claude pauses to ask for explicit approval versus how much it's trusted to proceed on its own. This is the workflow-safeguarding concept from the Agentic Layer — checkpoints and approval gates bounding autonomy — made completely concrete: an actual, switchable setting you configure per session or per project, rather than an abstract design principle.
 

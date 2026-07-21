@@ -8,7 +8,7 @@ duration: "2:31"
 # Module Intro
 {: .no_toc }
 
-*Video duration: 2:31*
+*Read duration: 2:31*
 
 Before you can reason about agent architectures, tool design, or context management at an expert level, you need a solid floor under you: what an LLM actually is, what Claude actually is, and what "agent" actually means when Anthropic uses the word. That's what this Fundamentals module builds.
 

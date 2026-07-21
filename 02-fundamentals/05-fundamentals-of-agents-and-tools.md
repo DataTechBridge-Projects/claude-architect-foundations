@@ -8,7 +8,7 @@ duration: "15:59"
 # Fundamentals of Agents and Tools
 {: .no_toc }
 
-*Video duration: 15:59*
+*Read duration: 15:59*
 
 "Agent" is one of the most overused words in the current AI landscape, and it means something fairly specific and testable in the context of the CCA-F. This lecture defines it precisely, defines "tool" precisely, and walks through the orchestration loop that connects them — the mechanical pattern that underlies the entire Agentic and Tool layers of this course.
 

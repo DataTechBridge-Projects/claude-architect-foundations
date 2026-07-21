@@ -8,7 +8,7 @@ duration: "3:03"
 # Module Intro
 {: .no_toc }
 
-*Video duration: 3:03*
+*Read duration: 3:03*
 
 Most people arrive at prompt design thinking they already know it. You type a request, the model responds, you adjust the wording until the response looks right — that's "prompting," and it feels like something you pick up by intuition rather than something you study for a certification. The Prompt Layer exists to correct that assumption. In an agentic system, a prompt is not a one-off message you fire and forget. It is a piece of the system's logic, sitting in the same causal chain as your code: it determines what the model attends to, what format it produces, what quality bar it holds itself to, and how reliably it behaves the tenth time and the ten-thousandth time, not just the first.
 

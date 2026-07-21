@@ -8,7 +8,7 @@ duration: "6:46"
 # Credit Agreements - Local Workflows
 {: .no_toc }
 
-*Video duration: 6:46*
+*Read duration: 6:46*
 
 The natural instinct when building "a Claude system that reads legal documents and answers questions" is to reach for an agent: give it a document, give it some tools, and let it figure out what to extract and how. For credit agreements, that instinct is usually wrong, and it's worth being explicit about why, because the reasoning generalizes to a lot of enterprise document work beyond this one asset class.
 

@@ -8,7 +8,7 @@ duration: "12:00"
 # Defining and Exposing Resources
 {: .no_toc }
 
-*Video duration: 12:00*
+*Read duration: 12:00*
 
 The previous primitives lecture drew the resource-versus-tool line at a conceptual level: a resource is something a client attaches to context by address, without the model needing to decide anything about the retrieval itself. This lecture goes deeper into what that actually looks like to build — URIs, how a client reads a resource in practice, and a sharper version of the "resource or tool" decision for cases that genuinely could go either way.
 

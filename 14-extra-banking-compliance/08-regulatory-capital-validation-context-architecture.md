@@ -8,7 +8,7 @@ duration: "6:40"
 # Regulatory Capital Validation - Context Architecture
 {: .no_toc }
 
-*Video duration: 6:40*
+*Read duration: 6:40*
 
 A validation verdict is only as trustworthy as the anchors it's checked against. Get either of the two core reference points wrong — the methodology or the threshold — and every downstream comparison inherits that error while still looking rigorous on its face. Context architecture for capital validation is built around keeping those anchors correct, current, and clearly separated from the specific calculation being examined.
 

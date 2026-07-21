@@ -8,7 +8,7 @@ duration: "6:48"
 # LPA/Subscription Agreements - Local Workflows
 {: .no_toc }
 
-*Video duration: 6:48*
+*Read duration: 6:48*
 
 If credit agreements made the case for local workflows on the strength of a known, fixed field schema, subscription documents make an even stronger version of the same case, because the documents themselves are templated, not just the fields extracted from them. A fund closing might see two hundred subscription agreements come in, and the overwhelming majority of them are the same document with different names, amounts, and boxes checked. Building an agentic system that reasons freely about each one from scratch would be solving a harder problem than the one that actually exists — and solving it slower, less predictably, and more expensively than a workflow built around the template that's already there.
 

@@ -8,7 +8,7 @@ duration: "1:19"
 # Module Intro
 {: .no_toc }
 
-*Video duration: 1:19*
+*Read duration: 1:19*
 
 Five modules, five layers, five separate vocabularies for the same underlying question: how should a Claude-powered system actually be built? This module doesn't introduce new mechanics — no new tool schema convention, no new compaction technique, no new prompting trick. Instead, it steps back and names what you've likely already started noticing without a label for it: recurring shapes that show up across the Agentic, Tool, Workflow, Prompt, and Context layers at once, and recurring mistakes that show up when architects treat those five layers as unrelated checklists instead of one interacting system.
 

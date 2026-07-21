@@ -8,7 +8,7 @@ duration: "16:45"
 # Common Claude Code Tools
 {: .no_toc }
 
-*Video duration: 16:45*
+*Read duration: 16:45*
 
 Everything in this module so far has been principle: how to name a tool, how to write its description, how to design its errors, how to think about MCP and governance. This lecture grounds all of it in a system you likely already have direct experience with — Claude Code's own built-in tool set — and reads it as a worked example, asking of each tool the same question this module has been asking throughout: why is it shaped the way it is, and what would go wrong if it weren't?
 

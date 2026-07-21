@@ -8,7 +8,7 @@ duration: "12:00"
 # Creating and Structuring Custom Slash Commands
 {: .no_toc }
 
-*Video duration: 12:00*
+*Read duration: 12:00*
 
 A **custom slash command** is the simplest unit of reusable instruction in Claude Code: a saved prompt, invoked by typing `/` followed by its name, that expands into a full instruction the moment you invoke it rather than requiring you to type (or remember) that instruction from scratch every time. If you've ever caught yourself pasting nearly the same paragraph into a session for the third time this week — "review this diff for security issues, checking specifically for X, Y, and Z" — a slash command is the mechanism that turns that repeated paste into a single short invocation.
 

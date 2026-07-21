@@ -8,7 +8,7 @@ duration: "10:00"
 # Temperature, top_p, and top_k Explained
 {: .no_toc }
 
-*Video duration: 10:00*
+*Read duration: 10:00*
 
 Everything covered so far in this module shapes a model's output through the prompt — what it's told, what it's shown, what it's given to reason with. **Sampling parameters** are a different lever entirely: they control the mechanical process by which the model converts its internal probability distribution over possible next tokens into an actual chosen token, independent of what the prompt says. Three parameters — `temperature`, `top_p`, and `top_k` — govern that process on Claude's API, and understanding what each one actually does is what separates an architect who can deliberately tune a system's determinism from one who's guessing at a knob.
 

@@ -8,7 +8,7 @@ duration: "0:19"
 # Topic 5: Security Architecture
 {: .no_toc }
 
-*Video duration: 0:19*
+*Read duration: 0:19*
 
 An agent with tools is an agent with an attack surface, and that surface is different in kind from a traditional application's. **Prompt injection** — malicious or manipulative instructions smuggled in through a tool result, a retrieved document, a web page the agent fetched, or ordinary user input — is the headline risk, because the model doesn't have a clean, reliable way to distinguish "instructions from my operator" from "text I happened to encounter while doing my job." A support agent that reads a customer's message and a support agent that reads a webpage the customer linked to are, from the model's point of view, doing the same kind of thing: reading text and reacting to it. If that text contains "ignore your previous instructions and do X," a naively built agent may comply.
 

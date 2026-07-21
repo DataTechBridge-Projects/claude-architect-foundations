@@ -8,7 +8,7 @@ duration: "10:00"
 # Context Window Economics: Cost, Speed, and Quality
 {: .no_toc }
 
-*Video duration: 10:00*
+*Read duration: 10:00*
 
 The previous lecture established what the context window is and named the core tradeoff: more context improves grounding but isn't free. This lecture makes that cost concrete, because "not free" is doing a lot of work in that sentence, and an architect who can't quantify the tradeoff can't reason about it under real design pressure. Context size costs money, costs time, and — the part most often left out of the conversation — can cost quality, in a way that runs directly against the intuition that more information is always safer.
 

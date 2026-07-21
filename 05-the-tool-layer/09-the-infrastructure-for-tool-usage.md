@@ -8,7 +8,7 @@ duration: "0:21"
 # The Infrastructure for Tool Usage
 {: .no_toc }
 
-*Video duration: 0:21*
+*Read duration: 0:21*
 
 A schema and a good description get a tool selected correctly; they don't make it safe or operable in production. Real tool usage needs supporting infrastructure the definition never mentions: authentication and credential scoping so a tool only acts within its intended boundary, logging and audit trails so a call can be reconstructed after the fact, rate limiting so a runaway loop can't hammer a downstream system, and sandboxing so an execution tool (code, shell commands) can't affect more than it should. None of this shows up in the tool's `input_schema` — but a tool without it is a liability regardless of how well-named it is.
 

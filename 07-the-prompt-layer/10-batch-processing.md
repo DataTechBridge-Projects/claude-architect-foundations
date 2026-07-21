@@ -8,7 +8,7 @@ duration: "17:22"
 # Batch Processing
 {: .no_toc }
 
-*Video duration: 17:22*
+*Read duration: 17:22*
 
 A prompt that works well once, on one input, tested by hand, is a proof of concept. A prompt that works well the same way across ten thousand different inputs, unattended, is a production system — and getting from the first to the second is a distinct engineering problem with its own failure modes. **Batch processing**, in this context, means running the same prompt (or the same prompt template, filled in differently) across a large number of inputs, and it surfaces reliability issues that a single hand-tested example never reveals, because a single example can't expose variance, drift, or the long tail of inputs you didn't think to test.
 

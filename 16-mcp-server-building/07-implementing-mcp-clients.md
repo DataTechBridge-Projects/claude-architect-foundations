@@ -8,7 +8,7 @@ duration: "13:00"
 # Implementing MCP Clients
 {: .no_toc }
 
-*Video duration: 13:00*
+*Read duration: 13:00*
 
 Every lecture so far has been written from the server's side of the connection — what a server exposes, how its primitives are shaped, how its schemas should be written. This lecture turns to the other half: what a **client** actually has to do to make a connected server's tools, resources, and prompts available to a model at all. Claude Code has one of these built in; so does Claude Desktop; so does any application built on the Claude Agent SDK or directly against the Claude API that wants to speak MCP. Understanding this side matters even if you never author a server, because it's what determines whether a well-designed server actually reaches the model the way its author intended.
 

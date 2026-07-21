@@ -8,7 +8,7 @@ duration: "0:28"
 # "Traditional" Sanitization
 {: .no_toc }
 
-*Video duration: 0:28*
+*Read duration: 0:28*
 
 It's tempting, once a model handles most of a system's judgment, to assume it also handles security: "the model will notice if the input looks malicious." **Don't build on that.** Traditional sanitization — escaping special characters before they hit a downstream parser, validating input shape and length before it reaches the model, defending against injection whether it targets a SQL query or a prompt — remains necessary regardless of model capability. A capable model reduces some risks but introduces others, prompt injection chief among them; it doesn't retire sanitizing every boundary a traditional system would sanitize.
 

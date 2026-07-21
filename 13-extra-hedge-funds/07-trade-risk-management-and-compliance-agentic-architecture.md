@@ -8,7 +8,7 @@ duration: "7:26"
 # Trade Risk Management/Compliance - Agentic Architecture
 {: .no_toc }
 
-*Video duration: 7:26*
+*Read duration: 7:26*
 
 The agentic architecture for a trade risk and compliance system starts from a constraint that's unusual in this course: the right amount of autonomy to grant is not primarily a function of what the model is capable of, it's a function of what the domain will tolerate, and the domain tolerates very little. That reframes the design question. Instead of asking "how much of this process can an agent handle end to end," the right question is "how much of this process is genuinely mechanical and should never touch a model at all, and for the remainder, how do we get useful agentic reasoning into a human reviewer's hands as fast as possible without ever letting that reasoning become the decision itself."
 

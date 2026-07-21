@@ -8,7 +8,7 @@ duration: "15:10"
 # Exam and Testing Process
 {: .no_toc }
 
-*Video duration: 15:10*
+*Read duration: 15:10*
 
 Understanding the five domains and the ATWPC mental model gets you ready intellectually. This lecture is about being ready practically: what the exam itself actually looks like, how to register for it, what to expect walking in, and how to manage your time and mindset once the clock starts. None of this replaces Anthropic's own documentation — treat everything here as a realistic, well-informed briefing, and confirm the specific, current details on the official CCA-F page before you schedule your sitting. Exam vendors change proctoring providers, fee structures, and question counts often enough that any third-party course, including this one, will eventually drift out of sync with the current specifics.
 

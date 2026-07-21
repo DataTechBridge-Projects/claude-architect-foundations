@@ -8,7 +8,7 @@ duration: "11:00"
 # What Skills Are and When to Build Them
 {: .no_toc }
 
-*Video duration: 11:00*
+*Read duration: 11:00*
 
 The Workflow Layer's "Skill Configuration" lecture already answered the architectural question that matters most: a Skill is packaged, invokable procedural knowledge that loads into the current agent's context only when a task calls for it, sitting in a specific niche between `CLAUDE.md` (always loaded, declarative) and a subagent (independently executed, its own context). That lecture also drew the three-way sort — `CLAUDE.md` versus Skill versus subagent — that the exam tests directly. This lecture assumes all of that as given and asks a narrower, more practically loaded question: given that a Skill is the *right kind* of mechanism for a piece of procedural knowledge, when has a team actually reached the point where building one is worth doing, versus continuing to just describe the procedure in the prompt each time it comes up?
 

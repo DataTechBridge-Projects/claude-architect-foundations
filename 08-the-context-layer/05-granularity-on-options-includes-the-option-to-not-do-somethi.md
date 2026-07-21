@@ -8,7 +8,7 @@ duration: "0:40"
 # Granularity on Options... Includes The Option To Not Do Something
 {: .no_toc }
 
-*Video duration: 0:40*
+*Read duration: 0:40*
 
 When you design the set of options an agent can choose from at a decision point, it's easy to only list the active ones: approve, reject, escalate, retry. That framing quietly forces a choice even when the honest answer is "I don't have enough information to pick any of these yet." Granularity in option design has to include an explicit **do-nothing-and-ask** option alongside the active ones — not as a last resort buried in the system prompt, but as a first-class choice the agent is told is always acceptable. Without it, an uncertain agent doesn't stop; it picks the least-bad active option and calls that a decision.
 

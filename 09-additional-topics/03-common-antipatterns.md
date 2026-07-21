@@ -8,7 +8,7 @@ duration: "21:25"
 # Common Antipatterns
 {: .no_toc }
 
-*Video duration: 21:25*
+*Read duration: 21:25*
 
 Every antipattern in this lecture shares two properties: it's tempting, for a specific and usually reasonable-sounding reason, and it fails in a way that's predictable once you know the layer's underlying trade-offs. That combination is exactly what makes antipatterns worth cataloging deliberately rather than trusting yourself to avoid by instinct — the temptation is real, it doesn't announce itself as a mistake, and the exam is built to describe these situations from the tempted architect's point of view and ask whether you'd fall for it too. What follows is organized by layer, three or four per layer, closing with one meta-antipattern that operates above all five.
 

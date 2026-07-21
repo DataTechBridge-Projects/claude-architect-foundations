@@ -8,7 +8,7 @@ duration: "3:00"
 # Module Intro
 {: .no_toc }
 
-*Video duration: 3:00*
+*Read duration: 3:00*
 
 The Agentic Layer gave you the loop: model call, tool-use request, execution, result, repeat. That loop is the skeleton. The Tool Layer is about the thing the model actually reaches for at step three of every iteration — the tool itself — and it asks a deceptively simple question: what makes a tool *good*? Not good in the sense of "well-implemented code," but good in the sense that a model, reading nothing but a name, a description, and a schema, reliably picks the right one, fills it in correctly, and knows what to do when it fails.
 

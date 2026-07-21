@@ -8,7 +8,7 @@ duration: "6:46"
 # Credit Agreements - Overview
 {: .no_toc }
 
-*Video duration: 6:46*
+*Read duration: 6:46*
 
 A **credit agreement** is the contract that governs a loan between a lender (or a syndicate of lenders) and a borrower — typically fifty to two hundred pages of definitions, covenants, conditions precedent, representations, events of default, and mechanics for interest, prepayment, and amendment. Every commercial bank, credit fund, and corporate treasury team that originates or holds debt lives inside these documents, and the work of dealing with them is unglamorous but constant: a new deal comes in and needs its key terms extracted into a term sheet or deal database; a covenant compliance check needs to happen quarterly against the borrower's financials; a portfolio manager asks "do any of our facilities have a MFN pricing provision" and someone has to go find out; outside counsel sends a markup and someone has to identify what changed from the firm's standard paper. All of this work is currently done by lending attorneys, credit analysts, and paralegals reading dense legal prose line by line, and it scales linearly with headcount.
 

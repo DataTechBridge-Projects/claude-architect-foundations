@@ -8,7 +8,7 @@ duration: "0:31"
 # These Are Local!
 {: .no_toc }
 
-*Video duration: 0:31*
+*Read duration: 0:31*
 
 Not every workflow decision needs to scale beyond the team that made it. Whether code review requires two agentic passes or one, whether a `CLAUDE.md` calls out a quirky internal tool, whether a Skill exists for this team's particular report format — these are legitimately local choices, shaped by one repo's risk tolerance, one team's tooling, one project's history of near-misses. Trying to force every workflow convention into a single org-wide standard usually produces a bloated, generic policy that fits no one well. Some things should be centralized; plenty of things should just be local, and that's fine.
 

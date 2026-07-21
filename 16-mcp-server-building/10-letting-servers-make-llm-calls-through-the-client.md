@@ -8,7 +8,7 @@ duration: "12:00"
 # Letting Servers Make LLM Calls Through the Client
 {: .no_toc }
 
-*Video duration: 12:00*
+*Read duration: 12:00*
 
 Every capability covered so far flows in one direction: the model (through the client) calls a tool, reads a resource, or invokes a prompt that a server provides. **Sampling** is the one MCP primitive that runs the relationship in reverse — a server, mid-execution, asks the *client* to make an LLM call on its behalf and hand back the result. It's a smaller, more specialized piece of the protocol than tools or resources, but it resolves a real architectural problem worth understanding precisely.
 

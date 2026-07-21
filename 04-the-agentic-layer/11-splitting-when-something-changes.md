@@ -8,7 +8,7 @@ duration: "0:26"
 # Splitting When Something Changes
 {: .no_toc }
 
-*Video duration: 0:26*
+*Read duration: 0:26*
 
 A practical rule of thumb for where to place a decomposition boundary: split when something changes. If the next piece of work needs a different tool set than the current one, a different body of data or context than what's already loaded, or a different reviewer (a human approval where none was needed before, or a different subagent's specialization), that's a strong signal a step boundary belongs there. Steps that share tools, data, and reviewer usually belong together; steps that don't, usually don't — regardless of how naturally they seem to follow one another in the goal's original description.
 

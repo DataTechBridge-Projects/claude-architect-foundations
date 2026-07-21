@@ -8,7 +8,7 @@ duration: "0:07"
 # Beyond the CCAF: Additional Topics
 {: .no_toc }
 
-*Video duration: 0:07*
+*Read duration: 0:07*
 
 The CCA-F blueprint covers what you need to pass the exam: the five layers, their trade-offs, and the vocabulary to reason about them. But the five layers are a framework for making design decisions, not a complete inventory of everything a production Claude system has to get right. Once a system is live and carrying real traffic, a set of adjacent concerns shows up that the certification doesn't test directly — not because they're unimportant, but because they're operational and engineering-practice concerns layered *on top of* the architecture, rather than architecture decisions themselves.
 

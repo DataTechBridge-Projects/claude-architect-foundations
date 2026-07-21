@@ -8,7 +8,7 @@ duration: "18:45"
 # Tool Definition & Selection
 {: .no_toc }
 
-*Video duration: 18:45*
+*Read duration: 18:45*
 
 The Agentic Layer's lecture on structured tool use established the mechanics: a tool is a name, a description, and a JSON Schema, sent to the model alongside every request, and the model responds with a structured call rather than free-form prose. This lecture is about the layer above that mechanism — not *whether* tools are structured, but *how well-designed* a given structured tool actually is. Two tools can have identical, perfectly valid JSON Schemas and wildly different real-world reliability, because the schema only constrains the shape of a valid call. It says nothing about whether the model picks the right tool in the first place, or fills in that shape correctly. That's a design problem, not a validation problem, and it's the one this lecture addresses head-on.
 

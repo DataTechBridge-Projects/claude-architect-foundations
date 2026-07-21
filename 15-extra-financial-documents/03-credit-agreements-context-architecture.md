@@ -8,7 +8,7 @@ duration: "7:14"
 # Credit Agreements - Context Architecture
 {: .no_toc }
 
-*Video duration: 7:14*
+*Read duration: 7:14*
 
 Once the workflow shape is settled — deal-type classification, template-driven extraction, checklist review — the next architectural question is what actually goes into the context window at each step. For a fifty-to-two-hundred-page legal document, "just paste in the whole thing every time" is neither efficient nor, past a certain length, even the right way to get accurate answers, so credit agreement context architecture is really about disciplined scoping: giving the model exactly the material a given step needs, correctly labeled, and nothing more.
 

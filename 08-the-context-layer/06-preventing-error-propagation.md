@@ -8,7 +8,7 @@ duration: "17:15"
 # Preventing Error Propagation
 {: .no_toc }
 
-*Video duration: 17:15*
+*Read duration: 17:15*
 
 A single wrong inference, made once, early in a session, and never revisited, is rarely what actually causes an agentic system to fail badly. What causes real damage is what happens *after* — the ten, twenty, or fifty subsequent turns that treat that early mistake as established fact, build on top of it without question, and produce a final result that looks thoroughly reasoned but is rotten at its foundation. This lecture is about that compounding process, why it's so easy for it to happen unnoticed inside a context window, and the concrete techniques that stop it.
 

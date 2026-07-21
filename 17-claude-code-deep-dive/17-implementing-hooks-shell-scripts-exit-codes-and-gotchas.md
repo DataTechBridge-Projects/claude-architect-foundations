@@ -8,7 +8,7 @@ duration: "13:00"
 # Implementing Hooks: Shell Scripts, Exit Codes, and Gotchas
 {: .no_toc }
 
-*Video duration: 13:00*
+*Read duration: 13:00*
 
 Knowing which lifecycle event to attach to is only half of working with hooks — the other half is the actual mechanics of writing one that behaves correctly: what a hook receives, how it communicates a decision back, and the handful of easy-to-miss details that separate a hook that works from one that silently does nothing or, worse, silently does the wrong thing.
 

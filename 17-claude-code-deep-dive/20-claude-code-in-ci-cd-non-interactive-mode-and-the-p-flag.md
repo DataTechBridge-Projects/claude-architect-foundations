@@ -8,7 +8,7 @@ duration: "11:00"
 # Claude Code in CI/CD: Non-Interactive Mode and the -p Flag
 {: .no_toc }
 
-*Video duration: 11:00*
+*Read duration: 11:00*
 
 The Agent SDK lecture covered building custom applications on Claude Code's underlying engine. This lecture covers a simpler, more immediately practical path to the same territory: running Claude Code itself, non-interactively, inside a pipeline — no custom application required, just a single flag away from the interactive tool you already know.
 

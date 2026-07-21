@@ -8,7 +8,7 @@ duration: "26:50"
 # Managing the Context
 {: .no_toc }
 
-*Video duration: 26:50*
+*Read duration: 26:50*
 
 A context window is often described as if it were simple storage — a big text box the model reads before responding. That description is accurate but dangerously incomplete. A more useful mental model, and the one this course asks you to carry into every scenario question, is that the context window is a **shared, finite, and expensive resource**, and everything that enters it is competing with everything else for the model's limited attention. It doesn't matter that Claude's context windows are large by historical standards. "Large" is not "infinite," and even well inside the hard token limit, a context window that is merely *full* — cluttered with marginally relevant material — **degrades the quality of the model's reasoning long before it hits any wall**. Context management is the discipline of treating that scarcity seriously: deciding deliberately what earns a place in the window, what gets compressed, what gets dropped, and how information moves between agents without contaminating each other's working set.
 

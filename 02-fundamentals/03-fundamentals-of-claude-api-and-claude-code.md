@@ -8,7 +8,7 @@ duration: "17:10"
 # Fundamentals of Claude API & Claude Code
 {: .no_toc }
 
-*Video duration: 17:10*
+*Read duration: 17:10*
 
 Anthropic ships Claude in several different products and interfaces, but for a CCA-F architect two of them matter above all others: the **Claude API** and **Claude Code**. They are related — Claude Code is built on top of the Claude API — but they solve different problems, and confusing them (or not understanding what one gives you that the other doesn't) is a common source of bad architecture. This lecture builds a precise mental model of each.
 

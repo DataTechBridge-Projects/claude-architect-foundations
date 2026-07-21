@@ -8,7 +8,7 @@ duration: "11:00"
 # STDIO Transport: Local Servers and Process Communication
 {: .no_toc }
 
-*Video duration: 11:00*
+*Read duration: 11:00*
 
 The minimal server built earlier in this module ended with a single, easy-to-skip line: `mcp.run()`, defaulting to STDIO transport. This lecture is about everything that default is quietly doing, because **transport** — the actual channel over which client and server exchange protocol messages — is a design decision with real consequences, and STDIO is the one you'll reach for by far the most often during local development.
 

@@ -8,7 +8,7 @@ duration: "14:12"
 # Configuring CLAUDE.md
 {: .no_toc }
 
-*Video duration: 14:12*
+*Read duration: 14:12*
 
 A **`CLAUDE.md`** file is a plain-text (usually Markdown) file that Claude Code automatically reads into context at the start of a session, without any user having to paste it in or reference it explicitly. It lives in a project's repository — typically at the root, sometimes nested in subdirectories for more specific scopes — and its entire purpose is to give Claude persistent, standing knowledge of *this* project: its conventions, its constraints, its quirks, and the things a new human contributor would otherwise have to be told in a Slack message or learn by making a mistake first. Once it exists, it applies automatically, every session, without anyone re-explaining it.
 

@@ -8,7 +8,7 @@ duration: "6:45"
 # MFN & Side Letter Negotiation - Context Architecture
 {: .no_toc }
 
-*Video duration: 6:45*
+*Read duration: 6:45*
 
 Give an agent genuine autonomy to widen its own search as it discovers relevant material, as the previous lecture describes, and the context architecture question becomes correspondingly harder: what should be loaded up front, what should be pulled in on demand, and how do you keep an open-ended comparison task from either missing something material or drowning in irrelevant side letters it didn't need to read.
 

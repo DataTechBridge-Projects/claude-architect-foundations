@@ -8,7 +8,7 @@ duration: "13:00"
 # Building a Prompt Evaluation Workflow
 {: .no_toc }
 
-*Video duration: 13:00*
+*Read duration: 13:00*
 
 A prompt that looks good on the handful of inputs you tried while writing it tells you almost nothing about how it will behave across the thousands of inputs it will actually see in production. This is the gap a **prompt evaluation workflow** exists to close: a systematic, repeatable process for measuring whether a prompt actually works, rather than relying on a spot check of a few examples and a gut feeling that the output "looks right." Where the independent-review lecture covered catching a bad output from a single production run before it does damage, evaluation is a distinct discipline that operates *before* a prompt ships and *across* many runs at once — it's how you know, with evidence rather than intuition, whether a prompt is ready to be trusted at all.
 

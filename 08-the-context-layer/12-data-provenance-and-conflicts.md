@@ -8,7 +8,7 @@ duration: "19:22"
 # Data Provenance and Conflicts
 {: .no_toc }
 
-*Video duration: 19:22*
+*Read duration: 19:22*
 
 A context window, read on its own terms, is just text — a sequence of statements with no inherent marker of how much any of them deserve to be trusted. "The customer's account was closed in March" and "the customer's account is currently active" can both appear in the same window, phrased with identical confidence, and nothing about the sentences themselves tells the model which one to believe, or whether they're even actually in conflict once you know where each came from. This lecture is about the discipline that fills that gap: **data provenance** — tracking where a piece of context came from, how it was obtained, how current it is, and how much it should be trusted — and what to do when two pieces of context that both carry some claim to authority disagree.
 

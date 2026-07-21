@@ -8,7 +8,7 @@ duration: "14:00"
 # The Built-in Toolset: What Ships with Claude
 {: .no_toc }
 
-*Video duration: 14:00*
+*Read duration: 14:00*
 
 Every lecture so far in this module has assumed you're connecting something external through MCP — a server someone wrote, exposing tools, resources, or prompts a client discovers and surfaces. This lecture is the deliberate counterpoint: Claude ships with a set of **built-in tools** that require no MCP server, no connection, no discovery step, and no separate deployment at all. Understanding what these are, and how they differ architecturally from an MCP-exposed tool, is what makes the next lecture's build-versus-buy framework possible.
 

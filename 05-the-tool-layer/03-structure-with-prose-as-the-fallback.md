@@ -8,7 +8,7 @@ duration: "0:20"
 # Structure with Prose as the Fallback
 {: .no_toc }
 
-*Video duration: 0:20*
+*Read duration: 0:20*
 
 Default every field toward structure — enums over free text, typed values over strings that encode meaning implicitly — because structure is what makes a call validatable before execution. Reach for a free-text prose field only where the content genuinely requires judgment or open-ended variation a fixed schema can't anticipate: a commit message, a customer-facing explanation, a search query's phrasing. The test is whether enumerating the valid space in advance would actually help the model or just constrain it into unnatural, ill-fitting choices. When in doubt, structure first, prose only where rigidity would clearly make the tool worse.
 

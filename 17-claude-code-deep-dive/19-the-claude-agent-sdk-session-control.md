@@ -8,7 +8,7 @@ duration: "12:00"
 # The Claude Agent SDK: Session Control
 {: .no_toc }
 
-*Video duration: 12:00*
+*Read duration: 12:00*
 
 Everything covered so far in this module has been about configuring and extending Claude Code as a product — a terminal application (and its editor and desktop surfaces) that a human runs interactively. This lecture and the next mark a shift: from using Claude Code to building on the same underlying engine programmatically, for cases where the goal isn't a human typing into a terminal at all, but a custom application, a script, or a pipeline that needs the same agentic capability.
 

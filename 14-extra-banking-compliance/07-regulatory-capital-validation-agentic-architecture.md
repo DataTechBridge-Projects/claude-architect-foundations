@@ -8,7 +8,7 @@ duration: "8:26"
 # Regulatory Capital Validation - Agentic Architecture
 {: .no_toc }
 
-*Video duration: 8:26*
+*Read duration: 8:26*
 
 Every other use case in this course, including stress testing earlier in this module, asks an agent to *produce* something — a draft, a thesis, a plan. Regulatory capital validation asks something different: it asks Claude to *check* something that already exists. That distinction sounds subtle, but it changes the agentic architecture from top to bottom, because a checking task has a different failure mode, a different notion of success, and a different relationship between model output and human trust than a generative one does.
 

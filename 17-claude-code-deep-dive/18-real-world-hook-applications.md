@@ -8,7 +8,7 @@ duration: "10:00"
 # Real-World Hook Applications
 {: .no_toc }
 
-*Video duration: 10:00*
+*Read duration: 10:00*
 
 With the lifecycle events and the exit-code mechanics covered, this lecture closes out the hooks material with the part that actually motivates learning the mechanism in the first place: what teams actually build with it. Three categories account for the large majority of real-world hook use, and each maps onto a distinct kind of need that no other mechanism in this module fully covers on its own.
 

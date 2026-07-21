@@ -8,7 +8,7 @@ duration: "8:22"
 # Stress Testing - Overview
 {: .no_toc }
 
-*Video duration: 8:22*
+*Read duration: 8:22*
 
 Once a year — sometimes twice — a bank's risk organization has to answer a question regulators consider existential: if the economy took a sharp, specific, and unpleasant turn, would this institution still be solvent, still lending, and still capable of absorbing losses without a taxpayer-funded rescue? In the United States that question is formalized as CCAR (Comprehensive Capital Analysis and Review) and DFAST (Dodd-Frank Act Stress Testing); other jurisdictions run structurally similar exercises under the EBA, PRA, or Basel frameworks. Whatever the acronym, the mechanics are the same. A regulator publishes a small number of macroeconomic scenarios — a baseline, an adverse case, and a severely adverse case — specifying paths for unemployment, GDP growth, interest rates, housing prices, equity indices, and a dozen other variables over a nine-quarter horizon. The bank must then project how those macro paths flow through to its own balance sheet: loan losses, trading losses, revenue, capital ratios, and ultimately whether it stays above the regulatory minimums the entire way through the hypothetical downturn.
 

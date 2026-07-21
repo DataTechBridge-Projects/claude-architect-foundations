@@ -8,7 +8,7 @@ duration: "13:00"
 # Authoring Agent Skills
 {: .no_toc }
 
-*Video duration: 13:00*
+*Read duration: 13:00*
 
 Having covered what a Skill is and when a team should build one, this lecture gets into the mechanics of actually writing one: the file structure, what goes in each part, and how Claude Code decides a given Skill is relevant to the task in front of it.
 

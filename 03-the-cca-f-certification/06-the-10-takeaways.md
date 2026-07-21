@@ -8,7 +8,7 @@ duration: "22:35"
 # The 10 Takeaways
 {: .no_toc }
 
-*Video duration: 22:35*
+*Read duration: 22:35*
 
 You now have the exam's structure (the five domains), a mental model for navigating it (the ATWPC stack), and a plan for the logistics of sitting it. What's missing is a synthesis: if you had to walk away from this entire course with only ten ideas, which ten would actually move the needle on exam day and, more importantly, in real architectural work afterward?
 

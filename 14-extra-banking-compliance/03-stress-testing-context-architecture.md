@@ -8,7 +8,7 @@ duration: "5:51"
 # Stress Testing - Context Architecture
 {: .no_toc }
 
-*Video duration: 5:51*
+*Read duration: 5:51*
 
 Every stage of the stress-testing workflow described in the previous two lectures depends on getting one thing right first: making sure Claude sees the correct version of a set of documents and data that all change, on different schedules, every cycle. Context architecture in this domain is less about volume — the individual documents involved aren't huge by RAG standards — and more about discipline around *which version* of each input is in play at any moment.
 

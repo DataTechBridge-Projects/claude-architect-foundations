@@ -8,7 +8,7 @@ duration: "2:00"
 # Module Outro
 {: .no_toc }
 
-*Video duration: 2:00*
+*Read duration: 2:00*
 
 This module took a product the Workflow Layer had only sketched — CLAUDE.md exists, Skills exist, subagents are like Skills — and went all the way down to its actual mechanics. Start from where that arc began: Claude Code is the agentic loop from the Agentic Layer, instantiated as a specific harness with a curated tool set, a permission layer, and its own context-management discipline, not a different kind of thing from what the rest of this course already taught you to reason about.
 

@@ -8,7 +8,7 @@ duration: "7:16"
 # Idea Generation/Vetting - Overview
 {: .no_toc }
 
-*Video duration: 7:16*
+*Read duration: 7:16*
 
 A hedge fund research desk lives or dies on a single narrow bottleneck: the rate at which a small team of analysts can turn raw information into trade theses that are both original and defensible. Every day the desk is flooded with inputs — earnings transcripts, regulatory filings, sell-side research, news, alternative data feeds, and the analysts' own accumulated knowledge of a sector — and only a tiny fraction of that flow ever becomes a thesis worth taking to a portfolio manager. The bottleneck isn't a shortage of ideas; it's a shortage of *vetted* ideas, because generating a plausible-sounding thesis is easy and generating one that survives scrutiny is hard. This is the business problem an idea generation and vetting system is built to address: compress the time between "here's a pattern in the data" and "here's a thesis with its risks, its supporting evidence, and its contradicting evidence laid out," without lowering the bar for what counts as a good idea.
 

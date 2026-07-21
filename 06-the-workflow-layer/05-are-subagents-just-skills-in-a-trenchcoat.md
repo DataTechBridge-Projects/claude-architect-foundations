@@ -8,7 +8,7 @@ duration: "1:00"
 # Are Subagents Just... Skills In a Trenchcoat?
 {: .no_toc }
 
-*Video duration: 1:00*
+*Read duration: 1:00*
 
 They can look alike from a distance — both are "a reusable capability the main agent reaches for to handle a sub-task" — but the mechanism underneath is fundamentally different, and the exam cares about the mechanism. A **subagent** is instantiated with its own context window and makes its own independent model calls; it reasons separately, can run tool calls the parent never sees in detail, and reports back only a result (or summary) that the parent then incorporates. A **Skill** never leaves the calling agent's context: its instructions (and any bundled tools) are loaded directly into the *current* agent's existing context, and the same agent, same model call sequence, continues acting — just now with a runbook in hand. Same surface goal, "get help with a sub-task," completely different cost, isolation, and failure-mode profile underneath.
 

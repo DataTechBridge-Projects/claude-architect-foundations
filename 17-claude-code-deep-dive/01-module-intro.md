@@ -8,7 +8,7 @@ duration: "2:30"
 # Module Intro
 {: .no_toc }
 
-*Video duration: 2:30*
+*Read duration: 2:30*
 
 The Workflow Layer introduced `CLAUDE.md` and Skills as concepts — standing project context that loads automatically, and packaged procedures that load on demand. Both were framed there in the abstract, as workflow-layer mechanisms alongside subagents and CI/CD gates. This module takes the one concrete product that actually implements all of that — Claude Code — and goes deep on how it really works, at the level of detail the exam expects you to reason about rather than just recognize by name.
 

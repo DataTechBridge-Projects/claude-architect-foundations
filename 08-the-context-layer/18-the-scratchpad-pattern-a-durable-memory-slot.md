@@ -8,7 +8,7 @@ duration: "11:00"
 # The Scratchpad Pattern: A Durable Memory Slot
 {: .no_toc }
 
-*Video duration: 11:00*
+*Read duration: 11:00*
 
 The memory tool, covered in the previous lecture, solves the problem of information that needs to survive across entirely separate sessions. This lecture covers a related but narrower pattern that solves a different problem: state that needs to survive *within* a single long or complex task, even as the live context window around it gets compacted, summarized, or handed off to another agent. That pattern is the **scratchpad** — a designated slot where an agent writes down its intermediate reasoning, its current plan, or its findings-so-far, specifically so that this material can be recovered reliably rather than depending on it happening to still be legible somewhere in an increasingly compacted transcript.
 

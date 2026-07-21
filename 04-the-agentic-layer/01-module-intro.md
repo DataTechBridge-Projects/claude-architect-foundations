@@ -8,7 +8,7 @@ duration: "3:18"
 # Module Intro
 {: .no_toc }
 
-*Video duration: 3:18*
+*Read duration: 3:18*
 
 The Fundamentals module defined an agent precisely: an LLM operating in a loop, choosing actions instead of only producing text, observing what those actions return, and deciding what to do next until the task is finished or some limit is reached. The Agentic Layer is the first of the five core domains in the CCA-F blueprint, and it's where that one-sentence definition gets unpacked into an actual architecture — the mechanics you need to reason about correctly, not just describe.
 

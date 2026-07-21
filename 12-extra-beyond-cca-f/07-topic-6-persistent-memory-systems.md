@@ -8,7 +8,7 @@ duration: "0:23"
 # Topic 6: Persistent Memory Systems
 {: .no_toc }
 
-*Video duration: 0:23*
+*Read duration: 0:23*
 
 Session management, from the Agentic Layer module, covers how state persists *within* one run — a conversation, a task, a background job. Persistent memory is the layer above that: what should an agent remember *across* sessions, across days, or across different users entirely? It's a genuinely separate design problem, because the answer isn't "remember everything" any more than the answer to context management is "load everything."
 

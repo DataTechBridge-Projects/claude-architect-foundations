@@ -8,7 +8,7 @@ duration: "4:51"
 # Key Distinctions - The Prompt Layer
 {: .no_toc }
 
-*Video duration: 4:51*
+*Read duration: 4:51*
 
 This module covered a lot of ground; the exam tends to test it through a small set of either/or distinctions. Here they are, condensed.
 

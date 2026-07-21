@@ -8,7 +8,7 @@ duration: "0:56"
 # Putting the "Provenance" in Data Provenance
 {: .no_toc }
 
-*Video duration: 0:56*
+*Read duration: 0:56*
 
 The word "provenance" originally describes the documented history of an object — a painting, an antique, a legal title — the chain of custody that lets you trust it's what it claims to be. Data provenance borrows that idea directly, and the borrowing is more literal than it sounds: a fact in a context window deserves the same chain-of-custody treatment as a painting up for auction. Where did it come from, who or what handled it, when was it last authenticated, and does its documentation actually travel with it or live somewhere separate and easy to lose? An art dealer would never say "trust me, it's real" without papers. A context window that states a fact with no attached source, timestamp, or trust level is making exactly that unsupported claim — just in prose confident enough that nobody thinks to ask for the papers.
 

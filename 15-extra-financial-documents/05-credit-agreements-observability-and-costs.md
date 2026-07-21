@@ -8,7 +8,7 @@ duration: "11:21"
 # Credit Agreements - Observability and Costs
 {: .no_toc }
 
-*Video duration: 11:21*
+*Read duration: 11:21*
 
 A credit agreement system that extracts terms, flags deviations, and answers questions is only as valuable as the confidence a lending or legal team can place in it — and confidence, for a system that touches legal risk, has to be earned through measurement rather than asserted. This lecture covers three practical concerns that decide whether such a system survives contact with a real lending desk: how you track accuracy against the human review it's meant to support, how you manage the cost of processing genuinely long documents, and how you avoid re-paying that cost every time someone asks a follow-up question.
 

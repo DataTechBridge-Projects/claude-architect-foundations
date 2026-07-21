@@ -8,7 +8,7 @@ duration: "13:02"
 # Workflow Safeguarding
 {: .no_toc }
 
-*Video duration: 13:02*
+*Read duration: 13:02*
 
 A decomposed workflow made of well-scoped steps is still a system that takes real, autonomous actions — and every lecture so far has flagged the same underlying risk from a different angle: compounding errors across loop iterations, subagent reports that hide their own process, decomposition boundaries chosen for cleanliness rather than safety. Workflow safeguarding is where these threads converge into concrete design patterns for keeping autonomous execution bounded and recoverable.
 

@@ -8,7 +8,7 @@ duration: "19:20"
 # Quality and Feedback Enforcement
 {: .no_toc }
 
-*Video duration: 19:20*
+*Read duration: 19:20*
 
 A model that produces output without ever checking that output against a standard is operating open-loop: it generates once, and whatever comes out is what you get. **Quality and feedback enforcement** is the set of techniques for closing that loop — building self-checking into the prompt or the surrounding process so that low-quality output has a chance of being caught and corrected before it ever reaches a downstream system or a human who trusted it. This is one of the most consequential ideas in the entire Prompt Layer, because it's the difference between a system that's **reliable by accident and one that's reliable by design**.
 

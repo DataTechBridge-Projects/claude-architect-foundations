@@ -8,7 +8,7 @@ duration: "3:11"
 # Module Intro
 {: .no_toc }
 
-*Video duration: 3:11*
+*Read duration: 3:11*
 
 Every module before this one has been, in a real sense, a rehearsal for this one. Agentic architecture decided who gets to act. Tool design decided what actions are available. Workflow design decided how those actions are sequenced and safeguarded. Prompt design decided how intent gets communicated. But none of those decisions do anything on their own — they all have to land somewhere, and that somewhere is the context window: the finite set of tokens Claude actually sees at the moment it has to decide what to do next. The Context Layer is the domain that governs that landing zone, and it is where every other domain's choices either pay off or quietly fail.
 

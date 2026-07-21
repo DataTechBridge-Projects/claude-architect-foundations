@@ -8,7 +8,7 @@ duration: "17:58"
 # Session Management
 {: .no_toc }
 
-*Video duration: 17:58*
+*Read duration: 17:58*
 
 Every lecture so far has zoomed in on a single loop, a single delegation, a single workflow. This one zooms out to the container all of those run inside over time: the **session** — the full, ongoing multi-turn interaction a user or system has with an agent, potentially spanning many orchestration-loop iterations, many tool calls, and, in longer-lived systems, many hours or days. Session management is the discipline of keeping that container coherent, affordable, and useful as it grows — and it's where the "server request-response" analogy from earlier in this module needs one important addition: statelessness per call, but state that persists *somewhere* across calls.
 

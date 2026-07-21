@@ -8,7 +8,7 @@ duration: "12:00"
 # Creating and Configuring Custom Subagents
 {: .no_toc }
 
-*Video duration: 12:00*
+*Read duration: 12:00*
 
 The Agentic Layer covered subagents as an architectural concept: delegation from an orchestrator to a separately-executing unit of work, with its own context window and its own model call, used when a sub-task's exploratory noise shouldn't pollute the parent's context or when the sub-task genuinely benefits from independent judgment. Claude Code implements exactly that pattern as a concrete, configurable feature, and this lecture covers how a team actually defines and scopes a custom one.
 

@@ -8,7 +8,7 @@ duration: "11:44"
 # Trade Risk Management/Compliance - Observability and Costs
 {: .no_toc }
 
-*Video duration: 11:44*
+*Read duration: 11:44*
 
 Observability in a regulated domain answers a different question than observability anywhere else in this course. For the idea generation system, the goal of monitoring was mostly to make the system better over time — catching drift, tracking whether ideas panned out, keeping analysts engaged rather than complacent. Here, observability has an additional, non-negotiable purpose: the system has to be able to prove, to an internal auditor or an external regulator, exactly what it did, why, based on what information, and who ultimately approved it. A trade risk and compliance system that works well but can't produce that record hasn't actually solved the business problem — auditability isn't a feature layered on top of this system, it's part of the specification.
 

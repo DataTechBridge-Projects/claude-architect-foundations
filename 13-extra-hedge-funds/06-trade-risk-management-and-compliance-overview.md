@@ -8,7 +8,7 @@ duration: "6:24"
 # Trade Risk Management/Compliance - Overview
 {: .no_toc }
 
-*Video duration: 6:24*
+*Read duration: 6:24*
 
 Every proposed trade at a hedge fund passes through a review layer before it executes: does this trade breach a position limit, does it create prohibited concentration, does it touch a restricted list, does it comply with the regulatory obligations that apply to this fund, this strategy, and this counterparty? That review has historically been a mix of automated hard-coded checks (position limits are usually already enforced by rigid systems) and human judgment calls for anything the hard-coded checks don't cleanly cover — ambiguous restricted-list matches, trades that touch multiple overlapping rules, unusual structures that don't map neatly onto a pre-built check. The business problem this use case addresses is that second category: the judgment-requiring edge of compliance and risk review, where the volume of proposed trades and the complexity of applicable rules has grown faster than the compliance team reviewing them, and where a Claude-based system can help by reading rules and trade details together and surfacing what a human reviewer needs to look at closely — without ever being the thing that clears a trade.
 

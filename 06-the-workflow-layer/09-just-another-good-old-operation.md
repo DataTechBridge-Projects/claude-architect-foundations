@@ -8,7 +8,7 @@ duration: "0:22"
 # Just Another Good, Old Operation
 {: .no_toc }
 
-*Video duration: 0:22*
+*Read duration: 0:22*
 
 A Claude-driven CI step is still a pipeline step, and it doesn't get a pass on the discipline every other pipeline step earns the hard way. It needs logging, so a bad output is debuggable after the fact. It needs retries and timeouts, so a transient failure doesn't silently drop a check. It needs a rollback or fallback path, so a bad generated commit or a stuck job doesn't block the whole pipeline. **Treating an agentic step as "special" and exempting it from that rigor is exactly how it becomes the least reliable part of the system.**
 

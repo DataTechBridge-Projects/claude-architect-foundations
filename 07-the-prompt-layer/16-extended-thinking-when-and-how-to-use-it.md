@@ -8,7 +8,7 @@ duration: "12:00"
 # Extended Thinking: When and How to Use It
 {: .no_toc }
 
-*Video duration: 12:00*
+*Read duration: 12:00*
 
 The previous lecture covered chain-of-thought as a prompting technique — asking a model, through ordinary instructions, to reason step by step within its normal response. **Extended thinking** is a different thing entirely: it's a built-in capability of Claude models, exposed directly through the API, in which the model is given a dedicated reasoning budget to work through a problem before producing its final response, using a mode the API treats distinctly from ordinary output generation rather than something achieved purely by prompt phrasing. Understanding the difference — and knowing when the added latency and cost of extended thinking is actually worth paying for — is a distinct architectural skill from writing a good prompt.
 

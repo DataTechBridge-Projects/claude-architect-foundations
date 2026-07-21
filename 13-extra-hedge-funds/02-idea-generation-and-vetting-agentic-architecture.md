@@ -8,7 +8,7 @@ duration: "8:27"
 # Idea Generation/Vetting - Agentic Architecture
 {: .no_toc }
 
-*Video duration: 8:27*
+*Read duration: 8:27*
 
 The single most consequential architectural decision in an idea generation and vetting system is whether generation and vetting should be the *same* agent or *different* agents. It's tempting to build one capable agent that reads the inputs, drafts a thesis, and then critiques its own work in a follow-up turn — it's simpler to build and it's cheaper to run. It is also, for this use case, the wrong default. An agent that just spent several turns building enthusiasm for a thesis carries that enthusiasm into its own critique. This is the same failure mode the Prompt layer's material on quality enforcement calls "grading your own homework": a single context thread that both generates and evaluates tends to rediscover its own conclusions rather than genuinely stress-test them. The fix is architectural, not just a matter of prompting harder — give generation and vetting to **separate agents with separate context windows**, so the vetting agent approaches the thesis the way a skeptical outside reader would, with no memory of *why* the idea seemed appealing in the first place.
 

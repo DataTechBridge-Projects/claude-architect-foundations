@@ -8,7 +8,7 @@ duration: "16:21"
 # Fundamentals of LLMs
 {: .no_toc }
 
-*Video duration: 16:21*
+*Read duration: 16:21*
 
 Every architectural decision you'll make as a Claude Certified Architect — how much context to give a model, whether to trust it with an autonomous multi-step task, how to structure a prompt, when to add a verification step — traces back to a small set of facts about how large language models actually work. This lecture builds that foundation. It's not a deep-dive into transformer math; it's the level of mechanical understanding an architect needs to reason correctly about capability, reliability, and cost.
 

@@ -8,7 +8,7 @@ duration: "12:00"
 # Test Dataset Generation and Model-Based Grading
 {: .no_toc }
 
-*Video duration: 12:00*
+*Read duration: 12:00*
 
 The previous lecture established that a prompt evaluation workflow needs two things before it can run at all: a representative set of inputs, and a way to score outputs against success criteria. This lecture goes deeper on both halves of that requirement — how to actually build a good test dataset, and how to score outputs at a scale where manual human review of every single case is no longer practical.
 

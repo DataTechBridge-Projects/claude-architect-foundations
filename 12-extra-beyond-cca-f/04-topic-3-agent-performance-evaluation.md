@@ -8,7 +8,7 @@ duration: "0:20"
 # Topic 3: Agent Performance Evaluation
 {: .no_toc }
 
-*Video duration: 0:20*
+*Read duration: 0:20*
 
 "It seems to work" isn't an evaluation strategy, and it's the single most common failure mode in teams shipping their first agentic system: someone tries a handful of prompts, likes what they see, and ships. That approach can't tell the difference between a genuine improvement and a lucky sample, and it has no way at all of catching a regression somewhere else in the system.
 

@@ -8,7 +8,7 @@ duration: "10:00"
 # Plan Mode: When and Why to Plan First
 {: .no_toc }
 
-*Video duration: 10:00*
+*Read duration: 10:00*
 
 The permission-modes lecture introduced Plan Mode as a variant that shifts approval from "each action, one at a time" to "the whole approach, up front." This lecture is dedicated to that mode specifically, because deciding *when* to reach for it — and how to actually iterate on a plan once one exists — is a distinct skill from just knowing the mode exists.
 

@@ -8,7 +8,7 @@ duration: "8:22"
 # Credit Agreements - RAG & Retrieval Architecture
 {: .no_toc }
 
-*Video duration: 8:22*
+*Read duration: 8:22*
 
 The previous lecture drew a line between the agreement itself (always in context for the task at hand), the defined-terms glossary (near-constant), and precedent clauses (retrieved). This lecture is about that third category: how a credit agreement system retrieves comparison material from a corpus of past deals, and — just as importantly — how it cites back to exact source language so nothing it says has to be taken on faith.
 

@@ -8,7 +8,7 @@ duration: "0:29"
 # Topic 2: Observability and Telemetry
 {: .no_toc }
 
-*Video duration: 0:29*
+*Read duration: 0:29*
 
 A workflow safeguard is only as good as your ability to see it fail. A checkpoint that silently degrades, a tool that starts erroring at a low rate, an agent that quietly starts taking three times as many steps to finish the same task — none of these show up unless you're actually watching for them. Observability for agentic systems means **logging every step of the orchestration loop, not just the final output**: which tools were called and with what arguments, what the raw tool result looked like before and after any summarization, where the model branched between continuing and stopping, and how many iterations a given run took end to end.
 

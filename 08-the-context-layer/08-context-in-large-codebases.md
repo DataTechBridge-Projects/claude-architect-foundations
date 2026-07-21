@@ -8,7 +8,7 @@ duration: "23:55"
 # Context in Large Codebases
 {: .no_toc }
 
-*Video duration: 23:55*
+*Read duration: 23:55*
 
 Every technique covered so far in this module assumes a workable premise: that the material relevant to a task, once identified, is small enough to fit in a context window after reasonable summarization and pruning. Large codebases break that premise outright. A mature production repository can run to millions of lines across thousands of files — no amount of compaction makes that fit in any context window, and no reasonable person would want it to even if it could, because the overwhelming majority of it is irrelevant to any single task. Context management in a large codebase isn't a scaled-up version of the techniques covered earlier; it's a different problem with a different center of gravity, and this lecture is about what changes.
 

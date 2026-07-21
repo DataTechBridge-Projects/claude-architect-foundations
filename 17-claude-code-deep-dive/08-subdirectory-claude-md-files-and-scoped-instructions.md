@@ -8,7 +8,7 @@ duration: "9:00"
 # Subdirectory CLAUDE.md Files and Scoped Instructions
 {: .no_toc }
 
-*Video duration: 9:00*
+*Read duration: 9:00*
 
 The three-level hierarchy lecture introduced subdirectory `CLAUDE.md` files as the mechanism for giving different parts of a large codebase different conventions. This lecture goes further into the specific mechanics that make that mechanism actually work well at scale, because the detail matters: a subdirectory file that behaved exactly like a root file — loaded in full, every session, regardless of relevance — would recreate the bloat problem the Workflow Layer already warned against, just distributed across more files instead of one.
 

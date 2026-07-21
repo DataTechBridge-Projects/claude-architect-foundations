@@ -8,7 +8,7 @@ duration: "13:00"
 # StreamableHTTP Transport: Remote Servers and Production Deployment
 {: .no_toc }
 
-*Video duration: 13:00*
+*Read duration: 13:00*
 
 STDIO solved the local case cleanly by tying a server's lifetime to one client's subprocess. That exact property becomes the limitation the moment a server needs to serve more than one client at once, or run somewhere no individual client can directly launch a process — which is precisely the organizational scenario the Tool Layer's governance lecture described: one centrally-hosted server, many teams' applications connecting to it. **StreamableHTTP** is the transport built for that case.
 

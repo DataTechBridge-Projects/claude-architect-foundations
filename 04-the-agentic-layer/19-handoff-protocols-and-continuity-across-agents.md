@@ -8,7 +8,7 @@ duration: "11:00"
 # Handoff Protocols and Continuity Across Agents
 {: .no_toc }
 
-*Video duration: 11:00*
+*Read duration: 11:00*
 
 The previous lecture treated the agent-to-agent message as a schema — a task description, curated context, an expected output shape. This one treats a narrower but related question: when work genuinely moves from one agent (or one session) to another mid-task, what does the receiving side actually need to pick up correctly, and how much of that need is really about *continuity* rather than instruction? A handoff isn't just a dispatch — it's a transfer of an unfinished task's state, and getting that transfer right means answering a question that sounds simple and isn't: how much of what came before does the next agent actually need to see?
 

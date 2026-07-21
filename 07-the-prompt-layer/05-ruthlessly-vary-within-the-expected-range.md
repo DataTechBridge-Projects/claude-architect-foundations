@@ -8,7 +8,7 @@ duration: "0:30"
 # Ruthlessly Vary... Within the Expected Range
 {: .no_toc }
 
-*Video duration: 0:30*
+*Read duration: 0:30*
 
 A tempting shortcut when writing few-shot examples is to grab two or three that were easy to find and call it done. Resist it. Examples that cluster near-identical — similar length, similar phrasing, similar difficulty — **teach the model that narrow cluster is the whole pattern**, not the actual range of inputs production will send it. Ruthlessly vary your examples across every dimension that matters downstream — length, formality, ambiguity, edge-case status — while staying strictly within the range you actually expect. Variety inside the expected range builds robustness; variety outside it just confuses the model about the task.
 

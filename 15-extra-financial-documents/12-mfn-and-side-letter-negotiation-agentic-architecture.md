@@ -8,7 +8,7 @@ duration: "6:50"
 # MFN & Side Letter Negotiation - Agentic Architecture
 {: .no_toc }
 
-*Video duration: 6:50*
+*Read duration: 6:50*
 
 The credit agreements and LPA/subscription modules both made a deliberate case *against* agentic autonomy — fixed workflows won because the tasks had known schemas and enumerable steps. This lecture makes the opposite case, for the same underlying reason: architecture should follow the shape of the task, and MFN analysis is shaped differently.
 

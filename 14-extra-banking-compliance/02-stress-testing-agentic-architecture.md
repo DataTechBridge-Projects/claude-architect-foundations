@@ -8,7 +8,7 @@ duration: "8:15"
 # Stress Testing - Agentic Architecture
 {: .no_toc }
 
-*Video duration: 8:15*
+*Read duration: 8:15*
 
 If the overview lecture established anything, it's that a stress-testing system's biggest architectural risk isn't that it's too weak — it's that it's too capable in the wrong direction. A system confident enough to draft regulatory narrative is also, unchecked, confident enough to draft a *wrong* regulatory narrative in exactly the same fluent tone as a correct one. That asymmetry is why the agentic design for this use case deliberately caps autonomy well below what the underlying model is capable of, and it's worth being explicit about how and why.
 

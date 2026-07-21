@@ -8,7 +8,7 @@ duration: "10:00"
 # MCP Prompt Templates
 {: .no_toc }
 
-*Video duration: 10:00*
+*Read duration: 10:00*
 
 Tools and resources have both had a full lecture apiece; prompts get a shorter one, and that asymmetry is itself informative rather than accidental — the primitives lecture already flagged prompts as the least-used of the three, and this lecture explains that gap in enough depth to reason about it confidently on the exam, alongside what a prompt template actually is and where it genuinely earns its place.
 

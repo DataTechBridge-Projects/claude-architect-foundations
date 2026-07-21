@@ -8,7 +8,7 @@ duration: "3:00"
 # Intro to the Hands-On Labs
 {: .no_toc }
 
-*Video duration: 3:00*
+*Read duration: 3:00*
 
 Reading about agents, tools, and context management is necessary but not sufficient — real fluency with these concepts comes from applying them to concrete scenarios and seeing where your intuitions hold up and where they don't. That's what the hands-on labs scattered throughout this course are for.
 

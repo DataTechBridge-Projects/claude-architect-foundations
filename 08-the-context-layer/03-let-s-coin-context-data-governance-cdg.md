@@ -8,7 +8,7 @@ duration: "0:32"
 # Let's Coin Context Data Governance (CDG)
 {: .no_toc }
 
-*Video duration: 0:32*
+*Read duration: 0:32*
 
 It's worth putting a name on a discipline this module keeps circling: deciding what data is allowed into an agent's context, from what source, and under what conditions. Call it **Context Data Governance (CDG)** — not an official Anthropic term, just a useful label for the recurring set of questions underneath everything from `CLAUDE.md` scoping to retrieval design to provenance tracking. Whenever you're asking "should this be in the window, and do I trust where it came from," you're doing CDG, whether or not you ever use the acronym again.
 

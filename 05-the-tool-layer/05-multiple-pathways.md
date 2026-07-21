@@ -8,7 +8,7 @@ duration: "0:32"
 # Multiple Pathways
 {: .no_toc }
 
-*Video duration: 0:32*
+*Read duration: 0:32*
 
 A tool set designed around one assumed path to a goal breaks the moment reality doesn't match that assumption — a lookup-by-ID tool is useless when the caller only has a name. Good tool design often deliberately offers more than one way to reach the same outcome: search alongside direct lookup, a broad tool alongside a narrow one, a fallback that works with partial information. This isn't redundancy for its own sake — it's resilience against the gap between what you assumed the model would know at call time and what it actually has available in context.
 

@@ -8,7 +8,7 @@ duration: "1:15"
 # An Emergent, Hyper-Specialized Local Use Case
 {: .no_toc }
 
-*Video duration: 1:15*
+*Read duration: 1:15*
 
 A pattern worth naming, because it trips people up in both directions: the context strategy that turns out to work best for a given system is often something that emerged as highly specific to that one local situation, rather than a generalizable best practice you could hand to the next team unchanged. The symbol-level, structural-navigation-heavy retrieval pipeline that makes a million-line monorepo tractable is exactly right there — and wildly overkill for the small, config-driven internal tool sitting three repositories over, where a lean `CLAUDE.md` and a handful of always-loaded files would do the same job with a fraction of the engineering effort. Neither approach is "more advanced" in any way that transfers. The lesson isn't to pick a favorite pattern and standardize on it everywhere; it's to keep re-deriving the right level of sophistication from the actual shape of the problem in front of you, and to be suspicious of any context strategy — including your own past ones — that got copied forward without being re-justified for the new setting.
 

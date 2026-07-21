@@ -8,7 +8,7 @@ duration: "10:00"
 # Choosing Built-in vs Custom Tools
 {: .no_toc }
 
-*Video duration: 10:00*
+*Read duration: 10:00*
 
 The previous lecture drew the architectural line between a built-in tool and one exposed through MCP or defined directly in application code. This lecture turns that distinction into a decision: given a capability you need, when do you reach for what already ships with Claude, and when is building or connecting something custom actually the right call?
 

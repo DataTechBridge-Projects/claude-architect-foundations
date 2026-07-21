@@ -8,7 +8,7 @@ duration: "0:46"
 # Claude Code vs... The API?
 {: .no_toc }
 
-*Video duration: 0:46*
+*Read duration: 0:46*
 
 A quick gut-check for a decision you'll face constantly: reach for the raw Claude API when you're embedding Claude's language capability inside a product you already control — a chat feature, a classification pipeline, a summarization endpoint — where you need full control over the request shape, the surrounding infrastructure, and how state is stored. Reach for Claude Code (or an Agent-SDK-built equivalent) when the task itself looks like an agent operating over a file system and shell: exploring a codebase, editing files, running tests, iterating on results. The API is the general-purpose substrate; Claude Code is a specific, opinionated agent built on it. **Don't reinvent Claude Code's loop when you could just use it.**
 

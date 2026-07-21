@@ -8,7 +8,7 @@ duration: "14:00"
 # Defining and Exposing Tools via MCP
 {: .no_toc }
 
-*Video duration: 14:00*
+*Read duration: 14:00*
 
 The previous lecture showed a single `@mcp.tool()`-decorated function end to end. This one zooms into the part of that picture that deserves its own real treatment: how you actually design a tool's schema once you're authoring it specifically for exposure through MCP, and where that job is identical to — versus subtly different from — the tool-schema principles the Tool Layer already built.
 

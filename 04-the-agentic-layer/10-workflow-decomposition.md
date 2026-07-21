@@ -8,7 +8,7 @@ duration: "14:56"
 # Workflow Decomposition
 {: .no_toc }
 
-*Video duration: 14:56*
+*Read duration: 14:56*
 
 Everything up to this point in the module has assumed a task is already scoped: a well-defined subagent dispatch, a single orchestration loop with a clear stopping point. Real goals rarely arrive that way. "Migrate our billing system to the new provider," "prepare Q3's board deck," "fix the flaky test suite" are goals, not tasks — and turning a goal into something an agent (or a coordinated set of agents) can actually execute is **workflow decomposition**: the deliberate act of breaking a larger objective into discrete, executable steps.
 

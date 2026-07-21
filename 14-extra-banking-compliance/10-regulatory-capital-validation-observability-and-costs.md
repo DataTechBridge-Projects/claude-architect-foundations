@@ -8,7 +8,7 @@ duration: "9:37"
 # Regulatory Capital Validation - Observability and Costs
 {: .no_toc }
 
-*Video duration: 9:37*
+*Read duration: 9:37*
 
 A validation system's entire reason for existing is to be trusted enough that a human validator can rely on its flags — and enough that a supervisor can rely on the bank's account of how discrepancies get caught and resolved. That trust has to be earned continuously, not established once at launch, which is why observability for this use case centers on two things a generative system like the stress-testing assistant doesn't have to worry about nearly as much: a complete resolution record for every flag, and ongoing measurement of the system's own accuracy.
 

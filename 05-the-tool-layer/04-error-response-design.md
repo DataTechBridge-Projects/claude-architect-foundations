@@ -8,7 +8,7 @@ duration: "17:20"
 # Error Response Design
 {: .no_toc }
 
-*Video duration: 17:20*
+*Read duration: 17:20*
 
 A tool that always succeeds doesn't need careful error design, and a tool that never fails doesn't exist. Every real tool — a file read, an API call, a database query, a shell command — fails sometimes, for reasons ranging from trivial (a typo in a filename) to systemic (a downstream service is down). The question this lecture answers is not whether tools fail, but what happens in the model's reasoning the instant after they do, and how the shape of the error you return determines whether that instant produces a sensible recovery or a cascading mess.
 

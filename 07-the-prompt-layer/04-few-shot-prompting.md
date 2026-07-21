@@ -8,7 +8,7 @@ duration: "16:17"
 # Few-Shot Prompting
 {: .no_toc }
 
-*Video duration: 16:17*
+*Read duration: 16:17*
 
 Instructions tell a model what to do in words. Examples show it. **Few-shot prompting** is the technique of including a small number of worked examples — input paired with the desired output — directly in the prompt, so the model can infer the pattern you want by demonstration rather than (or in addition to) by description. It's one of the oldest and most reliable prompting techniques precisely because it sidesteps a hard problem: some things are genuinely difficult to specify precisely in prose, but trivially easy to show.
 

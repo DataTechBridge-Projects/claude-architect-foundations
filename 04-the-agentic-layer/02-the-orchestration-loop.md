@@ -8,7 +8,7 @@ duration: "14:16"
 # The Orchestration Loop
 {: .no_toc }
 
-*Video duration: 14:16*
+*Read duration: 14:16*
 
 If you take one diagram away from the entire CCA-F curriculum, make it this one. Every agentic system you'll be asked to reason about on the exam — a single Claude Code session, a research pipeline, a multi-agent customer-support system — is the same small loop, running at some scale, wrapped in some amount of scaffolding. This lecture takes that loop apart step by step and treats each step as a place where real engineering decisions, real cost, and real failure live.
 

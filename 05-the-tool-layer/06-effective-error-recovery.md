@@ -8,7 +8,7 @@ duration: "18:46"
 # Effective Error Recovery
 {: .no_toc }
 
-*Video duration: 18:46*
+*Read duration: 18:46*
 
 A well-designed error response, from the previous lecture, gives the model good information about a failure. This lecture is about what happens next: given that information, what should the model — or the surrounding system — actually *do*? Error recovery is where tool design meets the orchestration loop directly, because recovery isn't a property of a single tool call, it's a property of how the loop as a whole responds when one iteration doesn't go as planned. Good error messages are necessary for good recovery, but they aren't sufficient — you also need a recovery strategy for the loop to follow, and that strategy has to be designed as deliberately as the tools themselves.
 

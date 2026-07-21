@@ -8,7 +8,7 @@ duration: "12:00"
 # The Memory Tool for Persistence
 {: .no_toc }
 
-*Video duration: 12:00*
+*Read duration: 12:00*
 
 Everything covered so far in this module treats the context window as the entire universe of what an agent knows during a given call — and, as "How the Context Window Works" established, that's mechanically accurate: nothing survives from one call to the next unless it's explicitly re-included. But plenty of real agentic use cases need something to survive *longer* than a single call, or even a single conversation — a user's stated preferences, a project's evolving state, facts learned in one session that should still be known in the next. The **memory tool** is Claude's mechanism for exactly that: a tool interface that lets Claude write information to durable storage and read it back later, across sessions or conversation turns, independent of whatever happens to be in the live context window at a given moment.
 

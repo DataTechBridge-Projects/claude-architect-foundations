@@ -8,7 +8,7 @@ duration: "0:46"
 # When to use CLAUDE.md vs. RAG Knowledge?
 {: .no_toc }
 
-*Video duration: 0:46*
+*Read duration: 0:46*
 
 `CLAUDE.md` and retrieval (RAG) solve the same underlying problem — getting the right knowledge in front of the model — for opposite kinds of knowledge. `CLAUDE.md` is right for information that's small, stable, and *always* relevant: build commands, architectural conventions, hard constraints. It's loaded on every turn, so its cost is paid every session whether or not that session needs it. RAG is right for knowledge that's large, changes frequently, or is only relevant to specific queries — a full API reference, historical tickets, an evolving knowledge base. Retrieving it on demand avoids paying context cost for knowledge most sessions never touch.
 

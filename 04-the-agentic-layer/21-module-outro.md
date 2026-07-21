@@ -8,7 +8,7 @@ duration: "3:12"
 # Module Outro
 {: .no_toc }
 
-*Video duration: 3:12*
+*Read duration: 3:12*
 
 Start from the orchestration loop and everything else in this module is a variation on it. Model call, tool-use request, tool execution, result returned, repeat, until a termination condition — the model's own judgment, an iteration cap, a budget, a human — closes it out. That loop, run once, is a single agent. Run inside a fresh, isolated context and reported back through the same tool-result mechanism, it's a subagent. Coordinated across several instances, in parallel or in sequence, it's multi-agent orchestration. Broken into discrete, checkable, appropriately-grained steps in advance, it's a decomposed workflow. Wrapped in checkpoints, approval gates, and bounded blast radius, it's a safeguarded one. And accumulated, managed, and periodically trimmed or reset over many turns, it's a session. Nothing in this module introduced a second mechanism — it's the same loop, examined at increasing scale and increasing time horizon.
 

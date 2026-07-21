@@ -8,7 +8,7 @@ duration: "1:32"
 # Lab: Context Management Simulator
 {: .no_toc }
 
-*Video duration: 1:32*
+*Read duration: 1:32*
 
 This lab puts you on the other side of the problem this module has spent its lectures describing: you'll manage a simulated context window that starts small and grows, turn by turn, under realistic pressure. Each round introduces new material competing for space — a tool result, a retrieved document, a user message, a subagent's report — and you have to decide, with a visible token budget ticking down, what to keep verbatim, what to summarize, what to compact, and what to discard outright, exactly as described in the "Managing the Context" lecture.
 

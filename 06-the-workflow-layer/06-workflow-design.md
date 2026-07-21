@@ -8,7 +8,7 @@ duration: "13:10"
 # Workflow Design
 {: .no_toc }
 
-*Video duration: 13:10*
+*Read duration: 13:10*
 
 A **workflow**, in this course's vocabulary, is the concrete sequence of steps that gets a piece of work done — regardless of whether any individual step involves an LLM at all. Workflow design is the discipline of laying that sequence out deliberately: what happens first, what happens next, what has to succeed before the following step is even attempted, and — the question this lecture spends the most time on — which of those steps are deterministic and fixed versus which are handed to an agent's judgment.
 

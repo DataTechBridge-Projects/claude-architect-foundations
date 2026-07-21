@@ -8,7 +8,7 @@ duration: "1:54"
 # Module Outro
 {: .no_toc }
 
-*Video duration: 1:54*
+*Read duration: 1:54*
 
 You started this module treating a prompt as a piece of text you tune until it feels right. You should end it treating a prompt as an engineered artifact with a defined contract: explicit task framing and success criteria instead of assumed intent, few-shot examples chosen to cover a real range of inputs rather than a convenient handful, structured output enforced at the schema or tool-call layer rather than requested through polite phrasing, self-checks and independent review passes sized to what a failure would actually cost, and reliability that's verified across a batch, not just eyeballed on one example.
 

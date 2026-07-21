@@ -8,7 +8,7 @@ duration: "7:12"
 # Trade Risk Management/Compliance - Context Architecture
 {: .no_toc }
 
-*Video duration: 7:12*
+*Read duration: 7:12*
 
 The compliance review agent's output is only as trustworthy as the context it's evaluating against, and in this domain "trustworthy context" has a sharper meaning than in most: it's not just about relevance, it's about being certain the agent is reasoning against the *current, correct* version of every rule, limit, and counterparty fact in play. Getting context architecture wrong here doesn't just produce a slightly worse answer — it can produce a confidently wrong compliance assessment that looks identical to a correct one until someone checks the underlying rule text by hand.
 

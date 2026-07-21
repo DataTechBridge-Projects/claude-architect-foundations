@@ -8,7 +8,7 @@ duration: "0:26"
 # The Docker Containers of Agentic Workflow Steps
 {: .no_toc }
 
-*Video duration: 0:26*
+*Read duration: 0:26*
 
 A Docker container is useful precisely because it doesn't leak: it declares its inputs, does its work in isolation, and produces a defined output regardless of what's happening on the host or in the container next to it. A well-designed prompt for one workflow step should behave the same way — **it shouldn't assume hidden state from an earlier step that was never explicitly passed in**, and it shouldn't silently depend on conversational residue to fill its own gaps. Treat each prompt as a container with a defined interface, and your workflow steps become swappable, testable, and debuggable in isolation, the same way containerized services are.
 

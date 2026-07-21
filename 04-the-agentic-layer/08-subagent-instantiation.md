@@ -8,7 +8,7 @@ duration: "15:36"
 # Subagent Instantiation
 {: .no_toc }
 
-*Video duration: 15:36*
+*Read duration: 15:36*
 
 The previous lecture established when splitting work across agents is justified. This one gets into the mechanics: what actually happens when an orchestrator spins up a subagent, what it hands that subagent, what it deliberately withholds, and how the subagent's work makes its way back into the parent's context. These are the details the exam expects you to get precisely right, because "instantiate a subagent" is not one operation — it's a bundle of specific design decisions.
 

@@ -8,7 +8,7 @@ duration: "11:00"
 # Designing Agent-to-Agent Message Schemas
 {: .no_toc }
 
-*Video duration: 11:00*
+*Read duration: 11:00*
 
 Subagent instantiation covered *what* to hand a subagent and *what* to withhold, in prose terms — a task description, curated context, a defined tool set, a reporting format. This lecture treats that handoff the way the Tool Layer treats a tool definition: not as a loose bundle of good intentions, but as a schema that deserves the same design rigor as any other structured interface in the system. An agent-to-agent message is, mechanically, just another payload crossing a boundary — and every argument for treating tool inputs and outputs as structured, well-specified data applies here with equal force, because a subagent reading an underspecified dispatch has exactly the same problem a model reading an underspecified tool schema does: it has to guess, and guesses fail unpredictably.
 

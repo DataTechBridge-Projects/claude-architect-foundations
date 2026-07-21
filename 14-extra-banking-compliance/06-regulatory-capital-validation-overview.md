@@ -8,7 +8,7 @@ duration: "6:59"
 # Regulatory Capital Validation - Overview
 {: .no_toc }
 
-*Video duration: 6:59*
+*Read duration: 6:59*
 
 Regulatory capital — the buffer a bank is required to hold against its risk-weighted assets under frameworks like Basel III, and reported through calculations such as CET1, Tier 1, and total capital ratios — is one of the most consequential numbers a bank produces. It's calculated by combining risk-weighted asset figures across credit, market, and operational risk with a bank's actual capital resources, following a calculation methodology that's dense, detailed, and updated periodically by regulators. Getting that calculation right is not optional in any casual sense: a miscalculated capital ratio can mean a bank believes itself better capitalized than it is, can trigger a regulatory finding if discovered during examination, and in the worst case can mean a bank is operating below a threshold it was legally required to maintain without anyone realizing it.
 

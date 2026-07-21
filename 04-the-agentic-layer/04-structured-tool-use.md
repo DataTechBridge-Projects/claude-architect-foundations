@@ -8,7 +8,7 @@ duration: "14:32"
 # Structured Tool Use
 {: .no_toc }
 
-*Video duration: 14:32*
+*Read duration: 14:32*
 
 Step 3 of the orchestration loop — "branch on the response" — only works reliably because tool-use requests aren't free-form text. They're **structured**: a specific tool name plus a set of arguments that conform to a schema you defined in advance, almost always JSON Schema. This lecture is about why that structure is the load-bearing design choice that makes the whole loop dependable, and what breaks when you don't have it.
 

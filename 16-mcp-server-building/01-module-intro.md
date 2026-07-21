@@ -8,7 +8,7 @@ duration: "2:30"
 # Module Intro
 {: .no_toc }
 
-*Video duration: 2:30*
+*Read duration: 2:30*
 
 The Tool Layer already gave you MCP's shape from a distance: a server exposes tools, resources, and prompts; a client discovers and connects; governance keeps a growing ecosystem of servers honest. That lecture answered *what MCP is for*. This module answers *how you actually build one* — and, just as importantly, *when you'd bother*.
 

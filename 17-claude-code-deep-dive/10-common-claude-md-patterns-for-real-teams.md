@@ -8,7 +8,7 @@ duration: "12:00"
 # Common CLAUDE.md Patterns for Real Teams
 {: .no_toc }
 
-*Video duration: 12:00*
+*Read duration: 12:00*
 
 The Workflow Layer's original `CLAUDE.md` lecture covered *categories* of content that belong in the file — commands, conventions, constraints, vocabulary, gotchas. This lecture is deliberately more concrete: what these categories actually look like written out, in the phrasing that makes them effective for an agent acting on them rather than a human skimming them, since the gap between a vague category and an actually useful instruction is where most real `CLAUDE.md` files fall short in practice.
 

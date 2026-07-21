@@ -8,7 +8,7 @@ duration: "10:56"
 # Idea Generation/Vetting - Observability and Costs
 {: .no_toc }
 
-*Video duration: 10:56*
+*Read duration: 10:56*
 
 A pipeline that screens, generates, and vets trade ideas can look healthy by every conventional software metric — low latency, no errors, high uptime — while quietly getting worse at the one thing that actually matters: producing ideas worth an analyst's time. Observability for this system has to be built around that distinction. Uptime and error rate tell you the system is *running*; they tell you nothing about whether it's running *well*, and the gap between those two things is where an idea generation system can degrade for months before anyone notices, because a subtly worse thesis still reads as fluent, confident prose.
 

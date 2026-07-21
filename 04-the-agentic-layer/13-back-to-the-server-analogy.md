@@ -8,7 +8,7 @@ duration: "0:27"
 # Back to the Server Analogy...
 {: .no_toc }
 
-*Video duration: 0:27*
+*Read duration: 0:27*
 
 The server analogy from earlier in this module extends cleanly to safeguarding. A well-designed API endpoint that mutates data is built to be **idempotent** — safe to retry without duplicating effects — and destructive operations are often wrapped in a **transaction** that can be rolled back if a later step fails. Workflow checkpoints and rollback strategies are the same discipline applied to agentic steps: don't let a retried step double-charge a customer, and don't let a failed step leave the system in a half-completed state. If you've designed reliable backend systems before, you already know most of this pattern — you're just applying it to a loop whose "handler" is a model's judgment instead of fixed code.
 

@@ -8,7 +8,7 @@ duration: "0:21"
 # Results Polluting the Context?
 {: .no_toc }
 
-*Video duration: 0:21*
+*Read duration: 0:21*
 
 Step 5 of the orchestration loop — appending the tool result to context — has a trap: tool results aren't always small. A search returning thousands of matches, a file read dumping an entire log, or a raw API response with dozens of unused fields all get appended verbatim by a naive implementation, and every one of those tokens is re-sent, and re-billed, on every subsequent model call. Left unchecked, results accumulate faster than the actual task justifies, crowding out useful context and driving up cost. Filtering, truncating, or summarizing results before they re-enter context is a core Tool- and Context-layer responsibility, not an afterthought.
 

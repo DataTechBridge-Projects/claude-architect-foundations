@@ -8,7 +8,7 @@ duration: "11:00"
 # Prefilling and Steering Model Output
 {: .no_toc }
 
-*Video duration: 11:00*
+*Read duration: 11:00*
 
 Every technique covered so far in this module works by shaping the *input* to the model — the system prompt, the examples, the framing of the task. **Prefilling** works differently: it shapes the *output* directly, by supplying the opening text of the assistant's own turn before the model generates anything at all. Instead of asking the model to produce a certain kind of response and hoping the instruction lands, prefilling simply starts the response for it, and the model's generation continues from wherever that prefilled text leaves off. It's a small mechanical trick with outsized architectural leverage, because it changes what the model is completing rather than merely what it's been told to do.
 

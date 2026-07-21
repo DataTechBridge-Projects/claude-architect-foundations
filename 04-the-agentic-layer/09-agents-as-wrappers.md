@@ -8,7 +8,7 @@ duration: "0:37"
 # Agents as Wrappers
 {: .no_toc }
 
-*Video duration: 0:37*
+*Read duration: 0:37*
 
 From an orchestrator's point of view, a subagent is indistinguishable in kind from any other tool: it has a name ("the research agent"), it takes structured input (a task description and scope), and it returns a result. The fact that a whole independent orchestration loop runs underneath that call is invisible to the orchestrator — it never sees the subagent's own tool calls or reasoning, only the report. This is a useful simplification: you can design an orchestrator's tool set as a mix of plain tools and agent-shaped tools without changing how the orchestrator itself reasons about calling them.
 

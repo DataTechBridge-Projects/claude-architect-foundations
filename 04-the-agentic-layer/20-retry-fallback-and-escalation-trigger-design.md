@@ -8,7 +8,7 @@ duration: "14:00"
 # Retry, Fallback, and Escalation Trigger Design
 {: .no_toc }
 
-*Video duration: 14:00*
+*Read duration: 14:00*
 
 The Tool Layer's lecture on effective error recovery worked out retry strategy, fallback tools, and escalation at the level of a single tool call inside one agent's loop. Workflow safeguarding worked out checkpoints, approval gates, and blast-radius control at the level of a decomposed workflow's steps. This lecture sits at the intersection and generalizes both: when a *multi-agent* system hits a failure — a subagent's own loop exhausted its recovery options, an orchestrator's chosen approach didn't pan out, a pipeline stage produced something the next stage can't use — what should the surrounding architecture do, and how do you design that decision in advance rather than leaving it to whatever the moment's reasoning happens to produce?
 

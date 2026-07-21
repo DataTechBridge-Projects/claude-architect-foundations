@@ -8,7 +8,7 @@ duration: "11:00"
 # Notifications, Roots, and Progress Reporting
 {: .no_toc }
 
-*Video duration: 11:00*
+*Read duration: 11:00*
 
 Tools, resources, prompts, and sampling are MCP's headline capabilities — the primitives that decide what a server and client actually do together. This lecture covers three smaller, supporting mechanisms that keep a real, long-running connection honest: **notifications**, **roots**, and **progress reporting**. None of the three is a primitive in the same sense as a tool or a resource, but the exam treats all three as fair game, because a protocol meant to support real, stateful, long-running sessions needs exactly this kind of connective tissue.
 

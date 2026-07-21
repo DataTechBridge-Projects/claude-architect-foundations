@@ -8,7 +8,7 @@ duration: "11:00"
 # Claim-to-Source Mappings: Why Every Sentence Needs a Source
 {: .no_toc }
 
-*Video duration: 11:00*
+*Read duration: 11:00*
 
 "Data Provenance and Conflicts" and "Putting the 'Provenance' in Data Provenance" built the case for tracking where a piece of *input* context came from — a fact in the window needs a source, a timestamp, and a trust level attached, the same way a painting up for auction needs its papers. This lecture extends that same discipline one level further, to the *output* side of the system: not just "where did this input fact come from," but "where did this specific sentence I just generated come from." That's the discipline of the **claim-to-source mapping** — tracing each factual claim in a generated output back to the specific source in the provided context that supports it.
 

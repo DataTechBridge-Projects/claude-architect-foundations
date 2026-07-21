@@ -8,7 +8,7 @@ duration: "4:24"
 # Key Distinctions - The Context Layer
 {: .no_toc }
 
-*Video duration: 4:24*
+*Read duration: 4:24*
 
 This module covers a lot of ground, but most of its exam-relevant judgment calls reduce to a short list of either/or distinctions. Knowing which side of each one a scenario is actually testing is usually the fastest path to the right answer.
 

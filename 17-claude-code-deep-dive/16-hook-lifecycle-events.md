@@ -8,7 +8,7 @@ duration: "11:00"
 # Hook Lifecycle Events
 {: .no_toc }
 
-*Video duration: 11:00*
+*Read duration: 11:00*
 
 Everything covered so far in this module — permission modes, `CLAUDE.md`, Skills, subagents, Plan Mode — shapes Claude's behavior by changing what it *sees* or what it's *allowed* to do. **Hooks** are a different kind of mechanism entirely: they let you run your own code at specific, fixed points in Claude Code's lifecycle, regardless of what the model decides, giving you a way to observe, log, modify, or block what's happening from outside the model's own reasoning altogether. This lecture covers the lifecycle events a hook can attach to; the next two cover how to actually implement one and where hooks earn their keep in practice.
 

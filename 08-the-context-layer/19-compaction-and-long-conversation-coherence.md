@@ -8,7 +8,7 @@ duration: "13:00"
 # Compaction and Long-Conversation Coherence
 {: .no_toc }
 
-*Video duration: 13:00*
+*Read duration: 13:00*
 
 "Managing the Context" introduced compaction alongside summarization and discarding as one of the three tools an architect reaches for once a session's history grows large enough to threaten the context budget. This lecture stays with compaction specifically and goes deeper into the risk that makes it genuinely difficult rather than mechanical: every act of compaction is a bet that what got trimmed away didn't matter, and a long enough conversation will eventually test that bet against something that did.
 

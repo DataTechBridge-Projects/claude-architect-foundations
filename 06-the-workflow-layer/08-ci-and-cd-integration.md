@@ -8,7 +8,7 @@ duration: "15:04"
 # CI/CD Integration
 {: .no_toc }
 
-*Video duration: 15:04*
+*Read duration: 15:04*
 
 Every workflow-layer mechanism covered so far in this module — `CLAUDE.md`, Skills, deliberate deterministic/agentic sequencing — exists to make Claude's behavior consistent and governable *within* a session someone deliberately starts. CI/CD integration is where that discipline extends further: it's what turns a Claude-driven step from something a person remembers to run into something the *pipeline itself* runs, every time, on a defined trigger, with the same visibility and accountability as every other step in software delivery.
 

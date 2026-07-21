@@ -8,7 +8,7 @@ duration: "2:21"
 # Module Outro
 {: .no_toc }
 
-*Video duration: 2:21*
+*Read duration: 2:21*
 
 Start from the reframing this module opened with: a tool definition is an interface written for a reasoning model, not a human developer, and every word in it — the name, the description, each schema field — is doing real work in whether that model calls the right thing correctly. Everything else followed from that one idea. Naming and description quality determine selection among similar tools. The structure-versus-prose choice determines how much a schema constrains versus enables legitimate variation. Granularity — too many overlapping tools, too few overloaded ones — recurred as the tradeoff underneath nearly every other decision, including error recovery, where a coarse tool hides the options a model needs and a fragmented one multiplies the places things can go wrong.
 

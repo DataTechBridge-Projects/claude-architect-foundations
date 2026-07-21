@@ -8,7 +8,7 @@ duration: "0:29"
 # Think of Scaling
 {: .no_toc }
 
-*Video duration: 0:29*
+*Read duration: 0:29*
 
 Going from one agent to many doesn't scale linearly — it scales worse. Cost multiplies: each subagent is its own set of billed model calls, on top of the orchestrator's. Rate limits bind harder: five parallel subagents can hit provider concurrency or throughput limits that a single agent never would. And coordination complexity grows non-linearly with the number of agents, since every added agent is a new potential point of failure, a new report to reconcile, and a new source of inconsistency with its siblings. Before fanning work out, ask whether the task actually needs it.
 

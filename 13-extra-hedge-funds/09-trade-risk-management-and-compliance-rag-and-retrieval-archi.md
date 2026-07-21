@@ -8,7 +8,7 @@ duration: "9:08"
 # Trade Risk Management/Compliance - RAG & Retrieval Architecture
 {: .no_toc }
 
-*Video duration: 9:08*
+*Read duration: 9:08*
 
 Retrieval in the compliance domain has a requirement that goes beyond anything in the idea generation use case: it's not enough for the system to find the *right* rule, it has to be able to prove, after the fact, exactly which version of that rule it applied and when that version was in effect. Regulations get amended, internal policies get revised, restricted lists change daily — and a retrieval system that can't answer "which version of this rule governed the review on this date" has built a compliance tool with a hole in the middle of it, no matter how accurate its retrieval feels in the moment.
 

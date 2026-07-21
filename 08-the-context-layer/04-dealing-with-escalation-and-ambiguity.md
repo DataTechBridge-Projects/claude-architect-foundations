@@ -8,7 +8,7 @@ duration: "20:18"
 # Dealing with Escalation and Ambiguity
 {: .no_toc }
 
-*Video duration: 20:18*
+*Read duration: 20:18*
 
 Every context window, no matter how well managed, eventually runs into the same wall: a moment where what the agent needs to know isn't there. Maybe the information was never collected. Maybe it exists somewhere but wasn't retrieved. Maybe it's genuinely ambiguous — two readings are both plausible, and nothing in context settles which one applies. This lecture is about that moment, because it is one of the most heavily tested judgment calls on the CCA-F exam: what should an agent actually do when its context doesn't contain enough information to proceed safely?
 

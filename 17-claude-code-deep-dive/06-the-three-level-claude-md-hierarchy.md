@@ -8,7 +8,7 @@ duration: "13:00"
 # The Three-Level CLAUDE.md Hierarchy
 {: .no_toc }
 
-*Video duration: 13:00*
+*Read duration: 13:00*
 
 The Workflow Layer's "Configuring CLAUDE.md" lecture established what a `CLAUDE.md` file is and what belongs in it, mentioning in passing that Claude Code supports files "at multiple directory levels." This lecture makes that precise: `CLAUDE.md` content can live at three distinct levels of scope, each answering a different question about *who* a given instruction applies to, and understanding all three — and how they combine — is foundational to everything else in this module's coverage of configuration.
 

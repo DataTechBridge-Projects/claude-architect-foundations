@@ -8,7 +8,7 @@ duration: "1:21"
 # Module Outro
 {: .no_toc }
 
-*Video duration: 1:21*
+*Read duration: 1:21*
 
 That closes the core curriculum. Across nine modules you've built a mental model — the ATWPC stack — for looking at any Claude-powered system and asking, in order, whether it should be an agent at all, what it's allowed to do, how its steps are organized, how it's instructed, and what it actually sees. This module didn't add a sixth layer; it showed you the seams between the five you already know: patterns like the do-nothing option and structure-over-prose that recur across layers, antipatterns like tool sprawl and assumed human review that recur just as reliably, and a revisit of the ten takeaways now backed by five modules of concrete detail instead of a preview.
 

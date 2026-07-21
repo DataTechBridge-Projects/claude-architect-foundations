@@ -8,7 +8,7 @@ duration: "4:00"
 # Key Distinctions - MCP Server Building
 {: .no_toc }
 
-*Video duration: 4:00*
+*Read duration: 4:00*
 
 A condensed pass through the module's highest-yield either/or distinctions — the kind of pairs the exam likes to test directly against a scenario.
 

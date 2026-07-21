@@ -8,7 +8,7 @@ duration: "0:25"
 # Different Workflows, Similar Principles
 {: .no_toc }
 
-*Video duration: 0:25*
+*Read duration: 0:25*
 
 A coding agent's tools, a customer-support agent's tools, and a data-processing pipeline's tools look nothing alike on the surface — files and shell commands versus order lookups and refund actions versus record transforms and validation checks. But every principle in this module applies unchanged across all three: names and descriptions must disambiguate among neighbors, errors must be specific and actionable, granularity must match how distinct the underlying operations really are, and high-blast-radius actions need the same scrutiny regardless of domain. **The domain changes; the design discipline doesn't.**
 

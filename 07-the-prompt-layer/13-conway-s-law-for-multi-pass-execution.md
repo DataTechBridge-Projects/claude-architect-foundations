@@ -8,7 +8,7 @@ duration: "0:49"
 # Conway's Law for Multi-Pass Execution?
 {: .no_toc }
 
-*Video duration: 0:49*
+*Read duration: 0:49*
 
 Conway's Law observes that organizations design systems that mirror their own communication structure — the software ends up shaped like the org chart that built it. Multi-pass review pipelines have their own version of this. If your organization already separates "the people who draft" from "the people who approve," your generation and review prompts will naturally fall along that same seam, and the review pass will inherit whatever authority, blind spots, or incentives that team already has in the real process. **Before assuming a review pass is independent because it's architecturally separate, check whether it's actually independent in judgment** — or whether it's just reproducing the same division of responsibility, and the same gaps, that already exist around it organizationally.
 

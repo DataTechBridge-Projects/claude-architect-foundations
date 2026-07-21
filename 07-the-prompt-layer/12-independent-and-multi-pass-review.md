@@ -8,7 +8,7 @@ duration: "16:07"
 # Independent & Multi-Pass Review
 {: .no_toc }
 
-*Video duration: 16:07*
+*Read duration: 16:07*
 
 The quality-and-feedback lecture introduced self-checking as a way to catch bad output before it propagates. This lecture pushes on the weakest point of that idea: a model checking its own work, within the same pass, is still fundamentally the same reasoning process examining its own conclusions. If that reasoning process made an error rooted in a misunderstanding of the task, a flawed assumption about the input, or a blind spot in how it interpreted an ambiguous instruction, an inline self-critique performed by that same process, in the same context, with the same momentum, is unlikely to catch it — because **the thing doing the checking shares the exact same blind spot as the thing that produced the error.** This is the "grading its own homework" problem, and the fix is architectural: split generation and review into genuinely **independent passes**.
 

@@ -8,7 +8,7 @@ duration: "12:00"
 # Starting a Project: Onboarding Claude to a Codebase
 {: .no_toc }
 
-*Video duration: 12:00*
+*Read duration: 12:00*
 
 Every Claude Code session against a new codebase starts from the same disadvantage a new human hire starts from: zero accumulated context about how this particular project actually works, as opposed to how projects in general tend to work. The difference is that a new engineer accumulates that context gradually, over weeks, through code review, Slack threads, and trial and error. Claude Code has to reconstruct a usable working model of it far faster — often within the first few tool calls of a session — and understanding how it does that, and how to make that process better, is the practical skill this lecture covers.
 

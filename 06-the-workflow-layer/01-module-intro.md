@@ -8,7 +8,7 @@ duration: "2:32"
 # Module Intro
 {: .no_toc }
 
-*Video duration: 2:32*
+*Read duration: 2:32*
 
 The Agentic layer answered *who decides what happens next* — one agent, a fixed pipeline, or a coordinated team. The Tool layer answered *what the model can actually do*. This module, the Workflow layer, sits a level deeper than either of those: it governs how the work inside whatever architecture you chose gets configured, organized, and made repeatable across a team, a codebase, and time.
 

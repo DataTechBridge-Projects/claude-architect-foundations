@@ -8,7 +8,7 @@ duration: "0:24"
 # Just Like a Server
 {: .no_toc }
 
-*Video duration: 0:24*
+*Read duration: 0:24*
 
 A useful mental shortcut for the orchestration loop: think of each model call as a **server request-response cycle**. The request is the assembled context (state passed in); the response is either an answer or a tool-use request (an instruction, not unlike an RPC call, for the surrounding system to execute). The model itself holds no memory between calls — like a stateless server handler, everything it "knows" for that call arrives in the request. State lives outside the model, in whatever transcript or store re-sends context on the next call. This framing will recur throughout the module.
 

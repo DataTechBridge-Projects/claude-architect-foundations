@@ -8,7 +8,7 @@ duration: "19:10"
 # MCP Architecture & Governance
 {: .no_toc }
 
-*Video duration: 19:10*
+*Read duration: 19:10*
 
 Every tool discussed so far in this module has been treated as if it simply exists — defined, described, schema'd, ready to be called. This lecture is about the layer beneath that assumption: how a tool actually gets exposed to Claude in the first place, at scale, across an organization with many systems and many teams, without every integration being a bespoke, one-off piece of glue code. That's the problem the **Model Context Protocol (MCP)** exists to solve, and it's also where tool design stops being purely a per-tool craft question and becomes an organizational governance question.
 

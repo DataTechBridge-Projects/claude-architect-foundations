@@ -8,7 +8,7 @@ duration: "1:43"
 # Lab: Workflow Strategy Simulator
 {: .no_toc }
 
-*Video duration: 1:43*
+*Read duration: 1:43*
 
 This lab hands you a scenario — a mid-sized team building a Claude-assisted release process that spans drafting release notes, running a pre-merge code review, generating missing tests, and updating a public API reference — and asks you to design the workflow strategy behind it, not just describe what Claude should do.
 

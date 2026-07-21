@@ -8,7 +8,7 @@ duration: "19:50"
 # Designing Human Review
 {: .no_toc }
 
-*Video duration: 19:50*
+*Read duration: 19:50*
 
 Every prior lecture in this module has been building toward a single recurring idea: sometimes the right move is for the agent to stop and hand the decision to a human. It's easy to treat that as a workflow concern — a checkbox in a pipeline diagram labeled "human approval" — and the Workflow Layer module does cover review gates from that angle. But a human review checkpoint is also, fundamentally, a context management decision, because the entire value of the checkpoint depends on one question this module keeps returning to: what does the reviewer actually see at the moment they're asked to decide? Get that wrong, and the checkpoint exists on paper but doesn't function in practice.
 

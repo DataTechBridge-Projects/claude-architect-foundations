@@ -8,7 +8,7 @@ duration: "2:47"
 # Key Distinctions - The Workflow Layer
 {: .no_toc }
 
-*Video duration: 2:47*
+*Read duration: 2:47*
 
 A tight reference list of the either/or calls this module keeps coming back to — the ones most likely to show up as the hinge of a scenario question.
 

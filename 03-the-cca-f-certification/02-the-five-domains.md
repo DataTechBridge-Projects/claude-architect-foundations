@@ -8,7 +8,7 @@ duration: "21:39"
 # The Five Domains
 {: .no_toc }
 
-*Video duration: 21:39*
+*Read duration: 21:39*
 
 The CCA-F exam is not a trivia test about Claude's feature list. It is a test of architectural judgment — whether you can look at a business problem and make sound decisions about how a Claude-powered system should be built, at every level from "should this even be an agent" down to "what exactly goes in the context window at this step." Anthropic organizes that judgment into five domains, and this course mirrors that structure directly: modules 4 through 8 are named **The Agentic Layer**, **The Tool Layer**, **The Workflow Layer**, **The Prompt Layer**, and **The Context Layer**. This lecture is your first full pass across all five before you go deep on any one of them, so you can see how they relate to each other before you see how each one works in isolation.
 

@@ -8,7 +8,7 @@ duration: "2:38"
 # Course Conclusion
 {: .no_toc }
 
-*Video duration: 2:38*
+*Read duration: 2:38*
 
 You've now been through all five domains twice — once as a deep dive, module by module, and once again in the Additional Topics synthesis pass that pulled the layers back together. That repetition is deliberate. The CCA-F doesn't reward memorizing five isolated fact-lists; it rewards being able to move fluidly between them, because every real system you'd actually be asked to design touches all five at once.
 

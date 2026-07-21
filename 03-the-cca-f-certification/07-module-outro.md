@@ -8,7 +8,7 @@ duration: "1:48"
 # Module Outro
 {: .no_toc }
 
-*Video duration: 1:48*
+*Read duration: 1:48*
 
 You came into this module with the technical vocabulary from Fundamentals and you're leaving it with something more strategic: a map of exactly what the CCA-F tests and how. You've seen the five domains that structure both the exam and the rest of this course — Agentic, Tool, Workflow, Prompt, and Context — and you've got the ATWPC stack as a fast, repeatable way to sort any scenario question into the right one before you evaluate a single answer choice. You've walked through what exam day actually involves, with an honest reminder to confirm the fine print on Anthropic's own CCA-F page before you register. And you've got ten synthesized takeaways sitting in your head as a preview of everything still to come.
 

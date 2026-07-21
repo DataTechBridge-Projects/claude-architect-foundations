@@ -8,7 +8,7 @@ duration: "0:20"
 # Again, Granularity!
 {: .no_toc }
 
-*Video duration: 0:20*
+*Read duration: 0:20*
 
 Granularity keeps resurfacing because it's not a decision you make once at tool-definition time — it echoes through recovery, too. A tool too coarse (one giant "resolve_ticket" action) hides the intermediate options a model would need to recover gracefully from a partial failure; it either fully succeeds or fails opaquely. A tool too fine multiplies the number of calls and decision points needed to get anything done, and each additional call is another place selection or sequencing can go wrong. The same "match granularity to how distinct and how frequently combined the underlying operations are" heuristic from tool definition applies just as much when you're designing for recoverability.
 

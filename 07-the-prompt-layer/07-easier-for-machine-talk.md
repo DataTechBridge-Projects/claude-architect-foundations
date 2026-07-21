@@ -8,7 +8,7 @@ duration: "0:23"
 # Easier for "Machine Talk"
 {: .no_toc }
 
-*Video duration: 0:23*
+*Read duration: 0:23*
 
 When a model's output is read by a human, readability is what matters — natural paragraphs, friendly headers, a little redundancy for clarity. When output feeds straight into another system — a parser, a database write, the next agent in a pipeline — readability is a cost, not a benefit. Terse, rigidly structured, unambiguous formats parse faster, fail less often, and carry no wasted tokens on pleasantries no downstream code will ever read. **Once you know the consumer is a machine, optimize deliberately for "machine talk,"** and stop spending effort making output pleasant for a human who will never see it.
 

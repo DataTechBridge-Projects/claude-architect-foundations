@@ -8,7 +8,7 @@ duration: "8:23"
 # Regulatory Capital Validation - RAG & Retrieval Architecture
 {: .no_toc }
 
-*Video duration: 8:23*
+*Read duration: 8:23*
 
 The context lecture established what has to be anchored in front of the model for a single validation check: current methodology, current thresholds, and the calculation under review. This lecture covers how retrieval finds the right passages of methodology to anchor with — and confronts a problem more structurally awkward than the stale-cycle problem in stress testing: here, the two authoritative-seeming sources the system retrieves from can actually *disagree with each other*, and the system has to make that disagreement visible rather than silently resolve it in either direction.
 

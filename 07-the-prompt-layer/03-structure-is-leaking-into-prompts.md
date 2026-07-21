@@ -8,7 +8,7 @@ duration: "0:19"
 # Structure Is Leaking Into Prompts!
 {: .no_toc }
 
-*Video duration: 0:19*
+*Read duration: 0:19*
 
 As a prompt matures into something a production system depends on, it accumulates things that don't feel like "instructions" anymore: JSON schemas spelled out field by field, enumerated value lists, explicit delimiters marking where one section ends and another begins. That's structure leaking into the prompt — natural language alone can't reliably pin down a machine-parseable contract, so the schema migrates into the prompt text itself. The lesson: once a prompt carries that much structural weight, it has stopped being a request and **become an interface contract, deserving the same versioning discipline as an API definition**, not the casual editing habits of a first draft.
 

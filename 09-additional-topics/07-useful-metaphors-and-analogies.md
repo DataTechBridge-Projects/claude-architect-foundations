@@ -8,7 +8,7 @@ duration: "1:20"
 # Useful Metaphors and Analogies
 {: .no_toc }
 
-*Video duration: 1:20*
+*Read duration: 1:20*
 
 None of these prove anything, but they're sticky, and sticky beats precise when recalling a distinction under exam pressure.
 

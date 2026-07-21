@@ -8,7 +8,7 @@ duration: "10:00"
 # Precedence Rules and Conflict Resolution
 {: .no_toc }
 
-*Video duration: 10:00*
+*Read duration: 10:00*
 
 The previous lecture established the single most important fact about the `CLAUDE.md` hierarchy: its three levels concatenate rather than override. That raises an obvious follow-up question this lecture answers directly — if nothing gets silently erased, what actually happens when two loaded instructions genuinely contradict each other? And, just as importantly, is that the same mechanism Claude Code uses everywhere else it layers configuration? It isn't, and the contrast between the two models is one of the more conceptually rich distinctions in this whole module.
 

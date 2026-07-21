@@ -8,7 +8,7 @@ duration: "15:00"
 # Tools, Resources & Prompts: The Three MCP Primitives
 {: .no_toc }
 
-*Video duration: 15:00*
+*Read duration: 15:00*
 
 The MCP Architecture & Governance lecture in the Tool Layer named all three primitives in a single sentence and moved on, because that lecture's job was the protocol's shape, not its parts. This lecture takes each of the three — **tools**, **resources**, and **prompts** — and gives it the depth it deserves, because a server author reaches for a specific one of these three shapes every time they decide how to expose a new piece of a system, and choosing wrong produces exactly the kind of friction the rest of this module works to avoid.
 

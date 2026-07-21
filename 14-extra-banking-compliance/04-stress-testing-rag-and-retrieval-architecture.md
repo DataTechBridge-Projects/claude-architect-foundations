@@ -8,7 +8,7 @@ duration: "7:56"
 # Stress Testing - RAG & Retrieval Architecture
 {: .no_toc }
 
-*Video duration: 7:56*
+*Read duration: 7:56*
 
 The previous lecture established that context has to carry the *correct cycle's* scenario and portfolio data. This lecture covers the retrieval layer that's actually responsible for making that true — the system that decides, out of a growing multi-year corpus of regulatory guidance and internal methodology documents, exactly which passages Claude sees when it's assembling a scenario or drafting a narrative for the current cycle.
 

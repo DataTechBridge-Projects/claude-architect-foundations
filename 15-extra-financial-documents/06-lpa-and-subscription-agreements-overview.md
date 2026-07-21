@@ -8,7 +8,7 @@ duration: "7:16"
 # LPA/Subscription Agreements - Overview
 {: .no_toc }
 
-*Video duration: 7:16*
+*Read duration: 7:16*
 
 Every private fund — a private equity fund, a venture fund, a credit fund — is governed by a **Limited Partnership Agreement (LPA)**, the master contract that sets the fund's terms: management fees, carried interest, investment restrictions, governance rights, and the general partner's obligations to its limited partners. When the fund raises capital, each investor who commits signs a **subscription agreement**, a document that binds that specific investor to the LPA's terms, captures their commitment amount, and works through investor-specific representations — accredited investor status, tax classification (is this LP a U.S. taxable entity, a tax-exempt pension fund, a non-U.S. investor with withholding considerations), anti-money-laundering and know-your-customer disclosures, and any side arrangements specific to that investor. A single fund closing might onboard anywhere from a dozen to several hundred limited partners, each submitting their own subscription document, and a fund's operations, legal, and investor relations teams have to process, verify, and track every one of them accurately.
 

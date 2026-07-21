@@ -8,7 +8,7 @@ duration: "7:07"
 # MFN & Side Letter Negotiation - Overview
 {: .no_toc }
 
-*Video duration: 7:07*
+*Read duration: 7:07*
 
 A **side letter** is a separately negotiated agreement between a fund's general partner and one specific limited partner, layered on top of the standard LPA and subscription document, that grants that investor terms the standard documents don't provide — reduced fees, enhanced reporting rights, co-investment priority, specific excuse rights for regulatory or ethical reasons, or a lower minimum commitment. Large or strategically important investors routinely negotiate them, and a fund with a few hundred LPs can easily accumulate a few dozen to a hundred-plus side letters over the life of a single fund, each one a bespoke, individually negotiated document.
 

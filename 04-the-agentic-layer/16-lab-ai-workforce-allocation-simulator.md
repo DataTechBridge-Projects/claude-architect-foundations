@@ -8,7 +8,7 @@ duration: "2:07"
 # Lab: AI Workforce Allocation Simulator
 {: .no_toc }
 
-*Video duration: 2:07*
+*Read duration: 2:07*
 
 This lab is a hands-on exercise in the tradeoffs this module has been building toward, framed as a resource-allocation problem rather than a quiz. You're given a small backlog of tasks — some independent, some sequentially dependent, varying in complexity, acceptable latency, and how costly a wrong answer would be — and a constrained budget of "agent capacity": a limited number of concurrent agents you can run, a per-task cost ceiling, and an overall latency target for the batch.
 

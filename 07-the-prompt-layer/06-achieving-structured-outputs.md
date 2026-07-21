@@ -8,7 +8,7 @@ duration: "19:37"
 # Achieving Structured Outputs
 {: .no_toc }
 
-*Video duration: 19:37*
+*Read duration: 19:37*
 
 A huge fraction of real-world Claude systems don't actually want prose back from the model — they want a JSON object, a specific set of fields, a value that fits an enum, something a downstream program can parse without a human ever reading it. **Structured output** is the general term for getting a model, which is fundamentally trained to produce fluent natural language, to instead produce output that reliably conforms to a machine-readable format. It sounds like a small ask. In practice it's one of the areas where naive approaches fail most often, and where the gap between "usually works" and "always works" has real architectural consequences.
 

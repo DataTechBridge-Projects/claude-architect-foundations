@@ -8,7 +8,7 @@ duration: "10:03"
 # The Five-Layer Mnemonic
 {: .no_toc }
 
-*Video duration: 10:03*
+*Read duration: 10:03*
 
 Five domains, five names, and under exam pressure it is surprisingly easy to blur them together — to read a scenario question about a tool failure and start reasoning about workflow design instead, simply because the question is long and your brain grabs the first plausible-sounding concept. This lecture gives you a mental model built specifically to prevent that: a way of stacking the five domains so that, given any scenario, you can quickly ask "which layer is this actually about?" before you start evaluating answer choices.
 

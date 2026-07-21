@@ -8,7 +8,7 @@ duration: "14:00"
 # What Claude Code Is and How It Works
 {: .no_toc }
 
-*Video duration: 14:00*
+*Read duration: 14:00*
 
 **Claude Code** is an agentic coding tool: a command-line application (with editor extensions and a web/desktop surface built on the same engine) that gives Claude a real working environment — a file system it can read and edit, a shell it can run commands in, and a live view of a codebase — and lets it operate in that environment across many steps toward a goal, rather than producing a single block of text and stopping. Where a plain chat interface to a model produces one answer per turn, Claude Code wraps the model in a **harness**: the surrounding software that defines what tools exist, what context loads automatically, what gets confirmed with a human before it runs, and how a multi-step task actually gets driven to completion.
 

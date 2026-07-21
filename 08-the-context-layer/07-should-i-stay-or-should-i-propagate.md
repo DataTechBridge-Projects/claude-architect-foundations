@@ -8,7 +8,7 @@ duration: "0:33"
 # Should I Stay? Or Should I Propagate?
 {: .no_toc }
 
-*Video duration: 0:33*
+*Read duration: 0:33*
 
 Every uncertain fact an agent is holding faces the same fork the old song asks about, just rephrased: should this information stay right here and get resolved before moving on, or should it propagate forward into the next turn's context as if it were settled? "Stay" means pausing — verifying, escalating, or flagging the uncertainty explicitly so it travels labeled as uncertain if it travels at all. "Propagate" unlabeled is how a shaky guess in turn four becomes a load-bearing assumption in turn twenty. The default should be: if you're not sure, it stays and gets resolved — or it propagates loudly, never quietly.
 

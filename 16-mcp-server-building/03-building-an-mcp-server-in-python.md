@@ -8,7 +8,7 @@ duration: "20:00"
 # Building an MCP Server in Python
 {: .no_toc }
 
-*Video duration: 20:00*
+*Read duration: 20:00*
 
 Everything so far has described MCP from the outside — servers expose primitives, clients connect, the model calls tools that happen to be MCP-backed. This lecture goes inside a server, at the level of actual code, because the exam expects you to reason about MCP not just as an architecture diagram but as something you could sit down and build. Python is the illustrative language here because the official MCP SDK's Python interface is the most widely used entry point into server authoring, and its high-level decorator-based API makes the underlying protocol concepts unusually visible.
 

@@ -8,7 +8,7 @@ duration: "17:35"
 # Prompting Best Practices
 {: .no_toc }
 
-*Video duration: 17:35*
+*Read duration: 17:35*
 
 If there's one habit that separates prompts written by architects from prompts written by hobbyists, it's this: architects assume the model will do exactly what the prompt says, not what the author meant. That sounds obvious once stated, but it's violated constantly, because human communication relies on shared context, tone, and inference that a language model doesn't automatically have access to unless it's explicitly given. Prompting best practices, at the structural level, are really a set of techniques for closing that gap — for making the prompt's literal content match the author's actual intent so closely that there's no room left for the model to guess wrong.
 

@@ -8,7 +8,7 @@ duration: "11:41"
 # The 10 Takeaways Revisited
 {: .no_toc }
 
-*Video duration: 11:41*
+*Read duration: 11:41*
 
 Module 3 previewed ten takeaways at a deliberately high altitude, before you had the vocabulary of any of the five layers behind you. You now have all five. This lecture walks the same ten ideas back through, in the same order, and adds the one thing that lecture couldn't give you yet: the concrete, layer-specific detail that turns each takeaway from something you could restate in a sentence into something you can actually apply to a scenario question.
 

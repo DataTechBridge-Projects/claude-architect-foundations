@@ -8,7 +8,7 @@ duration: "2:00"
 # Module Outro
 {: .no_toc }
 
-*Video duration: 2:00*
+*Read duration: 2:00*
 
 Start from where this module picked up: the Tool Layer had already told you what MCP is for — a standard way to expose tools, resources, and prompts to any compatible client — and this module made that concrete. Tools, resources, and prompts stopped being three words in one sentence and became three distinct primitives with their own real shapes: an invokable action, a URI-addressed piece of readable context, and a reusable, user-selected template, each earning its place for different reasons and each showing up, or not, based on whether a task genuinely needs the model's judgment to invoke it.
 

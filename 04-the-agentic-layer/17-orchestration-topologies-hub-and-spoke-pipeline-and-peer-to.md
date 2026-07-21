@@ -8,7 +8,7 @@ duration: "13:00"
 # Orchestration Topologies: Hub-and-Spoke, Pipeline, and Peer-to-Peer
 {: .no_toc }
 
-*Video duration: 13:00*
+*Read duration: 13:00*
 
 The multi-agent coordination lecture established *why* you'd ever split work across more than one agent, and named hub-and-spoke, pipeline, and shared-state coordination in passing as the shapes that split work can take. This lecture stops in on that naming and treats it as the architectural decision it actually is. Once you've decided a task genuinely warrants more than one agent, the next question isn't "how many agents" — it's "how do they talk to each other, and who's allowed to decide what happens next?" That question has three common answers, and each one trades coordination overhead for a different kind of flexibility, in ways the exam expects you to reason through against a described scenario rather than recite from memory.
 

@@ -8,7 +8,7 @@ duration: "0:38"
 # Separation of Timelines
 {: .no_toc }
 
-*Video duration: 0:38*
+*Read duration: 0:38*
 
 This module has quietly introduced several nested timelines, and keeping them separate avoids a lot of confusion. A **loop iteration** is the shortest: one model call, maybe one tool execution. A **subagent's lifespan** covers its own loop, start to report-back. A **task** may span many loop iterations, possibly several subagent dispatches, and completes against a defined condition. A **session** is the longest and least bounded: it can contain many tasks over hours or days. When something goes wrong, ask which timeline it actually happened on before diagnosing why.
 

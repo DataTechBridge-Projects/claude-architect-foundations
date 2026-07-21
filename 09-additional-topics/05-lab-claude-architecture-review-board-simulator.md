@@ -8,7 +8,7 @@ duration: "1:43"
 # Lab: Claude Architecture Review Board Simulator
 {: .no_toc }
 
-*Video duration: 1:43*
+*Read duration: 1:43*
 
 This lab puts you on the other side of the table. You're handed a mock architecture proposal — a two-page write-up for a Claude-powered system (a claims-intake assistant, a code-migration agent, whatever the exercise variant gives you) complete with a diagram, a tool list, a sample prompt, and a paragraph on "how context flows." Your job is to sit as a reviewer on an Architecture Review Board and produce a structured critique before the design ships.
 

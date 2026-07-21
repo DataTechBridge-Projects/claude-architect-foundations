@@ -8,7 +8,7 @@ duration: "15:54"
 # Skill Configuration
 {: .no_toc }
 
-*Video duration: 15:54*
+*Read duration: 15:54*
 
 A **Skill** is a packaged, invokable procedure: a bundle of instructions — and often supporting tools, scripts, or reference files — that teaches an agent how to competently perform one well-defined kind of sub-task, on demand, without that knowledge needing to live permanently in every session's context. If `CLAUDE.md` is standing knowledge that's always loaded, a Skill is the opposite shape: knowledge that's dormant until it's relevant, then pulled into the current session precisely when it's needed.
 

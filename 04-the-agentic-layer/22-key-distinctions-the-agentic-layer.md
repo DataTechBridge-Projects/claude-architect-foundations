@@ -8,7 +8,7 @@ duration: "3:16"
 # Key Distinctions - The Agentic Layer
 {: .no_toc }
 
-*Video duration: 3:16*
+*Read duration: 3:16*
 
 A condensed pass through the module's highest-yield either/or distinctions — the kind of pairs the exam likes to test directly against a scenario.
 

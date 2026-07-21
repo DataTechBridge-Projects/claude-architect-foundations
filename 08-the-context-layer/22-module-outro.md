@@ -8,7 +8,7 @@ duration: "2:18"
 # Module Outro
 {: .no_toc }
 
-*Video duration: 2:18*
+*Read duration: 2:18*
 
 This module set out to make one idea concrete: everything the rest of this course teaches you to design — agentic architectures, tools, workflows, prompts — ultimately has to survive being rendered as tokens in a finite window, and how well it survives that is its own discipline, not an afterthought. You've now worked through that discipline end to end. You know what actually competes for space in a context window, and the summarization, compaction, and isolation techniques that keep that competition manageable across a long session and across multiple agents. You know why "guess and continue" is almost always the wrong response to ambiguity, and what an appropriately granular alternative looks like — including the option to simply stop and ask. You've seen how an unmarked mistake early in a session compounds into real damage later, and the checkpoints, re-verification, and provenance tracking that keep that from happening quietly. You've seen how the same context discipline scales up to a codebase too large to ever fully fit in a window, and scales down to a single, carefully scoped human review checkpoint. And you've seen why tracking where information came from — and what to do when two sources disagree — isn't a nice-to-have, but the metadata that makes nearly every other technique in this module actually work.
 

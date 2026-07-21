@@ -8,7 +8,7 @@ duration: "13:00"
 # How the Context Window Works: Tokens, Limits, and Tradeoffs
 {: .no_toc }
 
-*Video duration: 13:00*
+*Read duration: 13:00*
 
 Before you can manage a context window well, you need an accurate picture of what it actually is. "Context window" is often used loosely enough that people carry around a mental model that's subtly wrong, and a wrong mental model produces wrong architectural decisions. This lecture builds the model precisely, starting from the smallest unit involved — the token — and working up to the tradeoff that governs almost every design decision in this module.
 

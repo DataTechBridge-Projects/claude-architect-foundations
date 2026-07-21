@@ -8,7 +8,7 @@ duration: "0:24"
 # Topic 4: Cost Engineering
 {: .no_toc }
 
-*Video duration: 0:24*
+*Read duration: 0:24*
 
 Agentic loops multiply cost fast, in a way that surprises teams coming from a single-call mental model. Every tool-result-then-model-call round trip resends the growing conversation history, since each new model call needs the full context to that point — so **a ten-step loop doesn't cost roughly ten times a single call, it costs the sum of ten increasingly large context windows**, which can be dramatically more.
 

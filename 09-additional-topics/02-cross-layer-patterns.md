@@ -8,7 +8,7 @@ duration: "13:12"
 # Cross-Layer Patterns
 {: .no_toc }
 
-*Video duration: 13:12*
+*Read duration: 13:12*
 
 Study the five layers in isolation for long enough and it's easy to start treating them as five unrelated checklists — Agentic has its rules, Tool has its rules, and so on down the stack. But the strongest architects, and the exam's hardest scenario questions, operate at a different altitude: recognizing that a handful of design patterns recur across multiple layers at once, expressed each time in that layer's own vocabulary but solving the same underlying problem. Spotting one of these patterns is often faster than reasoning a scenario through from scratch, because once you recognize which pattern is in play, you already know its shape — what it protects against, what it costs, and where it tends to get applied badly. This lecture names six of them.
 

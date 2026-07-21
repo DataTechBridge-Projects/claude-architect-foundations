@@ -8,7 +8,7 @@ duration: "1:35"
 # Intro to the Hands-On Labs for the CCA-F
 {: .no_toc }
 
-*Video duration: 1:35*
+*Read duration: 1:35*
 
 The labs in this course aren't generic AI exercises — they're deliberately mapped to the five layers the CCA-F exam is organized around: Agentic, Tool, Workflow, Prompt, and Context. Each lab is placed inside the module covering the layer it exercises, so the Fundamentals labs test foundational judgment calls (API versus Claude Code, single agent versus multi-agent), while later labs go deeper into a single layer — designing a tool schema in the Tool module, structuring a multi-step pipeline in the Workflow module, curating a context window in the Context module, and so on.
 

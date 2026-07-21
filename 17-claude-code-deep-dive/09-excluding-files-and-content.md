@@ -8,7 +8,7 @@ duration: "8:00"
 # Excluding Files and Content
 {: .no_toc }
 
-*Video duration: 8:00*
+*Read duration: 8:00*
 
 Everything covered so far in this module's configuration coverage has been about what Claude Code *should* see and know. This lecture covers the opposite problem: keeping specific files, directories, and content out of Claude's reach entirely — not because they're irrelevant, but because reading or touching them at all is a risk (secrets, credentials), a waste of context on content that adds no value (build output, generated code, vendored dependencies), or a scope boundary a team wants enforced rather than merely requested (another team's part of a monorepo, infrastructure that requires separate review).
 

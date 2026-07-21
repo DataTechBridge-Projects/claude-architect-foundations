@@ -8,7 +8,7 @@ duration: "8:52"
 # LPA/Subscription Agreements - RAG & Retrieval Architecture
 {: .no_toc }
 
-*Video duration: 8:52*
+*Read duration: 8:52*
 
 Retrieval for subscription documents looks different from retrieval for credit agreements in one important respect: it isn't primarily about searching a large corpus of past deals to find comparable language. It's about checking a single, well-defined document — the fund's own governing LPA — against every subscription document that references it, to make sure nothing an investor is agreeing to actually conflicts with what the fund's constitutional document says. That's a narrower, more targeted retrieval problem than credit agreement precedent search, but it comes with its own precision requirements.
 
