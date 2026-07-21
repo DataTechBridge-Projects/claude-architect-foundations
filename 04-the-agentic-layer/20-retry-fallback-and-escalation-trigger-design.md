@@ -30,6 +30,9 @@ The first discipline this lecture asks for is refusing to treat "something faile
 
 Conflating these three is the root of most badly designed multi-agent recovery: a system that responds to a reasoning error the way it would a transient tool error (retry the same subagent with the same instructions) gets the same wrong answer again, because nothing about the retry addresses what actually went wrong. A system that escalates every tool error immediately, without letting a subagent exhaust its own local recovery first, turns ordinary transient hiccups into constant unnecessary human interruptions.
 
+{: .important }
+> Retrying a reasoning error with the same subagent and the same instructions will reproduce the same wrong answer — nothing about the attempt changed. A retry only makes sense when something material differs from the prior attempt; otherwise it's motion without any real chance of a different outcome.
+
 ## When retrying helps, and when it's theater
 
 Retrying makes sense exactly when something about the next attempt could plausibly differ from the last one — new arguments, more time for a transient condition to clear, a different tool. Retrying is theater — motion without any real chance of a different outcome — when the failure is deterministic: an identical call to an identical tool with identical arguments, against a condition that hasn't changed, will fail identically every time. This is the same retryable/non-retryable logic from the Tool Layer, but the multi-agent version of the mistake is subtler and easier to miss: an orchestrator that re-dispatches the *same subagent*, with the *same task description*, after that subagent already reported failure or an unsatisfying result, is running the identical-retry mistake one level up — nothing about the second dispatch differs from the first, so nothing about the outcome should be expected to either.

@@ -65,13 +65,16 @@ The cost is the steepest of the three. With no hub reconciling results and no fi
 
 ## Matching topology to problem shape
 
-The decision among these three should follow directly from the shape of the underlying task, not from an intuition about which topology sounds more sophisticated. Ask, in order: Does one component need to hold the whole picture and decide what happens next based on several independent inputs? That's hub-and-spoke. Does the task have a genuine, one-directional chain of dependencies where each stage only needs its immediate predecessor's output? That's a pipeline. Does the task require agents to negotiate or reconcile conflicting partial views with no single agent positioned to arbitrate? Only then does peer-to-peer's added complexity pay for itself.
+The decision among these three should follow directly from the shape of the underlying task, **not from an intuition about which topology sounds more sophisticated**. Ask, in order: Does one component need to hold the whole picture and decide what happens next based on several independent inputs? That's hub-and-spoke. Does the task have a genuine, one-directional chain of dependencies where each stage only needs its immediate predecessor's output? That's a pipeline. Does the task require agents to negotiate or reconcile conflicting partial views with no single agent positioned to arbitrate? Only then does peer-to-peer's added complexity pay for itself.
 
 | Topology | Who holds the full picture | Strength | Weakness | Best fit |
 |---|---|---|---|---|
 | Hub-and-spoke | The orchestrator, always | Easy to reason about, safeguard, debug | Orchestrator is a single point of failure and a throughput ceiling | Most multi-agent tasks; the default |
 | Pipeline | No one — state passes forward | Simplest option when it fits; no reconciliation logic | Brittle at stage boundaries; no one checks a mismatched handoff | A genuine, one-directional dependency chain |
 | Peer-to-peer | No one — coordination is emergent | Flexible; suits genuine negotiation | Race conditions, hardest to debug, no single transcript | Rare cases requiring real negotiation among agents |
+
+{: .important }
+> Peer-to-peer coordination should be reserved for genuine negotiation among agents with no single arbiter — not reached for because a problem "seems complex." Its race conditions and loss of a single reconciliation point make it the most expensive topology to debug, and that cost doesn't shrink just because the task felt sophisticated enough to warrant it.
 
 In practice, hub-and-spoke is the correct default for the overwhelming majority of multi-agent designs — it's what Claude Code's own subagent feature is built around, and it's the topology that best supports the safeguarding patterns (scoped tool access, checkpoints, a single reconciliation point) covered elsewhere in this module. Pipelines are the right call specifically when the dependency is genuinely linear and there's no reconciliation work to do. Peer-to-peer should be reserved for the rare case where the coordination need is itself a negotiation, because its debugging and reconciliation costs are real and don't shrink just because the problem seemed to call for something more distributed.
 

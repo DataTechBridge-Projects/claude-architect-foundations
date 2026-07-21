@@ -36,6 +36,9 @@ The return trip deserves the same rigor, and it's the half of this exchange most
 
 **Errors or blockers encountered**, named explicitly rather than silently absorbed into a vaguer-than-warranted "success." A subagent that hit a permissions wall partway through its task and quietly reported only what it *did* manage to find, without flagging that a chunk of the intended scope was never actually covered, hands the orchestrator a report that looks complete but isn't — a failure mode directly analogous to a tool silently returning partial data with no error signal at all.
 
+{: .important }
+> A report that silently absorbs a partial failure into an unqualified "success" is more dangerous than an explicit failure — the orchestrator has no way to detect a problem it was never told about. Always give a subagent's schema a place to say "blocked" or "partial," not just a place to say what it found.
+
 ```mermaid
 sequenceDiagram
     participant O as Orchestrator

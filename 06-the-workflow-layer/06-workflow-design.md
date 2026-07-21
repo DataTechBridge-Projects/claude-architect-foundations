@@ -32,7 +32,10 @@ Agentic steps earn their place when the work genuinely requires judgment that ca
 
 A useful diagnostic when you're unsure which category a step falls into: ask whether you could write a complete, correct specification of the step's logic without knowing anything about the *specific instance* of work in front of it. If yes — if the specification is genuinely input-independent — it's a deterministic step, even if writing that specification is itself difficult. If no — if the right behavior depends on details you can't anticipate until you see the actual input — it's a genuine candidate for an agentic step.
 
-It's also worth resisting a subtler trap: a step can *look* like it needs judgment because it's complicated, when it's actually just complex-but-fully-specified. Tax calculations, currency conversions, and complicated-but-well-defined business rules are not judgment calls just because they have a lot of branches — they're deterministic logic that happens to be intricate. Don't hand a model a task because it's hard; hand it a task because it's genuinely ambiguous or context-dependent.
+It's also worth resisting a subtler trap: a step can *look* like it needs judgment because it's complicated, when it's actually just complex-but-fully-specified. Tax calculations, currency conversions, and complicated-but-well-defined business rules are not judgment calls just because they have a lot of branches — they're deterministic logic that happens to be intricate. **Don't hand a model a task because it's hard; hand it a task because it's genuinely ambiguous or context-dependent.**
+
+{: .important }
+> Complexity is not the same as ambiguity. A step with many branches but a fully specifiable correct answer is still deterministic, no matter how intricate it looks — reserve agentic steps for genuine judgment calls, not merely complicated ones.
 
 ## Mixed Workflows Are the Common Case
 

@@ -28,6 +28,9 @@ Neither end of that axis is "correct" in the abstract — the right mode is a fu
 
 **Bypass-permissions mode.** The far end of the velocity axis: essentially every check is skipped, and actions execute immediately with no prompts at all. This mode is explicitly *not* meant for use on a developer's primary machine against a real, connected environment — its intended use is an isolated, disposable environment (a container or VM with no meaningful ability to cause external damage) where the blast radius of any single wrong action is contained by the environment itself rather than by the permission layer. Reaching for this mode outside that context — on a laptop with real credentials, a real production database connection, or real customer data reachable from the working directory — trades away the entire safety model for convenience, which is a bad trade in almost every realistic scenario. Even in this mode, a small set of protected paths (a project's own git internals and Claude Code's own configuration directory, among others) and a few especially destructive command patterns still prompt, as a last-resort circuit breaker against catastrophic model error rather than a meaningful safety boundary on their own.
 
+{: .important }
+> Bypass-permissions mode is safe **only** in an isolated, disposable environment where the blast radius is contained by the environment itself. Never reach for it on a machine with real credentials, a production database connection, or real customer data — that trades away the entire safety model for convenience.
+
 | Mode | Oversight level | What proceeds without a prompt | Best fit |
 |---|---|---|---|
 | Default (manual) | Highest | Built-in read-only commands only | Sensitive work, unfamiliar codebase |
@@ -37,7 +40,7 @@ Neither end of that axis is "correct" in the abstract — the right mode is a fu
 
 ## Switching Modes, and Why the Choice Belongs to a Human
 
-Permission mode is not something Claude decides for itself mid-task — it's set by the person running the session (interactively, by cycling through modes, or as a persistent default in project or personal configuration) or, for organizations, by policy that individual settings can't override. That's a deliberate design choice, not an incidental one: if the model that's being supervised could also decide how closely it's supervised, the entire premise of a permission layer as an external safeguard collapses. The oversight mechanism has to sit outside the thing being overseen to actually function as oversight — the same principle that shows up in the Agentic Layer's treatment of checkpoints and approval gates generally, and one of the more conceptually important, easy-to-miss details in this whole topic.
+Permission mode is not something Claude decides for itself mid-task — it's set by the person running the session (interactively, by cycling through modes, or as a persistent default in project or personal configuration) or, for organizations, by policy that individual settings can't override. That's a deliberate design choice, not an incidental one: if the model that's being supervised could also decide how closely it's supervised, the entire premise of a permission layer as an external safeguard collapses. **The oversight mechanism has to sit outside the thing being overseen** to actually function as oversight — the same principle that shows up in the Agentic Layer's treatment of checkpoints and approval gates generally, and one of the more conceptually important, easy-to-miss details in this whole topic.
 
 ## Connecting Back to Workflow Safeguarding
 

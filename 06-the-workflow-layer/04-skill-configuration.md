@@ -43,7 +43,7 @@ A Skill is the right unit when the knowledge is:
 
 **Task-specific rather than universally relevant.** If only a fraction of sessions in a project will ever need to draft a changelog, generate a specific report format, or run a particular audit procedure, that knowledge shouldn't be paid for on every turn the way `CLAUDE.md` content is. A Skill lets it sit dormant, at zero context cost, until a task actually calls for it.
 
-**Reusable across many invocations, by the same agent, within one session's continuous context.** This is the detail that most sharply distinguishes a Skill from a subagent, and it's worth being precise about: a Skill loads its instructions into the *current* agent's existing context and the *same* agent continues reasoning and acting with that context added. Nothing about invoking a Skill starts a new agent, opens a new context window, or makes an independent model call — it's closer to handing the current agent a runbook mid-task than to delegating the task to someone else. (The next lecture draws this distinction out fully against subagents specifically.)
+**Reusable across many invocations, by the same agent, within one session's continuous context.** This is the detail that most sharply distinguishes a Skill from a subagent, and it's worth being precise about: a Skill loads its instructions into the *current* agent's existing context and the *same* agent continues reasoning and acting with that context added. **Nothing about invoking a Skill starts a new agent, opens a new context window, or makes an independent model call** — it's closer to handing the current agent a runbook mid-task than to delegating the task to someone else. (The next lecture draws this distinction out fully against subagents specifically.)
 
 **Bundled naturally with its own narrow tools.** If a procedure needs a couple of small, purpose-built scripts that only make sense in service of that one task — a formatter, a validator, a template — packaging them with the instructions that use them keeps the whole unit self-contained and easy to reason about, rather than scattering narrow-purpose tools into the project's general tool surface where they'd clutter every other task's tool selection.
 
@@ -58,6 +58,9 @@ Just as important is recognizing when reaching for a Skill is the wrong call, be
 **When the task requires a full multi-step agentic workflow with its own decision points, tool calls, and potential need for a different model or configuration than the calling agent.** A Skill augments the current agent's capability for one step; it isn't a mechanism for spinning up a differently-configured, independently-operating unit of work.
 
 **When the knowledge changes too fast to be worth packaging.** A Skill, like `CLAUDE.md`, is still a static artifact that someone maintains. If the "procedure" is really just "look up the current state of X," that's a retrieval problem, not a Skill.
+
+{: .important }
+> Don't reach for a Skill just because a piece of knowledge is useful — check whether it's small, stable, and needed on nearly every task first. That combination belongs in `CLAUDE.md`, not a Skill; wrapping it in a Skill only adds an unnecessary discovery step for something that should simply always be present.
 
 ## Configuring and Maintaining Skills Well
 

@@ -30,7 +30,10 @@ A validation verdict is only as trustworthy as the anchors it's checked against.
 
 The core context-architecture risk here mirrors the stress-testing use case's cycle-versioning problem, but with a twist specific to validation: methodology and thresholds don't necessarily change on the same schedule as each other, and a calculation being validated might itself have been performed under an earlier methodology version that was current at the time. That means context assembly can't simply grab "the latest version of everything" — it has to determine which methodology version was actually in force when the calculation was performed, and validate against *that* version, unless the specific purpose of the check is to confirm the calculation has been updated to reflect a newer requirement. Getting this wrong in either direction produces a plausible-looking but meaningless verdict: checking a properly-performed historical calculation against today's rules will manufacture false discrepancies, while checking a calculation that should have been updated against outdated rules will miss a real one.
 
-This is why every methodology document and threshold value entering context carries an explicit effective-date range, and why the validation request itself has to specify which reporting period's calculation is under review — that period determines which methodology version is the correct anchor, and the context-assembly layer resolves that mapping deterministically rather than leaving it to inference.
+{: .important }
+> Context assembly must never default to "the latest version of everything." Validate against the methodology version **in force when the calculation was performed** — checking a historical calculation against today's rules manufactures false discrepancies, while checking against stale rules when an update was required lets a real discrepancy slip through.
+
+This is why every methodology document and threshold value entering context carries an explicit **effective-date range**, and why the validation request itself has to specify which reporting period's calculation is under review — that period determines which methodology version is the correct anchor, and the context-assembly layer resolves that mapping deterministically rather than leaving it to inference.
 
 ## Scoping Context to a Single Calculation
 

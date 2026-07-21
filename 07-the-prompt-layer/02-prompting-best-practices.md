@@ -50,9 +50,12 @@ This distinction also matters for security posture, which the later lecture on s
 | Universal output format requirements | Untrusted external input (raw user text, scraped pages) |
 | Few-shot examples and reference material expensive to restate | Anything that shouldn't be baked into a cached, reused prompt |
 
+{: .important }
+> Never let untrusted content — raw user input, scraped text, an uploaded document — get woven into system-level instructions. System prompts are what the model is trained to trust most, so blending untrusted text into them is a direct path to prompt injection succeeding.
+
 ## Avoiding Ambiguity
 
-Ambiguity is the single largest source of unreliable prompt behavior, and it's insidious because it's invisible to the person who wrote the prompt — you know what you meant, so the sentence reads as clear to you even when it supports multiple reasonable readings. A few concrete patterns are worth naming because they show up constantly:
+**Ambiguity is the single largest source of unreliable prompt behavior**, and it's insidious because it's invisible to the person who wrote the prompt — you know what you meant, so the sentence reads as clear to you even when it supports multiple reasonable readings. A few concrete patterns are worth naming because they show up constantly:
 
 **Underspecified pronouns and references.** "Check if it matches and update the record" — what is "it," and which record? In a long prompt with several entities in play, referential ambiguity compounds. Name things explicitly rather than relying on the model (or a human reader) to track antecedents across paragraphs.
 

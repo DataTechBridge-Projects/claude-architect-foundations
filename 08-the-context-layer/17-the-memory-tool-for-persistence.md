@@ -34,6 +34,9 @@ The central judgment call this lecture asks you to make is deciding when somethi
 
 A useful test: ask whether a fact would still matter to a *future, unrelated session* that has no other reason to know about the current conversation. If yes, it's a memory candidate. If the honest answer is "only within this task," it belongs in context, subject to the ordinary lifecycle of summarization and compaction — not written out to a store that has no natural expiration.
 
+{: .important }
+> The deciding test for persistent memory vs. live context: **would a future, unrelated session need this fact with no other reason to know about the current conversation?** If yes, write it to memory; if it only matters within this task, it belongs in context, subject to ordinary summarization and compaction.
+
 ## Persistent memory raises the same governance questions
 
 It would be a mistake to treat the memory tool as a way to sidestep the discipline this module calls **Context Data Governance (CDG)**, introduced in "Let's Coin Context Data Governance (CDG)." If anything, persistent memory raises every one of CDG's core questions in a sharper form, precisely because memory outlives any single session's oversight.

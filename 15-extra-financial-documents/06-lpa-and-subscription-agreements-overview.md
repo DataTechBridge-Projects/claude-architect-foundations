@@ -18,6 +18,9 @@ This use case sits in the same general territory as the credit agreements module
 
 That shift from "few and highly individuated" to "many and templated" is the single biggest driver of everything different about this module's architecture. It's also **investor-facing** in a way credit agreements typically aren't: the subscription document is the fund's interaction with an external counterparty who is trusting the fund's operations team to process it correctly, quickly, and confidentially — get an LP's commitment amount wrong, or worse, leak one LP's economic terms to another, and the damage is relationship and reputational, not just an internal data-quality problem. Combine high volume with investor-facing stakes and strict confidentiality expectations, and you get a use case where the dominant engineering challenge isn't "can the model correctly parse one hard document" (though it still needs to) but "can the system correctly and consistently process hundreds of near-identical documents without ever letting one investor's information bleed into another's."
 
+{: .important }
+> Getting an LP's commitment amount wrong is a data-quality bug; leaking one LP's economic terms into another LP's output is a confidentiality breach with relationship and reputational fallout. Treat cross-investor contamination as the module's central risk, not a lesser variant of ordinary extraction error.
+
 | Dimension | Credit agreements | Subscription agreements |
 |---|---|---|
 | Document count per relationship | Few, long-lived facilities | Many documents per fund closing |

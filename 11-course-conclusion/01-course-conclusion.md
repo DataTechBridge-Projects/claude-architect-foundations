@@ -26,6 +26,9 @@ That instinct to run a symptom through this table before answering is exactly wh
 
 A few closing reminders as you move toward the exam itself. Revisit the **Key Distinctions** lecture at the end of each module — those are the highest-density review material in the course, built specifically to be skimmed the night before. Run the module quizzes under real time pressure, not just as reading material; recognizing the right answer quickly is a different skill from understanding the material slowly. And when you sit the **Full Sample Exam**, treat it as a dress rehearsal: time yourself, resist the urge to check the answer key mid-run, and review every question you got wrong for *why* it was wrong, not just what the right answer was.
 
+{: .important }
+> Don't check the answer key mid-run. A practice exam only tells you something useful about your real exam performance if you take it under the same time pressure and information constraints as the real thing — peeking early turns a diagnostic tool into a false confidence booster.
+
 Beyond the exam, this material has a longer shelf life than a certification. The five-layer way of thinking — agentic control flow, tool surfaces, workflow structure, prompt engineering, context governance — is a durable lens for evaluating *any* Claude-based system you build or review, certified or not. That's the actual goal here: not a credential you pass once, but a way of seeing architecture that keeps paying off on every project afterward.
 
 Good luck on the exam. Go make something good with it.

@@ -14,7 +14,10 @@ Everything up to this point in the module has assumed a task is already scoped: 
 
 ## Why decomposition is a distinct skill from delegation
 
-It's worth separating this from the multi-agent material in the previous two lectures, even though the two are related. Multi-agent coordination is about *how* work gets distributed once you know what the pieces are. Workflow decomposition is about figuring out what the pieces *are* in the first place — and that's a prerequisite step whether the resulting pieces end up running as one agent working through a list, several subagents working in parallel, or a fixed pipeline with no agentic decision-making at any individual step. A poorly decomposed workflow produces bad outcomes regardless of how well the resulting pieces are then coordinated; good coordination cannot rescue a decomposition that split the problem in the wrong place.
+It's worth separating this from the multi-agent material in the previous two lectures, even though the two are related. Multi-agent coordination is about *how* work gets distributed once you know what the pieces are. Workflow decomposition is about figuring out what the pieces *are* in the first place — and that's a prerequisite step whether the resulting pieces end up running as one agent working through a list, several subagents working in parallel, or a fixed pipeline with no agentic decision-making at any individual step. A poorly decomposed workflow produces bad outcomes regardless of how well the resulting pieces are then coordinated; **good coordination cannot rescue a decomposition that split the problem in the wrong place.**
+
+{: .important }
+> Decomposition and coordination are separate skills, and the first is a prerequisite for the second. No amount of well-designed delegation, parallelism, or reconciliation logic fixes a workflow that was split into the wrong pieces to begin with.
 
 ## What makes a step a good unit of decomposition
 

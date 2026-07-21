@@ -46,7 +46,7 @@ The five layer names — Agentic, Tool, Workflow, Prompt, Context — give you t
 - **Precise** → **Prompt**: precision is exactly what a good prompt demands.
 - **Contracts** → **Context**: a contract is the ground-truth record everyone has to work from — much like context is the ground truth the model works from.
 
-You don't need to love the phrase — you need it to be *yours*. If a different five-word sentence sticks better in your head, build your own; the acronym order (A-T-W-P-C, top-down) is the part that matters, because it mirrors both the course's module order (4 through 8) and the natural decision order an architect actually works through when designing a system.
+You don't need to love the phrase — you need it to be *yours*. If a different five-word sentence sticks better in your head, build your own; **the acronym order (A-T-W-P-C, top-down) is the part that matters**, because it mirrors both the course's module order (4 through 8) and the natural decision order an architect actually works through when designing a system.
 
 ## The "Architect on a Job Site" Picture
 
@@ -82,6 +82,9 @@ flowchart TD
 ```
 
 Many questions will look like they straddle two layers, and that's deliberate — remember from the previous lecture that the domains interact constantly. When that happens, look for which layer the *root cause* sits in versus which layer merely shows the *symptom*. A model that "hallucinates a file path" is exhibiting a Context-layer symptom (missing or stale information) even though the visible failure is a Tool-layer error (a bad tool call). Trained instinct for that distinction — symptom versus root cause, and which layer each belongs to — is exactly what separates a quick, confident answer from a guess.
+
+{: .important }
+> When a scenario straddles two layers, answer for the root-cause layer, not the symptom layer. A "bad tool call" is frequently a Context-layer problem — stale or missing information — wearing a Tool-layer costume; picking the layer where the visible failure occurred instead of where it originated is one of the most common ways to choose a plausible-but-wrong answer.
 
 **Why it matters for the exam:** The ATWPC stack isn't decoration — it's a triage tool. Under time pressure, correctly sorting a scenario into the right layer before reading the answer choices eliminates a large share of plausible-sounding distractors immediately, because wrong answers are frequently correct-sounding statements about the *wrong* layer. Practice running the six-question diagnostic above against every scenario question you see, in this course's quizzes and beyond, until it's automatic.
 

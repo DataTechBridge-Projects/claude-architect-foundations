@@ -20,7 +20,7 @@ This addressing scheme is what makes resources genuinely composable across a ses
 
 ## Reading a resource: the client's side
 
-A client reads a resource through a dedicated protocol operation distinct from a tool call: it sends the resource's URI to the server and receives that resource's content back — typically text, though the protocol accommodates binary content (images, for instance) where appropriate. Critically, this operation carries none of the semantics of a tool invocation: there's no notion of the model having "decided" to call anything, no arguments beyond the URI itself to reason about filling in correctly, and no side-effect risk the way an action-oriented tool call carries. This is precisely why a client, rather than the model, is typically the party that decides to read a resource and attach it to context — the operation is cheap enough, and side-effect-free enough, that it doesn't need to be gated behind the model's judgment the way an action does.
+A client reads a resource through a dedicated protocol operation distinct from a tool call: it sends the resource's URI to the server and receives that resource's content back — typically text, though the protocol accommodates binary content (images, for instance) where appropriate. Critically, this operation carries none of the semantics of a tool invocation: there's no notion of the model having "decided" to call anything, no arguments beyond the URI itself to reason about filling in correctly, and no side-effect risk the way an action-oriented tool call carries. This is precisely why a client, rather than the model, is typically the party that decides to read a resource and attach it to context — the operation is cheap enough, and side-effect-free enough, that **it doesn't need to be gated behind the model's judgment** the way an action does.
 
 Servers also commonly expose a **resource listing** operation, letting a client enumerate what resources exist without needing every URI known in advance — list the files in a directory, list the open tickets in a project, list the tables in a database. A client's UI might use this listing to let a user browse and select a resource to attach (a file picker built directly against a connected filesystem server, for instance), which is a distinctly client-side, often pre-model-involvement interaction that has no real equivalent among tools.
 
@@ -32,11 +32,14 @@ Rather than enumerating every possible resource URI a server could ever expose, 
 
 The primitives lecture gave you the conceptual test — does retrieving this data require the model's judgment about whether and how to retrieve it? This lecture adds the practically sharper version, because plenty of real cases sit close enough to the line that the conceptual test alone doesn't immediately resolve them.
 
-Lean toward a **resource** when: the data has a stable, known, or enumerable address independent of any particular query (a specific file, a specific record, a specific document); the client — not the model — is the party positioned to know which piece of data is relevant (a file a user has open, a document a user just linked); and reading it carries no side effect and needs no argument beyond "which one."
+Lean toward a **resource** when: the data has a stable, known, or enumerable address independent of any particular query (a specific file, a specific record, a specific document); **the client — not the model — is the party positioned to know** which piece of data is relevant (a file a user has open, a document a user just linked); and reading it carries no side effect and needs no argument beyond "which one."
 
 Lean toward a **tool** when: locating the right data requires a query, a search, or reasoning that only the model is positioned to perform (finding *which* tickets match a natural-language description of a bug, rather than reading one you already know the ID of); the operation might reasonably fail in ways that need a structured, retryable-aware error response; or the same underlying capability needs to support filtering, sorting, or other parameters beyond a bare identifier.
 
 A genuinely useful heuristic: if you find yourself wanting to add a `query` or `filter` parameter to a "resource read," that's usually a sign the operation has drifted into being a search — a tool's job — dressed up as a resource. A resource's only real parameter, once a template's placeholders are filled in, should be "which specific one," not "which ones, matching what criteria."
+
+{: .important }
+> If a "resource read" needs a `query` or `filter` parameter, that's the signal it's actually a **tool wearing a resource's clothes** — a resource's only legitimate parameter is "which specific one," never "which ones, matching what criteria."
 
 | Signal | Resource | Tool |
 |---|---|---|

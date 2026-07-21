@@ -92,6 +92,9 @@ At the API level, this is the `tools` parameter on a Messages API request: an ar
 
 Claude Code is a concrete, fully built-out instance of this pattern: `Read`, `Write`, `Edit`, `Bash`, `Grep`, `Glob`, and the rest are all tool definitions with real schemas, registered with the harness, executed by real handler code, with results returned as structured tool results. When you write a CLAUDE.md instruction like "always run tests after editing," you are shaping *when* the model chooses to call the `Bash` tool — you are not, and cannot, redefine the schema of the tool itself, which is fixed by the harness. That separation — prompts shape the model's judgment about which structured actions to take and when; schemas fix what those actions can structurally look like — is a distinction worth holding onto, because it recurs across the entire Prompt and Tool layers.
 
+{: .important }
+> Don't conflate the two levers: prompts (CLAUDE.md, system instructions) shape *when* and *whether* the model chooses to call a tool; the JSON Schema fixes *what* a valid call can structurally look like. No amount of prompting redefines a tool's schema — that's set by the harness.
+
 ## Why it matters for the exam
 
 Expect questions that ask you to identify why a described system is fragile — commonly, a system that relies on parsing the model's free-text output to detect intended actions, rather than using native structured tool calling. You should be able to state precisely what breaks in that design (ambiguous parsing, no validation boundary, poor composability as tools are added) and what structured tool use fixes about each. You should also be comfortable with the basic anatomy of a tool definition — name, description, JSON Schema for parameters — since exam scenarios will describe tool definitions and ask you to reason about how the model would use them.

@@ -25,6 +25,9 @@ The other three pieces of infrastructure guard different failure modes the schem
 
 The unifying point is that tool design and tool infrastructure are separate disciplines that happen to attach to the same object. A well-designed tool with no supporting infrastructure is still a liability; well-built infrastructure wrapped around a badly designed tool still produces selection errors. Production-grade tool usage requires both, and it's a mistake — one the exam will probe for — to treat schema quality as a proxy for operational safety.
 
+{: .important }
+> Schema quality is not a proxy for operational safety. A tool can have a flawless name, description, and schema and still be unsafe to run in production if it lacks credential scoping, logging, rate limiting, or sandboxing — these live entirely outside the `input_schema`.
+
 <!-- prevnext:start -->
 
 ---

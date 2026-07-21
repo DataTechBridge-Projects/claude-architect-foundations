@@ -12,6 +12,9 @@ duration: "11:32"
 
 The observability and cost story for subscription documents is dominated by one fact established at the start of this module: this is a volume business. A fund closing doesn't produce one hard document to get right — it produces hundreds of similar ones, arriving in a compressed window, that all need to be processed correctly, consistently, and cheaply. That volume changes what "observability" even means here relative to the credit agreements module: the central risk isn't usually one catastrophically misread clause in isolation, it's **template drift** — a slow, batch-wide degradation in accuracy that's invisible if you're only spot-checking individual documents one at a time.
 
+{: .important }
+> Spot-checking individual documents will not catch template drift — a slow, batch-wide accuracy degradation is invisible one document at a time by design. Observability here has to be built around aggregate signals (exception rate trends, field-level sampled accuracy) rather than per-document review.
+
 ## Volume-driven cost considerations
 
 The cost profile of this system is shaped by two competing forces. On one hand, per-document processing cost should be low, because the documents are individually short (a subscription agreement is a fraction of the length of a credit agreement) and highly templated, meaning the model's job on any single document is closer to structured form-reading than open-ended comprehension — this is inherently a cheaper task per document than deep legal analysis of a bespoke long-form contract. On the other hand, the sheer number of documents in a closing means that even a modest per-document cost, multiplied by two hundred LPs across several closings a year, adds up in a way that rewards real optimization discipline rather than "cost isn't a big deal per call so it doesn't matter."

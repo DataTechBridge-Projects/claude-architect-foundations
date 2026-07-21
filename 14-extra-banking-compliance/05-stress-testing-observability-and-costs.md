@@ -26,13 +26,16 @@ flowchart LR
     F -->|Revised| E
 ```
 
-This logging has to capture not just the final approved version of each artifact but the intermediate ones too, including anything a reviewer rejected or sent back for revision. A rejected draft and the reason it was rejected are themselves valuable audit evidence — they demonstrate that the review gate is a real control rather than a rubber stamp, which is precisely the kind of evidence a supervisor examining the bank's control environment (as distinct from just the numbers) is looking for. A system that only retains final, approved outputs and silently discards everything upstream of them has quietly destroyed the evidence that its own review process actually functions.
+This logging has to capture not just the final approved version of each artifact but the intermediate ones too, including anything a reviewer rejected or sent back for revision. A rejected draft and the reason it was rejected are themselves valuable audit evidence — they demonstrate that the review gate is a real control rather than a rubber stamp, which is precisely the kind of evidence a supervisor examining the bank's control environment (as distinct from just the numbers) is looking for. A system that only retains final, approved outputs and silently discards everything upstream of them has **quietly destroyed the evidence** that its own review process actually functions.
 
 ## Reproducibility as a First-Class Requirement
 
 Because a run might be scrutinized long after the cycle it belongs to has closed, the system has to support exact reproduction of any given run, not just an approximate account of what happened. This is where the versioning discipline from the context-architecture lecture pays off directly: because scenario documents, methodology documents, and portfolio snapshots are all immutably versioned and tagged, a logged run identifier is enough to pull back the *exact* set of inputs that produced a given output, months or years later. Reproducibility also has a narrower, more immediate use during the cycle itself: when a quant reviewer sends a draft back with a change, being able to re-run the same stage with a modified input and confirm the change produced the expected downstream effect is what keeps iteration fast without sacrificing traceability.
 
 It's worth being explicit that "reproducible" here means bit-for-bit traceable to a specific set of versioned inputs — not that re-running the exact same prompt against the model is guaranteed to produce identical prose. Narrative drafting is expected to vary in wording between runs; what has to be reproducible is the *evidentiary chain*, not the literal text. The audit standard is "can we show exactly what this was based on," not "can we regenerate the identical sentence."
+
+{: .important }
+> **Reproducible does not mean identical text.** The audit standard is whether the exact versioned inputs behind a number can be reconstructed — not whether re-running the same prompt regenerates the same sentence. Narrative wording is expected to vary between runs; the evidentiary chain is what has to match exactly.
 
 ## Cost Architecture for a Periodic, Not Continuous, Workload
 

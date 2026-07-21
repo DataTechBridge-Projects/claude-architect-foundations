@@ -10,7 +10,7 @@ duration: "19:20"
 
 *Video duration: 19:20*
 
-A model that produces output without ever checking that output against a standard is operating open-loop: it generates once, and whatever comes out is what you get. **Quality and feedback enforcement** is the set of techniques for closing that loop — building self-checking into the prompt or the surrounding process so that low-quality output has a chance of being caught and corrected before it ever reaches a downstream system or a human who trusted it. This is one of the most consequential ideas in the entire Prompt Layer, because it's the difference between a system that's reliable by accident and one that's reliable by design.
+A model that produces output without ever checking that output against a standard is operating open-loop: it generates once, and whatever comes out is what you get. **Quality and feedback enforcement** is the set of techniques for closing that loop — building self-checking into the prompt or the surrounding process so that low-quality output has a chance of being caught and corrected before it ever reaches a downstream system or a human who trusted it. This is one of the most consequential ideas in the entire Prompt Layer, because it's the difference between a system that's **reliable by accident and one that's reliable by design**.
 
 ## Why Self-Checking Works
 
@@ -32,7 +32,10 @@ The architectural payoff of self-checking is upstream containment: catching a pr
 
 In an agentic system, this containment matters even more than in a typical software pipeline, because agents often act on the outputs of previous steps with a degree of trust that a human reviewer wouldn't extend automatically. If Step 1 in a pipeline silently produces a slightly wrong classification, and Step 2 treats that classification as ground truth without questioning it, the error doesn't just persist — it can actively compound, because Step 2's own output is now built on a false premise, and Step 3 inherits both errors. A self-check inserted right after Step 1, checking the classification against a rubric before it's allowed to flow forward, is a cheap circuit breaker against exactly this kind of compounding failure, and it's far cheaper than trying to detect and untangle the compounded error several steps later.
 
-This is also where quality enforcement connects directly to escalation: a self-check isn't just a pass/fail gate that either lets output through or silently discards it. A well-designed self-check that fails should route to a defined fallback — retry with the identified problem called out explicitly, escalate to a human reviewer, or return a clear "unable to complete confidently" signal rather than forcing output through regardless. The goal isn't just detecting low quality; it's making sure detection actually changes what happens next, rather than being logged and ignored.
+This is also where quality enforcement connects directly to escalation: a self-check isn't just a pass/fail gate that either lets output through or silently discards it. A well-designed self-check that fails should route to a defined fallback — retry with the identified problem called out explicitly, escalate to a human reviewer, or return a clear "unable to complete confidently" signal rather than forcing output through regardless. The goal isn't just detecting low quality; it's making sure **detection actually changes what happens next**, rather than being logged and ignored.
+
+{: .important }
+> A self-check that fails and has nowhere to route is nearly worthless. Never build a quality gate without also defining what happens on failure — retry, escalate, or a clear "not confident" signal — or the check becomes something that gets logged and ignored rather than something that actually changes the outcome.
 
 ## Techniques for Structuring the Self-Check
 

@@ -23,9 +23,12 @@ This mapping is intentional and worth paying attention to, because the real exam
 
 There's a second reason the labs are worth taking seriously beyond exam prep: they're the closest thing in this course to rehearsing the actual job. A CCA-F credential is meant to signal that you can make sound architectural calls under real constraints, not just recite the five-layer vocabulary — and vocabulary alone doesn't tell you whether someone would choose a fixed workflow or an autonomous agent when a stakeholder is standing over their shoulder asking for a decision by Friday. The labs manufacture that pressure in miniature: a scenario, a set of competing constraints, and no single "textbook" answer waiting underneath.
 
-Pay attention, too, to how each lab is scoped. None of them ask you to write or run code, and that's deliberate rather than an oversight — the CCA-F is an architecture certification, not an implementation one, so the labs isolate the decision layer from the execution layer on purpose. What they *do* ask for is a defensible chain of reasoning: given these constraints, why this architecture and not the alternative? That's precisely the skill scenario questions on the real exam are built to test, and it's a skill that improves with repetition far more reliably than it improves with re-reading definitions.
+Pay attention, too, to how each lab is scoped. None of them ask you to write or run code, and that's deliberate rather than an oversight — **the CCA-F is an architecture certification, not an implementation one**, so the labs isolate the decision layer from the execution layer on purpose. What they *do* ask for is a defensible chain of reasoning: given these constraints, why this architecture and not the alternative? That's precisely the skill scenario questions on the real exam are built to test, and it's a skill that improves with repetition far more reliably than it improves with re-reading definitions.
 
 One last practical note: treat the labs as checkpoints, not detours. If you're moving quickly through the lecture material and skipping the labs to save time, you're skipping the part of the course most correlated with actually passing scenario-based questions. Slow down for them.
+
+{: .important }
+> Don't mistake "hands-on" for "hands-on coding." The CCA-F is an architecture certification, not an implementation one — the labs (and the real exam) test whether you can produce a defensible chain of reasoning from constraints to a design decision, never whether you can write or run code.
 
 <!-- prevnext:start -->
 

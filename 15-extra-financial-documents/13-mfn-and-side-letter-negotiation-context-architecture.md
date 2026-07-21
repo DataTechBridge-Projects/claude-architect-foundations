@@ -18,7 +18,10 @@ The honest answer is that it depends on fund size, and the architecture should s
 
 For a larger fund with a hundred-plus side letters, loading full text for all of them isn't practical, and the architecture shifts toward the retrieval pattern developed in the next lecture: a summarized index of the whole population (which is cheap enough to keep in context even at scale, since a structured one-paragraph digest per letter is a small fraction of the letter's full text) paired with on-demand retrieval of full clause text for any letter the agent's initial pass over the summaries flags as a plausible candidate. The summarized index functions like a map, and the agent decides, based on what the map shows, which specific territories are worth pulling in full detail — which is exactly the agentic behavior the previous lecture argued for for a fixed workflow.
 
-Either way, the architectural principle is the same: the agent should always have visibility into the *shape* of the full population — how many side letters exist, which have MFN clauses, broadly what categories of terms each covers — even when it doesn't have the full text of every one loaded at once. Losing sight of the population's shape is what causes an agent to under-search: if it only ever sees the letters a first-pass keyword match happens to surface, it has no way of knowing there might be other relevant ones it hasn't looked at.
+Either way, the architectural principle is the same: the agent should always have visibility into the *shape* of the full population — how many side letters exist, which have MFN clauses, broadly what categories of terms each covers — even when it doesn't have the full text of every one loaded at once. **Losing sight of the population's shape is what causes an agent to under-search**: if it only ever sees the letters a first-pass keyword match happens to surface, it has no way of knowing there might be other relevant ones it hasn't looked at.
+
+{: .important }
+> Never let the agent's view of the side letter population shrink to only what a first-pass search happened to surface. It needs standing visibility into the full population's shape — how many letters exist and which have MFN clauses — or it has no way to know what it hasn't looked at yet.
 
 ## The proposed new terms
 

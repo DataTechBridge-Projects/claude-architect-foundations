@@ -61,17 +61,20 @@ A useful way to hold the distinction: the system prompt defines who the agent *i
 | Change process | Edited and reviewed like any other file in the repo | Configured at the application/harness level |
 | Defines | What the agent needs to know to work in *this* place | Who the agent *is* and how it generally behaves |
 
+{: .important }
+> Don't conflate `CLAUDE.md` with the system prompt. `CLAUDE.md` is project-scoped, team-owned, and version-controlled with the repo; the system prompt defines the agent's identity and general behavior and typically spans many projects. Cramming project-specific conventions into a system prompt — or generic identity and behavior rules into `CLAUDE.md` — is a common exam trap.
+
 ## Common Patterns
 
 **Layered CLAUDE.md files.** Claude Code supports `CLAUDE.md` files at multiple directory levels — a root-level file with organization- or repo-wide conventions, and nested files in subdirectories with more specific context (a `frontend/CLAUDE.md` covering component conventions, a `services/billing/CLAUDE.md` covering that service's particular constraints). This mirrors how a large engineering org actually distributes knowledge: some things are true everywhere, some things are true only in one corner of the codebase, and forcing everything into one flat file loses that structure.
 
-**Keeping it living, not archival.** The best `CLAUDE.md` files get edited whenever a convention changes or a new gotcha is discovered, the same way a good README does. A `CLAUDE.md` that hasn't been touched in a year, in an actively changing codebase, is a warning sign — it's likely stale, and stale project context is worse than no project context, because it actively misleads rather than simply being absent.
+**Keeping it living, not archival.** The best `CLAUDE.md` files get edited whenever a convention changes or a new gotcha is discovered, the same way a good README does. A `CLAUDE.md` that hasn't been touched in a year, in an actively changing codebase, is a warning sign — it's likely stale, and **stale project context is worse than no project context**, because it actively misleads rather than simply being absent.
 
 **Treating it as a first-class reviewed artifact.** Changes to `CLAUDE.md` should go through the same review process as code, because a bad instruction in that file has leverage — it silently shapes every future session, not just one.
 
 ## Common Anti-Patterns
 
-The most common failure mode is **treating `CLAUDE.md` as a dumping ground.** Once teams discover it works, there's a temptation to paste in the entire architecture decision record, every past incident postmortem, or a full API reference. This defeats the purpose. Every line in `CLAUDE.md` is loaded into context on *every single session*, whether or not that session needs it — so bloating the file has a real, ongoing cost in context budget (this is exactly the tension the next lecture explores against retrieval-based approaches). A `CLAUDE.md` should stay tight: durable, high-value, broadly-applicable information only.
+The most common failure mode is **treating `CLAUDE.md` as a dumping ground.** Once teams discover it works, there's a temptation to paste in the entire architecture decision record, every past incident postmortem, or a full API reference. This defeats the purpose. Every line in `CLAUDE.md` is loaded into context on *every single session*, whether or not that session needs it — so bloating the file has **a real, ongoing cost in context budget** (this is exactly the tension the next lecture explores against retrieval-based approaches). A `CLAUDE.md` should stay tight: durable, high-value, broadly-applicable information only.
 
 A second anti-pattern is **using it for information that changes frequently.** Sprint priorities, who's currently on call, this week's known bug list — these rot almost immediately and turn the file into a source of stale, misleading guidance rather than reliable ground truth. If something changes weekly, it doesn't belong in a file designed to be trusted as stable.
 

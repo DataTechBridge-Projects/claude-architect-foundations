@@ -26,7 +26,10 @@ Because this is fundamentally a verification system, its most important ongoing 
 
 A **false positive** — flagging a discrepancy that a human reviewer determines isn't actually one — is costly in reviewer time and, if it happens often enough, corrosive to trust in the system; validators who've been burned by noisy flags start rubber-stamping them, which quietly defeats the purpose of having a human review step at all. False positives are relatively easy to measure, because every flag gets a human resolution that explicitly records whether it was confirmed or dismissed, so the false-positive rate falls directly out of the resolution log described above.
 
-A **false negative** — a real discrepancy the system missed entirely — is far more dangerous and far harder to measure, precisely because by definition the system didn't flag it, so there's no natural record pointing an observer toward the miss. This is why the sampled review of clean passes isn't a nice-to-have; it's the primary mechanism for estimating the false-negative rate at all. Some false negatives will also surface later through other channels — a subsequent regulatory examination, a later validation cycle using updated methodology, or an unrelated audit — and every one of those has to be fed back into the system's tracked accuracy record and, ideally, into a root-cause review of why the check missed it, since a recurring blind spot in how calculations get decomposed into checkable steps is a system design problem, not a one-off miss.
+A **false negative** — a real discrepancy the system missed entirely — is far more dangerous and far harder to measure, precisely because by definition the system didn't flag it, so there's no natural record pointing an observer toward the miss. This is why the sampled review of clean passes isn't a nice-to-have; it's the primary mechanism for estimating the false-negative rate at all.
+
+{: .important }
+> **False negatives are the dangerous ones, and the hardest to see** — by definition nothing points an observer toward a miss. Sampled review of clean-pass verdicts is not a nice-to-have; it is the only mechanism that estimates the false-negative rate at all, which is exactly why it's the wrong place to cut when budgets tighten. Some false negatives will also surface later through other channels — a subsequent regulatory examination, a later validation cycle using updated methodology, or an unrelated audit — and every one of those has to be fed back into the system's tracked accuracy record and, ideally, into a root-cause review of why the check missed it, since a recurring blind spot in how calculations get decomposed into checkable steps is a system design problem, not a one-off miss.
 
 | | False Positive | False Negative |
 |---|---|---|
@@ -35,7 +38,7 @@ A **false negative** — a real discrepancy the system missed entirely — is fa
 | Primary cost | Reviewer time; erodes trust, risks rubber-stamping | Bank operates on a miscalculated capital position |
 | Main detection mechanism | Resolution log | Sampled review of clean-pass verdicts |
 
-Both rates should be tracked over time and segmented — by calculation type, by which methodology area is involved, by which model or business line the calculation belongs to — because an aggregate accuracy number can hide a system that's excellent at some categories of check and unreliable at others. A validation tool that's 98% accurate in aggregate but consistently misses discrepancies in one specific, high-risk calculation category has a serious problem that an aggregate metric will actively conceal.
+Both rates should be tracked over time and segmented — by calculation type, by which methodology area is involved, by which model or business line the calculation belongs to — because an aggregate accuracy number can hide a system that's excellent at some categories of check and unreliable at others. A validation tool that's 98% accurate in aggregate but consistently misses discrepancies in one specific, high-risk calculation category has a serious problem that an aggregate metric will **actively conceal**.
 
 ## Cost Tradeoffs
 

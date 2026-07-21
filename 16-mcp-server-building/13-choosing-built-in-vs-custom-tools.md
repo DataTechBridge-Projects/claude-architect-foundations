@@ -14,7 +14,10 @@ The previous lecture drew the architectural line between a built-in tool and one
 
 ## Start with the default, not the exception
 
-The practical default, and the one worth internalizing first: if a built-in tool already does what you need, use it, and don't build a custom equivalent without a specific reason. A team that writes its own web-fetching-and-parsing tool when Claude's built-in web search already covers the need has taken on real, ongoing maintenance burden — keeping a scraper working against sites that change their markup, handling rate limits and blocking, maintaining error handling — for a capability that already exists, is already maintained by the people best positioned to maintain it, and improves over time without that team lifting a finger. The same logic applies to code execution: a custom sandboxed execution tool duplicates real infrastructure work (isolation, resource limits, security hardening) that a built-in equivalent already solves.
+The practical default, and the one worth internalizing first: if a built-in tool already does what you need, **use it, and don't build a custom equivalent without a specific reason**.
+
+{: .important }
+> Default to the built-in tool. Build or connect a custom one only for a **specific, articulable reason** — the capability doesn't exist as a built-in, you need control a built-in doesn't expose, or the built-in's risk scope doesn't match your deployment — never reflexively, and never as a blanket "always build custom" policy. A team that writes its own web-fetching-and-parsing tool when Claude's built-in web search already covers the need has taken on real, ongoing maintenance burden — keeping a scraper working against sites that change their markup, handling rate limits and blocking, maintaining error handling — for a capability that already exists, is already maintained by the people best positioned to maintain it, and improves over time without that team lifting a finger. The same logic applies to code execution: a custom sandboxed execution tool duplicates real infrastructure work (isolation, resource limits, security hardening) that a built-in equivalent already solves.
 
 ## When custom is the right call
 
@@ -28,7 +31,7 @@ Custom tools — whether defined directly in application code or exposed through
 
 ## The maintenance-burden tradeoff, stated plainly
 
-Every custom tool you build or connect is a piece of infrastructure your organization now owns: it needs to keep working as the underlying system it wraps changes, needs its own security review and credential scoping (with real force if it's MCP-exposed, per the governance lecture), and needs someone accountable for it when it breaks. A built-in tool carries none of that burden — its maintenance is Anthropic's responsibility, not yours, and it improves as Claude itself improves without any action on your part. This is the same build-versus-buy calculus that applies to infrastructure decisions generally, just applied to the specific case of tools a model calls: the question is never "can we build this" but "should we carry the ongoing cost of owning this, given what we'd actually gain by not using what already exists."
+Every custom tool you build or connect is a piece of infrastructure your organization now owns: it needs to keep working as the underlying system it wraps changes, needs its own security review and credential scoping (with real force if it's MCP-exposed, per the governance lecture), and needs someone accountable for it when it breaks. A built-in tool carries none of that burden — its maintenance is Anthropic's responsibility, not yours, and it improves as Claude itself improves without any action on your part. This is the same build-versus-buy calculus that applies to infrastructure decisions generally, just applied to the specific case of tools a model calls: the question is never "can we build this" but "**should we carry the ongoing cost of owning this**, given what we'd actually gain by not using what already exists."
 
 ## A worked contrast
 

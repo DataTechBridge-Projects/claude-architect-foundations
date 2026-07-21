@@ -19,7 +19,7 @@ Stated mechanically, the orchestration loop is:
 1. **Assemble context.** The system prompt, conversation history, available tool definitions, and any other relevant material (files, prior results, retrieved documents) are gathered into the input for the next model call. This step is invisible in most diagrams but it's where most of the Context and Prompt layers of this course actually apply — what goes into this bundle, and how it's organized, determines how well the model reasons in the next step.
 2. **Call the model.** That assembled context is sent to Claude via a single Messages API request. The model generates a response conditioned entirely on what it was given — it has no access to anything outside this call.
 3. **Branch on the response.** The response is either ordinary text (in which case, for a single turn, the loop is done) or one or more **tool-use requests** — structured, schema-conforming instructions specifying which tool to call and with what arguments. If it's tool-use requests, continue.
-4. **Execute the requested tool(s).** The surrounding system — the Claude Code harness, an Agent SDK application, or your own orchestration code — actually performs the requested action: reads a file, runs a shell command, queries an API, writes a database row. This is the only step in the loop where anything actually happens outside the model. The model itself never touches the file system, the network, or a database; it only ever emits tokens describing what it wants done.
+4. **Execute the requested tool(s).** The surrounding system — the Claude Code harness, an Agent SDK application, or your own orchestration code — actually performs the requested action: reads a file, runs a shell command, queries an API, writes a database row. This is the only step in the loop where anything actually happens outside the model. The model itself **never touches the file system, the network, or a database**; it only ever emits tokens describing what it wants done.
 5. **Return the result and repeat.** The output of that execution — success data, an error, a partial result — is appended to the conversation as a tool result message, and the loop returns to step 2. The model now generates its next response with that new information in context, and either requests another tool call or produces a final answer.
 
 ```mermaid
@@ -36,7 +36,7 @@ Nothing about this is exotic. It's the same next-token-prediction mechanism from
 
 ## Termination conditions
 
-A loop that runs forever isn't useful, and a well-architected agentic system needs explicit answers to "when does this stop?" There are several distinct termination conditions, and conflating them is a common source of exam-trap questions:
+A loop that runs forever isn't useful, and a well-architected agentic system needs explicit answers to "when does this stop?" There are several distinct termination conditions, and **conflating them is a common source of exam-trap questions**:
 
 - **Natural completion.** The model produces a text response with no tool-use request, signaling it believes the task is done. This is the default, happy-path termination — the model itself decides it has what it needs.
 - **Iteration or turn limits.** The orchestrating system caps how many passes through the loop are allowed, regardless of what the model wants to do next. This protects against runaway loops caused by a model that keeps calling tools without making progress — a real failure mode, not a hypothetical one.
@@ -55,6 +55,9 @@ A loop that runs forever isn't useful, and a well-architected agentic system nee
 | Error escalation | An unrecoverable tool failure occurs | A permissions error is surfaced instead of retried |
 
 Good architecture treats these as layered defenses, not alternatives. A production agentic system typically has all of them active simultaneously: the model's own judgment is the primary mechanism, but iteration caps, budgets, and timeouts are the backstops that fire when that judgment fails or when the model is simply wrong about how close it is to done.
+
+{: .important }
+> Termination conditions are layered defenses, not interchangeable alternatives. A production agentic system runs natural completion, iteration caps, budgets, timeouts, external signals, and error escalation simultaneously — relying on the model's own judgment alone to know when to stop is not sufficient by itself.
 
 ## Why this loop is the fundamental unit of "agentic" behavior
 

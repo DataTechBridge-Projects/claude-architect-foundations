@@ -45,6 +45,9 @@ The **Agentic layer** distinguishes a checkpoint (any pause for inspection or re
 
 The pattern's recurring failure isn't the absence of a gate — architects rarely forget gates entirely — it's placing the *wrong kind* of gate, or placing a gate at the wrong altitude. A checkpoint built to inspect intermediate work gets treated as if it were an approval gate protecting an irreversible action, and nobody notices until something irreversible slips through unreviewed. Or a gate is defined but scoped so poorly — dumping an entire session log in front of an overworked reviewer — that it exists in the architecture diagram without ever catching a real error. When a scenario describes a review step that "didn't work," your first move should be asking which of these two failures actually occurred: no gate, or a gate that couldn't function given what it was shown.
 
+{: .important }
+> Don't conflate a **checkpoint** (any pause for inspection or recovery) with an **approval gate** (specifically a human go/no-go decision reserved for irreversible or high-blast-radius actions). Placing the wrong kind of pause — or the right kind at the wrong altitude — is one of the exam's most common trap scenarios.
+
 ## Pattern 4: Granularity Matched to Stakes, Never Fixed
 
 Four separate layers each contain their own version of a granularity question, and all four resolve it the same way: match the grain size to how well-understood and how costly-to-get-wrong the specific unit is, rather than adopting one fixed granularity as a house style.

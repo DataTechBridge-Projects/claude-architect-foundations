@@ -44,6 +44,9 @@ The strength of rollback strategy available depends heavily on the nature of the
 
 A mature agentic workflow explicitly classifies its own significant actions along these lines during design, rather than discovering which category an action falls into only after something has gone wrong.
 
+{: .important }
+> For a genuinely irreversible action, the gate has to come *before* the action, not after. Rollback and compensation only work on actions that can be undone or counteracted — an irreversible action has no recovery step, so an approval gate is the only safeguard that can still prevent the damage.
+
 | Action type | Can it be undone? | Example | Best safeguard |
 |---|---|---|---|
 | Reversible | Simply undone | Reverting a commit, discarding a draft | Lighter checkpoint regime |

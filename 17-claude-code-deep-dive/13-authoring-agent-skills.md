@@ -61,7 +61,10 @@ Putting the pieces together, a Skill's lifecycle across a session looks like thi
 
 ## A Common Authoring Mistake: Writing for the Reader, Not the Trigger
 
-A subtle but common failure when authoring a first Skill is spending most of the effort on the body and treating the description as an afterthought, dashed off once the real content is done. This gets the priorities backwards. The body only ever matters if the description successfully triggers the Skill in the first place — a beautifully written procedure that never loads because its description didn't match the way the task was actually phrased delivers exactly zero value, indistinguishable in outcome from a Skill that was never written at all. Authoring a Skill well means treating the description as a first-class piece of writing in its own right, worth iterating on independently of the body, not a label applied to already-finished work.
+A subtle but common failure when authoring a first Skill is spending most of the effort on the body and treating the description as an afterthought, dashed off once the real content is done. This gets the priorities backwards. **The body only ever matters if the description successfully triggers the Skill in the first place** — a beautifully written procedure that never loads because its description didn't match the way the task was actually phrased delivers exactly zero value, indistinguishable in outcome from a Skill that was never written at all. Authoring a Skill well means treating the description as a first-class piece of writing in its own right, worth iterating on independently of the body, not a label applied to already-finished work.
+
+{: .important }
+> A Skill's description, not its body, determines whether it ever gets used. A perfectly written procedure that never loads because the description didn't match how the task was phrased delivers zero value — indistinguishable from never having written it at all.
 
 ## A Short Worked Example
 

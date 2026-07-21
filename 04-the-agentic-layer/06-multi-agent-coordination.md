@@ -25,6 +25,9 @@ The legitimate reasons to split work across agents are:
 
 None of these reasons is "the task is hard" by itself. A long, hard, but fundamentally linear task — where each step genuinely depends on the full context of everything before it — is usually still best served by one agent with a well-managed context, not by splitting it arbitrarily. Multi-agent systems introduce real overhead (covered below), and that overhead has to be justified by one of the actual benefits above, not by an intuition that more agents feels more sophisticated.
 
+{: .important }
+> "The task is hard" is not, by itself, a reason to go multi-agent. A tightly coupled, fundamentally linear task is usually still best served by one agent with well-managed context — splitting it arbitrarily only adds the coordination overhead covered below without any of the four legitimate benefits.
+
 ## The orchestrator/subagent hierarchy
 
 The dominant pattern in practice — and the one Claude Code itself implements with its subagent feature — is a hierarchy: one **orchestrator** (or "parent," or "lead") agent holds the overall task and decides how to decompose it, and one or more **subagents** are invoked to handle discrete pieces of that decomposition, each running its own independent orchestration loop, each with its own context, and each reporting a result back to the orchestrator when done.

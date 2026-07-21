@@ -16,7 +16,7 @@ Push the analogy one step further and it explains why provenance has to be *atta
 
 A concrete illustration: imagine two versions of the same context entry. One reads "the customer's shipping address is 44 Birch Lane." The other reads "the customer's shipping address is 44 Birch Lane (source: account database, verified 12 minutes ago)." Both convey the same core fact, but only the second is actually usable the way provenance is meant to be used — if a later step in the same session encounters a conflicting address from an older email, the first version gives the model nothing to weigh the conflict with, while the second immediately tells it which source should win and why.
 
-This lecture is deliberately the short, name-the-idea companion to the "Data Provenance and Conflicts" lecture later in this module, which works through the full mechanics — what metadata to attach, how to resolve conflicting sources, and how provenance survives (or doesn't) summarization and compaction. Treat this one as the thirty-second version worth remembering even if you forget everything else: no papers, no trust, no exceptions.
+This lecture is deliberately the short, name-the-idea companion to the "Data Provenance and Conflicts" lecture later in this module, which works through the full mechanics — what metadata to attach, how to resolve conflicting sources, and how provenance survives (or doesn't) summarization and compaction. Treat this one as the thirty-second version worth remembering even if you forget everything else: **no papers, no trust, no exceptions.**
 
 <!-- prevnext:start -->
 

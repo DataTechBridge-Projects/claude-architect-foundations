@@ -40,6 +40,9 @@ Third, "guess and continue" scales its damage with autonomy. The more independen
 
 None of this means an agent should treat every shred of uncertainty as a hard stop — a system that escalates constantly is barely more useful than one that doesn't run at all, and excessive escalation has its own real cost, covered below. The point is narrower and more precise: the *default* under genuine ambiguity should not be silent resolution. Silence is the failure mode, not caution itself.
 
+{: .important }
+> **A guess that gets acted on becomes indistinguishable from a verified fact** in every later turn — nothing marks it as tentative unless the agent explicitly flags it. Treat "guess and continue" as almost never the right default: resolve the ambiguity, flag it visibly, or escalate it, but never resolve it silently.
+
 ## Choosing an appropriately granular response
 
 Given that "guess and continue" is off the table as a default, what should an agent actually do? The exam expects you to know that this isn't a binary choice between "act" and "stop everything," but a spectrum of responses that should be matched to how severe and how resolvable the ambiguity actually is.
@@ -61,7 +64,7 @@ flowchart TD
     B -->|"Foundational to the task itself"| F["Stop and defer entirely"]
 ```
 
-The granularity aside later in this module makes a point worth anchoring here explicitly: whichever level of response is appropriate, "do nothing and ask" has to be a genuinely available option at the decision point, not something the agent has to invent by refusing to follow its instructions. If an agent's designed option set is only ever "pick A or pick B," an ambiguous situation where neither A nor B is clearly right leaves the agent with no correct move at all — it will pick one of them, because that's all it's been given room to do. Designing for ambiguity means designing the option space to include restraint as a legitimate choice, not just the active alternatives.
+The granularity aside later in this module makes a point worth anchoring here explicitly: whichever level of response is appropriate, "do nothing and ask" **has to be a genuinely available option at the decision point**, not something the agent has to invent by refusing to follow its instructions. If an agent's designed option set is only ever "pick A or pick B," an ambiguous situation where neither A nor B is clearly right leaves the agent with no correct move at all — it will pick one of them, because that's all it's been given room to do. Designing for ambiguity means designing the option space to include restraint as a legitimate choice, not just the active alternatives.
 
 ## The cost of over-escalation
 

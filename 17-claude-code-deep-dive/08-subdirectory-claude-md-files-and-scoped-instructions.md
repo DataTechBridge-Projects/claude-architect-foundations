@@ -16,6 +16,9 @@ The three-level hierarchy lecture introduced subdirectory `CLAUDE.md` files as t
 
 Root-level and ancestor `CLAUDE.md` files (walking up the directory tree from wherever a session starts) are loaded **in full, at launch** — they're part of the standing context every turn in that session pays for, whether or not the current task ever touches the part of the codebase they describe. Subdirectory files further down the tree behave differently: rather than being loaded up front, they're discovered and pulled into context **on demand**, specifically when Claude actually reads or works with files inside that subdirectory. A `frontend/CLAUDE.md` in a monorepo doesn't cost anything in a session that never touches `frontend/` — it simply never loads, because nothing ever gave the harness a reason to look for it there.
 
+{: .important }
+> Root and ancestor `CLAUDE.md` files load in full at session start and cost context every turn regardless of relevance. Subdirectory files load **on demand**, only when Claude actually works in that part of the tree — don't assume every `CLAUDE.md` in a repo carries the same standing cost.
+
 | | Root / ancestor CLAUDE.md | Subdirectory CLAUDE.md |
 |---|---|---|
 | When it loads | In full, at session start | On demand, when Claude works in that subdirectory |

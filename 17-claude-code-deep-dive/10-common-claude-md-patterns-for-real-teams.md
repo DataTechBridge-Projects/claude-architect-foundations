@@ -40,7 +40,7 @@ The difference between a convention that shapes behavior and one that reads as b
 - Feature flags are read through `src/flags.ts`, never `process.env` directly.
 ```
 
-Compare that to the weaker, common alternative: "We try to keep a clean separation between routes and data access." The weaker version is true, sounds reasonable, and gives an agent almost nothing to act on — it doesn't say *where* the boundary is enforced or *what specifically* violates it. The stronger version states the rule as something checkable: is this new code calling the ORM directly from a route handler, yes or no.
+Compare that to the weaker, common alternative: "We try to keep a clean separation between routes and data access." The weaker version is true, sounds reasonable, and **gives an agent almost nothing to act on** — it doesn't say *where* the boundary is enforced or *what specifically* violates it. The stronger version states the rule as something checkable: is this new code calling the ORM directly from a route handler, yes or no.
 
 ## Constraints, Written as Explicit Boundaries
 

@@ -19,9 +19,12 @@ Serious agent evaluation starts with a held-out set of representative tasks — 
 | Exact-match / structural | Outputs with a single verifiable right answer | Correct field extracted, correct tool called, valid JSON |
 | LLM-as-judge | Fuzzy or subjective correctness | Tone, completeness, reasoning quality |
 
-The Prompt Layer's principle of not letting a pass grade its own homework applies directly here: the judge should be a distinct, independently-prompted pass, not the same call that produced the output.
+The Prompt Layer's principle of not letting a pass grade its own homework applies directly here: **the judge should be a distinct, independently-prompted pass, not the same call that produced the output.**
 
-The part that actually matters in practice isn't scoring one run — it's catching regressions over time. Every prompt tweak, tool change, or model upgrade is a chance to fix one failure mode while silently introducing another, and without a suite you re-run on every change, you won't know which happened until a user hits it in production. Treat your eval suite exactly the way you'd treat an automated test suite for code: version it alongside the prompts and tools it's evaluating, run it in CI before any of those artifacts ship, and trust its aggregate results over your own impression from skimming a few transcripts — intuition is a fine way to generate hypotheses, but a terrible way to confirm them.
+{: .important }
+> Never let the same call that produced an output also grade it. An LLM-as-judge pass must be a separate, independently-prompted call — otherwise you're just measuring the model's confidence in itself, not correctness.
+
+The part that actually matters in practice isn't scoring one run — it's catching regressions over time. Every prompt tweak, tool change, or model upgrade is a chance to fix one failure mode while silently introducing another, and without a suite you re-run on every change, **you won't know which happened until a user hits it in production.** Treat your eval suite exactly the way you'd treat an automated test suite for code: version it alongside the prompts and tools it's evaluating, run it in CI before any of those artifacts ship, and trust its aggregate results over your own impression from skimming a few transcripts — intuition is a fine way to generate hypotheses, but a terrible way to confirm them.
 
 <!-- prevnext:start -->
 

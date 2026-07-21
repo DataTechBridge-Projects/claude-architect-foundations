@@ -40,7 +40,10 @@ Tasks where variety is actually part of the value — generating several distinc
 
 For most of what this course treats as production agentic work — tool selection, structured data extraction, classification, code review, anything feeding a downstream system that expects consistent behavior — low temperature is the sound default, because reliability and reproducibility matter more than variety, and unpredictable variation in a tool-calling decision or an extracted field is a source of bugs, not a benefit. Reserve higher temperature deliberately for the narrower slice of tasks where output diversity is genuinely part of the goal, and treat it as an explicit, documented choice for that specific call site rather than a system-wide default.
 
-It's worth noting that these parameters address *variance in token selection*, not correctness — a low-temperature setting makes a model's output more consistent, but consistently wrong is still wrong, and no combination of temperature, top_p, or top_k substitutes for the prompt-design and evaluation work covered throughout the rest of this module. Sampling parameters are a tuning layer applied on top of a well-designed prompt, not a replacement for one.
+It's worth noting that these parameters address *variance in token selection*, not correctness — **a low-temperature setting makes a model's output more consistent, but consistently wrong is still wrong**, and no combination of temperature, top_p, or top_k substitutes for the prompt-design and evaluation work covered throughout the rest of this module. Sampling parameters are a tuning layer applied on top of a well-designed prompt, not a replacement for one.
+
+{: .important }
+> Never treat a sampling parameter as a fix for a correctness problem. Temperature, top_p, and top_k control variance in token selection, not whether the underlying answer is right — a low-temperature setting just makes a wrong output consistently wrong.
 
 ## A Worked Example
 

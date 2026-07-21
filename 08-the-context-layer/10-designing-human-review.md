@@ -24,7 +24,7 @@ The first design question is *when* a checkpoint belongs in a system at all, and
 
 It's worth being explicit that a checkpoint has a real cost, not just a benefit. Every stop-and-wait introduces latency, consumes a human's limited attention, and — if triggered too often or on decisions that didn't actually need it — degrades the quality of every future review by training the reviewer to skim. This is the human-review version of the over-escalation problem discussed earlier: a system that routes every decision, however minor, through human review isn't cautious, it's just expensive and eventually ignored. The architect's job is to place checkpoints where they earn their cost and nowhere else, which means being able to articulate, for each candidate checkpoint, specifically what kind of error it's meant to catch and why an agent operating alone couldn't reliably catch it itself.
 
-A useful test: if you can't state what specific failure mode a checkpoint exists to catch, it's probably in the wrong place, or redundant with a check that already exists elsewhere in the system. "Have a human review this because it seems important" is not a design; "have a human review this because the agent's confidence in the vendor match is below a threshold, and a wrong match here triggers a payment that's expensive to reverse" is.
+A useful test: **if you can't state what specific failure mode a checkpoint exists to catch, it's probably in the wrong place**, or redundant with a check that already exists elsewhere in the system. "Have a human review this because it seems important" is not a design; "have a human review this because the agent's confidence in the vendor match is below a threshold, and a wrong match here triggers a payment that's expensive to reverse" is.
 
 ```mermaid
 flowchart TD
@@ -49,6 +49,9 @@ Once you've decided a checkpoint belongs at a given point, the harder and more c
 ## The failure mode of too much context
 
 It's worth dwelling on a mistake that comes from good intentions: giving a reviewer *everything*, on the theory that more information can only help a human make a better-informed call. This instinct is understandable — nobody wants to be accused of hiding information from a reviewer — but it produces exactly the same signal-dilution failure discussed throughout this module, just relocated to a human reader instead of a model. A reviewer handed forty screens of raw data to approve a single decision will, in practice, either take far longer than the checkpoint's value justifies, or — far more commonly under real time pressure — skim past most of it and approve based on a shallow read that the volume of material actively discouraged from being thorough.
+
+{: .important }
+> **Giving a reviewer everything is not safer than giving them too little** — it produces the same signal-dilution failure relocated to a human reader, causing reviewers to either take far longer than the decision justifies or skim and rubber-stamp under time pressure.
 
 The discipline here is the same editorial judgment that governs good summarization elsewhere in this module: identifying what's actually load-bearing for *this specific decision* and presenting that, with a clear path to the underlying detail for a reviewer who wants to dig deeper, rather than forcing every reviewer to wade through the full detail by default. A well-designed checkpoint interface often looks like a concise summary up front, with the full supporting detail available on demand rather than pushed onto the reviewer unconditionally — the reviewer gets to choose their own depth, rather than having a fixed depth chosen for them by the volume of what was included.
 

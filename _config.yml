@@ -25,6 +25,9 @@ callouts:
   key-term:
     title: Key Term
     color: green
+  important:
+    title: Important
+    color: red
 
 mermaid:
   version: "10.9.1"

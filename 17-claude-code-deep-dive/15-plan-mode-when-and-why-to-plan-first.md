@@ -24,7 +24,10 @@ flowchart TD
     D -->|"Reject, request revision"| B
 ```
 
-Entering Plan Mode changes what Claude is allowed to do without changing what it's allowed to *look at*: it can read files, search the codebase, and run read-only commands to investigate freely, but no edit happens, no matter how confident the model becomes partway through, until a plan is presented and explicitly approved. The output of this phase isn't code — it's a description of an intended approach: which files will change, roughly how, in what order, and why. Only once that description is approved does execution actually begin, typically switching into a more permissive mode for the edit phase itself, since the plan review already served as the approval gate for the *approach* — re-litigating each individual edit at that point would just be redundant oversight over a decision already made.
+Entering Plan Mode **changes what Claude is allowed to do without changing what it's allowed to *look at***: it can read files, search the codebase, and run read-only commands to investigate freely, but no edit happens, no matter how confident the model becomes partway through, until a plan is presented and explicitly approved.
+
+{: .important }
+> Plan Mode restricts *actions*, not *exploration*. Claude can still read files, search the codebase, and run read-only commands freely — no edit happens, however confident the model becomes mid-investigation, until a plan is presented and explicitly approved. The output of this phase isn't code — it's a description of an intended approach: which files will change, roughly how, in what order, and why. Only once that description is approved does execution actually begin, typically switching into a more permissive mode for the edit phase itself, since the plan review already served as the approval gate for the *approach* — re-litigating each individual edit at that point would just be redundant oversight over a decision already made.
 
 ## The Case For Planning First
 
@@ -42,7 +45,7 @@ The practical judgment call, then, mirrors the oversight-versus-velocity tradeof
 
 ## Iterating on a Plan
 
-A plan, once presented, isn't a binary accept-or-reject proposition — the workflow supports genuine iteration, and using that iteration well is most of what separates a team that finds Plan Mode valuable from one that treats it as a rubber stamp. Reviewing a presented plan, you can:
+A plan, once presented, **isn't a binary accept-or-reject proposition** — the workflow supports genuine iteration, and using that iteration well is most of what separates a team that finds Plan Mode valuable from one that treats it as a rubber stamp. Reviewing a presented plan, you can:
 
 - **Approve it as written**, moving into execution exactly as proposed.
 - **Edit the plan directly** before approving — correcting a detail, reordering steps, or removing part of the proposed scope — so execution proceeds against your corrected version rather than the model's original one.

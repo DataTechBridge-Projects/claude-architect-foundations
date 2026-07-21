@@ -36,6 +36,9 @@ Compliance rules genuinely conflict sometimes — an internal policy might be mo
 
 Staleness is handled with the same discipline applied to market data in the idea generation use case, but with much less tolerance for ambiguity about what counts as current. Every rule and every piece of counterparty data carries a last-verified timestamp, and the agent is required to treat data past a defined staleness threshold as unusable rather than degraded-but-usable — where the idea generation system might flag a stale market data point and still reason around it, this system's default on stale compliance data is to halt and request a refresh, because reasoning around potentially outdated regulatory text is precisely the kind of shortcut this domain cannot tolerate. This ties directly to provenance: a rule without a clear, verifiable source and effective date is treated as insufficient basis for any assessment, full stop, regardless of how confidently it reads.
 
+{: .important }
+> Don't apply the idea generation system's staleness tolerance here. Where that system can flag a stale data point and reason around it, this system's default on stale compliance data is to **halt and request a refresh** — a rule or counterparty fact without a clear, verifiable source and effective date is never a sufficient basis for an assessment.
+
 ## Architecture Notes
 
 Tight per-trade scoping and mandatory provenance on every rule are the Context layer's core disciplines applied at maximum strictness, because in this domain an ungrounded or stale context item isn't just lower-quality output, it's a compliance failure. Surfacing rule conflicts explicitly rather than silently resolving them is the same escalation principle from the Agentic layer expressed at the context level: when context itself is ambiguous or contradictory, the system's job is to make that visible to a human, not to quietly pick a winner.

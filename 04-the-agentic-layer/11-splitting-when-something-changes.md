@@ -24,6 +24,9 @@ The reverse case is just as instructive: two steps that look separate in a task 
 
 This heuristic is also a useful check against splitting work in a way that mirrors an org chart or a project plan rather than the actual computational shape of the task. A step boundary that exists because a document happened to have three headings, rather than because the tools, data, or reviewer genuinely changed, is a sign the decomposition is being driven by the task's narrative structure instead of its architecture — and it's the kind of distinction the exam is likely to probe with a scenario that reads naturally as several steps but doesn't actually warrant splitting into several agents or workflow stages.
 
+{: .important }
+> Split a boundary only when tools, data, or reviewer genuinely change — not because a goal's description happens to read as several steps. A narrative-driven split adds coordination overhead without any of the context-isolation, parallelism, or checkpointing benefits a real boundary buys.
+
 <!-- prevnext:start -->
 
 ---

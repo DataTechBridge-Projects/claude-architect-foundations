@@ -29,6 +29,9 @@ The alternative isn't withholding information out of stinginess — it's being d
 
 Notice the shape of this list: it's a *distillation* of the upstream work, not a redaction of it. The discipline is the same one subagent report design asks for — separate the conclusion and its load-bearing support from the process that produced it, and hand forward the former, not the latter.
 
+{: .important }
+> A handoff is a curated distillation of state, decisions, and open questions — not a completeness guarantee achieved by including everything. Dumping the full upstream transcript "to be safe" degrades the receiving agent's reasoning rather than protecting it.
+
 | Handoff component | Why it matters |
 |---|---|
 | Current state of the task | Tells the next agent exactly what to do next, without a narrative to sift through |

@@ -22,7 +22,10 @@ Concretely, imagine an orchestrator's tool list includes `read_file`, `run_tests
 
 This wrapper framing is what makes composition tractable. Because a subagent presents the same interface as a plain tool, you can swap one for the other without touching the orchestrator's reasoning: a `summarize_document` capability might start life as a single well-crafted prompt-and-parse call and later get upgraded into a full subagent that reads the document, cross-checks details against other sources, and drafts a more careful summary — and the orchestrator's tool-calling behavior doesn't need to change at all, only what's on the other side of the name it's calling.
 
-The tradeoff is that "wrapper" cuts off visibility along with complexity. Exactly as covered in the results-polluting-the-context lecture earlier in this module, hiding the subagent's internal loop is precisely what keeps its noisy intermediate exploration out of the orchestrator's context — but it also means that if the subagent's internal reasoning went subtly wrong before it produced its final report, the orchestrator has no way to inspect that reasoning after the fact; it can only judge the report it received. Treating a subagent as a wrapper is a deliberate trade of transparency for a clean interface, not a free simplification.
+The tradeoff is that "wrapper" cuts off visibility along with complexity. Exactly as covered in the results-polluting-the-context lecture earlier in this module, hiding the subagent's internal loop is precisely what keeps its noisy intermediate exploration out of the orchestrator's context — but it also means that if the subagent's internal reasoning went subtly wrong before it produced its final report, **the orchestrator has no way to inspect that reasoning after the fact**; it can only judge the report it received. Treating a subagent as a wrapper is a deliberate trade of transparency for a clean interface, not a free simplification.
+
+{: .important }
+> Wrapping a subagent behind a tool-shaped interface trades transparency for composability: if the subagent's internal reasoning went wrong before it produced its report, the orchestrator has no way to inspect that reasoning after the fact — it can only judge the report it received.
 
 <!-- prevnext:start -->
 

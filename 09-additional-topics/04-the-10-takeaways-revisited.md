@@ -35,7 +35,7 @@ You now have a second axis for "simplest," beyond the Agentic layer's single-age
 
 ## 3. Tools Are an API Surface for a Reasoning System, Not a Human
 
-This takeaway now has real texture. A tool's error response carries a specific, load-bearing signal — retryable versus non-retryable — and collapsing that distinction into one generic failure message is the single most common way a well-intentioned tool still misleads the model that calls it. You also now know that schema validity and operational safety are different guarantees entirely, that MCP governance (which servers are trusted, what scope they're credentialed for, whether their actions are auditable) extends this principle to entire connected ecosystems, and that granularity — how many tools, how narrow each one is — has to be matched per capability rather than applied as one global rule.
+This takeaway now has real texture. A tool's error response carries a specific, load-bearing signal — **retryable versus non-retryable** — and collapsing that distinction into one generic failure message is the single most common way a well-intentioned tool still misleads the model that calls it. You also now know that schema validity and operational safety are different guarantees entirely, that MCP governance (which servers are trusted, what scope they're credentialed for, whether their actions are auditable) extends this principle to entire connected ecosystems, and that granularity — how many tools, how narrow each one is — has to be matched per capability rather than applied as one global rule.
 
 ## 4. Workflow and Agency Are a Spectrum, Chosen Per Step
 
@@ -51,11 +51,14 @@ The Context layer turned this into a set of concrete techniques rather than a ge
 
 ## 7. Error Handling Determines Reliability More Than the Happy Path Does
 
-This takeaway now spans three layers with three distinct mechanisms. At the Tool layer, it's retry versus fallback versus escalation, and harness-level mechanical recovery versus model-level judgment-driven recovery — reserving the model's reasoning for the ambiguous middle rather than spending a full turn on an obvious retry. At the Context layer, it's the distinction between a single wrong answer, which is usually visible and easy to catch, and a propagated error, which is camouflaged by everything reasonable that got built on top of it before anyone noticed. Recognizing which of these three you're looking at in a scenario is usually the fastest way to the right fix.
+This takeaway now spans three layers with three distinct mechanisms. At the Tool layer, it's retry versus fallback versus escalation, and harness-level mechanical recovery versus model-level judgment-driven recovery — reserving the model's reasoning for the ambiguous middle rather than spending a full turn on an obvious retry. At the Context layer, it's the distinction between a single wrong answer, which is usually visible and easy to catch, and a **propagated error**, which is camouflaged by everything reasonable that got built on top of it before anyone noticed. Recognizing which of these three you're looking at in a scenario is usually the fastest way to the right fix.
 
 ## 8. Human-in-the-Loop Is a Deliberate Design Decision, Not a Safety Net You Assume Exists
 
 You now have the sharper version of this idea from the Context layer: a review checkpoint that exists on paper is not the same as one that functions, and a gate only functions if it's scoped to show the actual decision rather than an entire session, surfaces uncertainty explicitly, and offers response granularity beyond a binary approve or reject. Combined with the Agentic layer's reversible-compensable-irreversible classification, you now have a real test for where a gate belongs: ask what it would cost to undo the action if the system got it wrong, and place the gate where that cost is genuinely high — not everywhere, and not nowhere.
+
+{: .important }
+> A gate that exists **on paper** is not the same as a gate that **functions**. A review step only actually catches errors if it shows the reviewer the specific decision (not a full session dump), surfaces uncertainty explicitly, and offers more than a binary approve/reject.
 
 ## 9. You Cannot Improve or Trust What You Don't Measure
 

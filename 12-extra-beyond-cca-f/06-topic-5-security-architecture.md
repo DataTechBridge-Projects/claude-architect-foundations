@@ -14,6 +14,9 @@ An agent with tools is an agent with an attack surface, and that surface is diff
 
 Because there's no single fix for that, security architecture for agentic systems is layered rather than singular. **Scope tools tightly** on the principle of least privilege — an agent that only *needs* to read data shouldn't also hold a tool that can send money or delete records, no matter how convenient it would be to bundle them. **Treat all retrieved and tool-returned content as untrusted data, never as instructions** — this is the most important mental shift, and it echoes the Tool Layer's structure-over-prose principle: content flowing back into context should be handled as data to reason about, not as commands to obey. **Keep irreversible or high-stakes actions behind human approval**, the same checkpoint pattern from the Workflow and Context layers. And **sandbox anything that executes code or runs arbitrary commands**, so that even a successful injection is contained to a boundary that can't reach anything sensitive.
 
+{: .important }
+> Never let retrieved documents, web pages, or tool results be treated as instructions, no matter how directive their phrasing sounds. Conflating "content the agent read" with "commands the agent should obey" is the single mechanism behind almost every prompt injection exploit.
+
 | Defense Layer | Principle | Guards Against |
 |---|---|---|
 | Least-privilege tool scoping | An agent gets only the tools it needs | A read-only agent also being able to delete or send money |

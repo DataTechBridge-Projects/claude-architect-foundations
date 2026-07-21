@@ -30,7 +30,10 @@ Categorization matters because not all disagreements carry the same weight. A mi
 | Interpretation disagreements | Model's read of an ambiguous clause differs from a reviewer's | Signal to flag low confidence, not necessarily an error |
 | False positives (deviation flagging) | Clause flagged as non-standard when it's normal variation | Low legal risk, but erodes trust in the flags over time |
 
-Tracking these categories over time, by deal type and by clause type, does two things: it tells you where the system is reliable enough to lighten the human review burden (say, routine facility-amount and maturity-date extraction, which tend to be unambiguous and low-error) and where it categorically isn't yet (say, complex basket-stacking provisions in negative covenants, which are notoriously hard even for experienced attorneys to parse correctly). That per-category reliability picture is what should actually drive how much weight a lending team puts on the system's output for a given field — not a single blended accuracy number that averages away exactly the distinction that matters.
+Tracking these categories over time, by deal type and by clause type, does two things: it tells you where the system is reliable enough to lighten the human review burden (say, routine facility-amount and maturity-date extraction, which tend to be unambiguous and low-error) and where it categorically isn't yet (say, complex basket-stacking provisions in negative covenants, which are notoriously hard even for experienced attorneys to parse correctly). That per-category reliability picture is what should actually drive how much weight a lending team puts on the system's output for a given field — **not a single blended accuracy number that averages away exactly the distinction that matters**.
+
+{: .important }
+> Never report accuracy as one blended number. A wrong leverage-covenant threshold and a missed optional field are not the same failure — averaging them into a single score hides the highest-severity error category (confident-looking wrong values) behind the lowest-severity one.
 
 ## The cost of processing long documents
 
