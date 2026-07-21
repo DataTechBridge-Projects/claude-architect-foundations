@@ -1,7 +1,7 @@
 ---
-title: Quiz Prep: The Prompt Layer (20 Questions)
+title: "Quiz Prep: The Prompt Layer (20 Questions)"
 parent: The Prompt Layer
-nav_order: 17
+nav_order: 23
 ---
 
 # Quiz Prep: The Prompt Layer (20 Questions)

@@ -1,7 +1,7 @@
 ---
-title: Role Play: Mentoring on Agentic Essentials
+title: "Role Play: Mentoring on Agentic Essentials"
 parent: The Agentic Layer
-nav_order: 20
+nav_order: 24
 ---
 
 # Role Play: Mentoring on Agentic Essentials

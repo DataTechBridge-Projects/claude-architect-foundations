@@ -1,7 +1,7 @@
 ---
-title: Role Play: Mentoring on Prompting Essentials
+title: "Role Play: Mentoring on Prompting Essentials"
 parent: The Prompt Layer
-nav_order: 18
+nav_order: 24
 ---
 
 # Role Play: Mentoring on Prompting Essentials

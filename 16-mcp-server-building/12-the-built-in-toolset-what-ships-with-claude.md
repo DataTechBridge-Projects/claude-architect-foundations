@@ -1,0 +1,47 @@
+---
+title: "The Built-in Toolset: What Ships with Claude"
+parent: MCP Server Building
+nav_order: 12
+duration: "14:00"
+---
+
+# The Built-in Toolset: What Ships with Claude
+{: .no_toc }
+
+*Video duration: 14:00*
+
+Every lecture so far in this module has assumed you're connecting something external through MCP — a server someone wrote, exposing tools, resources, or prompts a client discovers and surfaces. This lecture is the deliberate counterpoint: Claude ships with a set of **built-in tools** that require no MCP server, no connection, no discovery step, and no separate deployment at all. Understanding what these are, and how they differ architecturally from an MCP-exposed tool, is what makes the next lecture's build-versus-buy framework possible.
+
+## What "built-in" actually means
+
+A built-in tool is one that's available to Claude directly — either as a capability the Claude API itself offers when requested, or as a tool Claude Code ships with out of the box — without any server-side implementation the developer has to write, host, or connect to. Where an MCP tool requires someone to author a server, define a schema, implement the underlying logic, deploy it, and have a client connect to it, a built-in tool is simply *there*, available by including it in a request or by virtue of running inside an application (like Claude Code) that already has it wired in.
+
+**Web search** is a clear example on the API side: rather than an organization building and maintaining its own search-and-fetch tool, calling out to a search provider, parsing results, and handling all the associated error cases, Claude's API can be given access to a built-in web search capability directly, with none of that implementation burden falling on the developer. **Code execution** is another: Claude can be given a built-in capability to actually run code — useful for calculations, data processing, or verifying a piece of logic — without a developer standing up their own sandboxed execution environment and exposing it as a custom tool.
+
+Claude Code's own tool set is the clearest large-scale example of built-in tooling in this course's vocabulary: `Read`, `Write`, `Edit`, `Bash`, `Grep`, `Glob`, and the rest are all built-in — they ship with the application, require no MCP connection, and are available the moment Claude Code starts, exactly as the Tool Layer's Claude Code case study already covered in depth from a tool-design perspective. What this lecture adds is the architectural framing: those tools are built-in specifically *because* file operations and shell execution are close enough to universal needs for a coding agent that shipping them natively, rather than requiring every user to connect a filesystem MCP server before Claude Code does anything useful at all, is the right default.
+
+## How this differs architecturally from an MCP-exposed tool
+
+The difference isn't in how the model perceives the tool at call time — a built-in tool still looks, to the model, like a name, a description, and a schema, invoked the same structured way as anything else, exactly as an MCP tool does. The difference is entirely in what sits behind that interface and who's responsible for it.
+
+An MCP-exposed tool's implementation lives in a server someone — Anthropic, a vendor, an open-source maintainer, or an internal team — wrote and is responsible for maintaining, deploying, and securing, connected through a protocol designed precisely so that responsibility can sit outside the application consuming the tool. A built-in tool's implementation lives inside Claude's own infrastructure or inside the consuming application itself (Claude Code's own codebase, in the case of `Bash` or `Read`), with no separate connection, no separate deployment, and no separate party to trust or vet the way the Tool Layer's governance lecture described for MCP servers. There's no discovery step either — a built-in tool doesn't need to be listed by a connected server and surfaced by a client, because it's already part of the base capability set the application or API request defines directly.
+
+This has a direct implication for the governance concerns raised earlier in the course: a built-in tool doesn't carry the same "which servers do we trust, what credential scope did we grant them" questions an MCP-connected tool does, precisely because there's no third-party server implementation in the loop to vet or scope credentials for. That doesn't mean built-in tools carry zero risk — `Bash`'s broad real-world capability is exactly as significant a safety question whether it arrived as a built-in or an MCP tool, per the Tool Layer's schema-versus-operational-safety distinction — but the specific *kind* of risk (an external, possibly-untrustworthy server's implementation) simply doesn't apply to something that ships as part of Claude or Claude Code itself.
+
+## Built-in tools still follow the same design discipline
+
+It would be a mistake to read "built-in" as meaning these tools are somehow exempt from everything the Tool Layer taught about naming, schema design, granularity, and error responses — they aren't, and the fact that they're built rather than connected is exactly why they're often held up as the worked examples of that discipline done well. Claude Code's `Read`, `Write`, and `Edit` split file operations three ways specifically because those operations have different risk profiles and different natural argument shapes, the same granularity reasoning that applies to any tool set, MCP-exposed or not. `Bash`'s minimal schema paired with broad real-world capability is the clearest illustration in the entire course of schema validity being distinct from operational safety — safety here comes from permission prompts and sandboxing around the tool, not from the schema restricting what commands can be typed. None of this changes because the tool shipped built-in rather than arriving through a connected server; if anything, built-in tools are held to a *higher* bar precisely because so many sessions depend on them working well by default, with no server-vetting step for a user to fall back on the way there would be for an MCP server they chose not to trust.
+
+## Built-in tools and the absence of a connection step
+
+One more architectural consequence worth naming explicitly: because a built-in tool requires no server, no transport choice, and no discovery handshake, it's also immediately available in a session's very first turn, with zero setup latency and no dependency on a network connection or a subprocess successfully starting. An MCP-connected tool's availability is contingent on a successful connection having already happened — a server needing to be reachable, a handshake needing to complete, discovery needing to have run — which is a real, if usually invisible, dependency chain a built-in tool simply doesn't have. This is part of why built-in tools are the right home for the capabilities most sessions can't function well without at all: a coding agent that couldn't read or write files until an external connection succeeded would be meaningfully more fragile than one where that capability is simply always there from the first turn onward.
+
+## The practical inventory
+
+Without trying to be an exhaustive, version-specific list, it's worth having the rough shape of what's built-in fixed in mind: web search and code execution as API-level built-in tools available to any application built on the Claude API that requests them, and Claude Code's own file, search, and shell tools (`Read`, `Write`, `Edit`, `Grep`, `Glob`, `Bash`, and others) as built-in tools specific to that application. The common thread across all of them is that each addresses a need broad and common enough — searching the live web, running arbitrary code, operating on a local filesystem — that shipping it natively serves the large majority of use cases better than requiring every developer or user to find, vet, and connect an equivalent MCP server before getting basic functionality at all.
+
+## Built-in tools evolve independently of any one application
+
+One further architectural property worth naming: because a built-in tool's implementation lives inside Claude's or Claude Code's own infrastructure rather than in a server an individual team maintains, it can be improved, hardened, or extended by Anthropic without any action required from the applications using it — a benefit that compounds over time in a way a custom or MCP-connected tool's maintenance never automatically does. A team that built its own web-fetching tool five years ago owns every subsequent improvement to that tool as additional work; a team relying on built-in web search instead inherits improvements to that capability for free, simply by virtue of using what already ships. This is the same underlying build-versus-buy logic the next lecture develops into a full decision framework, previewed here specifically as a property of the built-in category.
+
+**Why it matters for the exam:** Expect questions asking you to identify a described capability as built-in versus MCP-exposed based on whether it requires a separate server, deployment, or connection — and expect the "what changes and what doesn't" framing from earlier MCP lectures to reappear here in reverse: the model's perception of a tool call is the same either way; what differs is entirely who implements, deploys, and is responsible for the tool behind that interface, and correspondingly, whether MCP-style server-vetting governance even applies.

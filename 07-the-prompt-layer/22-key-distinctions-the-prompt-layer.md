@@ -1,7 +1,7 @@
 ---
 title: Key Distinctions - The Prompt Layer
 parent: The Prompt Layer
-nav_order: 16
+nav_order: 22
 duration: "4:51"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Key Distinctions - The Agentic Layer
 parent: The Agentic Layer
-nav_order: 18
+nav_order: 22
 duration: "3:16"
 ---
 

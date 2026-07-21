@@ -26,11 +26,11 @@ This is unofficial, self-authored study material — always cross-check against 
 | 1 | [Course Introduction](01-course-introduction/) | 1 |
 | 2 | [Fundamentals](02-fundamentals/) | 9 |
 | 3 | [The CCA-F Certification](03-the-cca-f-certification/) | 7 |
-| 4 | [The Agentic Layer](04-the-agentic-layer/) | 20 |
+| 4 | [The Agentic Layer](04-the-agentic-layer/) | 24 |
 | 5 | [The Tool Layer](05-the-tool-layer/) | 16 |
 | 6 | [The Workflow Layer](06-the-workflow-layer/) | 14 |
-| 7 | [The Prompt Layer](07-the-prompt-layer/) | 18 |
-| 8 | [The Context Layer](08-the-context-layer/) | 18 |
+| 7 | [The Prompt Layer](07-the-prompt-layer/) | 24 |
+| 8 | [The Context Layer](08-the-context-layer/) | 25 |
 | 9 | [Additional Topics](09-additional-topics/) | 8 |
 | 10 | [Practice Exam](10-practice-exam/) | 1 |
 | 11 | [Course Conclusion](11-course-conclusion/) | 1 |
@@ -38,3 +38,5 @@ This is unofficial, self-authored study material — always cross-check against 
 | 13 | [Extra Module: Solution Architecture Patterns - Hedge Funds](13-extra-hedge-funds/) | 10 |
 | 14 | [Extra Module: Solution Architecture Patterns - Banking Compliance](14-extra-banking-compliance/) | 10 |
 | 15 | [Extra Module: Solution Architecture Patterns - Financial Documents](15-extra-financial-documents/) | 15 |
+| 16 | [MCP Server Building](16-mcp-server-building/) | 16 |
+| 17 | [Claude Code Deep Dive](17-claude-code-deep-dive/) | 23 |

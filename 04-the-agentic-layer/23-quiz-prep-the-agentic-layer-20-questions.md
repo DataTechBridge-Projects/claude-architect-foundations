@@ -1,7 +1,7 @@
 ---
-title: Quiz Prep: The Agentic Layer (20 Questions)
+title: "Quiz Prep: The Agentic Layer (20 Questions)"
 parent: The Agentic Layer
-nav_order: 19
+nav_order: 23
 ---
 
 # Quiz Prep: The Agentic Layer (20 Questions)

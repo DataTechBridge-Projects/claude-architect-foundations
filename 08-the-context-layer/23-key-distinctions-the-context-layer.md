@@ -1,7 +1,7 @@
 ---
 title: Key Distinctions - The Context Layer
 parent: The Context Layer
-nav_order: 16
+nav_order: 23
 duration: "4:24"
 ---
 

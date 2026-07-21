@@ -1,7 +1,7 @@
 ---
 title: Module Outro
 parent: The Agentic Layer
-nav_order: 17
+nav_order: 21
 duration: "3:12"
 ---
 

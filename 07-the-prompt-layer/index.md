@@ -29,7 +29,13 @@ Treats prompts as engineered, versioned architectural artifacts rather than one-
 | 12 | [Independent & Multi-Pass Review](12-independent-and-multi-pass-review) | 16:07 |
 | 13 | [Conway's Law for Multi-Pass Execution?](13-conway-s-law-for-multi-pass-execution) | 0:49 |
 | 14 | [Lab: Prompt Reliability Simulator](14-lab-prompt-reliability-simulator) | 1:42 |
-| 15 | [Module Outro](15-module-outro) | 1:54 |
-| 16 | [Key Distinctions - The Prompt Layer](16-key-distinctions-the-prompt-layer) | 4:51 |
-| 17 | [Quiz Prep: The Prompt Layer (20 Questions)](17-quiz-prep-the-prompt-layer-20-questions) | — |
-| 18 | [Role Play: Mentoring on Prompting Essentials](18-role-play-mentoring-on-prompting-essentials) | — |
+| 15 | [Chain-of-Thought: Prompting for Visible Reasoning](15-chain-of-thought-prompting-for-visible-reasoning) | 13:00 |
+| 16 | [Extended Thinking: When and How to Use It](16-extended-thinking-when-and-how-to-use-it) | 12:00 |
+| 17 | [Prefilling and Steering Model Output](17-prefilling-and-steering-model-output) | 11:00 |
+| 18 | [Temperature, top_p, and top_k Explained](18-temperature-top-p-and-top-k-explained) | 10:00 |
+| 19 | [Building a Prompt Evaluation Workflow](19-building-a-prompt-evaluation-workflow) | 13:00 |
+| 20 | [Test Dataset Generation and Model-Based Grading](20-test-dataset-generation-and-model-based-grading) | 12:00 |
+| 21 | [Module Outro](21-module-outro) | 1:54 |
+| 22 | [Key Distinctions - The Prompt Layer](22-key-distinctions-the-prompt-layer) | 4:51 |
+| 23 | [Quiz Prep: The Prompt Layer (20 Questions)](23-quiz-prep-the-prompt-layer-20-questions) | — |
+| 24 | [Role Play: Mentoring on Prompting Essentials](24-role-play-mentoring-on-prompting-essentials) | — |
