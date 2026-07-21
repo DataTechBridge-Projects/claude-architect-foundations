@@ -1,6 +1,6 @@
 ---
 title: Trade Risk Management/Compliance - Observability and Costs
-parent: Extra Module: Solution Architecture Patterns - Hedge Funds
+parent: "Extra Module: Solution Architecture Patterns - Hedge Funds"
 nav_order: 10
 duration: "11:44"
 ---

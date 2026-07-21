@@ -1,6 +1,6 @@
 ---
 title: Credit Agreements - Context Architecture
-parent: Extra Module: Solution Architecture Patterns - Financial Documents
+parent: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 3
 duration: "7:14"
 ---

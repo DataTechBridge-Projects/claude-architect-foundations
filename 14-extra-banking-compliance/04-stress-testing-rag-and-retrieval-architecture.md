@@ -1,6 +1,6 @@
 ---
 title: Stress Testing - RAG & Retrieval Architecture
-parent: Extra Module: Solution Architecture Patterns - Banking Compliance
+parent: "Extra Module: Solution Architecture Patterns - Banking Compliance"
 nav_order: 4
 duration: "7:56"
 ---

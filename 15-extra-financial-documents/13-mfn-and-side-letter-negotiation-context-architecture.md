@@ -1,6 +1,6 @@
 ---
 title: MFN & Side Letter Negotiation - Context Architecture
-parent: Extra Module: Solution Architecture Patterns - Financial Documents
+parent: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 13
 duration: "6:45"
 ---

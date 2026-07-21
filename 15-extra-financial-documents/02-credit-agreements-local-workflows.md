@@ -1,6 +1,6 @@
 ---
 title: Credit Agreements - Local Workflows
-parent: Extra Module: Solution Architecture Patterns - Financial Documents
+parent: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 2
 duration: "6:46"
 ---

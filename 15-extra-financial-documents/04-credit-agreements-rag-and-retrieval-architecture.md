@@ -1,6 +1,6 @@
 ---
 title: Credit Agreements - RAG & Retrieval Architecture
-parent: Extra Module: Solution Architecture Patterns - Financial Documents
+parent: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 4
 duration: "8:22"
 ---

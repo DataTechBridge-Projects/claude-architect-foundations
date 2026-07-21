@@ -1,6 +1,6 @@
 ---
-title: Beyond the CCAF: Additional Topics
-parent: Extra Module: Beyond the CCA-F
+title: "Beyond the CCAF: Additional Topics"
+parent: "Extra Module: Beyond the CCA-F"
 nav_order: 1
 duration: "0:07"
 ---

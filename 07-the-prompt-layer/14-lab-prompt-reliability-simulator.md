@@ -1,5 +1,5 @@
 ---
-title: Lab: Prompt Reliability Simulator
+title: "Lab: Prompt Reliability Simulator"
 parent: The Prompt Layer
 nav_order: 14
 duration: "1:42"

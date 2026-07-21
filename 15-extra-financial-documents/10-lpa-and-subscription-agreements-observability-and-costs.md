@@ -1,6 +1,6 @@
 ---
 title: LPA/Subscription Agreements - Observability and Costs
-parent: Extra Module: Solution Architecture Patterns - Financial Documents
+parent: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 10
 duration: "11:32"
 ---

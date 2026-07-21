@@ -1,6 +1,6 @@
 ---
 title: MFN & Side Letter Negotiation - RAG & Retrieval Architecture
-parent: Extra Module: Solution Architecture Patterns - Financial Documents
+parent: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 14
 duration: "8:24"
 ---

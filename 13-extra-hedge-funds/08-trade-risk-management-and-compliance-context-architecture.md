@@ -1,6 +1,6 @@
 ---
 title: Trade Risk Management/Compliance - Context Architecture
-parent: Extra Module: Solution Architecture Patterns - Hedge Funds
+parent: "Extra Module: Solution Architecture Patterns - Hedge Funds"
 nav_order: 8
 duration: "7:12"
 ---

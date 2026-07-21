@@ -1,6 +1,6 @@
 ---
-title: Topic 6: Persistent Memory Systems
-parent: Extra Module: Beyond the CCA-F
+title: "Topic 6: Persistent Memory Systems"
+parent: "Extra Module: Beyond the CCA-F"
 nav_order: 7
 duration: "0:23"
 ---

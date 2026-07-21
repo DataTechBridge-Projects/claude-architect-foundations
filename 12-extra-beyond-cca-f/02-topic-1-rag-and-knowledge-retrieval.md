@@ -1,6 +1,6 @@
 ---
-title: Topic 1: RAG and Knowledge Retrieval
-parent: Extra Module: Beyond the CCA-F
+title: "Topic 1: RAG and Knowledge Retrieval"
+parent: "Extra Module: Beyond the CCA-F"
 nav_order: 2
 duration: "0:26"
 ---

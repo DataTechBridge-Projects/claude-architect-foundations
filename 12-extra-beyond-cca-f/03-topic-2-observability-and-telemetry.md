@@ -1,6 +1,6 @@
 ---
-title: Topic 2: Observability and Telemetry
-parent: Extra Module: Beyond the CCA-F
+title: "Topic 2: Observability and Telemetry"
+parent: "Extra Module: Beyond the CCA-F"
 nav_order: 3
 duration: "0:29"
 ---

@@ -1,5 +1,5 @@
 ---
-title: Extra Module: Solution Architecture Patterns - Banking Compliance
+title: "Extra Module: Solution Architecture Patterns - Banking Compliance"
 nav_order: 15
 has_children: true
 permalink: /14-extra-banking-compliance/

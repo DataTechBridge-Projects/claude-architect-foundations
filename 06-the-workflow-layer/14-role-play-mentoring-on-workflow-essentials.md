@@ -1,5 +1,5 @@
 ---
-title: Role Play: Mentoring on Workflow Essentials
+title: "Role Play: Mentoring on Workflow Essentials"
 parent: The Workflow Layer
 nav_order: 14
 ---

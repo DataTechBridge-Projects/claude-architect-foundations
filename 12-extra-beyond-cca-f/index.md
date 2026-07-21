@@ -1,5 +1,5 @@
 ---
-title: Extra Module: Beyond the CCA-F
+title: "Extra Module: Beyond the CCA-F"
 nav_order: 13
 has_children: true
 permalink: /12-extra-beyond-cca-f/

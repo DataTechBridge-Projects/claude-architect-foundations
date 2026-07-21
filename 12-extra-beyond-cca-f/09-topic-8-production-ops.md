@@ -1,6 +1,6 @@
 ---
-title: Topic 8: Production Ops
-parent: Extra Module: Beyond the CCA-F
+title: "Topic 8: Production Ops"
+parent: "Extra Module: Beyond the CCA-F"
 nav_order: 9
 duration: "0:17"
 ---

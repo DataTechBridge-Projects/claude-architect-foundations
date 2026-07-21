@@ -1,5 +1,5 @@
 ---
-title: Extended Thinking: When and How to Use It
+title: "Extended Thinking: When and How to Use It"
 parent: The Prompt Layer
 nav_order: 16
 duration: "12:00"

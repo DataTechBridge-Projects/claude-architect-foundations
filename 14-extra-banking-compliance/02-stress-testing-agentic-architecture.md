@@ -1,6 +1,6 @@
 ---
 title: Stress Testing - Agentic Architecture
-parent: Extra Module: Solution Architecture Patterns - Banking Compliance
+parent: "Extra Module: Solution Architecture Patterns - Banking Compliance"
 nav_order: 2
 duration: "8:15"
 ---

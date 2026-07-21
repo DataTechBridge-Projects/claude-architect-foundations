@@ -1,6 +1,6 @@
 ---
-title: Topic 7: CLAUDE.md, Rule and Prompt Versioning
-parent: Extra Module: Beyond the CCA-F
+title: "Topic 7: CLAUDE.md, Rule and Prompt Versioning"
+parent: "Extra Module: Beyond the CCA-F"
 nav_order: 8
 duration: "0:27"
 ---

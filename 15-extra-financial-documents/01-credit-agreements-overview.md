@@ -1,6 +1,6 @@
 ---
 title: Credit Agreements - Overview
-parent: Extra Module: Solution Architecture Patterns - Financial Documents
+parent: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 1
 duration: "6:46"
 ---

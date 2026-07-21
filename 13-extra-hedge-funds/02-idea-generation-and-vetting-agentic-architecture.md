@@ -1,6 +1,6 @@
 ---
 title: Idea Generation/Vetting - Agentic Architecture
-parent: Extra Module: Solution Architecture Patterns - Hedge Funds
+parent: "Extra Module: Solution Architecture Patterns - Hedge Funds"
 nav_order: 2
 duration: "8:27"
 ---

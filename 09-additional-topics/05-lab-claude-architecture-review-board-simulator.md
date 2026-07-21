@@ -1,5 +1,5 @@
 ---
-title: Lab: Claude Architecture Review Board Simulator
+title: "Lab: Claude Architecture Review Board Simulator"
 parent: Additional Topics
 nav_order: 5
 duration: "1:43"

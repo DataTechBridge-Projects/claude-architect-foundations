@@ -1,6 +1,6 @@
 ---
 title: Regulatory Capital Validation - Observability and Costs
-parent: Extra Module: Solution Architecture Patterns - Banking Compliance
+parent: "Extra Module: Solution Architecture Patterns - Banking Compliance"
 nav_order: 10
 duration: "9:37"
 ---

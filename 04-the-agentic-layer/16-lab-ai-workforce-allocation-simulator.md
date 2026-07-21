@@ -1,5 +1,5 @@
 ---
-title: Lab: AI Workforce Allocation Simulator
+title: "Lab: AI Workforce Allocation Simulator"
 parent: The Agentic Layer
 nav_order: 16
 duration: "2:07"

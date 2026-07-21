@@ -1,6 +1,6 @@
 ---
-title: Topic 5: Security Architecture
-parent: Extra Module: Beyond the CCA-F
+title: "Topic 5: Security Architecture"
+parent: "Extra Module: Beyond the CCA-F"
 nav_order: 6
 duration: "0:19"
 ---

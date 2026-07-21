@@ -1,5 +1,5 @@
 ---
-title: Lab: Context Management Simulator
+title: "Lab: Context Management Simulator"
 parent: The Context Layer
 nav_order: 14
 duration: "1:32"

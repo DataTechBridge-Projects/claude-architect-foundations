@@ -1,5 +1,5 @@
 ---
-title: Chain-of-Thought: Prompting for Visible Reasoning
+title: "Chain-of-Thought: Prompting for Visible Reasoning"
 parent: The Prompt Layer
 nav_order: 15
 duration: "13:00"

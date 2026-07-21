@@ -1,6 +1,6 @@
 ---
 title: Regulatory Capital Validation - RAG & Retrieval Architecture
-parent: Extra Module: Solution Architecture Patterns - Banking Compliance
+parent: "Extra Module: Solution Architecture Patterns - Banking Compliance"
 nav_order: 9
 duration: "8:23"
 ---

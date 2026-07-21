@@ -1,6 +1,6 @@
 ---
 title: Idea Generation/Vetting - Observability and Costs
-parent: Extra Module: Solution Architecture Patterns - Hedge Funds
+parent: "Extra Module: Solution Architecture Patterns - Hedge Funds"
 nav_order: 5
 duration: "10:56"
 ---

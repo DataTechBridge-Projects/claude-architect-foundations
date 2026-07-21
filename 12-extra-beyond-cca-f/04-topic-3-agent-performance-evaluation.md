@@ -1,6 +1,6 @@
 ---
-title: Topic 3: Agent Performance Evaluation
-parent: Extra Module: Beyond the CCA-F
+title: "Topic 3: Agent Performance Evaluation"
+parent: "Extra Module: Beyond the CCA-F"
 nav_order: 4
 duration: "0:20"
 ---

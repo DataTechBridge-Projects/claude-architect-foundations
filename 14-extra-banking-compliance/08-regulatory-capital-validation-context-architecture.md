@@ -1,6 +1,6 @@
 ---
 title: Regulatory Capital Validation - Context Architecture
-parent: Extra Module: Solution Architecture Patterns - Banking Compliance
+parent: "Extra Module: Solution Architecture Patterns - Banking Compliance"
 nav_order: 8
 duration: "6:40"
 ---

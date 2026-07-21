@@ -1,6 +1,6 @@
 ---
 title: LPA/Subscription Agreements - RAG & Retrieval Architecture
-parent: Extra Module: Solution Architecture Patterns - Financial Documents
+parent: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 9
 duration: "8:52"
 ---

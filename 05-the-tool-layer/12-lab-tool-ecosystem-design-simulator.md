@@ -1,5 +1,5 @@
 ---
-title: Lab: Tool Ecosystem Design Simulator
+title: "Lab: Tool Ecosystem Design Simulator"
 parent: The Tool Layer
 nav_order: 12
 duration: "1:36"

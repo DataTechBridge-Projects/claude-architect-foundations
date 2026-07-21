@@ -1,5 +1,5 @@
 ---
-title: Lab: Workflow Strategy Simulator
+title: "Lab: Workflow Strategy Simulator"
 parent: The Workflow Layer
 nav_order: 10
 duration: "1:43"

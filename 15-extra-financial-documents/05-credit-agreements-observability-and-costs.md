@@ -1,6 +1,6 @@
 ---
 title: Credit Agreements - Observability and Costs
-parent: Extra Module: Solution Architecture Patterns - Financial Documents
+parent: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 5
 duration: "11:21"
 ---

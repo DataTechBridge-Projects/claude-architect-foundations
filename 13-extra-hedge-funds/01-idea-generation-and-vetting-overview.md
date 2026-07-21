@@ -1,6 +1,6 @@
 ---
 title: Idea Generation/Vetting - Overview
-parent: Extra Module: Solution Architecture Patterns - Hedge Funds
+parent: "Extra Module: Solution Architecture Patterns - Hedge Funds"
 nav_order: 1
 duration: "7:16"
 ---

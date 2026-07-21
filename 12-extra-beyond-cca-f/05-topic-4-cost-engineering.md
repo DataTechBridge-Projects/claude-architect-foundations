@@ -1,6 +1,6 @@
 ---
-title: Topic 4: Cost Engineering
-parent: Extra Module: Beyond the CCA-F
+title: "Topic 4: Cost Engineering"
+parent: "Extra Module: Beyond the CCA-F"
 nav_order: 5
 duration: "0:24"
 ---

@@ -1,6 +1,6 @@
 ---
 title: Trade Risk Management/Compliance - RAG & Retrieval Architecture
-parent: Extra Module: Solution Architecture Patterns - Hedge Funds
+parent: "Extra Module: Solution Architecture Patterns - Hedge Funds"
 nav_order: 9
 duration: "9:08"
 ---

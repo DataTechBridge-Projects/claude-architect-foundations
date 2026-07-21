@@ -1,6 +1,6 @@
 ---
 title: Trade Risk Management/Compliance - Agentic Architecture
-parent: Extra Module: Solution Architecture Patterns - Hedge Funds
+parent: "Extra Module: Solution Architecture Patterns - Hedge Funds"
 nav_order: 7
 duration: "7:26"
 ---

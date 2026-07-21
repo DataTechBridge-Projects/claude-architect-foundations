@@ -1,5 +1,5 @@
 ---
-title: Role Play: Mentoring on Tool Essentials
+title: "Role Play: Mentoring on Tool Essentials"
 parent: The Tool Layer
 nav_order: 16
 ---

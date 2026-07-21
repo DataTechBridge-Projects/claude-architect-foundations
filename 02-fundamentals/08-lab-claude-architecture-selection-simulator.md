@@ -1,5 +1,5 @@
 ---
-title: Lab: Claude Architecture Selection Simulator
+title: "Lab: Claude Architecture Selection Simulator"
 parent: Fundamentals
 nav_order: 8
 duration: "1:49"

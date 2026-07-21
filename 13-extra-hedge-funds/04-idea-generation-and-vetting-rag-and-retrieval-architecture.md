@@ -1,6 +1,6 @@
 ---
 title: Idea Generation/Vetting - RAG.& Retrieval Architecture
-parent: Extra Module: Solution Architecture Patterns - Hedge Funds
+parent: "Extra Module: Solution Architecture Patterns - Hedge Funds"
 nav_order: 4
 duration: "9:01"
 ---

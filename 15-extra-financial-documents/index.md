@@ -1,5 +1,5 @@
 ---
-title: Extra Module: Solution Architecture Patterns - Financial Documents
+title: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 16
 has_children: true
 permalink: /15-extra-financial-documents/

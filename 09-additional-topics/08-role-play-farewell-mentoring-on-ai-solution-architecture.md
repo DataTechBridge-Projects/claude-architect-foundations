@@ -1,5 +1,5 @@
 ---
-title: Role Play: Farewell Mentoring on AI Solution Architecture
+title: "Role Play: Farewell Mentoring on AI Solution Architecture"
 parent: Additional Topics
 nav_order: 8
 ---

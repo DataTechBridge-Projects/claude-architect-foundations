@@ -1,5 +1,5 @@
 ---
-title: Extra Module: Solution Architecture Patterns - Hedge Funds
+title: "Extra Module: Solution Architecture Patterns - Hedge Funds"
 nav_order: 14
 has_children: true
 permalink: /13-extra-hedge-funds/

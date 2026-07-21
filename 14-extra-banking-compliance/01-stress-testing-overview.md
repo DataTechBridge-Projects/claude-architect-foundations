@@ -1,6 +1,6 @@
 ---
 title: Stress Testing - Overview
-parent: Extra Module: Solution Architecture Patterns - Banking Compliance
+parent: "Extra Module: Solution Architecture Patterns - Banking Compliance"
 nav_order: 1
 duration: "8:22"
 ---

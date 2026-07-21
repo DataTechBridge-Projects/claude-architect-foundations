@@ -1,6 +1,6 @@
 ---
 title: MFN & Side Letter Negotiation - Agentic Architecture
-parent: Extra Module: Solution Architecture Patterns - Financial Documents
+parent: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 12
 duration: "6:50"
 ---

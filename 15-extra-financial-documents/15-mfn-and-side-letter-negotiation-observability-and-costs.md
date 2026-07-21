@@ -1,6 +1,6 @@
 ---
 title: MFN & Side Letter Negotiation - Observability and Costs
-parent: Extra Module: Solution Architecture Patterns - Financial Documents
+parent: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 15
 duration: "11:01"
 ---

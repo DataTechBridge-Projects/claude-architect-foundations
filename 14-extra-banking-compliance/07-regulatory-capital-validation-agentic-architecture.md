@@ -1,6 +1,6 @@
 ---
 title: Regulatory Capital Validation - Agentic Architecture
-parent: Extra Module: Solution Architecture Patterns - Banking Compliance
+parent: "Extra Module: Solution Architecture Patterns - Banking Compliance"
 nav_order: 7
 duration: "8:26"
 ---

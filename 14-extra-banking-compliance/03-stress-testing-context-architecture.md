@@ -1,6 +1,6 @@
 ---
 title: Stress Testing - Context Architecture
-parent: Extra Module: Solution Architecture Patterns - Banking Compliance
+parent: "Extra Module: Solution Architecture Patterns - Banking Compliance"
 nav_order: 3
 duration: "5:51"
 ---

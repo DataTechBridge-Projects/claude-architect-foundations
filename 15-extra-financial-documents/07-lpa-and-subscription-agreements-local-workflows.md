@@ -1,6 +1,6 @@
 ---
 title: LPA/Subscription Agreements - Local Workflows
-parent: Extra Module: Solution Architecture Patterns - Financial Documents
+parent: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 7
 duration: "6:48"
 ---

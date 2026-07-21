@@ -1,6 +1,6 @@
 ---
 title: LPA/Subscription Agreements - Context Architecture
-parent: Extra Module: Solution Architecture Patterns - Financial Documents
+parent: "Extra Module: Solution Architecture Patterns - Financial Documents"
 nav_order: 8
 duration: "7:36"
 ---
