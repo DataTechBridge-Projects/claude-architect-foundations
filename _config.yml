@@ -1,33 +1,36 @@
-title: Claude Certified Architect - Foundations (CCA-F) Study Guide
-description: Self-directed exam-prep notes for the Claude Certified Architect - Foundations (CCA-F) certification, organized around the five-layer architecture framework.
-remote_theme: just-the-docs/just-the-docs
+title: CCA-F Exam Notes
+description: Exam-focused notes for Claude Certified Architect – Foundations
+remote_theme: just-the-docs/just-the-docs@v0.10.1
 plugins:
   - jekyll-remote-theme
 
 color_scheme: light
 search_enabled: true
 heading_anchors: true
-
-nav_sort: case_insensitive
-aux_links:
-  "Anthropic Docs":
-    - "https://platform.claude.com/docs/en/intro"
-
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "Independent, self-directed exam-prep notes for the Claude Certified Architect - Foundations (CCA-F) certification. Not an official Anthropic resource."
-
-callouts:
-  exam-tip:
-    title: Exam Tip
-    color: blue
-  key-term:
-    title: Key Term
-    color: green
-  important:
-    title: Important
-    color: red
-
+# Mermaid diagrams: write them in ```mermaid fenced blocks
 mermaid:
   version: "10.9.1"
+
+# Callouts: put {: .key } / {: .trap } / {: .tip } / {: .note } on the line above a paragraph
+callouts:
+  key:
+    title: "🔑 Key Rule"
+    color: blue
+  trap:
+    title: "⚠️ Exam Trap"
+    color: red
+  tip:
+    title: "💡 Exam Tip"
+    color: green
+  note:
+    title: "📝 Note"
+    color: grey
+
+aux_links:
+  "Anthropic Docs": "https://docs.claude.com"
+  "Claude Code Docs": "https://code.claude.com/docs"
+
+footer_content: "Study notes, not official Anthropic material. Check facts against the official exam guide."
