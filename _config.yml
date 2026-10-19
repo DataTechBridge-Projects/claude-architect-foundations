@@ -1,6 +1,6 @@
 title: CCA-F Exam Notes
 description: Exam-focused notes for Claude Certified Architect – Foundations
-remote_theme: just-the-docs/just-the-docs@v0.10.1
+remote_theme: just-the-docs/just-the-docs@v0.8.2
 plugins:
   - jekyll-remote-theme
 
